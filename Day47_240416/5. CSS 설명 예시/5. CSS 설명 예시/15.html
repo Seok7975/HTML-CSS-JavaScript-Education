@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Selector Basic</title>
+    <style>
+        table > tr > th {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>이름</th>
+            <th>지역</th>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>서울특별시 강서구 내발산동</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<!-- table 태그의 요소를 선택할 때는 자손 선택자 사용을 추천하지 않는다. 다음 코드의 실행 결과를 예측해 보자.
+대부분 th 태그에 붉은 색이 적용되는 것을 예상했겠지만 스타일 속성은 적용되지 않는다.
+크롬 브라우저에서 검사를 사용해 HTML 페이지의 계층 구조를 살펴보면 원인을 알 수 있다. 
+table 태그에 자동으로 추가된 tbody 태그를 확인할 수 있다. 웹 브라우저가 tbody 태그를 자동으로 추가하므로 
+스타일 속성이 적용되지 않는다. 색상을 적용하려면 선택자 table > tbody > tr > th를 입력해야 한다. 
+혼동하기 쉬운 내용이므로 table 태그에 스타일을 적용할 때는 자손 선택자를 사용하지 말자. -->
+
+<!--   table > tr > th 
+       {
+            color: red;
+        }-->
+
+        <!-- table은 자손선택자를 주는게 좋지않음-->

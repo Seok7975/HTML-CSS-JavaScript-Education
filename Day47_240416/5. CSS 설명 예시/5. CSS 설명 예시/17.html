@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Selector Basic</title>
+    <style>
+        /* input 태그가 사용 가능할 경우에
+           background-color 속성에 white 키워드를 적용합니다. */
+        input:enabled { background-color: white; }
+
+        /* input 태그가 사용 불가능할 경우에
+           background-color 속성에 gray 키워드를 적용합니다. */
+        input:disabled { background-color: gray; }
+
+        /* input 태그에 초점이 맞추어진 경우에
+           background-color 속성에 orange 키워드를 적용합니다. */
+        input:focus { background-color: orange; }
+
+        input:checked{width: 50px; height: 50px;}
+    </style>
+</head>
+<body>
+    <h2>사용 가능</h2>
+    <input />
+    <h2>사용 불가능</h2>
+    <input disabled="disabled"/><br>
+    <input type="checkbox">
+</body>
+</html>
+
+<!-- 상태 선택자
+상태 선택자는 입력 양식의 상태를 선택할 때 사용한다.
+
+상태 선택자
+선택자 형태		설명
+:checked		체크 상태의 input 태그 선택
+:focus			초점이 맞추어진 input 태그 선택
+:enabled		사용 가능한 input 태그 선택
+:disabled		사용 불가능한 input 태그 선택
+
+checked 상태는 type 속성이 checkbox 또는 radio인 input 태그가 선택된 상태
+focus는 사용자가 바로 입력할 수 있도록 입력 양식에 초점이 맞춰진 상태
+enabled는 input 태그에 값을 입력할 수 있는 사용 가능한 상태를 나타내고, 반대로 disabled는 input 태그에 값을 입력할 수 없는 사용 불가능한 상태를 나타낸다.
+
+(코드 예)
+<body>
+	<input value="enabled"/>
+	<input value="disabled" disabled="disabled" />
+</body> -->

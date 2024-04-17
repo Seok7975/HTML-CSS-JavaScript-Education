@@ -1,0 +1,10 @@
+1. https://code.visualstudio.com/
+비주얼 스튜디오 코드 다운로드
+
+2. Korean Language Pack 설치
+3. Live Server 설치
+
+Live Server 실행 단축키 (Alt + L , O)
+
+html 자동완성
+html로 저장, !누르고 탭키
