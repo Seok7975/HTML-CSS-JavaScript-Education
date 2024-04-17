@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #customers  /*아이디선택자 */
+            {  
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; 
+            /*font-family: 표의 텍스트에 사용되는 글꼴을 지정*/
+            /*폰트 이름사이에는 공백이 있을 시 쌍따옴표 */
+            border-collapse: collapse; /*선이 합쳐진 형태*/
+            width: 100%; /*width: 표의 너비를 100%로 설정하여 부모 요소에 맞게 조정*/
+            }
+
+            /*#customers td, #customers th: 표의 셀과 헤더에 대한 스타일을 정의*/
+            #customers td, #customers th  /*customers의 후손 td, customers의 후손 th */
+            {
+                /*테두리와 셀 안의 내용에 대한 여백을 지정*/
+            border: 1px solid #ddd;
+            padding: 8px;
+            }
+
+            #customers tr:nth-child(even){background-color: #f2f2f2;}
+            /*#customers tr:hover: 마우스를 올렸을 때 행의 배경색을 변경*/
+
+            #customers tr:hover {background-color: #ddd;}
+
+            #customers th 
+            /*#customers th: 표의 헤더에 대한 스타일을 정의합니다.
+            여기서는 배경색과 텍스트 색상을 지정*/
+            {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left; /*왼쪽정렬*/
+            background-color: #4CAF50; /* */
+            color: white;
+            }
+        </style>
+    </head>
+    <body>
+
+        <table id="customers">
+        <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+        </tr>
+        <tr>
+            <td>Berglunds snabbköp</td>
+            <td>Christina Berglund</td>
+            <td>Sweden</td>
+        </tr>
+         <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+        </tr>
+        <tr>
+            <td>Ernst Handel</td>
+            <td>Roland Mendel</td>
+            <td>Austria</td>
+        </tr>
+        <tr>
+            <td>Island Trading</td>
+            <td>Helen Bennett</td>
+            <td>UK</td>
+        </tr>
+        <tr>
+            <td>Königlich Essen</td>
+            <td>Philip Cramer</td>
+            <td>Germany</td>
+         </tr>
+        <tr>
+            <td>Laughing Bacchus Winecellars</td>
+            <td>Yoshi Tannamuri</td>
+            <td>Canada</td>
+        </tr>
+        <tr>
+            <td>Magazzini Alimentari Riuniti</td>
+            <td>Giovanni Rovelli</td>
+            <td>Italy</td>
+        </tr>
+        <tr>
+            <td>North/South</td>
+            <td>Simon Crowther</td>
+            <td>UK</td>
+        </tr>
+        <tr>
+            <td>Paris spécialités</td>
+            <td>Marie Bertrand</td>
+            <td>France</td>
+        </tr>
+        </table>
+
+    </body>
+</html>

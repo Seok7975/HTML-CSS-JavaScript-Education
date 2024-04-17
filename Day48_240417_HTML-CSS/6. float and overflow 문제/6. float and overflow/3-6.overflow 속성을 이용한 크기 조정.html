@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Float</title>
+	<style>
+		div {
+			border: 3px solid #73AD21;
+			padding: 5px;
+			height:100px;
+		}
+		img { float: left; }
+		#second { clear: left; }
+		.good { overflow: hidden; }
+	</style>
+</head>
+
+<body>
+
+	<h1>overflow 속성을 이용한 크기 조정</h1>
+	<div>이미지와 함께 하고 싶은 내용
+		<img src="img_flower.png" alt="flower" width="245" height="185">
+	</div>
+	<p id="second"><br>overflow 속성값을 auto로 주면 자동으로 컨테이너 요소의 크기도 함께 늘어납니다!</p>
+	<div class="good">이미지와 함께 하고 싶은 내용
+		<img src="img_flower.png" alt="flower" width="245" height="185">
+	</div>
+
+</body>
+
+</html>

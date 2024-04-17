@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>아이디 선택자 익히기</title>
+        <style>
+            /* id 속성으로 header를 가지고 있는 태그의 스타일을 지정합니다. */
+            #header  /*id선택자*/
+            {
+                width: 800px; margin: 0 auto; 
+                /*margin : 0 0 : 상하마진, 좌우마진*/
+                /*좌우 마진을 동일하게주어 가운데 정렬인것처럼*/
+                background: red;
+            }
+            
+            /* id 속성으로 wrap을 가지고 있는 태그의 스타일을 지정합니다. */
+            #wrap 
+            {
+                width: 800px; margin: 0 auto; 
+                overflow: hidden; 
+                /*부모의 오버플로우를 히든으로 주는게 공식*/
+                /*부모 요소의 크기를 벗어나는 자식 요소들의 부분이 잘림*/
+                /*페이지 레이아웃이 깨지는 것을 방지*/
+            }
+            
+            /* id 속성으로 aside를 가지고 있는 태그의 스타일을 지정합니다. */
+            #aside 
+            {
+                width: 200px; float: left;
+                background: blue;
+            }
+            
+            /* id 속성으로 content를 가지고 있는 태그의 스타일을 지정합니다. */
+            #content 
+            {
+                width: 600px; float: left;
+                background: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="Header"> <!-- div는 블록의 특징이 있음-->
+            <h1>Header</h1>
+        </div>
+        <div id="wrap">
+            <h2>Aside</h2>
+        </div>
+        <div id="content">
+            <h1>Content</h1>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Float</title>
+	<style>
+		div.page 
+		{
+			border: 3px solid #CD5C5C;
+			overflow: auto;
+		}
+		h2 { text-align: center; }
+		header{ border: 3px solid #FFD700; }
+		nav 
+		{
+			border: 3px solid #FF1493;
+			width: 150px;
+			float: left;
+		}
+		section 
+		{
+			border: 3px solid #00BFFF;
+			margin-left: 156px;
+		}
+		footer{ border: 3px solid #00FA9A; }
+	</style>
+</head>
+
+<body>
+
+	<h1>float 속성을 이용한 레이아웃</h1>
+	<div class="page">	
+	<!-- div 태그에 의미를 부여한것이 시멘틱 태그 -->
+		<!-- header, nav, section, footer라 의미를 부여 -->
+		<header>
+			<h2>header 영역</h2>
+		</header>
+		<nav>
+			<h2>nav 영역</h2>
+			<p>여기에는 보통 메뉴가 들어갑니다.</p>
+		</nav>
+		<section>
+			<h2>section 영역</h2>
+			<p>여기에는 페이지에 해당하는 내용이 들어갑니다.<br>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sapien suscipit tincidunt ullamcorper. Cras ac sem sed mauris maximus rhoncus vel in metus. Nam pharetra arcu sit amet dolor interdum, eget scelerisque libero finibus. Phasellus quis vulputate ante. Fusce sit amet viverra justo. Donec id elementum mauris. Nam id porttitor nisl, et suscipit nunc. Vestibulum sit amet volutpat quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis placerat sem eu facilisis ultricies.
+			</p>
+		</section>
+		<footer>
+			<h2>footer 영역</h2>
+		</footer>
+	</div>
+
+</body>
+
+</html>

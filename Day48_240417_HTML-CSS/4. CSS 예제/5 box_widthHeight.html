@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Property Basic</title>
+    <style>
+        div {
+            width: 100px; height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+
+<!--
+색상 단위
+
+<style>
+	h1{background-color: red;}
+	h2{background-color: orange;}
+	h3{background-color: blue; }
+</style>
+
+색상 단위
+
+단위 형태			설명
+rgb(red, green, blue)		RGB 색상 단위
+rgba(red, green, blue, alpha)		RGBA 색상 단위  <!-- alpha(a) : 투명도 -->
+#000000				HEX 코드 단위
+
+우선 RGB 색상 단위는 R(붉은색)과 G(초록색)과 B(파란색)를 조합하여 
+색상을 표현하며 다음과 같이 0부터 255사이의 숫자를 입력한다.
+
+<style>
+	h1{background-color:rgb(255, 255, 255); }
+</style>
+
+RGBA 색상 단위는 RGB 색상 단위에 알파 값을 추가한 형태. 
+알파 값은 투명도를 나타내며 0.0부터 1.0사이의 숫자를 입력. 
+0.0은 완전 투명 상태고, 1.0은 완전 불투명 상태
+
+<style>
+	h1{background-color:rgba(255, 255, 255, 0.5);}
+</style>
+
+HEX 코드 단위는 다음과 같이 사용
+<style>
+	h1{background-color:#0094FF; }
+</style>
+
+색상을 16진수로 표현할 때는 각 색상 요소에 00에서 FF사이의 값을 입력한다. 
+RGB 색상 단위와 같으므로 쉽게 사용할 수 있다. 
+색상 확인이 힘들다면 ColorPicker와 같은 색상 선택 도구를 사용.
+
+색상 선택 프로그램 (http://www.colorpicker.com/)
+
+background-image 속성을 사용하면 배경 이미지를 지정할 수 있다. 
+background-image 속성에는 'url(경로)'형태로 URL 단위를 입력한다.
+
+<style>
+	body
+	{
+		background-image: url('Desert.jpg');
+	}
+</style>
+
+박스 속성
+박스 속성은 웹 페이지의 레이아웃을 구성할 때 가장 중요하다.
+
+width와 height, margin과 padding 속성
+어떤 공간에 글자가 있다고 하면, width와 height 속성은 글자를 감싸는 영역의 크기를 지정합니다.
+border 속성은 테두리의 두께를 지정. margin은 테두리와 다른 태그와의 간격을 지정하고 padding은 테두리와 글자 사이의 간격을 지정하는 속성.
+
+박스 속성 익히기
+width와 height 속성 적용하기
+div 태그로 만든 박스의 너비와 높이가 100px로 지정. 그리고 배경 색상은 red로 하고, 그 박스 하나를 화면에 나타내자.
+-->
+
+

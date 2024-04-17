@@ -1,0 +1,23 @@
+<!-- display_inline-block.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display</title>
+    <style>
+        #box {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <span>더미 객체</span>
+    <div id="box">대상 객체</div>
+    <span>더미 객체</span>
+</body>
+</html>
+
+<!--
+인라인 형식과 인라인-블록 형식은 width와 height 속성, margin 속성을 사용할 때 두 형식의 차이를 확인할 수 있다.
+아래 소스코드에서 inline 키워드를 적용한 코드는 width와 height 속성이 지정되지 않는다. 또한 margin 속성이 div 태그의 좌우로만 적용된다.
+반면, inline-block 키워드를 적용하면 width와 height 속성이 적용되고 margin 속성도 상하좌우로 적용된다.
+-->
