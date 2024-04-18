@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>상단고정메뉴 만들기</title>
+        <style>
+            body {margin:0;} /* body 요소의 마진 0 */
+            /* 내용이 브라우저 창에 가운데 정렬할때 보통 사용 */
+            
+            ul
+            {
+                list-style-type : none;
+                margin : 0;
+                padding : 0;
+                overflow : hidden;
+                background-color : black;
+                position: fixed;  /* 반대는 position: static */
+                top : 0;
+                width : 100%;
+            }
+
+            li
+            {
+                float : left;
+            }
+
+            li a 
+            {
+                display : block;
+                color : white;
+                text-align : center;
+                padding : 14px 16px;
+                text-decoration : none;
+            }
+
+            li a:hover:not(.active)
+            {
+                background-color : lightpink;
+            }
+            .active
+            {
+                background-color : green;
+            }
+            
+            #main
+            {
+                padding:20px; 
+                margin-top:30px; 
+                background-color:rgb(196, 196, 209);
+                height:1500px;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+
+        <div id="main">
+            
+            <h1>Fixed Top Navigation Bar</h1>
+            <h2>Scroll this page to see the effect</h2>
+            <h3>The navigation bar will stay at the top of the page while scrolling</h3>
+
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+
+        </div>
+    </body>
+</html>
+
+<!--
+    
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {margin:0;}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+<div style="padding:20px;margin-top:30px;background-color:#1abc9c;height:1500px;">
+  <h1>Fixed Top Navigation Bar</h1>
+  <h2>Scroll this page to see the effect</h2>
+  <h2>The navigation bar will stay at the top of the page while scrolling</h2>
+
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p>
+</div>
+
+</body>
+</html>
+-->

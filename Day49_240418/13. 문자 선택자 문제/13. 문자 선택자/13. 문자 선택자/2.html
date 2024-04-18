@@ -1,0 +1,29 @@
+<!--
+전후 문자 선택자
+
+선택자 형태		설명
+::after			태그 뒤에 위치하는 공간을 선택한다.
+::before		태그 앞에 위치하는 공간을 선택한다.
+
+전후 문자 선택자에는 content 스타일 속성을 입력할 수 있다.(다른 선택자에는 content 스타일 속성을 적용할 수 없다.)
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Selector Basic Page</title>
+    <style>
+        p { counter-increment: rint; }
+        p::before { content: counter(rint) "."; }
+        p::after { content: " - " attr(data-page) " page"; }
+        p::first-letter { font-size: 3em; }
+    </style>
+</head>
+<body>
+    <h1>Lorem ipsum dolor sit amet</h1>
+    <p data-page="52">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p data-page="273">Aenean ac erat et massa vehicula laoreet consequat et sem.</p>
+</body>
+</html>
+
+<!--주의 깊게 살펴볼 부분은 ::first-letter 선택자를 사용해 첫 번째 글자를 선택했을 때 전후문자 선택자로 생성한 글자도 스타일이 적용되었다.-->

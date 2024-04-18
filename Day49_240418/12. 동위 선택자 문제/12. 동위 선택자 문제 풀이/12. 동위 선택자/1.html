@@ -1,0 +1,33 @@
+﻿<!--
+동위 선택자
+동위 선택자는 동위 관계에서 뒤에 위치한 태그를 선택할 때 사용하는 선택자이다.
+
+li 태그를 기준으로 할 때 모든 li 태그는 동일한 위치에 있는 동위 상태입니다.
+
+선택자 형태		설명
+선택자A + 선택자B	선택자A 바로 뒤에 위치하는 선택자B를 선택합니다.
+선택자A ~ 선택자B	선택자A 뒤에 위치하는 선택자B를 선택합니다.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Selector Basic</title>
+    <style>
+        /* h1 태그의 바로 뒤에 위치하는 h2 태그의
+           color 속성에 red 키워드를 적용합니다. */
+        h1 + h2 { color: red; }
+        
+        /* h1 태그의 뒤에 위치하는 h2 태그의
+           background-color 속성에 orange 키워드를 적용합니다. */
+        h1 ~ h2 { background-color: orange; }
+    </style>
+</head>
+<body>
+    <h1>Header - 1</h1>
+    <h2>Header - 2</h2>
+    <h2>Header - 2</h2>
+    <h2>Header - 2</h2>
+    <h2>Header - 2</h2>
+</body>
+</html>

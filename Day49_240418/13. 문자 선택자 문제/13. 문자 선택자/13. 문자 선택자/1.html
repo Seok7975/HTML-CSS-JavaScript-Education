@@ -1,0 +1,25 @@
+<!--
+문자 선택자
+
+문자 가상 선택자는태그 내부의 특정한 조건의 문자를 선택하는 선택자입니다. 문자 선택자는 가상 요소선택자Pseudo-Element Selector로 :: 기호를 사용하는 것이 표준이지만 : 기호를 사용해도 정상 작동합니다. 
+
+선택자 형태		설명
+::first-letter		첫 번째 글자를 선택합니다.
+::first-line		첫 번째 줄을 선택합니다.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Selector Basic Page</title>
+    <style>
+        p::first-letter { font-size: 3em; }
+        p::first-line { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Lorem ipsum dolor sit amet</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Aenean ac erat et massa vehicula laoreet consequat et sem.Aenean ac erat et massa vehicula laoreet consequat et sem.</p>
+</body>
+</html>

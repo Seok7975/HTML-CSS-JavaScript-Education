@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Attribute</title>
+	<style>
+		[title~="first"] {
+			background: black;
+			color: yellow;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>[속성~="속성값"] 선택자를 이용한 선택</h1>
+	<h2 title="first h2">이 제목은 title 속성값이 "first h2"입니다!</h2>
+	<h3>이 제목은 title 속성을 가지고 있지 않습니다!</h3>
+	<p title="first p">이 단락은 title 속성값이 "first p"입니다!</p>
+	<p title="first-p">이 단락은 title 속성값이 "first-p"입니다!</p>
+	<p title="p first">이 단락은 title 속성값이 "p first"입니다!</p>
+	<p title="p-first">이 단락은 title 속성값이 "p-first"입니다!</p>
+	<p title="p first p">이 단락은 title 속성값이 "p first p"입니다!</p>
+</body>
+
+</html>
+<!--
+이처럼 [속성이름~="속성값"] 선택자는 title 속성값이 정확히 "first"인 요소나 띄어쓰기(whitespace)를 기준으로 인식되는 단어에 "first"를 포함한 요소만을 선택합니다.
+[속성이름~="속성값"] 선택자는 띄어쓰기(whitespace)를 기준으로 단어를 인식합니다.
+따라서 예제처럼 하이픈(-)으로 연결된 단어는 전부 하나의 단어로 인식하며, 각각 별도의 단어로 인식하지 않습니다.
+-->

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Attribute</title>
+	<style>
+		[title*="first"] {
+			background: black;
+			color: yellow;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>[속성*="속성값"] 선택자를 이용한 선택</h1>
+	<h2 title="first h2">이 제목은 title 속성값이 "first h2"입니다!</h2>
+	<h3>이 제목은 title 속성을 가지고 있지 않습니다!</h3>
+	<p title="my-first-p">이 단락은 title 속성값이 "my-first-p"입니다!</p>
+	<p title="p-first">이 단락은 title 속성값이 "p-first"입니다!</p>
+
+</body>
+
+</html>
+<!--
+[속성이름*="속성값"] 선택자는 특정 속성의 속성값에 특정 문자열를 포함하는 요소를 모두 선택합니다.
+이 선택자는 특정 속성의 속성값이 특정 문자열를 포함하기만 하면 모두 선택해 줍니다.
+따라서 위의 예제에서는 title 속성값에 "first"를 포함하는 요소가 모두 선택됩니다.
+-->

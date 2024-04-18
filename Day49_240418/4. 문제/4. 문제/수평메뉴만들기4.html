@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>수평메뉴만들기4</title>
+        <style>
+            ul
+            {
+                list-style-type : none;
+                padding : 1mm;
+                margin : 10px;
+                overflow : hidden;
+                background-color : rgb(100, 99, 99);
+            }
+
+            li
+            {
+                float : left;
+            }
+            
+            li a
+            {
+                display : block;
+                padding : 14px 16px;
+                text-align : center;
+                color : white;
+                text-decoration : none;
+
+            }
+            li a:hover
+            {
+                    background-color: lightcoral;
+            }
+        
+        </style>
+    </head>
+    <body>
+        <ul>        
+            <li><a class="active" href="#home">Home</a></li>
+            <!-- class="active"는 "active"라는 클래스를 "home"링크에 할당-->
+            <!-- CSS스타일시트에서 해당 요소를 스타일링하는데 사용됨-->
+            <!-- class="00"은 임의로 부여 가능-->
+            <!-- 다중으로도 부여가능한데, class="11" "22" 이처럼 공백으로 지정-->
+            <li><a href="#News">News</a></li>
+            <li><a href="#Contact">Contact</a></li>
+            <li><a href="#About">About</a></li>
+        </ul>
+
+    </body>
+</html>

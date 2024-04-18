@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            수평메뉴만들기5
+        </title>
+        <style>
+            ul
+            {
+                list-style-type : none;
+                background-color : black;
+                padding : 0;
+                margin : 0;
+                overflow : hidden;
+            }
+
+            li
+            {
+                float : left;
+            }
+
+            li a
+            {
+                display : block;
+                color : white;
+                padding : 4mm 4mm;
+                margin : 4px 4px;
+                text-decoration : none;
+            }
+
+            li a:hover:not(.active)
+            {
+                background-color : rgb(80, 169, 228);
+            }
+            .active
+            {
+                background-color : rgb(133, 129, 129);
+            }
+            
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li><a class="active" href="home">Home</a></li>
+            <li><a href="news">News</a></li>
+            <li><a href="Contact">Contact</a></li>
+            <li><a href="About">About</a></li>
+        </ul>
+    </body>
+</html>

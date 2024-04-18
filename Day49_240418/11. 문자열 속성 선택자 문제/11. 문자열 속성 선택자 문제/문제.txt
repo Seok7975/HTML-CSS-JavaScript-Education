@@ -1,0 +1,219 @@
+1. 다음 소스를 참고하여 1.png 처럼 나오도록 하자.
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Attribute</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+
+	<h1>[속성] 선택자를 이용한 선택</h1>
+	<h2 title="first h2">이 제목은 title 속성을 가지고 있습니다!</h2>
+	<h3>이 제목은 title 속성을 가지고 있지 않습니다!</h3>
+	<p title="first p">이 단락은 title 속성을 가지고 있습니다!</p>
+	<p title="second p">이 단락은 title 속성을 가지고 있습니다!</p>
+
+</body>
+
+</html>
+
+2. 다음 소스를 참고하여 2.png 처럼 나오도록 하자.
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Attribute</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+
+	<h2 title="first h2">이 제목은 title 속성값이 "first h2"입니다!</h2>
+	<h3>이 제목은 title 속성을 가지고 있지 않습니다!</h3>
+	<p title="first p">이 단락은 title 속성값이 "first p"입니다!</p>
+	<p title="second p">이 단락은 title 속성값이 "second p"입니다!</p>
+
+</body>
+
+</html>
+
+3. 다음 소스를 참고하여 3.png처럼 나오게 하자.
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Attribute</title>
+	<style>
+		[title~="first"] {
+			background: black;
+			color: yellow;
+		}
+	</style>
+</head>
+
+<body>
+	<h2 title="first h2">이 제목은 title 속성값이 "first h2"입니다!</h2>
+	<h3>이 제목은 title 속성을 가지고 있지 않습니다!</h3>
+	<p title="first p">이 단락은 title 속성값이 "first p"입니다!</p>
+	<p title="first-p">이 단락은 title 속성값이 "first-p"입니다!</p>
+
+</body>
+
+</html>
+
+4. 다음 소스를 참고하여 4.png처럼 나오게 하자.
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Attribute</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+
+	<h2 title="first h2">이 제목은 title 속성값이 "first h2"입니다!</h2>
+	<h3>이 제목은 title 속성을 가지고 있지 않습니다!</h3>
+	<p title="first p">이 단락은 title 속성값이 "first p"입니다!</p>
+	<p title="first-p">이 단락은 title 속성값이 "first-p"입니다!</p>
+
+</body>
+
+</html>
+
+5. 다음 소스를 참고하여 5.png처럼 나오게 하자.
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Attribute</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<h2 title="first h2">이 제목은 title 속성값이 "first h2"입니다!</h2>
+	<h3>이 제목은 title 속성을 가지고 있지 않습니다!</h3>
+	<p title="first p">이 단락은 title 속성값이 "first p"입니다!</p>
+	<p title="first-p">이 단락은 title 속성값이 "first-p"입니다!</p>
+	<p title="p first">이 단락은 title 속성값이 "p first"입니다!</p>
+
+</body>
+
+</html>
+
+6. 다음 소스를 참고하여 6.png처럼 나오게 하자.
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Attribute</title>
+	<style>
+		[title$="first"] {
+			background: black;
+			color: yellow;
+		}
+	</style>
+</head>
+
+<body>
+	<h2 title="first h2">이 제목은 title 속성값이 "first h2"입니다!</h2>
+	<h3>이 제목은 title 속성을 가지고 있지 않습니다!</h3>
+	<p title="p first">이 단락은 title 속성값이 "p first"입니다!</p>
+	<p title="p-first">이 단락은 title 속성값이 "p-first"입니다!</p>
+
+</body>
+
+</html>
+
+7. 다음 소스를 참고하여 7.png처럼 나오게 하자.
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Attribute</title>
+	<style>
+		[title*="first"] {
+			background: black;
+			color: yellow;
+		}
+	</style>
+</head>
+
+<body>
+	<h2 title="first h2">이 제목은 title 속성값이 "first h2"입니다!</h2>
+	<h3>이 제목은 title 속성을 가지고 있지 않습니다!</h3>
+	<p title="my-first-p">이 단락은 title 속성값이 "my-first-p"입니다!</p>
+	<p title="p-first">이 단락은 title 속성값이 "p-first"입니다!</p>
+
+</body>
+
+</html>
+
+8. 다음 소스를 참고하여 8-1.png처럼 나오게 하자.
+그리고  input type="password" 에 포커스가 갔을 때 8-2.png처럼 나오게 하자.
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Attribute</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+
+	<h1>속성 선택자를 이용한 선택</h1>
+	<form>
+		사용자 : <br>
+		<input type="text" name="username">
+		비밀번호 : <br>
+		<input type="password" name="password">
+	</form>
+
+</body>
+
+</html>
+
+9. 다음 소스를 참고하여 9.png처럼 나오게 하자.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Selector Basic</title>
+    <style>
+    </style>
+</head>
+<body>
+    <img src="jajq.png" width="200" height="300" />
+    <img src="node.jpg" width="200" height="300" />
+    <img src="ux.gif" width="200" height="300" />
+</body>
+</html>
+

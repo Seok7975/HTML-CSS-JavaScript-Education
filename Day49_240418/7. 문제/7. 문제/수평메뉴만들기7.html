@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>수평메뉴만들기7</title>
+        <style>
+            ul
+            {
+                overflow : hidden;
+                padding : 0;
+                margin : 0;
+                list-style-type : none;
+                background-color : black;
+            }
+
+            li
+            {
+                float : left;
+                border-right : 1px solid white;
+            }
+
+            li:last-child 
+            {
+                border-right: 3px solid yellow; /* 마지막 링크에는 오른쪽 테두리를 추가하지 않음 */
+            }
+
+            li a
+            {
+                padding : 14px 16px;
+                /* margin : 0; */
+                color : white;
+                text-align: center;
+                text-decoration: none;
+                display : block;
+            }
+            .active
+            {
+                background-color : green;
+            }
+
+            li a:hover:not(.active)
+            {
+                background-color : lightgoldenrodyellow;
+            }
+            li a:hover.active
+            {
+                background-color : lightgray;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li><a class="active" href="#Home">Home</a></li>
+            <li><a href="#News">News</a></li>
+            <li><a href="#Contact">Contact</a></li>
+            <li style="float:right"><a href="#About">About</a></li>
+        </ul>
+    </body>
+</html>

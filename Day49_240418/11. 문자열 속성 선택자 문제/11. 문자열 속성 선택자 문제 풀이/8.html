@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Attribute</title>
+	<style>
+		input[type="text"] {
+			width: 150px;
+			display: block;
+			background-color: #FFEFD5;
+			margin-bottom: 10px;
+		}
+		input[type="password"] {
+			width: 130px;
+			display: block;
+			background-color: #90EE90;
+			border: 2px solid red;
+		}
+		input[type="password"]:focus { background-color: #FFC0CB; }
+	</style>
+</head>
+
+<body>
+
+	<h1>속성 선택자를 이용한 선택</h1>
+	<form>
+		사용자 : <br>
+		<input type="text" name="username">
+		비밀번호 : <br>
+		<input type="password" name="password">
+	</form>
+
+</body>
+
+</html>

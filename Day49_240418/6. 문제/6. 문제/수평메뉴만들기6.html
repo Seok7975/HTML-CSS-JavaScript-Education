@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>수평메뉴만들기6</title>
+        <style>
+            ul
+            {
+                list-style-type: none;
+                padding : 0;
+                margin : 0;
+                background-color : black;
+                overflow: hidden;
+            
+            }
+             /* 첫번째 방법 */
+            li
+            {
+                float : left;
+            }
+            li a
+            {
+                display : block;
+                color : white;
+                text-align : center;
+                padding : 4mm 4mm;
+                margin : 4px 4px;
+                text-decoration : none;
+            }
+            li a:hover:not(.active)
+            {
+                background-color: rgb(108, 109, 108);
+            }
+            .active
+            {
+                background-color: green;
+                
+            }
+
+            /* 두번째 방법 */
+            lii
+            {
+                float : right;
+            }
+
+            lii a
+            {
+                display : block;
+                color : white;
+                padding : 4mm 4mm;
+                margin : 4px 4px;
+                text-decoration : none;
+            }
+            lii a:hover:not(.active)
+            {
+                background-color: rgb(108, 109, 108);
+            }
+            .active
+            {
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 첫번째 방법 -->
+        <ul>
+            <li><a href="Home">Home</a></li>
+            <li><a href="News">News</a></li>
+            <li><a href="Contact">Contact</a></li>
+            <li style="float:right"><a class="active"  href="About">About</a></li>
+        </ul>
+        <br>
+        <!-- 두번째 방법 -->
+        <ul>
+            <lii><a class="active" href="About">About</a></lii>
+            <lii style="float:left"><a href="Home">Home</a></lii>
+            <lii style="float:left"><a href="News">News</a></lii>
+            <lii style="float:left"><a href="Contact">Contact</a></lii>
+            
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,5 @@
+원문
+https://zellwk.com/blog/rem-vs-em/
+
+번역문
+https://medium.com/@jeongwooahn/%EB%B2%88%EC%97%AD-rem-vs-em-5eac6122b8ea

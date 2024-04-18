@@ -1,0 +1,37 @@
+<!--
+참고 data 속성
+
+웹 표준에 따른면 각각의 태그에 지정된 속성 이외의 것을 사용하면 안 된다. 하지만 속성 앞에 문자열 data-를 붙이면 사용자 지정 속성으로 인정해준다. 앞에 코드에서는 특정한 정보를 넣기 위해 사용자 지정 속성인 data-page 속성을 사용했다. 실제로 data-page 속성은 웹 표준에 존재하지 않고 이 소스 코드의 저자가 임의로 지정한 것이다.
+웹과 관련된 기술을 접할수록 사용자 지정 속성은 굉장히 많이 사용된다. 밑에 코드는 모바일 애플리케이션을 쉽게 만들 수 있게 도와주는 jQuery Mobile 프레임워크를 사용한 코드이다. jQuery Mobile 프레임워크는 div 태그에 data-role 속성을 입력하면 레이아웃을 자동으로 구성해 준다. 참고삼아 보자.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Mobile</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header">
+            <h1>HTML5</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li data-role="list-divider">HTML5</li>
+                <li>Multimedia</li>
+                <li>Connectivity</li>
+                <li>Device Access</li>
+                <li data-role="list-divider">CSS3</li>
+                <li>Animation</li>
+                <li>3D Transform</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!--위와 같이 입력하고 실행해보면 페이지가 자동으로 디자인 된것을 볼수가 있다. 이러한 프레임워크를 UI 프레임워크라고 부르며 사용자 지정 속성을 굉장히 많이 활용한다.-->

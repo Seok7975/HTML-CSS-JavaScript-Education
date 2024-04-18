@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>table만들기 예제</title>
+       <style>
+            #customers
+            {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                /* 먼저 지정된 글꼴이 사용할 수 없는 경우 다음에 지정된 글꼴로 대체 */
+                border-collapse: separate; 
+                /* border-collapse : 표(table)의 테두리와 셀(td)의 테두리 사이의 간격 처리
+                기본값 : separate : 표의 테두리와 셀의 테두리 사이에 간격을 둠
+                collapse : 표의 테두리와 셀의 테두리 사이의 간격을 없앰
+                initial : 기본값으로 설정
+                inherit : 부모 요소의 속성값을 상속받음
+                /*  테이블의 테두리가 붙어서 표시되도록 설정합니다. 
+                이렇게 하면 테이블의 셀 사이에 간격이 없어집니다. */
+                width: 80%;
+            }
+
+            #customers td, #customers th
+            {
+                border : 1px solid #3b3131;
+                padding: 8px;
+                text-align: center; /* left, center, right */ 
+            }
+
+            #customers tr:nth-child(n){background-color: beige;}
+            /* odd : 홀수, even : 짝수, n : 모든 정수 */
+            /* 표의 각 행에 배경색을 설정 */
+            #customers tr:hover {background-color: #b12828;}
+            /* 각 행 위에 커서, 즉 행이 호버될 때 배경색을 설정 */
+
+            #customers th   /* customers아이디의 헤더부분 설정 */
+            {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: center;   /* 헤더 안의 텍스트를 왼쪽 정렬 */
+                background-color: rgb(206, 141, 197);
+                color: white;   /* 헤더 안의 텍스트 색상 : */
+            }
+            
+       </style> 
+    </head>
+    <body>
+        <table id="customers">
+            <!-- 헤더부분-->
+            <tr>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+            </tr>
+            <!-- 몸통부분 -->
+            <tr>
+                <td>Alfreds FutterKiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Berglunds snabbkop</td>
+                <td>Christina Berglund</td>
+                <td>Sweden</td>
+            </tr>
+            <tr>
+                <td>Centro comercial Moctezuma</td>
+                <td>Francisco Chang</td>
+                <td>Mexico</td>
+            </tr>
+            <tr>
+                <td>Ernst Handel</td>
+                <td>Roland Mendel</td>
+                <td>Austria</td>
+            </tr>
+            <tr>
+                <td>Island Trading</td>
+                <td>Helen Bennett</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Koniglich Essen</td>
+                <td>Philip Cramer</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Laughing Bacchus Winecellars</td>
+                <td>Yoshi Tannamuri</td>
+                <td>Canada</td>
+            </tr>
+            <tr>
+                <td>Magazzini Alimentari Riuniti</td>
+                <td>Giovanni Rovelli</td>
+                <td>Italy</td>
+            </tr>
+            <tr>
+                <td>North/South</td>
+                <td>Simon Crowther</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Paris specialites</td>
+                <td>Marie Bertrand</td>
+                <td>France</td>
+            </tr>
+        </table>
+    </body>
+</html>

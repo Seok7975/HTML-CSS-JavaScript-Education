@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>수평메뉴만들기2</title>
+        <style>
+            ul
+            {
+                list-style-type: none;
+                /* disc : 앞에 점 생김 */ 
+                padding :0;
+                margin : 0;
+                overflow : hidden;
+
+            }
+
+            li a
+            {
+                float: left;
+
+                display : block;
+                padding : 8px;
+                background-color : lightpink;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contract">Contact</a></li>
+            <li><a href="about">About</a></li>
+        </ul>
+
+        <p>
+            <b>Note:</b>    <!-- bold체-->
+            If a !DOCTYPE is not specified, floating items can produce unexpected results.
+            A background color is added to the links to show the link area. The whole link area is clickable, not just the text.
+        </p>
+        <p>
+            <b>Note:</b>
+            overflow:hidden is added to the ul element to prevent li elements from going outside of the list.
+        </p>
+    </body>
+</html>
+
+
+<!-- 
+    <li><a href="#about">About</a></li>
+    얘는 왜 #을 쓰는 이유?
+    #about는 페이지 내부에서 특정 섹션으로 이동하는 앵커(anchor)를 지정합니다. 
+    웹 페이지의 일부분을 링크를 통해 직접 연결하는 것을 
+    앵커링(anchoring)이라고 합니다.
+    #은 앵커를 지정할 때 사용하는 URL의 일부입니다. 
+    이것을 붙인 후에는 해당 앵커의 id와 같은 이름을 사용하여 
+    원하는 섹션으로 이동할 수 있습니다.
+    따라서 <a href="#about">About</a>은 "About"이라는 텍스트를 포함하는 링크를 
+    생성하고, 이 링크를 클릭하면 페이지 내의 id가 "about"인 섹션으로 스크롤됩니다. 
+    이는 페이지의 다른 부분으로 이동하는 간단한 방법 중 하나입니다.-->
