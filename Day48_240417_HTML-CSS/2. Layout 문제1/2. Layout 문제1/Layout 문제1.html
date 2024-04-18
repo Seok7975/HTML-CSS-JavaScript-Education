@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Layout 문제1</title>
+        <style>
+            #header /* # : id 속성 */
+            {
+                width: 800px; margin:0 auto;
+                background : red;
+                color : white;
+                text-align : center;
+            }
+
+            #wrap
+            {
+                width : 800px; 
+                margin:0 auto;  
+                /* 요소의 위 아래 여백은 0, 좌우 여백은 자동 설정
+                이렇게 하면 수평 가운데 정렬 */
+                overflow: hidden;
+                /* 요소의 내용이 너비를 넘어갈 때 넘치는 부분 숨김*/
+            }
+
+            #aside
+            {
+                width: 200px;
+                float : left;   
+                /* 요소를 왼쪽으로, 즉 다음 요소를 aside의 오른쪽으로 */
+                color : white;
+                text-align: left;
+                background-color: blue;
+            }
+
+            #content
+            {
+                width : 600px; float : right;
+                color : white;
+                background : lightgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <tr>        <!-- 그냥tr구문 안쓰고 바로 h1 써도 됨-->
+                <h1>#header 태그</h1>
+            </tr>
+        </div>
+        <div id="wrap">
+            <div id="aside">
+                <td>#aside 태그</td>
+            </div>
+            <div id="content">
+                <td>#content 태그</td>
+            </div>
+        </div>
+    </body>
+</html>
