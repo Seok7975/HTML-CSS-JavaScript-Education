@@ -1,0 +1,26 @@
+<!--
+중첩 그림자 만들기
+쉼표를 사용하면 여러 개의 그림자 속성을 적용할 수 있다.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Property Basic</title>
+    <style>
+        .box {
+            border: 3px solid black;
+
+            box-shadow: 10px 10px 10px black, 10px 10px 20px orange, 10px 10px 30px red; 
+            text-shadow: 10px 10px 10px black, 10px 10px 20px orange, 10px 10px 30px red; 
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Lorem ipsum dolor amet</h1>
+    </div>
+</body>
+</html>
+<!--
+CSS3 Generator http://css3generator.com/에 접속하면 box-shadow와 text-shadow 속성을 쉽게 생성할 수 있다.
+-->

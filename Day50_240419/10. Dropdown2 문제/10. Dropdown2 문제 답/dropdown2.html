@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .dropbtn   /* 점클 샵아 공후 */
+        {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown 
+        {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content  /* dropdown이 content를 품고있음 */
+        {
+            display: none;	/* 보이지 않게 */
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a /*dropdown-content 클래스의 후손 앵커 태그 */
+        {
+            color: black;
+            padding: 12px 16px; /* 상하, 좌우 */
+            text-decoration: none; /* 밑줄 없애기 */
+            display: block;
+        }
+
+        .dropdown-content a:hover /* dropdown-content 클래스의 후손 앵커 태그를 호버 했을 때 */ 
+        {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content 
+        {
+            display: block; /* 기본이 none이었는데 block을 하면 보이게 된다. */
+        }
+
+        .dropdown:hover .dropbtn  /* 호버를 했을 때 이것의 후손 dropbtn */
+        {
+            background-color: #3e8e41;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h2>Dropdown Menu</h2>
+    <p>Move the mouse over the button to open the dropdown menu.</p>
+
+    <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+
+    <p><strong>Note:</strong> We use href="#" for test links. In a real web site this would be URLs.</p>
+
+</body>
+
+</html>
+
+
+
+
+
+

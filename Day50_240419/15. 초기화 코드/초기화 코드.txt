@@ -1,0 +1,47 @@
+전 세계적으로 다음 초기화 코드를 많이 사용한다.
+
+Eric Meyer's Reset CSS https://meyerweb.com/eric/tools/css/reset/
+HTML5 Doctor CSS Reset http://html5doctor.com/html-5-reset-stylesheet/
+
+하지만 아래의 근거로 CSS 초기화를 반대하는 사람들도 있다.
+* 작업량이 많다.
+초기화한 태그에 대해 적절한 모양을 재정의 해주어야 한다. 상당히 양이 많을 뿐 아니라 지루한 작업이다.
+* 사이트의 성능이 저하된다.
+웹브라우저에 내장된 스타일 시트를 거의 사용하지 않고 서버의 설정을 가져와 사용하므로 추가적인 서버요청이 발생한다. 이에 따라 사이트의 성능이 저하될 수 있다.
+* 꼭 모양이 같아야 하나?
+웹사이트 방문자는 보통 한가지의 웹브라우저를 사용한다. 따라서 현재의 모양이 다른 웹브라우저에서 볼 때와 다르다는 것을 알기 힘들다. 또한 다르게 나온다는 것을 안다 하더라도 그다지 중요한 문제는 아니다.
+
+따라서 각자 어느 웹사이트를 만들지 잘 생각해서 초기화할지 안할지를 결정해야 한다.
+
+주소 입력을 위한 address 태그
+
+HTML 문서에서 주소를 입력하는 방법이다. 그냥 <p>태그를 사용해서 작성해도 되지만, 굳이 address 태그를 사용하는 이유는 검색엔진 때문이다. 보통 주소라던지 해당 블로그 혹은 사이트에 대한 정보는 HTML 중에서도 제일 하단에 많이 나온다. 이 부분을 footer 영역이라고 하는데, 여기에 보통 <address> 태그를 많이 사용한다.
+
+검색엔진도 바로 이런 부분을 찾는다. 만약 어떠한 기업 주소를 인터넷에서 찾는다고 가정하면, 해당 검색엔진 알고리즘은, footer 안쪽의 address 태그를 먼저 찾는다. 
+
+<p></p> 단락태그 상하단에 여백이 존재한다. 아무리 줄을 바꾸고 공백을 2개이상 추가하더라도 한줄로 출력된다.
+
+<pre></pre> p 태그와 달리 내가 쓰는 대로 웹페이지에 표시한다. 공백 줄바꿈 모두 적용된다.
+
+https://www.w3schools.com/tags/tag_pre.asp
+
+- white-space : normal 처럼 사용한다.
+
+속성
+- normal : 기본값이다.
+- pre : <pre> 태그와 같은 처리를 한다. 엔터키는 <br> 처리되며 줄바꿈은 작성된 형태대로 유지된다.
+- nowrap : 줄바꿈을 하지 않는다.
+
+https://www.w3schools.com/cssref/pr_text_white-space.asp
+
+text-overflow 속성값
+
+clip | ellipsis | string
+
+clip 기본값. 텍스트를 자름
+ellipsis 잘린 텍스트를 생략 부호(...)로 표시함
+string 잘린 텍스트를 지정한 문자열로 표시 예: div{text-overflow:"---";}
+* 하지만 string의 경우, 현재 지원하는 브라우저가 없음*
+
+긴 글을 한 줄로 나타내고 영역이 벗어나는 경우 생략기호로 바꾼다.
+https://www.w3schools.com/cssref/css3_pr_text-overflow.asp

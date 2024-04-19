@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Property Basic</title>
+    <style>
+        .box { 
+            width: 100px; height: 100px; 
+            position: absolute;
+        }
+        .box:nth-child(1) { background-color: red; }
+        .box:nth-child(2) { background-color: green; }
+        .box:nth-child(3) { background-color: blue; }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</body>
+</html>
+<!--
+위치 속성
+프로그램을 개발할 때 요소의 위치는 다음 두 가지 방법으로 설정한다.
+* 절대 위치 좌표 : 요소의 X좌표와 Y좌표를 설정해 절대 위치를 지정한다.
+* 상대 위치 좌표 : 요소를 입력한 순서에 따른 상대 위치를 지정한다.
+
+position 속성
+상대 위치 좌표를 사용할 때는 position 속성에 static이나 relative 키워드를 입력한다. 
+반면, 절대 위치 좌표를사용할 때는 position 속성에 absolute나 fixed키워드를 입력한다.
+
+postion 속성 키워드
+
+키워드			설명
+static			상대 위치 좌표 설정
+relative 			초기 위치에서 상하좌우로 이동
+absolute			절대위치 좌표 설정
+fixed			화면을 기준으로 절대 위치 좌표 설정
+
+postion 속성 익히기
+absolute 속성 적용하기. 실행 결과는 브라우저에 따라 약간 다르게 나타난다. 
+미세한 버전 차이에 따라서 파란색 상자만 보이거나 세 개의 상자가 모두 보인다.
+-->

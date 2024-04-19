@@ -1,0 +1,56 @@
+<!--
+두 번째 문제를 해결할 때는 다음 공식을 사용한다.
+"자손의 position 속성을 absolute 키워드로 적용하면 부모의 position 속성을 relative 
+키워드로 적용한다."
+
+이렇게 하면 자손 태그가 부모의 위치를 기준으로 절대 좌표를 설정한다. 
+이 공식에 따라서 div 태그에 position 속성을 입력한다.
+
+부모 태그에 position 속성 부여
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Property Basic</title>
+    <style>
+        .box { 
+            width: 100px; height: 100px; 
+            position: absolute;		/* 부모 포지션을 앱솔루트로 */
+        }
+        .box:nth-child(1) {
+            background-color: red;
+            left: 10px; top: 10px;
+
+            z-index: 100;
+        }
+        .box:nth-child(2) {
+            background-color: green;
+            left: 50px; top: 50px;
+
+            z-index: 10;
+        }
+        .box:nth-child(3) { 
+            background-color: blue;
+            left: 90px; top: 90px;
+
+            z-index: 1; 
+        }
+        body > div {
+            width: 400px; height: 100px;
+            border: 3px solid black;
+            
+            position: relative;   /* 자손 포지션을 랠러티브로해서 기준을 부모 포지션으로 잡게 함 */
+        }
+    </style>
+</head>
+<body>
+    <h1>Lorem ipsum dolor amet</h1>
+    <div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <h1>Lorem ipsum dolor amet</h1>
+</body>
+</html>

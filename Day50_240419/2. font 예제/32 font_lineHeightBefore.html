@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Font Property</title>
+    <style>
+        .font_big { font-size: 2em;}
+        .font_italic { font-style: italic; }
+        .font_bold { font-weight: bold; }
+        .font_center { text-align: center; }
+
+        .button {
+            width: 150px;
+            height: 70px;
+            background-color: #FF6A00;
+            border: 10px solid #FFFFFF;
+            border-radius: 30px;
+            box-shadow: 5px 5px 5px #A9A9A9;
+	/* offset-x | offset-y | blur-radius | color */
+/*
+offset-x : 가로 위치입니다. 양수면 오른쪽에, 음수면 왼쪽에 그림자가 만들어집니다. (필수)
+offset-y : 세로 위치입니다. 양수면 아래쪽에, 음수면 위쪽에 그림자가 만들어집니다. (필수)
+blur-radius : 그림자를 흐릿하게 만듭니다. 값이 클 수록 더욱 흐려집니다.
+color : 그림자 색을 정합니다.
+
+참고 url
+https://developer.mozilla.org/ko/docs/Web/CSS/box-shadow
+*/
+        }
+
+        .button > a   <!--  > : 자손 선택자,  공백 : 후손 선택자 -->
+        {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="button">
+        <a href="#" class="font_big font_italic font_bold font_center">Click</a>
+    </div>
+</body>
+</html>
+
+<!--
+line-height 속성
+line-height는 글자의 높이를 지정합니다. 
+그런데 현대의 HTML 페이지는 문서보다 애플리케이션 형태로 많이 사용되기 때문에 
+line-height 속성을 사용하여 글자의 높이를 지정하기보다는 글자를 중앙 정렬할 때 사용한다.
+
+글자를 수직 중앙 정렬하기
+
+간단한 버튼 만들기 
+line-height 속성을 이용해 글자를 수직 중앙 정렬해보겠다. div 태그를 사용하여 간단한 버튼을 만드는 코드를 먼저 작성한다. 코드를 실행하면 그럴듯한 버튼이 만들어진다. 하지만 글자가 수평으로는 중앙 정렬되지만 수직으로는 중앙 정렬되지 않는다. CSS에는 block 속성을 가지는 태그에 수직 정렬을 지정할 수 있는 스타일 속성이 없기 때문이다.
+-->

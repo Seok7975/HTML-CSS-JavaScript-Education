@@ -1,0 +1,58 @@
+1. 두 번째 p 태그에는 글자크기 100%
+세 번째 p 테그에는 글자크기 150%
+네 번째 p 태그에는 글자크기 200%
+1.png
+2. 두 번째 p 태그에는 글자크기 1배
+세 번째 p 테그에는 글자크기 1.5배
+네 번째 p 태그에는 글자크기 2배
+2.png
+
+3. 두 번째 p 태그에는 글자크기 16px
+세 번째 p 테그에는 글자크기 24px
+네 번째 p 태그에는 글자크기 32px
+3.png
+
+4. h1 태그의 배경색 red
+h2 태그의 배경색 orange
+h3 태그의 배경색 blue
+4.png
+
+5. 어떤 공간에 글자가 있다고 하면, (       )와 (      ) 속성은 글자를 감싸는 영역의 크기를 지정합니다.
+(       ) 속성은 테두리의 두께를 지정. (       )은 테두리와 다른 태그와의 간격을 지정하고 (       )은 테두리와 글자 사이의 간격을 지정하는 속성.
+
+6. div 태그로 만든 박스의 너비와 높이가 100px로 지정. 그리고 배경 색상은 red로 하고, 그 박스 하나를 화면에 나타내자.
+6.png
+
+7.div 태그로 만든 박스의 너비와 높이가 100px로 지정. 그리고 배경 색상은 red로 하고,
+ margin 속성에 10px을 적용하고 padding 속성에 30px을 적용, 보더는 20px에 선타입은 solid 색상은 black으로 해서 그 박스 하나를 화면에 나태내자.
+7.png
+
+8. box 클래스에 border 두께를 thick으로 선의 종류는 dashed 그리고 색상은 black으로 하자.
+8.png
+
+9. 다음 코드에서 대상 객체라고 나온 부분을 display 속성을 이용해서 안보이게 하자.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display</title>
+    <style>
+    </style>
+</head>
+<body>
+    <span>더미 객체</span>
+    <div id="box">대상 객체</div>
+    <span>더미 객체</span>
+</body>
+</html>
+
+9.png
+
+10. body 태그에 배경이미지를 BackgroundFront.png와 BackgroundBack.png를 넣고 BackgroundFront.png 이미지를 앞에 나오도록 하자. 그리고 너비는 100%로 높이는 250px로 하자.
+10.png
+
+11. body 태그에 배경이미지를 BackgroundFront.png와 BackgroundBack.png를 넣고 BackgroundFront.png 이미지를 앞에 나오도록 하자. 그리고 첫번째 이미지의 너비는 100%로 하고 두 번째 이미지의 너비는 250px로 하자.
+11.png
+12. body 태그에 배경이미지를 BackgroundFront.png와 BackgroundBack.png를 넣고 BackgroundFront.png 이미지를 앞에 나오도록 하자. 그리고 배경이미지는 반복이 안되게 하고 내용이 많을 때 스크롤을 내리면 그림도 같이 올라가도록 하자.
+13. body 태그에 배경이미지를 BackgroundFront.png와 BackgroundBack.png를 넣고 BackgroundFront.png 이미지를 앞에 나오도록 하자. 그리고 배경이미지는 반복이 안되게 하고 내용이 많을 때 스크롤을 내려도 그림은 고정이 되게끔하자.
+14.body 태그에 배경이미지를 BackgroundFront.png와 BackgroundBack.png를 넣고 BackgroundFront.png 이미지를 앞에 나오도록 하자. 그리고 배경이미지는 반복이 안되게 하고 배경이미지가 항상 가운데 위치하게끔하자.

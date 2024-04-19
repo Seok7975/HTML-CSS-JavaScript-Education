@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Html Basic</title>
+    <style media="screen">
+      div{
+        width:100px;
+        height:100px;
+      }
+      div#a{	/* 태그가 div이고 id가 a */
+        width:300px;
+        height:300px;
+        background:#52D4FF;
+        position: relative;
+        top:100px;
+        left:100px;
+      }
+      div#b{
+        background:#FF63EA;
+        position: absolute;
+        top:0px;
+        left:100px;
+      }
+      div#c{
+        background:#C5FF63;
+        position: fixed;		/* 스크롤을 오내려도 top:0, left:200에 고정 */
+        top:0px;
+        left:200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="a">
+      a 영역
+      <div id="b">
+        b 영역
+      </div>
+      <div id="c">
+        c 영역
+      </div>
+    </div>
+  </body>
+</html>

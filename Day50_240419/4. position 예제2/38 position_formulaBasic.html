@@ -1,0 +1,50 @@
+<!--
+위치속성공식(중요)
+위치 속성 공식을 적용하지 않은 HTML 페이지를 다음과 같이 작성합니다.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Property Basic</title>
+    <style>
+        .box { 
+            width: 100px; height: 100px; 
+            position: absolute;
+        }
+        .box:nth-child(1) {
+            background-color: red;
+            left: 10px; top: 10px;
+
+            z-index: 100;
+        }
+        .box:nth-child(2) {
+            background-color: green;
+            left: 50px; top: 50px;
+
+            z-index: 10;
+        }
+        .box:nth-child(3) { 
+            background-color: blue;
+            left: 90px; top: 90px;
+
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lorem ipsum dolor amet</h1>
+    <div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <h1>Lorem ipsum dolor amet</h1>
+</body>
+</html>
+<!--
+문제 파악하기 : 실행 결과에 두 가지 문제가 있다.
+1. h1 태그 두 개가 붙어 있다(div 태그가 영역을 차지하지 않는다).
+2. 색상이 적용된 상자가 자신의 부모를 기준으로 위치를 잡지 않는다.
+
+굉장히 중요한 내용이다. position 속성에 absolute 키워드를 적용하면 부모 태그가 영역을 차지하지 않는다. 따라서 자손의 position 속성에 absolute 키워드를 적용할 경우에는 부모 태그에 몇 가지 처리를 해야 합니다.
+-->

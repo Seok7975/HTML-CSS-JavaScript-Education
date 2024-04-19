@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>포지션 문제2</title>
+        <style>
+            .box
+            {
+                width : 100px;
+                height : 100px;
+                position : absolute;
+            }
+            .box:nth-child(1) /* nth-child(n) : css에서 제공하는 표준 가상 클래스 */
+            {
+                background-color : red;
+                left : 10px;
+                top : 10px;
+                z-index: 100;
+            }
+            .greenbox
+            {
+                background-color : green;
+                left : 50px;
+                top : 50px;
+                z-index: 50;
+            }
+            .bluebox
+            {
+                background-color : blue;
+                left : 90px;
+                top : 90px;
+                z-index: 30;
+            }
+            
+            body > div
+            {
+                width : 400px;
+                height : 100px;
+                border : 3px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Lorem ipsum dolor amet</h1>
+        <div>
+            <div class="box"></div>
+            <div class="box greenbox"></div>
+            <div class="box bluebox"></div>
+        </div>
+        <h1>Lorem ipsum dolor amet</h1>
+    </body>
+</html>
+
+
+<!--
+    선생님 코드
+
+    
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Property Basic</title>
+    <style>
+        .box { 
+            width: 100px; height: 100px; 
+            position: absolute;
+        }
+        .box:nth-child(1) {
+            background-color: red;
+            left: 10px; top: 10px;
+
+            z-index: 100;
+        }
+        .box:nth-child(2) {
+            background-color: green;
+            left: 50px; top: 50px;
+
+            z-index: 10;
+        }
+        .box:nth-child(3) { 
+            background-color: blue;
+            left: 90px; top: 90px;
+
+            z-index: 1; 
+        }
+        body > div  /* body의 자손 div */ 
+        {  	
+            width: 400px; height: 100px;
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lorem ipsum dolor amet</h1>
+    <div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <h1>Lorem ipsum dolor amet</h1>
+</body>
+</html>
+-->

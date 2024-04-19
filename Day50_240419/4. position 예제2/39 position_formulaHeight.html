@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Property Basic</title>
+    <style>
+        .box { 
+            width: 100px; height: 100px; 
+            position: absolute;
+        }
+        .box:nth-child(1) {
+            background-color: red;
+            left: 10px; top: 10px;
+
+            z-index: 100;
+        }
+        .box:nth-child(2) {
+            background-color: green;
+            left: 50px; top: 50px;
+
+            z-index: 10;
+        }
+        .box:nth-child(3) { 
+            background-color: blue;
+            left: 90px; top: 90px;
+
+            z-index: 1; 
+        }
+        body > div  /* body의 자손 div */ 
+        {  	
+            width: 400px; height: 100px;
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lorem ipsum dolor amet</h1>
+    <div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <h1>Lorem ipsum dolor amet</h1>
+</body>
+</html>
+<!--
+3. 문제 해결하기 첫 번째 문제를 해결할 때는 다음 공식을 사용합니다.
+"자손의 position 속성에 absolute 키워드를 적용하면 부모에게 height 속성을 입력한다."
+이렇게 하면 부모 태그가 영역을 차지하게 만들 수 있다. 
+예를 들어 style 태그에 다음 코드처럼 width와 height 속성을 추가하여 영역을 만들어준다.
+-->

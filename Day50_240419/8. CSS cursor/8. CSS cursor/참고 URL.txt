@@ -1,0 +1,6 @@
+https://developer.mozilla.org/ko/docs/Web/CSS/cursor/Using_URL_values_for_the_cursor_property
+
+https://www.w3schools.com/cssref/pr_class_cursor.asp
+
+마우스 커서 제작 관련
+https://webkimsora.tistory.com/61

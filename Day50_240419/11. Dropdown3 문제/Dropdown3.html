@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dropdown 문제3</title>
+        <style>
+            .dropbutton
+            {   
+                background-color : rgb(184, 53, 53);
+                color : white;
+                font-size : 20px;
+                padding : 20px;
+                border : none;
+                cursor : pointer;
+            }
+
+            .dropdown
+            {
+                position : relative;
+                display : inline-block;
+            }
+
+            .dropdown-content
+            {
+                display : none; 
+                position : absolute;
+                right : 0;
+                background-color :rgb(209, 171, 171);
+                min-width : 160px;
+                box-shadow : 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index : 1;
+            }
+
+
+            .dropdown-content a
+            {
+                color : black;
+                text-align: center;
+                padding : 10px 10px;
+                text-decoration : none;
+                display : block;
+            }
+
+            .dropdown-content a:hover
+            {
+                background-color: blanchedalmond;
+            }
+
+            .dropdown:hover .dropdown-content
+            {
+                 display : block; 
+            }
+
+            .dropdown:hover .dropbutton
+            {
+                background-color: rgb(141, 105, 105);
+            }
+
+        </style>
+    </head>
+    <body>
+        <h2>Aligned Dropdown Content</h2>
+        <p>Determine whether the dropdown content should go 
+            from left to right or right to left 
+            with the left and right properties.</p>
+
+        <div class="dropdown" style="float:left;">
+            <button class="dropbutton">Left</button>
+            <div class="dropdown-content" style="left:0;">
+                <a href="#우엉">우엉</a>
+                <a href="#우어엉">우어엉</a>
+                <a href="#우어어엉">우어어엉</a>
+            </div>
+        </div>
+        <div class="dropdown" style="float:right;">
+            <button class="dropbutton">Right</button>
+            <div class="dropdown-content" style="right:0;">
+                <a href="#아잉">아잉</a>
+                <a href="#아이잉">아이잉</a>
+                <a href="#아이이잉">아이이잉</a>
+            </div>
+        </div>
+    </body>
+</html>

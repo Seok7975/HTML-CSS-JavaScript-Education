@@ -1,0 +1,23 @@
+﻿<!--
+text-align 스타일 속성과 영역
+다음 코드의 실행 결과를 예측해보자. 코드를 실행하면 span 태그에 text-align 속성이 적용되지 않는다. 왜 그럴까?
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Font Property</title>
+    <style>
+        .font_center { text-align: center; }
+    </style>
+</head>
+<body>
+    <span class="font_center">Lorem ipsum dolor amet</span>
+    <!-- span태그는 자기의 공간만큼만 차지하므로 정렬 개념이 없다 -->
+    <p class="font_center">Lorem ipsum dolor amet</p>
+</body>
+</html>
+<!--
+이유는 굉장히 간단하다 span 태그는 인라인 형태이므로 너비가 존재하지 않는다. 
+따라서 중앙이라는 개념 자체가 존재하지 않으므로 text-align 속성을 적용할 수 없다.
+-->

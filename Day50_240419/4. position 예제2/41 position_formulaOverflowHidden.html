@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Property Basic</title>
+    <style>
+        .box { 
+            width: 100px; height: 100px; 
+            position: absolute;
+        }
+        .box:nth-child(1) {
+            background-color: red;
+            left: 10px; top: 10px;
+
+            z-index: 100;
+        }
+        .box:nth-child(2) {
+            background-color: green;
+            left: 50px; top: 50px;
+
+            z-index: 10;
+        }
+        .box:nth-child(3) { 
+            background-color: blue;
+            left: 90px; top: 90px;
+
+            z-index: 1; 
+        }
+        body > div {
+            width: 400px; height: 100px;
+            border: 3px solid black;
+            
+            position: relative;
+            overflow: hidden;  /* 넘어가지 않게 */
+        }
+    </style>
+</head>
+<body>
+    <h1>Lorem ipsum dolor amet</h1>
+    <div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <h1>Lorem ipsum dolor amet</h1>
+</body>
+</html>
+
+<!--
+overflow 속성
+overflow는 내부의 요소가 부모의 범위를 벗어날 때 요소를 처리하는 방법을 지정하는 속성이다.
+
+overflow 속성에 적용 가능한 키워드
+키워드		설명
+hidden		영역을 벗어나는 부분을 보이지 않게 만든다.
+scroll		영역을 벗어나는 부분을 스크롤로 만든다.
+
+hidden 속성 적용하기
+위에 코드의 실행 결과를 보면 색상이 적용된 사각형이 부모의 범위(검은색 테두리로 표시)를 벗어나 있다. 이러한 div 태그의 overflow 속성에 hidden 키워드를 입력하면 부모의 영역을 벗어난 부분이 모두 숨겨진다.
+
+scroll 속성 적용하기 overflow 속성에 scroll 키워드를 입력하면 div 태그에 스크롤링 생긴다. 부모의 영역을 벗어나는 부분은 스크롤을 내리면 볼 수 있다.
+-->

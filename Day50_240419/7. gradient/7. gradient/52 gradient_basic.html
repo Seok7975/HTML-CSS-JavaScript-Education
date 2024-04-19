@@ -1,0 +1,71 @@
+<!--
+그레이던트
+그레이디언트는 두 가지 이상의 색상을 혼합하는 채색 기능입니다.
+CSS3부터 그레이디언트 기능을 지원한다.
+
+http://www.colorzilla.com/gradient-editor/
+Ultimate CSS Gradient Generator 페이지의 왼쪽에서 원하는 형태의 그레이디언트를 생성한 후 오른쪽에 생성된 CSS 코드를 복사한다.
+
+선행 그레이디언트 생성
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Style Property Basic</title>
+    <style>
+        div {
+            font-family: 'Times New Roman';
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+
+            /* 복사해서 붙여 넣으세요. */
+            /* Old browsers */
+            background: #f85032;
+            /* FF3.6+ */
+            background: -moz-linear-gradient(top,  #f85032 0%, #f16f5c 50%, #f6290c 51%, #f02f17 71%, #e73827 100%);
+            /* Chrome,Safari4+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f85032), color-stop(50%,#f16f5c), color-stop(51%,#f6290c), 
+
+color-stop(71%,#f02f17), color-stop(100%,#e73827)); 
+            /* Chrome10+,Safari5.1+ */
+            background: -webkit-linear-gradient(top,  #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); 
+            /* Opera 11.10+ */
+            background: -o-linear-gradient(top,  #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); 
+            /* IE10+ */
+            background: -ms-linear-gradient(top,  #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); 
+            /* W3C */
+            background: linear-gradient(to bottom,  #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); 
+            /* IE6-9 */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827',GradientType=0 ); 
+
+/*
+벤더 프리픽스
+벤더 프리픽스 Vender Prefix는 글자 그대로 번역하면 공급 업체 접두사를 의미한다. 벤터 프리픽스는 웹 브라우저 공급업체(마이크로소프트, 모질라, 구글, 
+
+애플, 오페라)에서 제공하는 실험적인 기능을 사용할 때 사용한다.
+
+-ms- ms
+-webkit- 크롬
+-moz- 파이어폭스
+-webkit- 사파리
+-o- 오페라
+
+선형 그레이디언트
+
+			색상블록
+linear-gradient(45deg,	#f85032 0%, #e73827 100%)
+		각도	색상   위치
+
+원형 그레이디언트를 생성할 때는 radial-gradient()함수를 사용
+*/
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>CSS3 그레이디언트</h1>
+    </div>
+</body>
+</html>

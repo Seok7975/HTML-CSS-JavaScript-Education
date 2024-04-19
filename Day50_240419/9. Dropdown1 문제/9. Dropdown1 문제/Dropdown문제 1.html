@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dropdown문제 1</title>
+        <style>
+            .dropdown
+            {
+                position : relative;
+                display : inline-block;
+            }
+
+            .dropdown-content
+            {
+                display : none;
+                position : absolute;
+                background-color : lightpink;
+                min-width : 160px;
+                box-shadow : 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                /* 가로, 세로, 흐림 정도, 퍼짐(확산)정도, 색상 */
+                padding : 12px 16px;
+                z-index : 1;
+            }
+
+            .dropdown:hover .dropdown-content
+            {
+                display : block;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hoverable Dropdown</h1>
+        <p>Move the mouse over the text below to open the dropdown content.</p>
+        
+        <div class="dropdown"><span>Mouse over me</span>
+            <!-- span : inline요소로, 텍스트나 문장의 일부분 감싸는 데 사용
+                        일반적으로 텍스트 스타일링, 스크립트에서 특정 부분
+                        식별할 때 사용-->
+            <div class="dropdown-content"><p>Hello World!</p></div>
+        </div>
+        
+    </body>
+</html>
