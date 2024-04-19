@@ -1,0 +1,22 @@
+다음 내용을 가지는 my_lib.jar 파일을 만들고, 그것을 my_application_1에 등록하고 A클래스의 method와  B클래스의 메소드를 호출해 보자.
+
+// A.java
+
+package pack1;
+
+public class A {
+	public void method() {
+		System.out.println("A-method 실행");
+	}
+}
+
+
+// B.java
+
+package pack2;
+
+public class B {
+	public void method() {
+		System.out.println("B-method 실행");
+	}
+}

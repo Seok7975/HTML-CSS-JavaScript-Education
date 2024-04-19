@@ -1,0 +1,68 @@
+라이브러리
+라이브러리(library)는 프로그램 개발 시 활용할 수 있는 클래스와 인터페이스들을 모아놓은 것을 말한다. 일반적으로 JAR(Java Archive) 압축 파일(~.jar) 형태로 존재한다. JAR 파일에는 클래스와 인터페이스의 바이트크도 파일(~.class) 들이 압축되어 있다.
+
+my_lib 라이브러리 프로젝트 생성
+
+my_lib 프로젝트를 만든다.
+
+다음 두 개의 파일을 만든다.
+
+// A.java
+
+package pack1;
+
+public class A {
+	public void method() {
+		System.out.println("A-method 실행");
+	}
+}
+
+
+// B.java
+
+package pack2;
+
+public class B {
+	public void method() {
+		System.out.println("B-method 실행");
+	}
+}
+
+Package Explorer 뷰에서 my_lib 프로젝트를 선택하고 마우스 오른쪽 버튼을 클릭하여 [New]-[Folder]를 선택해 이름이 dist인 폴더를 생성한다.
+my_lib 프로젝트를 선택하고 마우스 오른쪽 버튼을 클릭해 [Export]를 선택한다. Export 대화상자의 Select an export wizard에서 Java 항목을 확장하면 보이는 JAR fil을 선택한 후 [Next] 버튼을 클릭한다.
+Select the export destination 에서 [Browse] 버튼을 클릭하고, my_lib 프로젝트의 dist  폴더로 이동한다. 파일 이름은 'my_lib.jar'로 입력하고 [저장]과 [Finish] 버튼을 클릭한다.
+Package Explorer 뷰에서 my_lib 프로젝트를 선택하고 마우스 오른쪽 버튼을 클릭해 [Refresh]를 선택한다.
+
+my_application_1 프로젝트 생성
+my_application_1 프로젝트를 이클립스에서 컴파일할 때 라이브러리 파일인 my_lib.jar을 사용하기 위해 Build Path에 추가해보자. Package Explorer 뷰에서 my_application_1 프로젝트를 선택하고 마우스 오른쪽 버튼을 클릭해 [Build Path] - [Configure Build Path]를 선택한다.
+[Libraries] 탭에 들어가 JARs and class folders on the build path에서 Classpath 항목을 선택하고 [Add External JARs] 버튼을 클릭한다. my_lib 프로젝트의 dist 폴더에 있는 my_lib.jar 파일을 선택하고 [열기]와 [Apply and Close] 버튼을 클릭한다. 다시 Package Explorer 뷰에서 my_application_1 픅로젝트를 선택하고 [Build Path] - [Configure Build Path]를 선택하면 라이브러리 파일이 등록된 것을 볼 수 있다.
+
+my_application_1 프로젝트에 다음 소스코드를 작성하고 실행해 본다.
+
+package app;
+
+import pack1.A;
+import pack2.B;
+
+public class Main {
+
+	public static void main(String[] args) {
+		A a = new A();
+		a.method();
+		
+		B b = new B();
+		b.method();
+	}
+
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+라이브러리 프로젝트를 직접 Build Path에 추가하기
+
+라이브러리와 응용프로그램을 동시에 개발하는 경우 my_lib 프로젝트를 my_application_1 프로젝트에서 바로 Build Path에 추가할 수 있다. 이렇게 하면 my_lib 프로젝트를 수정하는 즉시 my_application_1에서 수정된 내용을 사용할 수 있게 된다.
+
+1. my_application_1 프로젝트를 선택하고 마우스 오른쪽 버튼을 클릭하여 [Build Path] - [Configure Build Path] 메뉴를 선택한다.
+2. [Projects] 탭에 들어가 Required projects on the build path에서 Classpath 항목을 선택하고 [Add] 버튼을 클릭한다.
+3. my_lib 프로젝트를 선택한 후 [OK]와 [Apply and Close] 버튼을 차례대로 클릭해 추가한다.
