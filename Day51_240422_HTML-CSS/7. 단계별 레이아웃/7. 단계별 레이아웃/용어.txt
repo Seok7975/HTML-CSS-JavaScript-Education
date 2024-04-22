@@ -1,0 +1,1 @@
+gnb는 global navigation bar를 의미하고 lnb는 local navigation bar를 의미한다. 

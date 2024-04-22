@@ -1,0 +1,7 @@
+1. footer에 다음 내용을 넣도록 하자.
+HTML5 + CSS3 Basic
+Website Layout Basic
+
+Website Layout Basic은 주소태그를 이용한다.
+
+2.layout은 layoutStep5.png 처럼 구성한다.

@@ -1,0 +1,2 @@
+1. layout.html에 기본 layout을 잡고 외부css 파일로 layout.css 파일을 만들어서 링크를 건다.
+2. layout.css에는 공통적으로 적용할 내용을 적는다.

@@ -1,0 +1,79 @@
+<!--
+1. HTML5 Semantic 태그로 header 부분을 구성한다.
+Semantic 태그 참고
+(https://www.w3schools.com/html/html5_semantic_elements.asp)
+
+제목으로 다음 두 줄을 작성한다.
+
+Rint Development
+HTML5 + CSS3 Basic
+
+2. 위에서 쓴 제목에 자신이 마음에 드는 구글 폰트를 사용한다.
+구글 웹 폰트 
+http://www.google.com/webfonts
+
+3. gnb메뉴로 다음을 작성하고
+Web
+Mobile
+Game
+Simulation
+Data
+
+lnb메뉴로 다음을 작성한다.
+HTML5
+CSS3
+JavaScript
+jQuery
+Node.js
+
+(참고:  gnb는 global navigation bar를 의미하고 lnb는 local navigation bar를 의미한다. 웹 페이지를 만들 때 자주 사용하는 용어이므로 기억
+해 둔다.) 
+4. 마우스가 gnb메뉴와 lnb메뉴에 마우스 롤오버시 배경색은 검정색, 글자색은 하얀색으로 하자.
+5. layout은 layoutStep2.png 처럼 작성한다.
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>레이아웃_step2</title>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="layout.css">
+         <!-- HTML 문서에서 외부 CSS 파일을 연결하는 구문 
+         rel="stylesheet" : 현재 문서와 연결된 파일이 스타일시트임을 나타냄 
+         type="text/css" : 연결된 파일의 MIME 타입이 CSS임을 명시 
+         href="layout.css" : 연결할 CSS파일의 경로를 지정, 여기선 layout.css파일을 연결  -->
+    </head>
+    <body>
+        <header id="main_header">
+            <div id="title"> <!-- main_header의 자손아이디 title-->
+                <h1>Rint Development</h1>
+                <h2>HTML5 + CSS3 Basic</h2>
+            </div>
+
+            <nav id="main_gnb"> <!-- gnb메뉴로 다음을 작성-->
+                <ul>
+                    <li><a href="#">Web</a></li>
+                    <li><a href="#">Mobile</a></li>
+                    <li><a href="#">Game</a></li>
+                    <li><a href="#">Simulation</a></li>
+                    <li><a href="#">Data</a></li>
+                </ul>
+            </nav>
+
+            <nav id="main_lnb"> <!-- lnb메뉴로 다음을 작성-->
+                <ul>
+                    <li><a href="#">HTML5</a></li>
+                    <li><a href="#">CSS3</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">jQuery</a></li>
+                    <li><a href="#">Node.js</a></li>
+                </ul>   
+            </nav>
+        </header>
+        <div id="content">
+            <section id="main_section"></section>
+            <aside id="main_aside"></aside>
+        </div>
+        <footer id="main_footer"></footer>
+    </body>
+</html>

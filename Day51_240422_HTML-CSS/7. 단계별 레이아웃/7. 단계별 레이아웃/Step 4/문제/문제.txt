@@ -1,0 +1,19 @@
+1. content에 왼쪽 사이드 메뉴를 작성하자.
+First 메뉴는 다음과 같다.
+
+HTML5 Canvas
+HTML5 Audio
+HTML5 Video
+HTML5 Semantic Web
+
+Second 메뉴는 다음과 같다.
+
+CSS3 Transition
+CSS3 Animation
+CSS3 Border
+CSS3 Box
+
+메뉴가 길어서 메뉴가 다 표시가 안될 때에는 생략표시를 쓰도록 하자.
+
+First 메뉴의 layout은 layoutStep4-1.png와 같다.
+Second 메뉴의 layout은 layoutStep4-2.png와 같다.

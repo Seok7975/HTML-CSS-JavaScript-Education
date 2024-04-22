@@ -1,0 +1,32 @@
+1. HTML5 Semantic 태그로 header 부분을 구성한다.
+Semantic 태그 참고
+(https://www.w3schools.com/html/html5_semantic_elements.asp)
+
+제목으로 다음 두 줄을 작성한다.
+
+Rint Development
+HTML5 + CSS3 Basic
+
+2. 위에서 쓴 제목에 자신이 마음에 드는 구글 폰트를 사용한다.
+구글 웹 폰트 
+http://www.google.com/webfonts
+
+3. gnb메뉴로 다음을 작성하고
+Web
+Mobile
+Game
+Simulation
+Data
+
+lnb메뉴로 다음을 작성한다.
+HTML5
+CSS3
+JavaScript
+jQuery
+Node.js
+
+(참고:  gnb는 global navigation bar를 의미하고 lnb는 local navigation bar를 의미한다. 웹 페이지를 만들 때 자주 사용하는 용어이므로 기억
+해 둔다.) 
+4. 마우스가 gnb메뉴와 lnb메뉴에 마우스 롤오버시 배경색은 검정색, 글자색은 하얀색으로 하자.
+5. layout은 layoutStep2.png 처럼 작성한다.
+
