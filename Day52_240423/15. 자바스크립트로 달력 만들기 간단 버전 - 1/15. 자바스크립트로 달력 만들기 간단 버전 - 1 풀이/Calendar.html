@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>Html Basic</title>
+    <style media="screen">
+      table, tr, th, td{
+        border:1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo"></div>
+    <script>
+        const now = new Date();
+        const curYear = now.getFullYear();
+        const curMonth = now.getMonth();
+        // getMonth() 반환 값 현지 시간 기준 월을 나타내는 
+        // 0에서 11 사이의 정수. 0은 1월, 1은 2월... 을 나타냅니다.
+        const lastDay = getLastDayOfTheMonth();
+        const nowTemp = new Date(curYear, curMonth, 1);
+        const firstDayOfTheWeek = nowTemp.getDay();
+        // getDay() 반환 값 현지 시간에 따라, 주어진 날짜의 요일에 해당하는 
+        // 0 이상 6 이하의 정수. (일요일은 0, 월요일은 1, 화요일은 2, ...)
+
+        let numOfWeeks = Math.ceil((firstDayOfTheWeek+lastDay)/7);
+
+        let cell = 0;
+        let date = 1;
+
+        function getLastDayOfTheMonth()
+        {
+          const lastDayOfTheMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+          let leapYear = true;
+          if( (curYear % 4 == 0) && (curYear % 100 != 0) ) leapYear = true;
+          else if(curYear%400==0) leapYear = true;
+          // if( (curYear % 4 == 0) && (curYear % 100 != 0) || (curYear%400==0) ) leapYear = true;
+          else leapYear = false;
+          lastDayOfTheMonth[1] = leapYear ? 29 : 28;
+          return lastDayOfTheMonth[curMonth];
+        }
+
+        let table =`<table>`;
+        table += `<caption>${curYear}년 ${curMonth + 1}월</caption>`;
+        const dayOfTheWeek = ["일", "월", "화", "수", "목", "금", "토"];
+        table += `<tr>`;
+        for(let i=0;i<dayOfTheWeek.length;i++)
+        {
+          table += `<th>${dayOfTheWeek[i]}</th>`;
+        }
+        table += `</tr>`;
+        for(let i=0;i<numOfWeeks;i++)
+        {
+          table += `<tr>`;
+          for(let j=0;j<7;j++)
+          {
+            if(cell<firstDayOfTheWeek)
+                table += `<td>&nbsp;</td>`;
+            else if(date<=lastDay)
+                table += `<td>${date++}</td>`;
+            else table += `<td>&nbsp;</td>`;
+            cell++;
+          }
+          table += `</tr>`;
+        }
+        table += `</table>`;
+        document.getElementById("demo").innerHTML=table;
+
+    </script>
+  </body>
+</html>
