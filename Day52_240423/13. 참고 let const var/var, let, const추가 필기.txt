@@ -14,7 +14,7 @@ let, const로 선언한 변수 :  block레벨 스코프
                             	// var가 중복되면 정의되지않음 
                            	// => 개발자모드에서 보면 undefinded
 
-            //let, const는 block레벨 스코프
+           			 //let, const는 block레벨 스코프
 			 let num2 = 10;
 			 let num2 = 20;	// num2가 이미 선언되어 있어 에러
 
