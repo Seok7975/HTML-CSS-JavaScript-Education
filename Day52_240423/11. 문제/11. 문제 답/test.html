@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo"></div>
+
+<script>
+    let table = `<table border='1'>`;
+    let num = 1;
+    for(let i=0;i<5;i++){
+        table += `<tr>`;
+        for(let j=0;j<5;j++){            
+            table += `<td>${num++}</td>`;
+        }
+        table += `</tr>`;
+    }
+    table += `</table>`;
+    document.getElementById("demo").innerHTML = table;
+</script>
+</body>
+</html>

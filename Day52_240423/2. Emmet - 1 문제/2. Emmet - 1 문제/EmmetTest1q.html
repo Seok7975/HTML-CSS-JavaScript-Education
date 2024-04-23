@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    #name+.id>ul
+    <!--
+        참고 url https://docs.emmet.io/abbreviations/syntax/
+    -->
+    <!--
+        0. 다음을 emmet로 완성하시오.
+        <div id="name"></div>
+        <div class="id">
+            <ul></ul>
+        </div>
+
+        div#name+div.id>ul
+    -->
+    
+    <!--
+        1. 다음을 emmet로 완성하시오.
+        <div>
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+    
+        div>ul>li + tab
+    -->
+        <div>
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+    <!--
+        2. 다음을 emmet로 완성하시오.
+        <div></div>
+        <h1></h1>
+        <p></p>
+
+        div+h1+p + tab
+    -->
+    <div></div>
+    <h1></h1>
+    <p></p>
+
+    <!--
+        3. 다음을 emmet로 완성하시오.
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        ul>li*5 + tab
+     -->
+     <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+     </ul>
+
+    <!--
+        4. 다음을 emmet로 완성하시오.
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        (ul>li*3)*2 + tab
+    -->
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <!--
+        5. 다음을 emmet로 완성하시오.        
+        <form>
+            <input type="text">
+            <input type="text">
+            <input type="text">
+        </form>
+        <form>
+            <input type="text">
+            <input type="text">
+            <input type="text">
+        </form>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <span></span>
+            <span></span>
+        </ul>
+
+        (form>input*3)*2+ul>li*4+span*2 + tab
+    -->
+    <form action="">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+    </form>
+    <form action="">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+    </form>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <span></span>
+        <span></span>
+    </ul>
+
+    <!--
+        6. 다음을 emmet로 완성하시오.
+        
+        <h1>List</h1>
+        <ul>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+        </ul>   
+
+        hi{List}+ul>li{List}*3 + tab
+    -->
+    <h1>List</h1>
+    <ul>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+    </ul>
+
+    <!--
+        7. 다음을 emmet로 완성하시오.
+        <ul>
+            <li>list1</li>
+            <li>list2</li>
+            <li>list3</li>
+            <li>list4</li>
+            <li>list5</li>
+        </ul>
+
+        ul>li{list$}*5 + tab
+    -->
+
+    <ul>
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+        <li>list5</li>
+    </ul>
+
+    <!--
+        8. 다음을 emmet으로 완성하시오.
+        <ul>
+            <li class="item5"></li>
+            <li class="item4"></li>
+            <li class="item3"></li>
+            <li class="item2"></li>
+            <li class="item1"></li>
+        </ul>    
+
+        ul>li.item$@-*5 + tab   //@- : 역순
+    -->
+    <ul>
+        <li class="item5"></li>
+        <li class="item4"></li>
+        <li class="item3"></li>
+        <li class="item2"></li>
+        <li class="item1"></li>
+    </ul>
+
+    <!--
+        9. 다음을 emmet로 완성하시오.
+        <ul>
+            <li>list3</li>
+            <li>list4</li>
+            <li>list5</li>
+            <li>list6</li>
+            <li>list7</li>
+        </ul>
+
+        ul>li{list#@3}*5   //@n : n부터 출력
+    -->
+    <ul>
+        <li>list3</li>
+        <li>list4</li>
+        <li>list5</li>
+        <li>list6</li>
+        <li>list7</li>
+    </ul>
+    <!--
+        10. 다음을 emmet으로 완성하시오.
+        <ul>
+            <li class="item7"></li>
+            <li class="item6"></li>
+            <li class="item5"></li>
+            <li class="item4"></li>
+            <li class="item3"></li>
+        </ul>        
+
+        ul>li.item$@-3*5      //  3 4 5 6 7을 역순으로
+    -->
+    <ul>
+        <li class="item7"></li>
+        <li class="item6"></li>
+        <li class="item5"></li>
+        <li class="item4"></li>
+        <li class="item3"></li>
+    </ul>
+
+    <!--
+        11. 다음을 emmet로 완성하시오.
+        <h1 id="title"></h1>
+
+        h1#title
+    -->
+    <h1 class="title"></h1>
+    
+    <!--
+        12. 다음을 emmet로 완성하시오.
+        <div id="title"></div>
+    
+        div#title
+    -->
+    <div id="title"></div>
+
+    <!--
+        13. 다음을 emmet으로 완성하시오.
+        <h1 class="title"></h1>
+
+        h1.title + tab
+    -->
+    <h1 class="title"></h1>
+
+    <!--
+        14. 다음을 emmet으로 완성하시오.
+        <div class="main main-title"></div>
+        main과 main-title 두 가지 클래스를 가진 div 요소를 생성
+
+        div.main.main-title
+    -->
+    <div class="main main-title"></div>
+
+    <!--
+        15. 다음을 emmet으로 완성하시오.
+        <input type="password" name="PW" placeholder="Enter Password Please">
+    
+        input[type="password" name="PW" placeholder="Enter Password Please"]
+    -->
+        input <div type="password" name="PW" placeholder="Enter Password Please"></div>
+
+    <!--
+        16. 다음을 emmet으로 완성하시오.
+        <div></div>
+        <div>
+            <p><span></span><em></em></p>
+            <blockquote></blockquote>
+        </div>
+
+        div+div>p>span+em^blockquote + tab    // ^ : 상위단계로
+    -->
+    <div></div>
+    <div>
+        <p><span></span><em></em></p>
+        <blockquote></blockquote>
+    </div>
+
+    <!--
+        17. 다음을 emmet으로 완성하시오.
+        <div></div>
+        <div>
+            <p><span></span><em></em></p>
+        </div>
+        <blockquote></blockquote>
+
+        div+div>p>span+em^^blockquote
+    -->
+        <div></div>
+        <div>
+            <p><span></span><em></em></p>
+            <blockquote></blockquote>
+        </div>
+
+    <!--
+        18. 다음을 emmet으로 완성하시오.
+        <a href="">Click me</a>
+
+        a[href=""]{Click me}
+        a{Click me}
+    -->
+    <a href="">click me</a>    
+
+    <!--
+        19. 다음을 emmet으로 완성하시오.
+        <a href="http://www.naver.com">naver</a>
+
+        a[href="www.naver.com"]{naver}
+    -->
+        <a href="http://www.naver.com">naver</a>
+
+    <!--
+        20. 다음을 emmet으로 완성하시오.
+        <a href="">click</a><b>here</b>
+
+        a{click}+b{here}
+    -->
+        <a href="">click</a><b>here</b>
+        
+    <!--
+        21. 다음을 emmet으로 완성하시오.
+        <p>Click<a href="">here</a>to continue</p>
+
+        p{Click}>a{here}+{to continue}
+    -->
+    <p>Click<a href="">here</a>to continue</p>
+
+    <!--
+        22. 다음을 emmet으로 완성하시오.
+        <p>Click</p>
+        <a href="">here</a>to continue
+
+        p{Click}+a{here}+{to continue}
+    -->
+    <p>Click</p>
+    <a href="">here</a>to continue
+
+    <!--
+        23. 다음을 emmet으로 완성하시오.
+        <select name="" id="menu">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
+
+        select#menu>option*5     // name, value는 기본속성이라 안써도됨
+    -->
+    <select name="" id="menu">
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+    </select>
+    <!--
+        24. 다음을 emmet으로 완성하시오.
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti aliquam veritatis possimus tempora quam rerum sequi repellat ab? Similique incidunt ab, exercitationem laborum excepturi ducimus quod numquam! Unde, placeat nobis.</div>    
+
+        div>Lorem
+    -->
+    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam atque ipsam quae, ea dignissimos illo consectetur necessitatibus eaque, nesciunt ad a facilis hic similique ipsa reiciendis voluptas nihil culpa cum.</div>
+    <!--
+        25. 다음을 emmet으로 완성하시오.
+        <ul>
+            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla dolores illo qui dicta magnam velit fugit voluptatum adipisci laudantium eum modi eveniet repellat culpa eos, tempora aperiam. Quae, consequatur eveniet!</li>
+            <li>Labore hic libero placeat sed delectus vitae dolorum. Delectus quam, libero quod hic quis, voluptatibus similique ad magnam perferendis doloribus quisquam vitae. Facere doloribus aliquam veritatis quisquam. Tenetur, doloremque perferendis.</li>
+            <li>Inventore, vero consectetur minima in necessitatibus quia officia debitis culpa, architecto eveniet similique iure est. Aliquam modi magni minus? Voluptatem expedita tenetur suscipit nesciunt repudiandae fugit autem, laudantium sint modi.</li>
+        </ul>
+
+        ul>li*3>Lorem
+    -->
+
+    <ul>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores molestias mollitia ea unde reprehenderit iure, facere ut ad! Quas ipsam nisi nemo et quisquam deleniti reiciendis sint laborum odio maxime.</li>
+        <li>Mollitia asperiores nostrum quisquam incidunt, beatae dolorem enim iusto sit, dicta necessitatibus numquam voluptatem recusandae accusamus nihil dolore cupiditate facere consectetur esse odit vel architecto. Sapiente voluptatibus magni eos a?</li>
+        <li>Quas perspiciatis dolore omnis nisi repellat dolorum quisquam nulla deserunt, molestias, tempora impedit? Voluptatum alias natus debitis repudiandae harum consequuntur id quisquam cupiditate nihil, optio delectus quas sint deserunt fugiat!</li>
+    </ul>
+    
+    
+</body>
+</html>

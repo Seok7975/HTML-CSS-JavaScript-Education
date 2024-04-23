@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Day52_5.CSS FORM문제</title>
+        <style>
+            input, select
+            {
+                width : 100%;
+                padding : 12px 20px;
+                margin : 8px 0;
+                display : inlin-block;
+                border : 1px solid #ccc;
+                border-radius : 4px;
+                box-sizing : border-box;
+            }
+
+            input[value=Submit]
+            {
+                width: 100%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            input[type=submit]:hover
+            {
+                background-color : #45a049;
+            }
+
+            div
+            {
+                border-radius : 5px;
+                background-color : #f2f2f2;
+                padding : 20px 20px 20px 20px;
+            }
+                        
+        </style>
+    </head>
+    <body>
+        <h2>Using CSS to style an HTML Form</h2>
+
+        <div class="Insert">
+            <form action="/action_page.php">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                <label for="fname">First Name</label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+                <label for="counttry">Country</label>
+                <select name="country" id="country">
+                    <option value="australia">Australia</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>

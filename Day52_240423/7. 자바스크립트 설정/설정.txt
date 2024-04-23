@@ -1,0 +1,15 @@
+1. https://code.visualstudio.com/
+비주얼 스튜디오 코드 다운로드
+
+2. 확장 프로그램 설치
+2-1. Korean Language Pack for Visual Studio Code
+
+3. Visual Studio Code 에서 웹페이지 실행하는 방법
+
+VS Code를 실행
+좌측 하단의 마켓플레이스를 선택
+"open in browser" 를 검색 후, 설치
+.html 파일에서 ALT + B 단축키를 사용하여 웹페이지를 실행
+
+Live Server
+Alt+L, Alt+O	단축키

@@ -1,0 +1,27 @@
+함수 밖에서 선언한 변수 : 전역변수
+let, const로 선언한 변수 :  block레벨 스코프
+
+<html lang="ko">
+<head>
+</head>
+<body>
+	<script>
+		function hi()
+		{
+			var num = 10;	// function레벨 스코프.
+                            // 함수 내부에서만 영향끼침. 웬만하면 쓰지말것
+			var num = 20;	// 중복 선언 가능, 이 경우 이 전 선언 무시
+                            // var가 중복되면 정의되지않음 
+                            // => 개발자모드에서 보면 undefinded
+
+            //let, const는 block레벨 스코프
+			 let num2 = 10;
+			 let num2 = 20;	// num2가 이미 선언되어 있어 에러
+
+			const num3 = 10;
+			num3 =20;	// num3가 상수이기 때문에 에러
+		}
+		document.write(num);
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Html Basic</title>
+  <style media="screen">
+  </style>
+</head>
+
+<body>
+  <script>
+    let now = new Date();	// 객체 생성
+    let curMonth = now.getMonth();
+    let curYear = now.getFullYear();	// 4자리 년도 => curYear = 2024
+    let num;
+    let dayOfTheWeek = ["일", "월", "화", "수", "목", "금", "토"];
+    document.write(num+"<br>");	// undefined
+    document.write(curMonth + "<br>");	//1월이면 0, 2월이면 1...
+    document.write(curYear + "<br>");
+    document.write(dayOfTheWeek[0]);
+  </script>
+</body>
+
+</html>
+
+<!--
+Date api 참고
+https://www.w3schools.com/jsref/jsref_obj_date.asp
+
+tutorial
+https://www.w3schools.com/js/js_dates.asp
+-->

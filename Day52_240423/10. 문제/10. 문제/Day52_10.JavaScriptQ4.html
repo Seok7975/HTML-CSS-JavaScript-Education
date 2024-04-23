@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Day52_10.javaScriptQ4</title>
+    </head>
+    <body>
+        <script>
+            function light(sw)
+            {
+                let pic;    // 변수 pic 선언
+                if(sw==0)
+                {
+                    pic = "pic_bulboff.gif";
+                }
+                else
+                {
+                    pic = "pic_bulbon.gif";
+                }
+                document.getElementById('myImage').src = pic;
+                //id가 'myImage'인 요소의 src 속성에 pic 변수의 값을 대입합니다.
+            }
+        </script>
+
+        <img id="myImage" src="pic_bulboff.gif" width="100" height="180">
+
+        <p>
+            <button type="button" onclick="light(1)">Light On</button>
+            <!-- id가 'myImage'인 이미지 요소를 생성하고, 
+                초기 이미지로 "pic_bulboff.gif"를 설정합니다. -->
+            <button type="button" onclick="light(0)">Light Off</button>
+            <!-- 라이트를 켜고 끄는 버튼을 생성합니다. 
+                클릭 시 해당 버튼에 따라 light 함수를 호출합니다. -->
+        </p>
+    </body>
+</html>
