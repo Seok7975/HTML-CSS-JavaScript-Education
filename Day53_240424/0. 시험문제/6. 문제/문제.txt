@@ -1,0 +1,14 @@
+문제1 JavaScript를 이용하여 화면에 Hello JavaScript라고 출력하자.
+참고
+innerHTML은 HTML의 컨텐츠, 즉 내용에 접근할 수 있는 변수이다. 따라서 innerHTML을 통하여 웹페이지에서 값을 출력해서 보여줄 수 있는 요소인 div, p 등의 내용에 접근을 할 수 있고 화면에 표시를 할 수도 있다.
+
+문제2 JavaScript를 이용하여 버튼을 클릭하면
+"This is a demonstration." 이라는 문자열을 "Hello JavaScript"라는 문자열로 바꾸시오.
+
+문제3 버튼을 클릭하면 
+"JavaScript can change the style of an HTML element."
+라는 문자열의 폰트 사이즈를 25px, 글자 색상을 red, 배경색을 노란색으로 바꿔보자.
+
+문제4
+pic_bulboff.gif와 pic_bulbon.gif 이미지를 이용하여
+Light On이라는 버튼을 클릭하면 pic_bulbon.gif 이미지가 표시되도록 하고 Light Off라는 버튼을 클릭하면 pic_bulboff.gif 이미지가 표시되도록 하자.

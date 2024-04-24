@@ -1,0 +1,21 @@
+table, th, td{
+  border:1px solid black;
+}
+table
+{
+    margin: 0 auto;
+}
+td
+{
+    width:80px;
+    height:40px;
+}
+caption
+{
+    background-color: aqua;
+    font-size:2em;
+}
+th
+{
+    background-color:pink;
+}

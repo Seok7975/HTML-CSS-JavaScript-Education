@@ -1,0 +1,6 @@
+자바스크립트
+onload
+https://www.w3schools.com/JSREF/event_onload.asp
+
+Date
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Date
