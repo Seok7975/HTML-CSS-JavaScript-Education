@@ -1,0 +1,7 @@
+자바스크립트 자료형(Data Type)
+원시 타입(primitive data type)
+boolean, null, undefined, number, string, symbol
+
+원시 타입 외에는 다 객체 타입
+객체타입(object/reference type)
+object
