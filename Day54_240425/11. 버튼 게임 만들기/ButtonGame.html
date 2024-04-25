@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="kor">
+    <head>
+        <meta charset = "utf-8">
+        <title>ButtonGame</title>
+        <style media="screen">
+            #table-container 
+            {
+                width: 312px;
+                height: 300px;
+                margin: 0 auto; /* 가로 중앙 정렬 */
+                /* overflow: hidden; 테이블을 넘치는 내용을 자르도록 설정 */
+            }
+            table
+            {
+                /*border-collapse: collapse;*/ /* 테이블 셀의 경계를 합칩니다. */
+                width : 312px;
+                height : 300px;
+                border : 0;
+            }
+
+            button
+            {
+                width : 100px;
+                height : 100px;
+                background-color : rgb(199, 193, 193);
+                /* border:1px solid black;
+                text-align : center; */
+                line-height: 100px;
+                font-size : 45pt;
+                border-radius: 10px 10px 10px 10px;
+            }
+
+            button:hover
+            {
+                background-color : rgb(240, 234, 234);
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+        <div id="table-container">
+            <div id="demo"></div>
+        </div>
+        <script>
+        
+            
+            const numberArray = new Array(3 ** 2); // [undefinded, ... ]
+            const answer = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+            const LEFT = -1, UP = -3, RIGHT = 1, DOWN = 3;
+
+            function randomNumber() // [0~8] 랜덤 난수 넣기, 0이 빈칸
+            {
+                numberArray[(3**2)-1] = 0;
+
+                for(let i = 0; i < numberArray.length-1; i++)
+                {
+                    numberArray[i] = parseInt(((Math.random())*(3 ** 2)+1));
+                    for(let j = 0; j < i; j++)
+                    {
+                        if(numberArray[j]==numberArray[i])
+                        {
+                            i--;
+                        }
+                    }
+                }
+
+                return numberArray;
+            }
+
+
+            function makeBoard()
+            {
+                randomNumber();
+                let table = ``;
+                let idx = 0;
+                for(let i=0; i<(numberArray.length ** 0.5); i++)
+                {
+                    
+                    for(let j=0; j<(numberArray.length ** 0.5); j++)
+                    {
+                        table +=`<button onclick = 'changeNumber(${idx}, ${numberArray[idx]})'>${numberArray[((numberArray.length ** 0.5)*i)+j]}</button>`;
+                        idx++
+                    }
+                        table +=`<br>`;
+                }
+                
+                document.getElementById("demo").innerHTML=table;
+            }
+
+            function changeNumber(idx, buttonNumber)
+            {
+                let canChangeNumber = findZero(idx, buttonNumber);
+                if(canChangeNumber != false)
+                {
+                    if(canChangeNumber==LEFT)
+                    {
+                        numberArray[idx+LEFT] = buttonNumber;
+                        numberArray[idx] = 0;  
+                    }
+                    
+                    if(canChangeNumber==RIGHT)
+                    {
+                        numberArray[idx+RIGHT] = buttonNumber;
+                        numberArray[idx] = 0;
+                    }
+
+                    if(canChangeNumber==UP)
+                    {
+                        numberArray[idx+UP] = buttonNumber;
+                        numberArray[idx] = 0;
+                    }
+
+                    if(canChangeNumber==DOWN)
+                    {
+                        numberArray[idx+DOWN] = buttonNumber;
+                        numberArray[idx] = 0;
+                    }
+                }  
+                makeBoard(); 
+                if(checkAnswer() == true)
+                {
+                    alert("정답입니다.");
+                }
+            }
+
+            function findZero(idx, buttonNumber)
+            {
+                if( idx%3 != 0 )
+                {
+                    if( numberArray[idx+LEFT]== 0 ) 
+                        return LEFT; // -1
+                }
+                if( (idx+UP)>=0 )
+                {
+                    if( numberArray[idx+UP]==0 )
+                        return UP;  // -3
+                }
+                if( idx%3 != 2 )
+                {
+                    if( numberArray[idx+RIGHT]==0 )
+                        return RIGHT;  // 1
+                }       
+                if( (idx+DOWN) < numberArray.length )
+                {
+                    if( numberArray[idx+DOWN]==0 )
+                        return DOWN;  // 3
+                }
+                return false;
+            }
+
+            function checkAnswer()
+            {
+                for(var i=0;i<numberArray.length;i++)
+                {
+                    if(numberArray[i] != answer[i])
+                        return false;
+                }
+                return true;
+            }
+
+            makeBoard();
+
+        </script>
+    </body>
+</html>
