@@ -1,1 +1,0 @@
-https://tcpschool.com/javascript/js_operator_logic

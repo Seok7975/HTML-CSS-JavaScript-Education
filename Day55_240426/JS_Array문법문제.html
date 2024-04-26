@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>6-1.배열문제</title>
+    </head>
+    <body>
+        
+        <div id="answer1_1"></div>
+        <br>
+        <div id="answer1_2"></div>
+        <br>
+        <div id="answer2"></div>
+        <br>
+        <div id="answer3"></div>
+        <br>
+        <div id="answer4"></div>
+        <br>
+        <div id="answer5"></div>
+        <br>
+        <div id="answer6"></div>
+        <br>
+        <div id="answer7"></div>
+        <script>
+            let fruits = ["Banana", "Orange", "Apple", "Mango"];
+            document.getElementById("answer1_1").innerHTML="1_1. " + fruits.toString();
+            document.getElementById("answer1_2").innerHTML="1_2. " + fruits;
+
+            let fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+            document.getElementById("answer2").innerHTML = "2. " + fruits2.join(" * ");
+
+            const fruits3 = ["Banana", "Orange", "Apple", "Mango"];
+            let item = fruits3.pop(); // Mango 제거
+            document.getElementById("answer3").innerHTML = "3. " + fruits3;
+
+            const fruits4 = ["Banana", "Orange", "Apple", "Mango"];
+            let length = fruits4.push("Kiwi");
+            document.getElementById("answer4").innerHTML = "4. " + length;
+
+            const fruits5 = ["Banana", "Orange", "Apple", "Mango"];
+            let fruit5 = fruits5.shift();
+            document.getElementById("answer5").innerHTML 
+            = "5. fruits의 첫번째 요소를 제거하고 그 요소를 출력 : " + fruits5;
+
+            const fruits6 = ["Banana", "Orange", "Apple", "Mango"];
+            let length6 = fruits6.unshift("Lemon");
+            document.getElementById("answer6").innerHTML
+            = "6. fruits의 첫번째에 " + "Lemon" + "을 추가하고 fruits의 길이를 출력 : " 
+                + length6;
+
+            //7. fruits의 length property를 이용하여 fruits의 마지막에 "Kiwi"를 추가
+            const fruits7 = ["Banana", "Orange", "Apple", "Mango"];
+            fruits7[fruits7.length] = "Kiwi";
+            document.getElementById("answer7").innerHTML 
+            = "7. fruits의 length property를 이용하여 fruits의 마지막에 "+"Kiwi"+"를 추가 : " + fruits7;
+        </script>
+    </body>
+</html>

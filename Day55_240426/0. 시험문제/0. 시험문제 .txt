@@ -1,0 +1,126 @@
+1. 자바의 자료형에 대해 쓰시오.
+
+2. 자바스크립트 주석은?
+
+3. html 주석은?
+
+4. 버튼을 클릭하면 4.png 처럼 메시지가 뜨도록 하시오.
+
+5. 버튼을 클릭하면 콘솔창에 '바나나, 딸기'가 출력되게 하시오.
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title>getElementsByTagName sample</title>
+  </head>
+  <body>
+
+    <p>과일 종류</p>
+
+    <div id="summer">
+        <p>수박</p>
+        <p>사과</p>
+    </div>
+
+    <div id="winter">
+        <p>바나나</p>
+        <p>딸기</p>
+    </div>
+
+    <button>요소 취득</button>
+
+<script>
+</script>
+</body>
+</html>
+
+6. 피연산자의 타입을 반환하는 연산자와 그 예시를 드시오.
+
+7. 크롬에서 빈 페이지를 띄울려면
+
+8.  인덱스상 2번째 요소를 삭제하시오.
+var arr = [1, 2, 3];          // 
+
+9. for in 예시
+
+10. for of 예시
+
+11. 다음 배열의 끝에 "Script"요소 추가
+var arr = [1, true, "Java"];
+
+12. 위의 문제와 다른 방법으로 배열의 끝에 100추가.
+
+13. 다음 자바스크립트의 실행 결과는?
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Array</title>
+</head>
+
+<body>
+
+	<h1>연관 배열</h1>
+
+	<script>
+		var arr = [];		// 비어있는 배열을 생성함.
+		arr["하나"] = 1;	// 숫자 인덱스 대신에 문자열을 인덱스로 배열 요소를 추가함.
+		arr["참"] = true;
+		arr["자바스크립트"] = "JavaScript";
+		
+		document.write(arr["참"] + "<br>");		
+		document.write(arr.length + "<br>");	
+		document.write(arr[0]);					
+	</script>
+	
+</body>
+
+</html>
+
+14. var str = "안녕하세요!";       // 문자열 생성
+다음 위의 문자열에서 '하'를 각기 다른 방법으로 출력해 보기
+
+15. 배열 인지 아닌지 확인 방법
+var arr = [1, true, "JavaScript"]; // 배열 생성
+
+16. 크롬에서 개발자 모드 단축키는?
+
+17. 다음을 자바스크립트로 구현하시오.
+input 상자의 값이 변경되면 alert창으로 'changed'라고 출력.
+input 상자에서 키를 누르면 alert 창으로 'key down!' 이라고 출력.
+night 라는 버튼을 클릭하면 body 태그의 배경색을 블랙으로 글자색을 흰색으로 하자.
+day라는 버튼을 클릭하면 body 태그의 배경색을 흰색으로 글자색을 검은색으로 하자.
+버튼위에 마우스를 올리면 alert창으로 '경고창입니다.'라고 출력.
+
+18. 다음을 자바스크립트로 구현.
+1) 0부터 99사이의 난수를 발생하자.
+2) 넘겨진 두 수 사이의 난수를 발생시켜서 반환하는 함수를 만들자. 
+(10, 50을 넘겨주면 10포함 50 불포함)
+3) 넘겨진 두 수 사이의 난수를 발생시켜서 반환하는 함수를 만들자. 
+(10, 50을 넘겨주면 10포함 50 포함)
+
+19. 다음을 자바스크립트로 구현
+1). 다음을 알파벳순으로 정렬하자.
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+2). 다음을 알파벳 역순으로 정렬하자.
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+3). 다음을 숫자의 크기순으로 정렬하자.
+const points = [40, 100, 1, 5, 25, 10];
+4). 다음의 숫자를 섞자.
+const points = [40, 100, 1, 5, 25, 10];
+
+20. 다음 객체배열을 year 오름차순으로 정렬
+const cars = [
+  {type:"Volvo", year:2016},
+  {type:"Saab", year:2001},
+  {type:"BMW", year:2010}
+];
+
+21. 다음 객체배열을 type을 기준으로 대소문자 상관없이 알파벳순으로 정렬.
+const cars = [
+  {type:"Volvo", year:2016},
+  {type:"Saab", year:2001},
+  {type:"BMW", year:2010}
+];

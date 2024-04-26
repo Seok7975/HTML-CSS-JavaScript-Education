@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang = "ko">
+    <head>
+        <meta charset="utf-8">
+        <title>calendar_step3</title>
+        <style media="screen">
+            table,tr , th, td /* tr : 테이블 행, th : 헤더 셀, td : 데이터 셀 */
+            {
+                border : 1px solid black;
+            }
+            table
+            {
+                margin: 50px auto;
+                padding : 30px 150px 150px 150px;
+            }
+            td
+            {
+                width:80px;
+                height:80px;
+                font-size: large;
+                text-align : center;
+                font-weight: bold;
+                float : center;
+                
+            }
+            td:hover
+            {
+                background-color : rgb(231, 229, 229);
+                color : white;
+            }
+            caption
+            {
+                background-color: aqua;
+                font-size:2em;
+            }
+            th
+            {
+                background-color:pink;
+                color : black;
+            }
+
+            .sunday
+            {
+                color : red;
+            }
+
+            .weekdays
+            {
+                color : black;
+            }
+
+            .saturday
+            {
+                color : rgb(0, 174, 255);
+            }
+            
+            #thisMonth > #now
+            {
+                border: 10px solid transparent; /* 테두리를 설정하고 투명하게 만듭니다. */
+                border-image: linear-gradient(to right, rgba(88, 77, 77, 0), rgb(128, 95, 95), rgba(255, 0, 0, 0)); /* 그라데이션을 설정합니다. */
+                border-image-slice: 1; /* 그라데이션을 테두리에 전체로 적용합니다. */
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div id="aMonthAgo"></div>
+        <div id="thisMonth" class="sunday weekdays saturday time">
+            <div id="now"></div>
+        </div>
+        <div id="aLaterAgo"></div>
+        <script>
+
+            /////////////////////////////////////////////////////////////////
+            const now = new Date();
+            const curYear = now.getFullYear();
+            const curMonth = now.getMonth();
+
+            const lastDay = getLastDayOfTheMonth();
+
+            const nowTemp = new Date(curYear, curMonth, 1);
+            const firstDayOfTheWeek = nowTemp.getDay();
+
+            let numOfWeeks = Math.ceil((firstDayOfTheWeek+lastDay)/7);
+            
+            let cell = 0;
+            let date = 1;
+
+
+            function getLastDayOfTheMonth()
+            {
+                const lastDayOfTheMonth = new Date(curYear, curMonth + 1, 0).getDate();
+                //1월이 0이므로 currentMonth+1
+                return lastDayOfTheMonth;
+            }
+
+            function getTime()      // 현재 시간을 구한다.
+            {
+                let hour = now.getHours();
+                let minute = now.getMinutes();
+                let ampm;
+
+                if (hour >= 12)
+                {
+                    hour -= 12;
+                    ampm = "오후";
+                }
+                else ampm = "오전";
+
+                hour = (hour == 0) ? 12 : hour;     // 정오는 12시로 출력.
+                if (minute < 10) minute = "0" + minute;
+
+                return ampm + hour + ":" + minute;  // 시간을 문자열을 조합하여 리턴
+            }
+
+            let table =`<table>`;
+            table += `<caption class="weekdays">${curYear}년 ${curMonth + 1}월</caption>`;
+            const dayOfTheWeek = ["일", "월", "화", "수", "목", "금", "토"];
+            table += `<tr>`;
+            for(let i=0;i<dayOfTheWeek.length;i++)
+            {
+                
+                if(dayOfTheWeek[i] == "일")
+                {
+                    table += `<th class="sunday">${dayOfTheWeek[i]}</th>`;
+                }
+                else if(dayOfTheWeek[i] == "토")
+                {
+                    table += `<th class="saturday">${dayOfTheWeek[i]}</th>`;
+                }
+                else
+                {
+                    table += `<th class="weekdays">${dayOfTheWeek[i]}</th>`;
+                }
+                
+            }
+            table += `</tr>`;
+            for(let i=0;i<numOfWeeks;i++)
+            {
+                table += `<tr>`;
+                for(let j=0;j<7;j++)
+                {
+                    if(cell<firstDayOfTheWeek)
+                        table += `<td>&nbsp;</td>`;
+                    else if(date<=lastDay)    // 이 부분 수정
+                    {   
+
+                        if(j==0)
+                        {
+                            table += `<td class="sunday">${date}`;
+                        }
+                        else if(j==6)
+                        {
+                            table += `<td class="saturday">${date}`;
+                        }
+                        else
+                        {
+                            table += `<td class="weekdays">${date}`;
+                        }
+                         if(date == now.getDate())
+                         {
+                                 table += `<br>${getTime()}`;
+                         }
+                            
+                         
+                        table += `</td>`;
+                        date++;
+                    }
+                    else table += `<td>&nbsp;</td>`;
+                    cell++;
+                }
+                table += `</tr>`;
+            }
+            table += `</table>`;
+            document.getElementById("thisMonth").innerHTML=table;
+        </script>
+    </body>
+
+
+</html>

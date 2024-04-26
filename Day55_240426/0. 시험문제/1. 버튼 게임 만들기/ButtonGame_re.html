@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset = "utf-8">
+        <title>Test55_ButtonGame_Re</title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="table-container">
+            <div id="game"></div>
+        </div>
+        <script>
+            let numberArray = new Array(3**2);
+            let answer = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+            
+            function makeBoard
+            {
+                if (executeCount == 0)
+                {
+                    numberArray[(3**2)-1] = 0;
+                    for(let i=0; i<numberArray.length-1; i++)
+                    {
+                        numberArray[i] = parseInt((Math.random()*((3**2)-1)))+1;
+                        for(let j=0; j<i; j++)
+                        {
+                            if(numberArray[j] == numberArray[i])
+                            {
+                                i--;
+                            }    
+                        }
+                    }
+                }
+                
+                let table = ``;
+                let idx = 0;
+
+                for(let i=0; i<3; i++)
+                {
+                    for(let j=0; j<3; j++)
+                    {
+                        table = `<button onclick = 'changeNumber(${idx}, ${numberArray[idx]})'>${numberArray[((numberArray.length ** 0.5)*i)+j]}</button>`;
+                    }
+                }
+                
+            }
+        </script>
+    </body>
+</html>

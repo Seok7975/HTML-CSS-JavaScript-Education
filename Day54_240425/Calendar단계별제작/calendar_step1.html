@@ -65,7 +65,7 @@
             {
                 // const lastDayOfTheMonth
                 // = [31, 28, 31, 30, 31, 30, 31, 31 , 30, 31, 30, 31];
-                const lastDayOfTheMonth = new Date(curYear, curMonth, 0).getDate();
+                const lastDayOfTheMonth = new Date(curYear, curMonth+1, 0).getDate();
                 return lastDayOfTheMonth;
                 //윤년 구하는 알고리즘
                 // let leapYear = false;   //true면 2월의 마지막 날은 29일

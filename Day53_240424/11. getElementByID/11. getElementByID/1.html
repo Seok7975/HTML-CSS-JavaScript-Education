@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title>getElementsByTagName sample</title>
+  </head>
+  <body>
+
+    <p>과일 종류</p>
+
+    <div>
+      <p>수박</p>
+      <p>사과</p>
+    </div>
+
+    <div>
+      <p>바나나</p>
+      <p>딸기</p>
+    </div>
+
+    <button onClick="getElements();">요소 취득</button>
+
+<script>
+function getElements(){
+    
+    let elements = document.getElementsByTagName('p');
+    let len = elements.length;
+    
+    for (let i = 0; i < len; i++){
+        console.log('Text: ' + elements.item(i).textContent);
+    }
+}
+</script>
+</body>
+</html>

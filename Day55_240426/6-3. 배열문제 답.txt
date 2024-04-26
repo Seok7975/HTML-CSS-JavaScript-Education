@@ -1,0 +1,437 @@
+1. const numbers = [45, 4, 9, 16, 25];
+배열의 모든 요소를 forEach 메소드를 이용하여 출력하시오.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array.forEach()</h2>
+<p>Calls a function once for each array element.</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+numbers.forEach(myFunction);
+document.getElementById("demo").innerHTML = txt;
+
+function myFunction(value) {
+  txt += value + "<br>"; 
+}
+</script>
+
+</body>
+</html>
+
+2. 다음 배열의 각 요소를 2배 곱해서 새로운 배열을 만드시오. map 이용.
+const numbers1 = [45, 4, 9, 16, 25];
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array.map()</h2>
+<p>Creates a new array by performing a function on each array element.</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers1 = [45, 4, 9, 16, 25];
+const numbers2 = numbers1.map(myFunction);
+
+document.getElementById("demo").innerHTML = numbers2;
+
+function myFunction(value, index, array) {
+  return value * 2;
+}
+</script>
+
+</body>
+</html>
+
+3. 다음 배열에서 18이상인것만을 가지고 새로운 배열을 만드시오.
+filter 이용
+const numbers = [45, 4, 9, 16, 25];
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array.filter()</h2>
+<p>Creates a new array with all array elements that passes a test.</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [45, 4, 9, 16, 25];
+const over18 = numbers.filter(myFunction);
+
+document.getElementById("demo").innerHTML = over18;
+
+function myFunction(value) {
+  return value > 18;
+}
+</script>
+
+</body>
+</html>
+
+4. 다음 배열의 모든 요소를 더해서 출력하시오.
+reduce 이용
+const numbers = [45, 4, 9, 16, 25];
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array.reduce()</h2>
+<p>This example finds the sum of all numbers in an array:</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [45, 4, 9, 16, 25];
+let sum = numbers.reduce(myFunction);
+
+document.getElementById("demo").innerHTML = "The sum is " + sum;
+
+function myFunction(total, value, index, array) {
+  return total + value;
+}
+</script>
+
+</body>
+</html>
+
+5. 다음 배열을 초기값을 100으로 해서 모든 요소를 더해서 출력하시오.
+reduceRight 이용
+const numbers = [45, 4, 9, 16, 25];
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array.reduce()</h2>
+<p>This example finds the sum of all numbers in an array:</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [45, 4, 9, 16, 25];
+let sum = numbers.reduce(myFunction, 100);
+
+document.getElementById("demo").innerHTML = "The sum is " + sum;
+
+function myFunction(total, value) {
+  return total + value;
+}
+</script>
+
+</body>
+</html>
+
+6. 다음 배열을 오른쪽에서 왼쪽으로 모두 더하시오.
+const numbers = [45, 4, 9, 16, 25];
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array.reduceRight()</h2>
+<p>This example finds the sum of all numbers in an array:</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [45, 4, 9, 16, 25];
+let sum = numbers.reduceRight(myFunction);
+
+document.getElementById("demo").innerHTML = "The sum is " + sum;
+
+function myFunction(total, value, index, array) {
+  return total + value;
+}
+</script>
+
+</body>
+</html>
+
+7. 다음 배열의 모든 요소가 18을 초과하면 true를 아니면 false를 출력하시오.
+const numbers = [45, 4, 9, 16, 25];
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array.every()</h2>
+<p>The every() method checks if all array values pass a test.</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [45, 4, 9, 16, 25];
+let allOver18 = numbers.every(myFunction);
+
+document.getElementById("demo").innerHTML = "All over 18 is " + allOver18;
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+</script>
+
+</body>
+</html>
+
+8. 다음 배열의 요소들 중 18을 넘는 요소가 있다면 true를 아니면 false를 출력하시오.
+const numbers = [45, 4, 9, 16, 25];
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array.some()</h2>
+<p>The some() method checks if some array values pass a test.</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [45, 4, 9, 16, 25];
+let someOver18 = numbers.some(myFunction);
+
+document.getElementById("demo").innerHTML = "Some over 18 is " + someOver18;
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+</script>
+
+</body>
+</html>
+
+9. 다음 배열에서 "Apple"이 있다면 그 인덱스를 출력하시오.(왼쪽에서 부터 검색. 첫번째로 찾은 요소)
+const fruits = ["Apple", "Orange", "Apple", "Mango"];
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array.indexOf()</h2>
+
+<p id="demo"></p>
+
+<script>
+const fruits = ["Apple", "Orange", "Apple", "Mango"];
+let position = fruits.indexOf("Apple");
+
+document.getElementById("demo").innerHTML = "Apple is found in position " + position;
+</script>
+
+</body>
+</html>
+
+10. 다음 배열에서 "Apple"이 있다면 그 인덱스를 출력하시오.(오른쪽에서 부터 검색. 첫번째로 찾은 요소)
+const fruits = ["Apple", "Orange", "Apple", "Mango"];
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array.lastIndexOf()</h2>
+<p id="demo"></p>
+
+<script>
+const fruits = ["Apple", "Orange", "Apple", "Mango"];
+let position = fruits.lastIndexOf("Apple") + 1;
+
+document.getElementById("demo").innerHTML = "Apple is found in position " + position;
+</script>
+
+</body>
+</html>
+
+11. 다음 배열에서 18이 넘는 첫번째 요소를 찾아서 그 요소를 출력하시오.
+const numbers = [4, 9, 16, 25, 29];
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array.find()</h2>
+<p id="demo"></p>
+
+<script>
+const numbers = [4, 9, 16, 25, 29];
+let first = numbers.find(myFunction);
+
+document.getElementById("demo").innerHTML = "First number over 18 is " + first;
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+</script>
+
+</body>
+</html>
+
+12. 다음 배열에서 처음으로 18을 넘는 첫번째 요소의 인덱스를 출력하시오.
+const numbers = [4, 9, 16, 25, 29];
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array.findIndex()</h2>
+<p id="demo"></p>
+
+<script>
+const numbers = [4, 9, 16, 25, 29];
+
+document.getElementById("demo").innerHTML = "First number over 18 has index " + numbers.findIndex(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+</script>
+
+</body>
+</html>
+
+13. 다음 문자열을 배열로 만드시오.
+"ABCDEFG"
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p>The Array.from() method returns an Array object from any object with a length property or any iterable object.</p>
+
+<p id="demo"></p>
+
+<script>
+const myArr = Array.from("ABCDEFG");
+document.getElementById("demo").innerHTML = myArr;
+</script>
+
+<p>The Array.from() method is not supported in Internet Explorer.</p>
+
+</body>
+</html>
+
+14. 다음 배열로 부터 Array Iterator object 를 만들어서 각 요소를 출력하시오.
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p>The Array.keys() method returns an Array Iterator object with the keys of the array.</p>
+
+<p id="demo"></p>
+
+<script>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const keys = fruits.keys();
+
+let text = "";
+for (let x of keys) {
+  text += x + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+<p>Array.keys() is not supported in Internet Explorer.</p>
+
+</body>
+</html>
+
+15. 다음 배열에서 key와 value로 이루어진 Array Iterator를 만들어서 각 요소를 출력하시오.
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Arrays</h1>
+<h2>The entries() method</h2>
+
+<p>entries() returns an Array Iterator object with key/value pairs:</p>
+
+<p id="demo"></p>
+
+<script>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const f = fruits.entries();
+
+for (let x of f) {
+  document.getElementById("demo").innerHTML += x + "<br>";
+}
+</script>
+
+<p>The entries() method is not supported in Internet Explorer 11 (or earlier).</p>
+
+</body>
+</html>
+
+16. 다음 배열이 "Mango"을 포함하고 있으면 true 아니면 false를 출력하시오.
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Array includes()</h1>
+
+<p>Check if the fruit array contains "Mango":</p>
+
+<p id="demo"></p>
+
+<p><strong>Note:</strong> The includes method is not supported in Edge 13 (and earlier versions).</p>
+
+<script>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.includes("Mango");
+</script>
+
+</body>
+</html>
+
+17. 다음 배열들을 Spread 연산자를 이용하여 하나의 배열로 만드시오.
+
+const q1 = ["Jan", "Feb", "Mar"];
+const q2 = ["Apr", "May", "Jun"];
+const q3 = ["Jul", "Aug", "Sep"];
+const q4 = ["Oct", "Nov", "May"];
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Operators</h1>
+<h2>The ... Operator</h2>
+
+<p>The "spread" operator spreads elements of iterable objects:</p>
+
+<p id="demo"></p>
+
+<script>
+const q1 = ["Jan", "Feb", "Mar"];
+const q2 = ["Apr", "May", "Jun"];
+const q3 = ["Jul", "Aug", "Sep"];
+const q4 = ["Oct", "Nov", "May"];
+
+const year = [...q1, ...q2, ...q3, ...q4];
+document.getElementById("demo").innerHTML = year; 
+</script>
+
+</body>
+</html>

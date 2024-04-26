@@ -1,0 +1,16 @@
+table
+{
+    margin: 0 auto;
+}
+
+table, th, td
+{
+    border-style:solid;
+    border-width: 1;
+}
+
+th, td
+{
+    width:80px;
+    height:40px;
+}

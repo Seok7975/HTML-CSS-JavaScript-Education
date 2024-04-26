@@ -1,0 +1,5 @@
+달의 마지막 날 구하기
+new Date(2024, 2, 0).getDate();	// 2024년 2월의 마지막 날.
+
+
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate
