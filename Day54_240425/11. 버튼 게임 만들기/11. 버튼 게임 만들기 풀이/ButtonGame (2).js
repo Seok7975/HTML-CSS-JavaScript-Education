@@ -1,0 +1,96 @@
+let text = "";
+let num = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+let answer = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+const LEFT = -1, UP = -3, RIGHT = 1, DOWN = 3;
+
+function shuffle()
+{
+    num.sort(function(a,b){return 0.5 - Math.random()});
+}
+
+function display()
+{
+
+    text ="";
+    let idx = 0;
+    for(let i=0;i<3;i++)
+    {
+        for(let j=0;j<3;j++)
+        {
+            text += `<button onclick='move(${idx}, ${num[idx]})'>${num[idx]}</button>`;
+            idx++;
+        }
+        text += "<br>"
+    }
+    document.getElementById("game").innerHTML = text;  
+}
+function move(idx, btnNum)
+{
+    let pointOfTheCompass = whereIsZero(idx, btnNum);
+    if( pointOfTheCompass != -100)
+    {
+        if( pointOfTheCompass == LEFT )
+        {
+            num[idx+LEFT] = btnNum;
+            num[idx] = 0;       
+        }
+        else if( pointOfTheCompass == UP )
+        {
+            num[idx+UP] = btnNum;
+            num[idx] = 0;       
+        }
+        else if( pointOfTheCompass == RIGHT )
+        {
+            num[idx+RIGHT] = btnNum;
+            num[idx] = 0;       
+        }
+        else if( pointOfTheCompass == DOWN)
+        {
+            num[idx+DOWN] = btnNum;
+            num[idx] = 0;       
+        }
+
+        display();        
+        if( result() ) alert("정답입니다.");
+    }
+}
+function whereIsZero(idx, btnNum)
+{
+    if( idx%3 != 0 )
+    {
+        if( num[idx+LEFT]== 0 ) 
+            return LEFT;
+    }
+    if( (idx+UP)>=0 )
+    {
+        if( num[idx+UP]==0 )
+            return UP;
+    }
+    if( idx%3 != 2 )
+    {
+        if( num[idx+RIGHT]==0 )
+            return RIGHT;
+    }       
+    if( (idx+DOWN) < num.length )
+    {
+       if( num[idx+DOWN]==0 )
+            return DOWN;
+    }
+    return -100;   
+}
+function init()
+{
+    shuffle();
+    display();
+}
+function result()
+{
+    for(var i=0;i<num.length;i++)
+    {
+        if(num[i] != answer[i])
+            return false;
+    }
+    return true;
+}
+
+window.onload = init;

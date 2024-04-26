@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset = "utf-8">
+    <title>calender_step2</title>
+    <style media="screen">
+        table,tr , th, td /* tr : 테이블 행, th : 헤더 셀, td : 데이터 셀 */
+        {
+            border : 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo"></div>
+    <script>
+        const now_Time = new Date();
+        const currentYear = now_Time.getFullYear();
+        const currentMonth = now_Time.getMonth(); //0=1월 ~ 11=12월
+        const lastDay = getLastDayOfTheMonth();
+        const now_Time_Temp = new Date(currentYear, currentMonth, 1);
+        //1일의 날짜를 나타내는 Date 객체를 생성
+        //date(년, 월, 일, 시, 분, 초...)
+        //now_Time_Temp 변수는 현재 연도와 월의 1일을 나타내는 Date 객체를 가리킵니다.
+        const firstDayOfTheWeek = now_Time_Temp.getDay();
+        //일요일=0 ~ 토요일=7
+        
+        let numOfWeeks = Math.ceil((firstDayOfTheWeek + lastDay)/7);
+        let cell = 0;
+        let date = 1;
+
+        function getLastDayOfTheMonth()
+        {
+            const lastDayOfTheMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            //1월이 0이므로 currentMonth+1
+            return lastDayOfTheMonth;
+
+            // const lastDayOfTheMonth
+            // = [31, 28, 31, 30, 31, 30, 31, 31 , 30, 31, 30, 31];
+            //윤년 구하는 알고리즘
+            // let leapYear = false;   //true면 2월의 마지막 날은 29일
+            // if (currentYear % 4 == 0) // 4로 나눠떨어지면서
+            // {
+            //     if ((currentYear % 100 != 0) && (currentYear % 400 == 0)) 
+            //     // 100년으로 나눠떨어지지 않으면서 400년에 떨어지는
+            //     {
+            //         leapYear = true;
+            //     }
+            //     else
+            //     {
+            //         leapYear = false;
+            //     }
+            // }
+            // else leapYear = false;
+            //  lastDayOfTheMonth[1] = leapYear ? 29 : 28;
+            //  cf)어, 근데 왜 const인데 값을 바꿀 수 있지?
+            //      배열이므로 객체의 주소값은 못바꾸나, 
+            //      주소 안에 들어있는 요소 값은 바꿀 수 있다. 
+            //  return lastDayOfTheMonth[currentMonth];
+        }
+
+        function getTime() // 현재 시간 구하는 함수
+        {
+            let hour = now_Time.getHours();
+            let minute = now_Time.getMinutes();
+            let am_pm;
+
+            if(hour >= 12)
+            {
+                hour -= 12;
+                am_pm = "오후";
+            }
+            else
+            {
+                am_pm = "오전";
+            }
+
+            hour = ((hour == 0) ? 12 : hour);  // 정오는 12시로 출력.
+            if(minute <10)
+            {
+                minute = "0" + minute;
+            }
+
+            return am_pm + hour + ":" + minute // 시간을 문자열과 조합해 리턴
+        }
+
+        let table =`<table>`;
+        //'<table>' : 문자열로 해석
+        //`<table>` : html문서에서 실제 요소로 나타냄
+        table += `<caption>${currentYear}년 ${currentMonth + 1}월</caption>`;
+        //$ jQuery함수를 호출하는데 사용
+        const dayOfTheWeek = ["일", "월", "화", "수", "목", "금", "토"];
+        
+        table += `<tr>`;
+        for(let i=0; i<dayOfTheWeek.length; i++)
+        {
+            table += `<th>${dayOfTheWeek[i]}</th>`;
+        }
+        table += `</tr>`;
+        for(let i=0;i<numOfWeeks;i++)
+        {
+          table += `<tr>`;
+          for(let j=0;j<7;j++)
+          {
+            if(cell<firstDayOfTheWeek)
+                table += `<td>&nbsp;</td>`;
+            else if(date<=lastDay)    // 이 부분 수정
+            {
+              table += `<td>${date}`;
+              if(date == now_Time.getDate())
+                table += `<br>${getTime()}`;
+              table += `</td>`;
+              date++;
+            }
+            else table += `<td>&nbsp;</td>`;
+            cell++;
+          }
+          table += `</tr>`;
+        }
+        table += `</table>`;
+    document.getElementById("demo").innerHTML=table;
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+1. 자바스크립트 기본자료형에 대해 서술하시오.
+원시 타입(primitive data type)
+Boolean
+Null
+Undefinded
+Number
+String
+Symbol
+
+객체타입(object/reference type)
+object
+
+2. 자료형의 타입을 알려주는 연산자는?
+typeof
+
+3. 콘솔창에 'Hello'를 출력할려면?
+console.log('Hello');
+
+4. 크롬에 내용이 없는 빈 창을 띄울려면?
+window.open('about:blank')
+혹은
+주소창에 about:blank
+
+5. 크롬에서 개발자 모드를 실행하는 단축키는?
+F12
+
+6. false로 인식되는 것에 대한 예시를 드시오.
+var foo = null;
+console.log(typeof foo === null);	// foo의 타입은 오브젝트
+
+숫자중 0은 false로 인식
+if(0) console.log("hi");  // undefined
+
+값이 없으면 false로 인식
+if("") console.log("hi"); // undefined
+
+NaN도 false로 인식
+
+7. true로 인식되는 것에 대한 예시를 드시오.
+var foo = null;
+console.log(foo === null);
+
+if(5) console.log("hi"); // hi
+
+공백은 값이 있으므로 true
+if(" ") console.log("hi"); // hi

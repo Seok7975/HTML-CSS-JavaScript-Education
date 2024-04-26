@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset = "utf-8">
+        <title>calender_step1</title>
+        <style media="screen">
+            table, tr, th, td
+            /* 
+            tr : table row, 테이블 행, 
+            td : table data, 셀, 
+            th : table header, 헤더
+            */
+
+            /*
+            <table>
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                </tr>
+                <tr>
+                    <td>홍길동</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>이순신</td>
+                    <td>40</td>
+                </tr>
+            </table>
+
+            이름       나이
+            홍길동     30
+            이순신     40
+            */  
+            {
+              border:1px solid black;
+            }
+          </style>
+    </head>
+    <body>
+        <div id="demo"></div>
+        <script>
+            const now = new Date();
+            const curYear = now.getFullYear();
+            const curMonth = now.getMonth();
+            // getMonth() 반환 값 현지 시간 기준 월을 나타내는 
+            // 0에서 11 사이의 정수. 0은 1월, 1은 2월... 을 나타냅니다.
+            const lastDay = getLastDayOfTheMonth();
+            //현재 월의 마지막 날짜를 가져옴.
+            const nowTemp = new Date(curYear, curMonth, 1);
+            //1일의 날짜를 나타내는 Date 객체를 생성
+            //date(년, 월, 일, 시, 분, 초...)
+            //nowTemp 변수는 현재 연도와 월의 1일을 나타내는 Date 객체를 가리킵니다.
+        
+            const firstDayOfTheWeek = nowTemp.getDay();
+            // getDay() 반환 값 현지 시간에 따라, 주어진 날짜의 요일에 해당하는 
+            // 0 이상 6 이하의 정수. (일요일은 0, 월요일은 1, 화요일은 2, ...)
+
+            let numOfWeeks = Math.ceil((firstDayOfTheWeek+lastDay)/7);
+            // 그 달의 주수를 구하는 공식
+
+            let cell = 0;
+            let date = 1;
+
+            function getLastDayOfTheMonth() // 28, 29, 30, 31일 구하는 함수
+            {
+                // const lastDayOfTheMonth
+                // = [31, 28, 31, 30, 31, 30, 31, 31 , 30, 31, 30, 31];
+                const lastDayOfTheMonth = new Date(curYear, curMonth, 0).getDate();
+                return lastDayOfTheMonth;
+                //윤년 구하는 알고리즘
+                // let leapYear = false;   //true면 2월의 마지막 날은 29일
+                // if (curYear % 4 == 0) // 4로 나눠떨어지면서
+                // {
+                //     if ((curYear % 100 != 0) && (curYear % 400 == 0)) 
+                //     // 100년으로 나눠떨어지지 않으면서 400년에 떨어지는
+                //     {
+                //         leapYear = true;
+                //     }
+                //     else
+                //     {
+                //         leapYear = false;
+                //     }
+                // }
+                // else leapYear = false;
+                //  lastDayOfTheMonth[1] = leapYear ? 29 : 28;
+                //  cf)어, 근데 왜 const인데 값을 바꿀 수 있지?
+                //      배열이므로 객체의 주소값은 못바꾸나, 
+                //      주소 안에 들어있는 요소 값은 바꿀 수 있다. 
+                //  return lastDayOfTheMonth[curMonth];
+            }
+
+            let table = `<table>`;
+            table += `<caption>${curYear}년 ${curMonth + 1}월</caption>`;
+            // ${}는 JavaScript에서 문자열 템플릿 리터럴(template literal) 문법 
+            // 이를 사용하면 문자열 안에 변수나 표현식을 삽입
+            const dayOfTheWeek = ["일", "월", "화", "수", "목", "금", "토"];
+            table += `<tr>`;
+            for(let i=0; i<numOfWeeks; i++)
+            {
+                table += `<tr>`;
+                for(let j=0;j<7;j++)
+                {
+                    if(cell<firstDayOfTheWeek)
+                        table += `<td>&nbsp;</td>`;
+                    else if(date<=lastDay)
+                        table += `<td>${date++}</td>`;
+                    else table += `<td>&nbsp;</td>`;
+                    cell++;
+                }
+                table += `</tr>`;
+            }
+            document.getElementById("demo").innerHTML=table;
+
+        </script>
+    </body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달력 출력</title>
+</head>
+<body>
+    <h1>달력 출력 프로그램</h1>
+    <form id="calendarForm">
+        <label for="year">년도:</label>
+        <input type="number" id="year" name="year" required><br><br>
+        <label for="month">월:</label>
+        <input type="number" id="month" name="month" min="1" max="12" required><br><br>
+        <button type="submit">달력 출력</button>
+    </form>
+    <div id="calendarOutput"></div>
+
+    <script>
+        document.getElementById('calendarForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const year = document.getElementById('year').value;
+            const month = document.getElementById('month').value;
+            if (year < 0 || month < 1 || month > 12) {
+                alert('입력이 잘못되었습니다.');
+                return;
+            }
+            printCalendar(parseInt(year), parseInt(month));
+        });
+
+        function printCalendar(year, month) {
+            const firstDate = new Date(year, month - 1, 1);
+            let day = firstDate.getDay();
+            let date = 1;
+
+            let calendarHTML = month >= 10 ? `<h2>${year}년 ${month}월</h2>` : `<h2>${year}년 0${month}월</h2>`;
+            calendarHTML += '<table>';
+            calendarHTML += '<tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>';
+            calendarHTML += '<tr>';
+
+            for (let i = 0; i < day; i++) {
+                calendarHTML += '<td></td>';
+            }
+
+            const lastDate = new Date(year, month, 0).getDate();
+            for (let i = 1; i <= lastDate; i++) {
+                calendarHTML += `<td>${i < 10 ? '0' : ''}${i}</td>`;
+                day++;
+                if (day % 7 === 0) {
+                    calendarHTML += '</tr><tr>';
+                }
+            }
+            calendarHTML += '</tr>';
+            calendarHTML += '</table>';
+
+            document.getElementById('calendarOutput').innerHTML = calendarHTML;
+        }
+    </script>
+</body>
+</html> -->
