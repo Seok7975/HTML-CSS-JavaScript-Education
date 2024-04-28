@@ -6,16 +6,16 @@
         <style media="screen">
             #table-container 
             {
-                width: 330px;
-                height: 330px;
+                width: 312px;
+                height: 300px;
                 margin: 0 auto; /* 가로 중앙 정렬 */
                 /* overflow: hidden; 테이블을 넘치는 내용을 자르도록 설정 */
             }
             table
             {
                 /*border-collapse: collapse;*/ /* 테이블 셀의 경계를 합칩니다. */
-                width : 330px;
-                height : 33q0px;
+                width : 312px;
+                height : 300px;
                 border : 0;
             }
 
@@ -27,16 +27,14 @@
                 /* border:1px solid black;
                 text-align : center; */
                 line-height: 100px;
-                font-size : 40pt;
+                font-size : 45pt;
                 border-radius: 10px 10px 10px 10px;
-                
             }
 
             button:hover
             {
                 background-color : rgb(240, 234, 234);
             }
-
 
 
 
@@ -47,12 +45,11 @@
             <div id="demo"></div>
         </div>
         <script>
-        
             
             let numberArray = new Array(3 ** 2); // [undefinded, ... ]
             let answer = [1, 2, 3, 4, 5, 6, 7, 8, 0];
-            let executeCount = 0;
             const LEFT = -1, UP = -3, RIGHT = 1, DOWN = 3;
+            let executeCount =0;
 
             function randomNumber() // [0~8] 랜덤 난수 넣기, 0이 빈칸
             {
@@ -60,10 +57,10 @@
 
                 for(let i = 0; i < numberArray.length-1; i++)
                 {
-                    numberArray[i] = parseInt( (Math.random()*((3 ** 2)-1))+1); // 0<= <8  ->  1<= <9
+                    numberArray[i] = parseInt(((Math.random())*(3 ** 2)+1));
                     for(let j = 0; j < i; j++)
                     {
-                        if(numberArray[j]==numberArray[i])
+                        if(numberArray[j]==numberArray[i] || numberArray[i] == 9)
                         {
                             i--;
                         }
@@ -73,12 +70,13 @@
                 return numberArray;
             }
 
-
             function makeBoard()
             {
+                
                 if (executeCount == 0)
                 {
                     randomNumber();
+                    executeCount++;
                 }
 
                 let table = ``;
@@ -88,45 +86,43 @@
                     
                     for(let j=0; j<(numberArray.length ** 0.5); j++)
                     {
-
                         table +=`<button onclick = 'changeNumber(${idx}, ${numberArray[idx]})'>${numberArray[((numberArray.length ** 0.5)*i)+j]}</button>`;
-                        //button onclick 요소를 실행할 시 changeNumber(인덱스, 그 인덱스의 번호) 실행, 3단위로 끊어 버튼테이블 생성
                         idx++
-                         
                     }
                         table +=`<br>`;
                 }
-                executeCount++;
+                
                 document.getElementById("demo").innerHTML=table;
+                //ID가 deomo인 요소를 찾아, table을 넣어라!
             }
 
             function changeNumber(idx, buttonNumber)
             {
                 let canChangeNumber = findZero(idx, buttonNumber);
-                if(canChangeNumber != false)
+                if(canChangeNumber != -100)
                 {
                     if(canChangeNumber==LEFT)
                     {
-                        numberArray[idx+LEFT] = buttonNumber;   
+                        numberArray[idx+LEFT] = buttonNumber;
                         numberArray[idx] = 0;  
                     }
                     
-                    if(canChangeNumber==RIGHT)
+                    else if(canChangeNumber==RIGHT)
                     {
                         numberArray[idx+RIGHT] = buttonNumber;
                         numberArray[idx] = 0;
                     }
 
-                    if(canChangeNumber==UP)
+                    else if(canChangeNumber==UP)
                     {
                         numberArray[idx+UP] = buttonNumber;
                         numberArray[idx] = 0;
                     }
 
-                    if(canChangeNumber==DOWN)
+                    else if(canChangeNumber==DOWN)
                     {
                         numberArray[idx+DOWN] = buttonNumber;
-                        numberArray[idx] = 0;
+                        numberArray[idx] = 0;   
                     }
                 }  
                 makeBoard(); 
@@ -159,7 +155,7 @@
                     if( numberArray[idx+DOWN]==0 )
                         return DOWN;  // 3
                 }
-                return false;
+                return -100;
             }
 
             function checkAnswer()
@@ -167,18 +163,16 @@
                 for(var i=0;i<numberArray.length;i++)
                 {
                     if(numberArray[i] != answer[i])
+                    {
                         return false;
+                    }
+                        
                 }
                 return true;
             }
 
-            makeBoard();
-            //window.onload = makeBoard;
+            window.onload = makeBoard;
 
         </script>
     </body>
 </html>
-
-
-
-<!-- 0이 있는 곳을 빈셀로 표시를 어떻게할까? 공백을 주니까 셀이 이상해짐 -->
