@@ -1,0 +1,25 @@
+<!--
+    2. 2-1.png와 2-2.png를 참고하여, 이름 가져오기 버튼을 클릭하면 input 상자에 있는 이름을 가져와서 출력하자.
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test56_input상자 안의 이름 가져오기</title>
+    </head>
+    <body>
+        <input type="button" onclick="getName()" value="이름 가져오기">
+        <input type="text" id="name" placeholder="홍길동">
+        <p id="demo"></p>
+        <script>
+            function getName()
+            {
+                let name = document.getElementById("name").value;
+                document.getElementById("demo").innerHTML = name;
+            }
+        </script>
+    </body>
+</html>         

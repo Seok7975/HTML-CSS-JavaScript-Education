@@ -1,0 +1,14 @@
+1. 다음 문자열을 공백을 기준으로 배열로 만드시오.
+"How are you doing today?"
+
+2. 다음 문자열을 글자 단위로 배열로 만드시오.
+"How are you doing today?"
+
+3. 다음 문자열을 공백을 기준으로 처음부터 3개만 배열로 만드시오.
+"How are you doing today?"
+
+4. 다음 문자열을 영문자 'o'를 기준으로 배열로 만드시오.
+"How are you doing today?"
+
+5. 다음 문자열을 전체를 하나의 배열로 만드시오.
+"How are you doing today?"

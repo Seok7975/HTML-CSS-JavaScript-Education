@@ -1,0 +1,57 @@
+다음 문제들을 Array 메소드를 이용하여 코딩하시오.
+
+1. const numbers = [45, 4, 9, 16, 25];
+배열의 모든 요소를 출력하시오.
+
+2. 다음 배열의 각 요소를 2배 곱해서 새로운 배열을 만드시오.
+const numbers1 = [45, 4, 9, 16, 25];
+
+
+3. 다음 배열에서 18이상인것만을 가지고 새로운 배열을 만드시오.
+const numbers = [45, 4, 9, 16, 25];
+
+4. 다음 배열의 모든 요소를 더해서 출력하시오.
+const numbers = [45, 4, 9, 16, 25];
+
+5. 다음 배열을 초기값을 100으로 해서 모든 요소를 더해서 출력하시오.
+const numbers = [45, 4, 9, 16, 25];
+
+6. 다음 배열을 오른쪽에서 왼쪽으로 모두 더하시오.
+const numbers = [45, 4, 9, 16, 25];
+
+7. 다음 배열의 모든 요소가 참이면 true를 아니면 false를 출력하시오.
+const numbers = [45, 4, 9, 16, 25];
+
+8. 다음 배열의 요소들 중 18을 넘는 요소가 있다면 true를 아니면 false를 출력하시오.
+const numbers = [45, 4, 9, 16, 25];
+
+9. 다음 배열에서 "Apple"이 있다면 그 인덱스를 출력하시오.(왼쪽에서 부터 검색. 첫번째로 찾은 요소)
+const fruits = ["Apple", "Orange", "Apple", "Mango"];
+
+10. 다음 배열에서 "Apple"이 있다면 그 인덱스를 출력하시오.(오른쪽에서 부터 검색. 첫번째로 찾은 요소)
+const fruits = ["Apple", "Orange", "Apple", "Mango"];
+
+11. 다음 배열에서 18이 넘는 첫번째 요소를 찾아서 그 요소를 출력하시오.
+const numbers = [4, 9, 16, 25, 29];
+
+12. 다음 배열에서 처음으로 18을 넘는 첫번째 요소의 인덱스를 출력하시오.
+const numbers = [4, 9, 16, 25, 29];
+
+13. 다음 문자열을 배열로 만드시오.
+"ABCDEFG"
+
+14. 다음 배열로 부터 Array Iterator object 를 만들어서 각 요소를 출력하시오.
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+15. 다음 배열에서 key와 value로 이루어진 Array Iterator를 만들어서 각 요소를 출력하시오.
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+16. 다음 배열이 "Mango"을 포함하고 있으면 true 아니면 false를 출력하시오.
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+17. 다음 배열들을 Spread 연산자를 이용하여 하나의 배열로 만드시오.
+
+const q1 = ["Jan", "Feb", "Mar"];
+const q2 = ["Apr", "May", "Jun"];
+const q3 = ["Jul", "Aug", "Sep"];
+const q4 = ["Oct", "Nov", "May"];

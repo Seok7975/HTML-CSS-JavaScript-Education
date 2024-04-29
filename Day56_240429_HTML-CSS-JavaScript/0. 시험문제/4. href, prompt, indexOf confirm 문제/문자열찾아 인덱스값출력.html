@@ -1,0 +1,26 @@
+<!--
+    4. "Hello world, welcome to the universe."라는 문자열에서 "welcome" 문자열을 찾아 그 인덱스를 출력하시오.
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <body>
+        <h1>JavaScript Strings</h1>
+        <h2>The indexOf() Method</h2>
+        <p>indexOf() returns the position of the first occurrence of a value in a string.</p>
+        <p>Find "welcom":</p>
+        <p id="demo"></p>
+    </body>
+    <script>
+        let text = "Hello world, welcome to the universe.";
+        let result = text.indexOf("welcom");
+
+        document.getElementById("demo").innerHTML = result;
+    </script>
+</html>
+
+<!--
+indexOf
+문자열을 찾았을 때는 찾은 곳의 index를
+못 찾았을 때는 -1을 반환
+-->

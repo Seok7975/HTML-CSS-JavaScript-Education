@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+</head>
+<body>
+    <script>
+        let arr = ['hello', 'monkey', 'candy', 'pancake'];
+        let word = arr[Math.floor(Math.random()*arr.length)];
+        let flag = true;
+
+        let wordArr = new Array(word.length);
+        wordArr.fill('_')
+        
+        while(wordArr.indexOf('_') !== -1) {
+            let answer = prompt('글자를 입력하세요. 취소를 누르면 게임을 멈춥니다.');
+            if(answer === null){
+                alert('안타까워요 정답은 ' + word + '입니다.');
+                flag = false;
+                break;
+            }
+            if(answer.length !== 1) {
+                alert('한글자만 입력하세요.');
+                continue;
+            }
+            let idx  = 0;
+            while( (idx =word.indexOf(answer, idx)) !== -1) wordArr[idx++] = answer;
+            alert(wordArr.join(" "));
+        }
+        if(flag) alert('정답입니다.');
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+1. location 객체를 이용하여 버튼을 누르면 Naver로 이동하게끔 만들자.
+
+2. 2-1.png와 2-2.png를 참고하여, 이름 가져오기 버튼을 클릭하면 input 상자에 있는 이름을 가져와서 출력하자.
+
+3. 자바스크립트 prompt를 이용해서 이름을 입력받고, alert 창으로 입력받은 이름을 출력하자.
+3-1.png와 3-2.png 참고.
+
+4. "Hello world, welcome to the universe."라는 문자열에서 "welcome" 문자열을 찾아 그 인덱스를 출력하시오.
+
+5. confirm 함수의 예시를 만드시오.

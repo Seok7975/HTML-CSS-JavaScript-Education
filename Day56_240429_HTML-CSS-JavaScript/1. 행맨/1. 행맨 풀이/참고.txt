@@ -1,0 +1,12 @@
+split
+
+https://www.w3schools.com/jsref/jsref_split.asp
+
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/split
+
+join
+
+https://www.w3schools.com/jsref/jsref_join.asp
+
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/join
+

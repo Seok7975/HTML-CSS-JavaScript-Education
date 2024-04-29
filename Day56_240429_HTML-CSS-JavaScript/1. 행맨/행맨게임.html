@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset ="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>행맨게임</title>
+
+    </head>
+    <body>
+
+        <script>
+             let arr = ['hello', ' monkey', 'candy', 'pancake', 'atmosphere'];
+             let word = arr[Math.floor(Math.random()*arr.length)]; // 0, 1, 2, 3
+             let flag = true;
+            
+            let wordArr = new Array(word.length); 
+            wordArr.fill('_')
+            function hangmanGame()
+            {
+                while(wordArr.indexOf('_') !== -1)
+                {
+                    let answer = prompt('글자를 입력하세요. 취소를 누르면 게임을 멈춥니다.'); //true
+
+                    if(answer == null) // 취소를 누르면 null 반환
+                    {
+                        alert("유감, 정답은 " + word + '입니다.');
+                        flag = false;
+                        break;
+                    }
+
+                    if(answer.length !== 1)
+                    {
+                        alert("한글자만 입력하세요.");
+                        continue;
+                    }
+                    let idx = 0;
+                    while((idx = word.indexOf(answer, idx)) !== -1) wordArr[idx++] = answer;
+                    /* indexOf(a, b) : 
+                    a: 찾고자 하는 문자열 또는 문자,  
+                    b : 검색을 시작할 인덱스(이 인덱스 이후 부터), 만약 이 값이 없으면 검색은 문자열의 처음부터 시작 */
+                    //wordAr[idx++] : 예를들어 o를 찾는단 가정할 때, 그 뒤에 또 있을 수 있으므로 그 뒤 인덱스부터 색인
+                    alert(wordArr.join(" "));   // 공백을 기준으로 배열을 문자열로 합침
+                }  
+
+                return flag; 
+            } 
+            if (1)
+            {
+                alert("정답입니다.");
+            }
+
+        </script>
+    </body>
+</html>
+
+
+<!-- 배열의 단어를 맞추는 알고리즘을 기억해두자 -->
+
+<!-- 심화)
+1. A~Z를 보이게
+2. 들어가는 단어는 파랗게, 틀린단어는 빨갛게
+3. 한번 틀릴때마다 기회 한번씩 박탈 -->
