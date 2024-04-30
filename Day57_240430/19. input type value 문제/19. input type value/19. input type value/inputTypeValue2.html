@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Value 값 가져오기</title>
+</head>
+<body>
+    <input type="text" id="myName" value="Tom">
+    <input type="button" id="clickBtn" value="Click Me" onclick="hi();">
+
+    <h2>좋아하는 과목은?</h2>
+    <input type="radio" name="subject" value="HTML">HTML<br>
+    <input type="radio" name="subject" value="CSS">CSS<br>
+    <input type="radio" name="subject" value="JavaScript">JavaScript<br>
+
+    <input type="button" value="제출" onclick="submitSubject()"><br>
+
+    <input type="radio" name="bgColor" value="yellow" onclick="changeBg(this.value)">노란색<br>
+    <input type="radio" name="bgColor" value="green" onclick="changeBg(this.value)">초록색<br> 
+    <input type="radio" name="bgColor" value="blue" onclick="changeBg(this.value)">파란색<br>
+    <input type="radio" name="bgColor" value="red" onclick="changeBg(this.value)">빨간색<br>
+    
+    <h2>지금 가장 가고 싶은 곳은?</h2>
+    <input type="checkbox" name="country" value="미국"/>미국    
+    <input type="checkbox" name="country" value="캐나다"/>캐나다    
+    <input type="checkbox" name="country" value="프랑스"/>프랑스    
+    <input type="checkbox" name="country" value="독일"/>독일
+    <input type="button" value="답변하기" onclick="report()">
+
+    <script>
+        function hi()
+        {
+            let myName = document.getElementById("myName");
+            let clickBtn = document.getElementById("clickBtn");
+
+            alert("myName " + myName.value + " clickBtn " + clickBtn.value);
+        }
+        function submitSubject()
+        {
+            let arrRadio = document.getElementsByName('subject');
+            console.log(arrRadio);
+            for(let i=0;i<arrRadio.length;i++)
+            {
+                if(arrRadio[i].checked)
+                {
+                    alert(arrRadio[i].value + "과목을 좋아하는 군요");
+                }
+            }
+        }
+        function changeBg(myColor){
+            document.bgColor = myColor;
+        }
+
+        function report(){
+            let msg = "다음 여행지를 선택하셨습니다.\n";
+            let checkBoxes = document.getElementsByName('country');
+
+            for(let i=0;i<checkBoxes.length;i++)
+            {
+                console.log(i + "hi");
+                if(checkBoxes[i].checked){
+                    msg += ' - ' + checkBoxes[i].value + '\n';
+                }
+            }
+            alert(msg);
+        }
+    </script>
+</body>
+</html>
+
+<!-- 체크박스와 라디오버튼 사용할 때를 알아 놓자.-->

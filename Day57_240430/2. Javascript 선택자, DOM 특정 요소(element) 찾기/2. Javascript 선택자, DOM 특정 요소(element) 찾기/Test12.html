@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='red'>
+        red
+    </div>
+    <div id='div_2' class='blue'>
+        blue
+    </div>
+    <div id='div_3' class='green'>
+        green
+    </div>
+    <input type='button'
+            value='querySelectorAll() - Class Name 전체 찾기'
+            onclick='querySelectorAllByClassName()'/>
+            
+    <script>
+        function querySelectorAllByClassName() {
+            const div_list 
+                = document.querySelectorAll('.red, .green');
+            
+            const div_list_length = div_list.length;
+            alert(div_list_length);
+            
+            for(let i = 0; i < div_list_length; i++)  {
+                alert(div_list[i].innerText);
+            }
+        }
+
+        // querySelectorAll() - 선택자 ','로 구분하기 
+        // document.querySelectorAll('.red, .green');
+        // querySelect()와 마찬가지로 선택자를 ','로 구분한 문자열을 넘겨주면
+        // 각각의 선택자에 해당하는 모든 element를 리턴합니다.
+        // 위 예제는 클래스가 'red'인 element와 'green'인 element를 리턴합니다.
+    </script>
+</body>
+</html>

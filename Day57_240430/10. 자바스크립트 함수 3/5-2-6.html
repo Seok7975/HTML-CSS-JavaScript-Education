@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      // 배열을 선언합니다.
+      let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+      // 배열의 메소드를 연속적으로 사용합니다.
+      numbers
+        .filter((value) => value % 2 === 0)
+        .map((value) => value * value)
+        .forEach((value) => {
+          console.log(value)
+        })
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 
+  화살표 함수
+  앞에서 살펴본 map(), filter() 함수처럼 단순한 형태의 콜백 함수를
+  쉽게 입력하고자 화살표(arrow) 함수라는 함수 생성 방법이 있다.
+  화살표 함수는 function 키워드 대신 화살표(=>)를 사용한다.
+
+  filter() 메소드는 배열을 리턴하므로 map() 메소드를 적용할 수 있고,
+  map() 메소드도 배열을 리턴하므로 forEach() 메소드를 적용할 수 있다.
+  이렇게 어떤 메소드가 리턴하는 값을 기반으로 해서 함수를 줄줄이 사용하는
+  것을 메소드 체이닝(method chaining)라고 부른다.
+-->

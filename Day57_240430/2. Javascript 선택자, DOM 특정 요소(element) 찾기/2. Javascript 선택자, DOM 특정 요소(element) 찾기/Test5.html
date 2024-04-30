@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='my_class'>
+        Div1입니다.
+    </div>
+    <div id='div_2' class='my_class'>
+        Div2입니다.
+    </div>
+    <div id='div_3' class='your_class'>
+        Div3입니다.
+    </div>
+    <input type='button'
+            value='querySelector() - ID로 찾기'
+            onclick='querySelectorById()'/>
+
+    <script>
+        function querySelectorById() {
+            const div
+                = document.querySelector('#div_1');
+            alert(div.innerText);
+        }
+
+        // querySelector()
+        // DOM에서 원하는 element를 찾기 위해서 querySelector() 를 사용할 수도 있는데,
+        // 이 함수는 파라미터로 입력받은 CSS선택자를 사용해서, element를 찾아줍니다.
+  
+        // querySelector() 함수는,
+        // 파라미터로 입력받은 CSS 선택자로 찾은 여러개의 element 중 첫번째 element를 리턴합니다.
+
+        // document.querySelector('#div_1');
+        // id이름 앞에 '#'를 붙여서 파라미터로 넘겨줍니다.
+        // 위 예제는 id가 'div_1'인 element를 찾아서 리턴합니다.
+
+    </script>
+</body>
+</html>

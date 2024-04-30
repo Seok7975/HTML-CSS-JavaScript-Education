@@ -1,0 +1,50 @@
+innerHTML, innerText, textContent 차이점
+
+innerHTML, innerText, textContent 속성은
+node나 element의 텍스트값을 읽어오고 설정할 수 있다는 점에서 비슷합니다.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='my_div'>
+        안녕하세요?     만나서 반가워요.
+        <span style='display:none'>숨겨진 텍스트</span>
+    </div>
+    <input type='button'
+            value='innerHTML'
+            onclick='alertInnerHTML()'/>
+    <input type='button'
+            value='innerText'
+            onclick='alertInnerText()'/>
+    <input type='button'
+            value='textContent'
+            onclick='alertTextContent()'/>
+    <script>
+        function alertInnerHTML() {
+            const element = document.getElementById('my_div');
+            alert(element.innerHTML);
+        } 
+
+        function alertInnerText() {
+            const element = document.getElementById('my_div');
+            alert(element.innerText);
+        } 
+
+        function alertTextContent() {
+            const element = document.getElementById('my_div');
+            alert(element.textContent);
+        } 
+    </script>
+</body>
+</html>
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

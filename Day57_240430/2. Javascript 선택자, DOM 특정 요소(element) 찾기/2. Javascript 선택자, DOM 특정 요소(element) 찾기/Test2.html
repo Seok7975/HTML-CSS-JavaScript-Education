@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='my_class'>
+        Div1입니다.
+      </div>
+      <div id='div_2' class='my_class'>
+        Div2입니다.
+      </div>
+      <div id='div_3' class='your_class'>
+        Div3입니다.
+      </div>
+      <input type='button' value='getElementsByClassName() - class이름으로 찾기'
+             onclick='getMyClass()'/>    
+    <script>
+        function getMyClass() {
+            const div_list 
+                = document.getElementsByClassName('my_class');
+            
+            // class가 'my_class'인 element 개수 출력
+            const div_list_length = div_list.length;
+            alert(div_list_length);
+            
+            // class가 'my_class'인 element 목록 출력
+            for(let i = 0; i < div_list_length; i++)  {
+                alert(div_list[i].innerText);
+            }
+        }
+
+        // document.getElementsByClassName('my_class');
+        // 클래스 이름으로 element를 찾아서,
+        // 이 클래스 이름을 가지는 모든 element 목록을 리턴합니다.
+        // 이 함수의 이름을 자세히 보면 getElementsByClassName으로
+        // Element's'가 복수 형태인 것은 이 함수가 목록을 리턴하기 때문입니다.
+
+    </script>
+</body>
+</html>

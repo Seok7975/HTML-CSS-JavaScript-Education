@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let max = function(array){
+            let maxNum = array[0];
+            for(const i of array){
+                if(maxNum<i) maxNum = i;
+            }
+            return maxNum;
+        }
+        let max2 = function(...args){
+            let maxNum = args[0];
+            for(const i of args){
+                if(maxNum<i) maxNum = i;
+            }
+            return maxNum;
+        }
+        let max3 = function(first, ... rest){
+            let maxNum;
+            let items;
+            if(Array.isArray(first)){
+                maxNum = first[0];
+                items = first;
+            }
+            else{
+                maxNum = first;
+                items = rest;
+            }
+            for(const i of items){
+                if(maxNum < i) maxNum = i;
+            }
+            return maxNum;
+        }
+        console.log(max([1,2,3,4]))
+        console.log(max2(1, 2, 3, 4))
+        console.log(max3([1,2,3,4]))
+        console.log(max3(1, 2, 3, 4))
+
+
+
+
+    </script>
+</body>
+</html>

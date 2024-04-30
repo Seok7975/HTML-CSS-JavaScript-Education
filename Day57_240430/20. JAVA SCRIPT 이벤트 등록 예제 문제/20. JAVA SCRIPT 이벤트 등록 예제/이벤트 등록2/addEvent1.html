@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="target" value="button">
+    <script>
+        let t = document.getElementById('target');
+        t.addEventListener('click', (event) => alert('Hello world, ' + event.target.value) );
+    </script>
+</body>
+</html>
+<!--
+    addEventListener은 이벤트를 등록하는 가장 권장되는 방식이다.
+    이 방식을 이용하면 여러개의 이벤트 핸들러를 등록할 수 있다.
+-->

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='content'>
+    </div>
+    
+    <input 
+      type='button' 
+      value='innerText()'
+      onclick='setInnerText()' />
+    <input 
+      type='button' 
+      value='innerHTML()' 
+      onclick='setInnerHTML()' />
+    <script>
+
+        function setInnerText()  {
+          const element = document.getElementById('content');
+          element.innerText = "<div style='color:red'>A</div>";
+        }
+        
+        function setInnerHTML()  {
+          const element = document.getElementById('content');
+          element.innerHTML = "<div style='color:red'>A</div>";
+        }
+    </script>
+</body>
+</html>

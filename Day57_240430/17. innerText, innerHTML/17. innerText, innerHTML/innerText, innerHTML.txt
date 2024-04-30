@@ -1,0 +1,100 @@
+innerText와 innerHTML의 차이점
+
+innerText와 innerHTML은 단순한 텍스트만 다룰 경우에는 차이가 없어 보입니다.
+이 두 속성은 다루는 값이 text element인지, html element인지에 따라 차이가 납니다.
+
+값 가져오기 (innerText vs innerHTML)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='content'>
+        <div>A</div>
+        <div>B</div>
+    </div>
+      
+    <input type='button' value='innerText' onclick='alertInnerText();' />
+    <input type='button' value='innerHTML' onclick='alertInnerHTML()' />
+
+    <script>
+        function alertInnerText()  {
+            const element = document.getElementById('content');
+            // A
+            // B
+            alert(element.innerText);
+        }
+
+        function alertInnerHTML()  {
+            const element = document.getElementById('content');
+            // <div>A</div>
+            // <div>B</div>
+            alert(element.innerHTML);
+        }
+    </script>
+</body>
+</html>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+element.innerText;
+이 속성은 element 안의 text 값들만을 가져옵니다. 
+
+element.innerHTML;
+innerText와는 달리 innerHTML은 element 안의 HTML이나 XML을 가져옵니다.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+값 설정하기 (innerText vs innerHTML)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='content'>
+    </div>
+    
+    <input type='button' value='innerText()' onclick='setInnerText()' />
+    <input type='button' value='innerHTML()' onclick='setInnerHTML()' />
+
+    <script>
+        function setInnerText()  {
+          const element = document.getElementById('content');
+          element.innerText = "<div style='color:red'>A</div>";
+        }
+        
+        function setInnerHTML()  {
+          const element = document.getElementById('content');
+          element.innerHTML = "<div style='color:red'>A</div>";
+        }
+    </script>
+
+</body>
+</html>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+element.innerText = "<div style='color:red'>A</div>";
+element.innerText에 html을 포함한 문자열을 입력하면, 
+html코드가 문자열 그대로 element안에 포함됩니다. 
+
+element.innerHTML = "<div style='color:red'>A</div>";
+위와 같이 element.innerHTML 속성에 html코드를 입력하면,
+html element가 element안에 포함되게 됩니다.
+위 예제에서 'innerHTML()'을 클릭하면,
+입력된 html태그가 해석되어 빨간색A 가 나타나는 것을 확인 할 수 있습니다.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

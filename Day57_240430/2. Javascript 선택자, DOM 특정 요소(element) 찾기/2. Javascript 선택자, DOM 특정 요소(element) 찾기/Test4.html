@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='my_class'>
+        Div1입니다.
+    </div>
+    <div id='div_2' class='my_class'>
+        Div2입니다.
+    </div>
+    <div id='div_3' class='your_class'>
+        Div3입니다.
+    </div>
+    <input type='button'
+            value='getElementsByTagName() - Tag Name으로 찾기'
+            onclick='getElementsByTagNameDiv()'/>
+    <script>
+        function getElementsByTagNameDiv() {
+            const div_list 
+                = document.getElementsByTagName('div');
+            
+            // tag name이 'div'인 element 개수 출력
+            const div_list_length = div_list.length;
+            alert(div_list_length);
+            
+            // tag name이 'div'인 element 목록 출력
+            for(let i = 0; i < div_list_length; i++)  {
+                alert(div_list[i].innerText);
+            }
+        }
+
+        // document.getElementsByTagName('div);
+        // 위 코드는 'div' 태그를 가지는 모든 element 목록을 찾아줍니다.
+        // 이 함수 역시, 다수의 element를 리턴하기 때문에
+        // 함수명에 복수형의 'elements'가 포함되어 있습니다.
+      
+    </script>    
+</body>
+</html>

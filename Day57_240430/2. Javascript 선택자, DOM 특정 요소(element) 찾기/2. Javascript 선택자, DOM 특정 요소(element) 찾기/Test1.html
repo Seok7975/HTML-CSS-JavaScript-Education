@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1'>
+        Div1입니다.
+      </div>
+      <div id='div_2'>
+        Div2입니다.
+      </div>
+      <input type='button' value='getElementById() - id로 찾기' onclick='getDiv1()'/>
+    <script>
+        function getDiv1() {
+            const div1 = document.getElementById('div_1');
+            alert(div1.innerText);
+        } 
+        // document.getElementById();
+        // 파라미터로 찾으려는 id를 전달하여, 해당 element를 찾을 수 있습니다.
+        // id는 유일한 값이므로, 하나의 element만 리턴합니다.
+    </script>
+</body>
+</html>

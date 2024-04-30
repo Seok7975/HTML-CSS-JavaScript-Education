@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      let count = 0;
+      function func1(){
+        console.log(`1초 후에 실행됩니다.`);
+      }
+      function func2(){
+        console.log(`1초마다 실행됩니다.(${count}번째)`);
+        count++;      
+      }
+      setTimeout(func1, 1 * 1000);      
+      setInterval(func2, 1 * 1000);
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 
+  타이머 함수
+  자바스크립트에는 다음과 같이 특정 시간마다 또는 특정 시간 이후에 콜백 함수를
+  호출할 수 있는 타이머(timer) 함수들이 있다. 이 함수를 사용하면 시간과 관련된
+  처리를 할 수 있다.
+
+  setTimeout(함수, 시간)    특정 시간 후에 함수를 한 번 호출합니다.
+  setInterval(함수, 시간)   특정 시간마다 함수를 호출합니다.
+
+  타이머를 종료하고 싶을 때는 clearTimeout() 함수와 clearInterval()
+  함수를 사용합니다.
+
+  clearTimeout(타이머_ID)   setTimeout() 함수로 설정한 타이머를 제거합니다.
+  clearInterval(타이머_ID)  setInterval() 함수로 설정한 타이머를 제거합니다.
+
+  이 함수들의 매개변수에는 타이머 ID라는 것을 넣는데, 타이머 ID는 setTimeout()
+  함수와 setInterval() 함수를 호출할 때 리턴 값으로 나오는 숫자이다.
+-->

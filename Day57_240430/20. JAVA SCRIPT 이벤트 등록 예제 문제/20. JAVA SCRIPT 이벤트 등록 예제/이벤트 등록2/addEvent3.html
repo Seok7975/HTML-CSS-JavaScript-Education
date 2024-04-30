@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input type="button" id="target1" value="button1">
+   <input type="button" id="target2" value="button2">
+   <script>
+        let t1 = document.getElementById('target1');
+        let t2 = document.getElementById('target2');
+
+        function btnListener(event){
+            switch(event.target.id){
+                case 'target1':
+                    alert(1);
+                    break;
+                case 'target2':
+                    alert(2);
+                    break;
+            }
+        }
+        t1.addEventListener('click', btnListener);
+        t2.addEventListener('click', btnListener);
+   </script> 
+</body>
+</html>

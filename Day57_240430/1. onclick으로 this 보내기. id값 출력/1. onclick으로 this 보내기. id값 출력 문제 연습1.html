@@ -1,0 +1,61 @@
+<!--
+    
+HTML 문서에서 <head>와 <body>는 각각 문서의 다른 부분을 정의합니다.
+
+<head>: 
+    이 부분은 보통 문서의 제목(title), 스타일 시트 연결(CSS), 자바스크립트 파일 연결(script), 
+    메타데이터(metadata) 등을 포함합니다. 이 부분은 일반적으로 사용자가 볼 수 없는 부분으로, 
+    웹 브라우저가 웹 페이지를 렌더링하는 데 필요한 정보를 포함합니다. 
+    예를 들어, 검색 엔진이 웹 페이지를 색인할 때 이 부분의 정보를 사용합니다.
+<body>: 
+    이 부분은 실제로 사용자가 볼 수 있는 웹 페이지의 내용을 정의합니다. 
+    이 부분에는 텍스트, 이미지, 비디오 등이 포함됩니다. 
+    웹 페이지의 주요 내용은 일반적으로 이 부분에 들어가며, 
+    사용자가 상호 작용할 수 있는 버튼, 링크, 입력 필드 등도 이 부분에 위치합니다.
+    따라서 <head>에 스크립트를 작성하면 페이지가 로드될 때 스크립트가 실행되지만 
+    사용자가 볼 수 있는 내용에는 영향을 미치지 않습니다. 
+    반면에 <body>에 스크립트를 작성하면 해당 스크립트가 실행되는 시점에 페이지의 내용에 영향을 줄 수 있습니다. 
+    예를 들어, 페이지가 로드된 후에 동적으로 내용을 추가하거나 
+    변경하는 작업을 할 때 <body>에 스크립트를 작성합니다.
+-->
+
+<!DOCTYPE html> <!-- HTML 문서의 유형을 선언하는 부분입니다. 이 문서는 HTML5 문서 -->
+<html lang="ko"> <!-- HTML 문서의 루트 요소로, 여기서 lang 속성은 문서의 언어를 한국어로 지정 -->
+    <head> <!-- HTML 문서의 메타데이터와 스크립트, 스타일 시트 등을 포함하는 부분 -->
+        <meta charset="UTF-8"> 
+        <!-- 문자 인코딩을 UTF-8로 설정합니다. UTF-8은 다국어를 지원하는 문자 인코딩 방식 -->
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- 웹 페이지가 Internet Explorer에서 렌더링될 때 사용할 최신 버전의 렌더링 엔진을 지정 -->
+
+        <meta name="viewport" content="" width=device-width, initial-scale="1.0">
+        <!-- 모바일 기기에서 웹 페이지가 제대로 표시되도록 뷰포트 설정을 지정 -->
+        <!-- 
+            width=device-width는 뷰포트의 너비를 디바이스의 너비로 설정하고, 
+            initial-scale=1.0은 초기 확대 수준을 1로 설정 
+        -->  
+
+        <title>1. onclick으로 this 보내기. id값 출력 문제</title>
+
+        <script>
+            function hi(obj) // 버튼을 클릭할 때 호출됨
+            {
+                console.log(obj.id); // 버튼의 id 속성을 콘솔에 출력
+                console.log(obj.value); // 버튼의 value 속성을 콘솔에 출력
+                console.log(obj.innerText);  // 버튼의 텍스트 내용을 콘솔에 출력
+                console.log(obj.tagName);  // 버튼의 태그 이름을 콘솔에 출력
+                obj.innerHTML = "Hello";  // 버튼의 내부 HTML을 "Hello"로 변경
+                console.dir(obj);  // 버튼 요소의 자세한 정보를 콘솔에 출력
+                console.log(obj);  //콘솔에 obj를 출력
+                 // document.write(document.getElementById("hh").value);
+            }
+        </script>
+    </head>
+    <body>
+        <button id="hh" onclick="hi(this);" value="g111">good</button>
+        <!-- 
+            id 속성은 hh, onclick 이벤트 핸들러는 버튼이 클릭될 때 hi(this)함수 호출
+            value 속성은 g111, 버튼 내용은 good 
+        -->
+    </body>
+</html>

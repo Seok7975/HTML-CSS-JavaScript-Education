@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="goBack()">이전 페이지로 가기 back</button>
+    <button onclick="go()">이전 페이지로 가기 go</button>
+    <button onclick="goForward()">다음 페이지로 가기</button>
+    <a href="http://www.naver.com">네이버</a>
+    <script>
+
+        function goBack() {    
+            window.history.back();    
+        }
+
+        function go() {
+            window.history.go(-1);
+        } 
+
+        function goForward() {
+            window.history.forward();
+        }              
+    
+    </script>
+</body>
+</html>

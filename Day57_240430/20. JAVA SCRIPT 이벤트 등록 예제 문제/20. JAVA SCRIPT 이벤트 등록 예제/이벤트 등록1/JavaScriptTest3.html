@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button id="btn">ClickMe</button>
+<script>
+	var btn = document.getElementById("btn");
+	btn.addEventListener('click', 
+	function(event) //onclick을 따로 쓰지않고 해결, 익명함수
+	{
+		location.href="Hello.html";
+	});
+</script>
+</body>
+</html>

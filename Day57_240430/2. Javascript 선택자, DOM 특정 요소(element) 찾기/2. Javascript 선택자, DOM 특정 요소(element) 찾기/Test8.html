@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='red'>
+        red
+    </div>
+    <div id='div_2' class='blue'>
+        blue
+    </div>
+    <div id='div_3' class='green'>
+        green
+    </div>
+    <input type='button'
+            value='querySelector() - Class Name으로 찾기'
+            onclick='querySelectorByClassName()'/> 
+    <script>
+        function querySelectorByClassName() {
+            const div
+                = document.querySelector('.red, .green'); // 둘중에 하나 중 맨 먼저 찾은 애를 반환 -> red출력
+            
+            alert(div.innerText);
+        }        
+        // querySelector() - 선택자 ','로 구분하기
+        // document.querySelector('.red, .green');
+        // 선택자를 ','로 구분하여 전달하면 여러개의 선택자 중 첫번째로 발견되는 element를 리턴합니다.
+        // 이때, 파라미터를 여러개 넘기는 것이 아니라,
+        // 선택자를 ','로 구분한 문자열 1개가 파라미터로 넘어간다는 것에 유의하세요.
+    </script>
+</body>
+</html>

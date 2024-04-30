@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Arrays</h1>
+<h2>The forEach() Method</h2>
+
+<p>forEach() calls a function for each element in an array:</p>
+
+<p>Multiply the value of each element with 10:</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [65, 44, 12, 4];
+numbers.forEach(myFunction)
+
+document.getElementById("demo").innerHTML = numbers;
+
+function myFunction(item, index, arr) {
+  arr[index] = item * 10;
+}
+</script>
+
+</body>
+</html>

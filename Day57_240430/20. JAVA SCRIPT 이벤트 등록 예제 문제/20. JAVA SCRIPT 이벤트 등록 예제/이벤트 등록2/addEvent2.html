@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="target" value="button">
+    <script>
+        let t = document.getElementById('target');
+        t.addEventListener('click', (event)=>alert(1));
+        t.addEventListener('click', (event)=>alert(2));
+    </script>
+</body>
+</html>
+
+<!--
+    이 방식의 중요한 장점은 하나의 이벤트 대상에 복수의 동일 이벤트
+    타입 리스터를 등록할 수 있다는 점이다.
+-->

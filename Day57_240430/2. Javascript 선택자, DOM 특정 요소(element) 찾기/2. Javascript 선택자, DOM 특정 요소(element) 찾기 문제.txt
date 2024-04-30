@@ -1,0 +1,446 @@
+1. 다음 버튼을 클릭했을 때 실행 결과를 적으시오.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1'>
+        Div1입니다.
+      </div>
+      <div id='div_2'>
+        Div2입니다.
+      </div>
+      <input type='button' value='getElementById() - id로 찾기' onclick='getDiv1()'/>
+    <script>
+        function getDiv1() {
+            const div1 = document.getElementById('div_1');
+            alert(div1.innerText);
+        } 
+    </script>
+</body>
+</html>
+
+2. 다음 버튼을 클릭했을 때 실행 결과를 적으시오.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='my_class'>
+        Div1입니다.
+      </div>
+      <div id='div_2' class='my_class'>
+        Div2입니다.
+      </div>
+      <div id='div_3' class='your_class'>
+        Div3입니다.
+      </div>
+      <input type='button' value='getElementsByClassName() - class이름으로 찾기'
+             onclick='getMyClass()'/>    
+    <script>
+        function getMyClass() {
+            const div_list 
+                = document.getElementsByClassName('my_class');
+            
+            const div_list_length = div_list.length;
+            alert(div_list_length);
+            
+            for(let i = 0; i < div_list_length; i++)  {
+                alert(div_list[i].innerText);
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+3. 다음 버튼을 클릭했을 때 실행 결과를 적으시오.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='red blue yellow'>
+        red blue yellow
+    </div>
+    <div id='div_2' class='green blue red'>
+        green blue red
+    </div>
+    <div id='div_3' class='yellow green red'>
+        yellow green red
+    </div>
+    <input type='button'
+            value='getElementsByClassName() - class이름으로 찾기'
+            onclick='getMyClass()'/>
+    <script>
+        function getMyClass() {
+            const div_list 
+                = document.getElementsByClassName('red blue');
+            
+            const div_list_length = div_list.length;
+            alert(div_list_length);
+            
+            for(let i = 0; i < div_list_length; i++)  {
+                alert(div_list[i].innerText);
+            }
+        }
+        
+    </script>    
+</body>
+</html>
+
+4. 다음 버튼을 클릭했을 때 실행 결과를 적으시오.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='my_class'>
+        Div1입니다.
+    </div>
+    <div id='div_2' class='my_class'>
+        Div2입니다.
+    </div>
+    <div id='div_3' class='your_class'>
+        Div3입니다.
+    </div>
+    <input type='button'
+            value='getElementsByTagName() - Tag Name으로 찾기'
+            onclick='getElementsByTagNameDiv()'/>
+    <script>
+        function getElementsByTagNameDiv() {
+            const div_list 
+                = document.getElementsByTagName('div');            
+           
+            const div_list_length = div_list.length;
+            alert(div_list_length);
+            
+            for(let i = 0; i < div_list_length; i++)  {
+                alert(div_list[i].innerText);
+            }
+        }
+      
+    </script>    
+</body>
+</html>
+
+5. 다음 버튼을 클릭했을 때 실행 결과를 적으시오.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='my_class'>
+        Div1입니다.
+    </div>
+    <div id='div_2' class='my_class'>
+        Div2입니다.
+    </div>
+    <div id='div_3' class='your_class'>
+        Div3입니다.
+    </div>
+    <input type='button'
+            value='querySelector() - ID로 찾기'
+            onclick='querySelectorById()'/>
+
+    <script>
+        function querySelectorById() {
+            const div
+                = document.querySelector('#div_1');
+            alert(div.innerText);
+        }
+
+    </script>
+</body>
+</html>
+
+6. 다음 버튼을 클릭했을 때 실행 결과를 적으시오.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='my_class'>
+        Div1입니다.
+    </div>
+    <div id='div_2' class='my_class'>
+        Div2입니다.
+    </div>
+    <div id='div_3' class='your_class'>
+        Div3입니다.
+    </div>
+    <input type='button'
+            value='querySelector() - Class로 찾기'
+            onclick='querySelectorByClassName()'/>
+    <script>
+        function querySelectorByClassName() {
+            const div
+                = document.querySelector('.my_class');
+            
+            alert(div.innerText);
+        }
+
+    </script>
+</body>
+</html>
+
+7. 다음 버튼을 클릭했을 때 실행 결과를 적으시오.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='my_class'>
+        Div1입니다.
+    </div>
+    <div id='div_2' class='my_class'>
+        Div2입니다.
+    </div>
+    <div id='div_3' class='your_class'>
+        Div3입니다.
+    </div>
+    <input type='button'
+            value='querySelector() - Tag Name으로 찾기'
+            onclick='querySelectorByTagName()'/>
+
+    <script>
+    function querySelectorByTagName() {
+        const div
+        = document.querySelector('div');
+
+        alert(div.innerText);
+    }
+    </script>
+</body>
+</html>
+
+8. 다음 버튼을 클릭했을 때 실행 결과를 적으시오.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='red'>
+        red
+    </div>
+    <div id='div_2' class='blue'>
+        blue
+    </div>
+    <div id='div_3' class='green'>
+        green
+    </div>
+    <input type='button'
+            value='querySelector() - Class Name으로 찾기'
+            onclick='querySelectorByClassName()'/> 
+    <script>
+        function querySelectorByClassName() {
+            const div
+                = document.querySelector('.red, .green');
+            
+            alert(div.innerText);
+        }        
+    </script>
+</body>
+</html>
+
+9. 다음 버튼을 클릭했을 때 실행 결과를 적으시오.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='my_class'>
+        Div1입니다.
+    </div>
+    <div id='div_2' class='my_class'>
+        Div2입니다.
+    </div>
+    <div id='div_3' class='your_class'>
+        Div3입니다.
+    </div>
+    <input type='button'
+            value='querySelectorAll() - Id 전체 찾기'
+            onclick='querySelectorAllById()'/>
+
+    <script>
+        function querySelectorAllById() {
+            const div_list 
+                = document.querySelectorAll('#div_1');
+            
+            const div_list_length = div_list.length;
+            alert(div_list_length);
+            
+            for(let i = 0; i < div_list_length; i++)  {
+                alert(div_list[i].innerText);
+            }
+        }
+    </script>
+</body>
+</html>
+
+10. 다음 버튼을 클릭했을 때 실행 결과를 적으시오.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='my_class'>
+        Div1입니다.
+    </div>
+    <div id='div_2' class='my_class'>
+        Div2입니다.
+    </div>
+    <div id='div_3' class='your_class'>
+        Div3입니다.
+    </div>
+    <input type='button'
+            value='querySelectorAll() - Class Name 전체 찾기'
+            onclick='querySelectorAllByClassName()'/>
+            
+    <script>
+        function querySelectorAllByClassName() {
+            const div_list 
+                = document.querySelectorAll('.my_class');
+            
+            const div_list_length = div_list.length;
+            alert(div_list_length);
+            
+            for(let i = 0; i < div_list_length; i++)  {
+                alert(div_list[i].innerText);
+            }
+        }    
+        
+    </script>
+</body>
+</html>
+
+11. 다음 버튼을 클릭했을 때 실행 결과를 적으시오.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='my_class'>
+        Div1입니다.
+    </div>
+    <div id='div_2' class='my_class'>
+        Div2입니다.
+    </div>
+    <div id='div_3' class='your_class'>
+        Div3입니다.
+    </div>
+    <input type='button'
+            value='querySelectorAll() - Tag Name 전체 찾기'
+            onclick='querySelectorAllByTagName()'/>
+            
+    <script>
+        function querySelectorAllByTagName() {
+            const div_list 
+            = document.querySelectorAll('div');
+
+            const div_list_length = div_list.length;
+            alert(div_list_length);
+
+            for(let i = 0; i < div_list_length; i++)  {
+                alert(div_list[i].innerText);
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+12. 다음 버튼을 클릭했을 때 실행 결과를 적으시오.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='red'>
+        red
+    </div>
+    <div id='div_2' class='blue'>
+        blue
+    </div>
+    <div id='div_3' class='green'>
+        green
+    </div>
+    <input type='button'
+            value='querySelectorAll() - Class Name 전체 찾기'
+            onclick='querySelectorAllByClassName()'/>
+            
+    <script>
+        function querySelectorAllByClassName() {
+            const div_list 
+                = document.querySelectorAll('.red, .green');
+            
+            const div_list_length = div_list.length;
+            alert(div_list_length);
+            
+            for(let i = 0; i < div_list_length; i++)  {
+                alert(div_list[i].innerText);
+            }
+        }
+    </script>
+</body>
+</html>

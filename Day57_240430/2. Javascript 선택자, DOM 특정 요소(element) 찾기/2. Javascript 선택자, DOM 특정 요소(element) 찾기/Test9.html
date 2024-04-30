@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div_1' class='my_class'>
+        Div1입니다.
+    </div>
+    <div id='div_2' class='my_class'>
+        Div2입니다.
+    </div>
+    <div id='div_3' class='your_class'>
+        Div3입니다.
+    </div>
+    <input type='button'
+            value='querySelectorAll() - Id 전체 찾기'
+            onclick='querySelectorAllById()'/>
+
+    <script>
+        function querySelectorAllById() {
+            const div_list 
+                = document.querySelectorAll('#div_1');
+            
+            // id가 'div_1'인 element 개수 출력
+            const div_list_length = div_list.length;    // 2
+            alert(div_list_length);
+            
+            // id가 'div_1'인 element 목록 출력
+            for(let i = 0; i < div_list_length; i++)  {
+                alert(div_list[i].innerText);
+            }
+        }
+
+        // querySelectorAll()
+        // 사용법은 querySelector() 와 같습니다.
+        // 다만, querySelectorAll()은 이름에서 알수 있듯이,
+        // CSS선택자(파라미터로 넘겨준)로 찾은 모든 element 목록을 리턴합니다.
+
+        // querySelectorAll() - ID로 찾기 
+    </script>
+</body>
+</html>

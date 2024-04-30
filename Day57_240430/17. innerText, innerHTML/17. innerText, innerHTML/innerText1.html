@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='content'>
+        <div>A</div>
+        <div>B</div>
+    </div>
+      
+    <input type='button' value='innerText' onclick='alertInnerText();' />
+    <input type='button' value='innerHTML' onclick='alertInnerHTML()' />
+
+    <script>
+        function alertInnerText()  {
+            const element = document.getElementById('content');
+            // A
+            // B
+            alert(element.innerText);
+        }
+
+        function alertInnerHTML()  {
+            const element = document.getElementById('content');
+            // <div>A</div>
+            // <div>B</div>
+            alert(element.innerHTML);
+        }
+    </script>
+</body>
+</html>
