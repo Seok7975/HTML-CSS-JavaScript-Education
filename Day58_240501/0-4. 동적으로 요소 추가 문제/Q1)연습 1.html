@@ -1,0 +1,20 @@
+<!-- 1. Create Button을 클릭하면(1-1.png) 동적으로 Click Me 버튼을 생성하자(1-2.png) -->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function fun()
+            {
+                let btn = document.createElement("button");
+                btn.innerHTML = "Click me";
+                document.body.appendChild(btn);
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="fun()">Create Button</button>
+
+    </body>
+</html>

@@ -1,0 +1,5 @@
+https://developer.mozilla.org/ko/docs/Learn/JavaScript/First_steps/A_first_splash
+
+https://developer.mozilla.org/ko/docs/Web/API/EventListener
+
+https://www.w3schools.com/js/js_events.asp

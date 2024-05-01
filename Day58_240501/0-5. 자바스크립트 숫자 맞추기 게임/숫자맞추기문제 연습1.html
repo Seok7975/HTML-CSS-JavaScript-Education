@@ -1,0 +1,240 @@
+<!--
+    간단한 숫자 맞히기 게임을 만들어주세요. 
+    무작위로 선택한 1과 100 사이의 수를 플레이어가 10턴 내에 알아내는 게임입니다. 
+    각 턴 후에는 플레이어가 고른 숫자가 맞았는지 아니면 틀렸는지 알려줘야 하고, 
+    만약 틀린 경우에는 플레이어의 숫자가 너무 낮았는지, 
+    아니면 너무 높았는지를 알려줘야 합니다. 
+    플레이어가 이전에 추측한 숫자들의 기록도 보여줘야 합니다. 게임은 플레이어가 숫자를 맞히거나, 
+    턴을 모두 소모하면 끝납니다. 게임이 끝난 뒤에는 다시 게임을 시작할 수 있는 옵션을 제공해야 합니다. 
+-->
+
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Number guessing game</h1>
+        <p>
+            We have selected a random number between 1 and 100.
+             See if you can guess it in 10 turns or less.
+             We'll tell you if your guess was too high or too low.
+        </p>
+        <p>Enter a guess : <input type="number" id="guessInput" placeholder="1~100"> <button onclick="speakTheAnswer()">Submit guess</button></p>
+        <p id = "feedback"></p>   
+
+        <p>Previous guesses : <span id = "previousGuesses"></span></p>
+        <script>
+            let answer = parseInt(Math.random()*100)+1 ;
+            let resultFlag = false;
+            let myGuess;
+            let previousGuesses = [];
+            let chanceCount = 10;
+
+            //버튼누르기 말고 엔터기능도 추가
+            document.getElementById("guessInput").addEventListener("keypress", function(event) 
+            {
+                if (event.key === "Enter") 
+                {
+                    event.preventDefault(); // 기본 이벤트를 방지합니다.
+                    speakTheAnswer();
+                }
+            });
+
+            function speakTheAnswer()
+            {
+                let guessInput = document.getElementById("guessInput");
+                let myGuess = parseInt(guessInput.value);
+                guessInput.value = ''; // 입력 필드를 비웁니다
+
+                if(!myGuess || myGuess < 1 || myGuess > 100)
+                {
+                    document.getElementById("feedback").textContent = "1에서 100 사이의 숫자를 입력해주세요ㅠㅠ";
+                    //alert("1에서 100 사이의 숫자를 입력해주세요ㅠㅠ");
+                    return null;  // return null;
+                }
+                
+                determineTheAnswer(myGuess);
+            }
+
+            function determineTheAnswer(myGuess) // 온클릭이 실행 되어야 참별이 되어야 하니까
+            {
+                if(myGuess == answer) // 10번의 기회 이내에 맞출경우
+                {
+                    document.getElementById("feedback").textContent
+                    = "축하합니다! 맞췄습니다!"
+                    document.getElementById("guessInput").disabled = true; // 게임 종료 후 입력 비활성화
+
+                    return resultFlag = true;
+                }
+                else if(myGuess != answer && chanceCount > 1) // 10번의 기회 중 아직 못 맞출경우
+                {
+                    chanceCount--;
+                    let hint = myGuess > answer ? "DOWN!" : "UP!";
+                    document.getElementById("feedback").textContent
+                    = hint;
+                    
+                    previousGuesses.push(myGuess); // previousGuesses의 끝쪽에 요소 추가
+                    updatePreviousGuesses(); // previousGuesses 배열 내용 업데이트
+                    return resultFlag = false; // 게임 계속
+                }
+                else // 기회를 다 쓴 경우
+                {
+                    document.getElementById("feedback").textContent
+                    = "게임오버! 정답은 " + answer + "입니다! 아쉬워요 ㅠㅠ";
+
+                    previousGuesses.push(myGuess); // previousGuesses의 끝쪽에 요소 추가
+                    updatePreviousGuesses(); // previousGuesses 배열 내용 업데이트
+                    document.getElementById("guessInput").disabled = true; // 게임 종료 후 입력 비활성화
+            
+                    return resultFlag = true;
+                }
+
+            }
+            
+
+
+            function updatePreviousGuesses() 
+            {
+                document.getElementById("previousGuesses").textContent = previousGuesses.join(", ");
+            }
+
+            function playGame()
+            {
+                while(resultFlag = false)
+                {
+                     speakTheAnswer();
+                    // if(myGuess !== null)
+                    // {
+                    //     determineTheAnswer(myGuess);
+                    // } 
+                }
+            }
+
+            playGame();
+        </script>
+    </body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Number guessing game</h1>
+        <p>
+            We have selected a random number between 1 and 100.
+             See if you can guess it in 10 turns or less.
+             We'll tell you if your guess was too high or too low.
+        </p>
+        <p>Enter a guess : <input type="number" id="guessInput" placeholder="1~100"> <button onclick="speakTheAnswer()">Submit guess</button></p>
+        <p id = "feedback"></p>   
+        <p>Previous guesses : <span id = "previousGuesses"></span></p>
+        <script>
+            let answer = parseInt(Math.random()*100)+1 ;
+            let resultFlag = false;
+            let myGuess;
+            let previousGuesses = [];
+            let chanceCount = 10;
+
+            function speakTheAnswer()
+            {
+                let guessInput = document.getElementById("guessInput");
+                let myGuess = parseInt(guessInput.value);
+                guessInput.value = ''; // 입력 필드를 비웁니다
+
+                if(!myGuess || myGuess < 1 || myGuess > 100)
+                {
+                    document.getElementById("feedback").textContent = "1에서 100 사이의 숫자를 입력해주세요ㅠㅠ";
+                    //alert("1에서 100 사이의 숫자를 입력해주세요ㅠㅠ");
+                    return null;  // return null;
+                }
+                
+                return myGuess;
+                // determineTheAnswer(myGuess);
+            }
+
+            function determineTheAnswer(myGuess)
+            {
+                speakTheAnswer(); // 이렇게 하면 안됨
+                if(myGuess == answer) // 10번의 기회 이내에 맞출경우
+                {
+                    document.getElementById("feedback").textContent
+                    = "축하합니다! 맞췄습니다!"
+                    document.getElementById("guessInput").disabled = true; // 게임 종료 후 입력 비활성화
+
+                    return resultFlag = true;
+                }
+                else if(chanceCount > 0) // 10번의 기회 중 아직 못 맞출경우
+                {
+                    chanceCount--;
+                    let hint = myGuess > answer ? "DOWN!" : "UP!";
+                    document.getElementById("feedback").textContent
+                    = hint;
+                    
+                    previousGuesses.push(myGuess); // previousGuesses의 끝쪽에 요소 추가
+                    updatePreviousGuesses(); // previousGuesses 배열 내용 업데이트
+                    return resultFlag = false; // 게임 계속
+                }
+                else // 기회를 다 쓴 경우
+                {
+                    document.getElementById("feedback").textContent
+                    = "게임오버! 정답은 " + answer + "입니다! 아쉬워요 ㅠㅠ";
+                    document.getElementById("guessInput").disabled = true; // 게임 종료 후 입력 비활성화
+            
+                    return resultFlag = true;
+                }
+
+            }
+
+            function updatePreviousGuesses() 
+            {
+                document.getElementById("previousGuesses").textContent = previousGuesses.join(", ");
+            }
+
+            function playGame()
+            {
+                while(resultFlag = false)
+                {
+                    // speakTheAnswer();
+                    if(myGuess !== null)
+                    {
+                        determineTheAnswer(myGuess);
+                    } 
+                }
+            }
+
+            playGame();
+        </script>
+    </body>
+</html> 
+ -->
+
+<!-- 안되는 이유
+이벤트 기반 실행: 웹 페이지에서 사용자의 입력을 받고 그에 대응하여 함수를 실행하는 것은 대부분 이벤트 기반으로 이루어집니다. 
+즉, 사용자가 버튼을 클릭할 때 speakTheAnswer 함수가 실행되어야 합니다. 이 함수 내에서 사용자의 입력을 검증하고, 
+그 후에 determineTheAnswer 함수를 호출하여 결과를 처리하는 것이 자연스러운 흐름입니다.
+
+반복 호출 문제: determineTheAnswer 함수 내에서 speakTheAnswer 함수를 호출하면, 
+speakTheAnswer 함수가 실행될 때마다 다시 determineTheAnswer 함수를 호출하게 됩니다. 
+이는 무한 반복 호출로 이어질 수 있으며, 실제로는 speakTheAnswer 함수가 
+사용자의 입력을 받기 전에 다시 호출되기 때문에 함수가 제대로 실행되지 않습니다.
+
+함수의 역할: 각 함수는 명확한 역할을 가져야 합니다. 
+speakTheAnswer는 사용자의 입력을 받아 검증하는 역할을, 
+determineTheAnswer는 사용자가 입력한 숫자를 평가하는 역할을 해야 합니다. 한
+ 함수 내에서 다른 함수를 호출하는 것은 이러한 역할 분담에 어긋납니다.
+
+위의 문제를 해결하고 요구사항을 충족하는 방식으로 코드를 수정하려면, 
+사용자가 버튼을 클릭했을 때 speakTheAnswer 함수를 호출하고, 
+이 함수 내에서 사용자의 입력을 받아 검증한 뒤 determineTheAnswer 함수를 호출하는 것이 올바른 접근입니다. 
+그리고 게임을 다시 시작할 수 있도록 하는 로직도 추가해야 합니다.
+ -->

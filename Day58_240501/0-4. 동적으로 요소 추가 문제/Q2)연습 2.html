@@ -1,0 +1,26 @@
+<!-- 2. Create Button을 클릭하면(2-1.png) 동적으로 Click Me 버튼을 This is a paragraph. 앞에 넣자.(2-2.png) -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    </head>
+    <body>
+        <div id="d1">
+            <p id="p1">This is a paragraph.</p>
+        </div>
+        <button onclick="fun()" >Create Button</button>
+        <script>
+            function fun()
+            {
+                let btn = document.createElement("button");
+                let element = document.getElementById("d1");
+                let child = document.getElementById("p1");
+
+                btn.innerHTML = "Click me";
+                element.insertBefore(btn, child);
+            }
+
+        </script>
+    </body>
+</html>

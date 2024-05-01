@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "0-1. createElement, appendChild, insertBefore"
+		},
+		{
+			"path": "0-2. removeChild"
+		},
+		{
+			"path": "0-3. replaceChild"
+		},
+		{
+			"path": "0-4. 동적으로 요소 추가 문제"
+		}
+	]
+}

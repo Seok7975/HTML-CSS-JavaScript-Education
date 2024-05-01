@@ -1,0 +1,14 @@
+1. Create Button을 클릭하면(1-1.png) 동적으로 Click Me 버튼을 생성하자(1-2.png)
+2. Create Button을 클릭하면(2-1.png) 동적으로 Click Me 버튼을 This is a paragraph. 앞에 넣자.(2-2.png)
+3. 다음 소스코드에서 동적으로 아이디가 child_div2를 제거해 보자.
+
+    <div id="par_div">
+        <div id="child_div1">첫번째 div</div>
+        <div id="child_div2">두번째 div</div>
+        <div id="child_div3">세번째 div</div>
+    </div>
+
+4. 다음 소스코드에서 <div id="A">hi</div>를 <span>Howdy</span>로 교체하자.
+
+    <div id="A">hi</div>
+    <div id="B">Dude</div>

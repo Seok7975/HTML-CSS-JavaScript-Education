@@ -1,0 +1,58 @@
+document.createElement()는 javascript를 통해 동적으로 특정한 이름의 HTML element를 생성하는데 사용됩니다. 이 메소드는 element의 이름을 매개변수로 받아서 해당 노드를 생성합니다.
+element를 생성한 후에는 appendChild() 메소드 또는 insertBefore() 메소드를 사용하여 document에 삽입할 수 있습니다. removeChild() 메소드를 사용하여 노드를 제거하고 replaceChild() 메소드를 사용하여 노드를 교체할 수도 있습니다.
+
+문법
+document.createElement(nodename);
+이 메소드는 다음과 같이 단일 매개변수 값을 받습니다.
+
+nodename: 필수 매개변수입니다. 이 매개변수는 문자열 타입으로 생성할 element의 이름을 지정합니다. nodename은 생성될 element를 특정하기 때문에 이상한 이름을 전달한다면 알수없는 HTML element가 만들어집니다.
+
+document.createElement()는 새로 생성된 element를 반환합니다.
+
+이제 document.createElement() 메소드를 사용하는 예제를 살펴보겠습니다. 여기서는 두개의 예제를 볼건데 첫 번째는 appendChild() 메소드를 사용해 document에 element를 삽입할 것이고 두 번째에서는 insertBefore() 메소드를 사용해 document.createElement()로 생성된 element를 삽입할 것 입니다.
+
+예제 1
+이 예제에서는 새로운 버튼 element를 생성하기 위해 document.createElement() 메소드를 사용할 것 입니다. 여기서 appendChild()를 통해 생성된 element를 삽입하고 innerHTML을 사용해 버튼에 문자열을 넣겠습니다.
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function fun() {
+      let btn = document.createElement("button");
+      btn.innerHTML = "Click me";
+      document.body.appendChild(btn);
+    }  
+  </script>
+</head>
+<body>
+  <button onclick="fun()">Create Button</button>
+</body>
+</html>
+
+예제 2
+이 예제에서는 document.createElement() 메소드를 사용해 새 버튼을 만들고 insertBefore() 메소드를 사용해 생성된 element를 삽입하겠습니다. 또한 문장을 포함하는 자식 element를 가지는 div element가 있는데 새로운 버튼은 문장을 포함하는 자식 element 앞에 삽입하겠습니다.
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function fun() {
+      let btn = document.createElement("button");
+      let element = document.getElementById("d1");
+      let child = document.getElementById("p1");
+
+      btn.innerHTML = "Click me";
+      element.insertBefore(btn, child);
+    }  
+  </script>
+</head>
+<body>
+  <div id="d1">
+    <p id="p1">This is a paragraph.</p>
+  </div>
+  <button onclick="fun()">Create Button</button>
+</body>
+</html>
+
+위의 코드를 실행하면 새 버튼이 문장 element 앞에 삽입됩니다. 이렇게 되는 이유는 document.createElement() 메소드를 사용해 생성한 element를 insertBefore() 메소드로 삽입했기 때문입니다.
