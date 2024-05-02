@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>행맨게임</title>
+    <style>
+        .letter {
+            display: inline-block;
+            width: 20px;
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #000;
+            text-align: center;
+            
+        }
+        .correct {
+            color: blue;
+        }
+        .incorrect {
+            color: red;
+        }
+
+        /* button
+        {
+            width : 60px;
+        } */
+    </style>
+</head>
+<body>
+    <div id="alphabet"></div>
+    <div id="wordDisplay"></div>
+    <div id="chancesDisplay"></div>
+    <script>
+        let word = ''; // 문제가 될 단어
+        let wordArr = []; 
+        let chances = 0; // 기회
+        let usedLetters = [];   //입력한 알파벳 추가할 배열
+
+        function fetchWord() // 오픈 기계번역 사이트 API
+        {
+            fetch('https://random-word-api.herokuapp.com/word?number=1')
+                .then(response => response.json())
+                .then(words => 
+                {
+                    word = words[0].toLowerCase(); // 단어를 소문자로 변환
+                    wordArr = new Array(word.length).fill('_');
+                    chances = calculateChances(word);
+                    setupGame();
+                })
+                .catch(error => console.error('Error fetching word:', error));
+        }
+
+        /* 
+                fetch(url)
+                .then(response => response.json())
+                .then(json => console.log(json))
+                1. fetch()안에는 기본적으로 요청할 url을 넣는다.
+                2. get, post, put, delete 중 default값으로는 get으로 동작
+                3. 해당 주소에 요청을 하고 응답객체(object response)를 받는다.
+                4. 첫번째 .then()에서 응답을 받고 .json() 메소드로 파싱한 json()값을 리턴
+                5. 두번째 .then()에서 리턴받은 json값을 받고, 원하는대로 처리가 가능
+
+                확장
+                fetch(url, options)
+                .then((resonse) => console.log("response :", response))
+                .catch((error) => console.log("error : ", error));
+         */
+
+        function calculateChances(word) {
+            let uniqueLetters = new Set(word).size;
+            return uniqueLetters * 2;
+        }
+
+        function setupGame() {
+            setupAlphabet();
+            displayWord();
+            setupHintButton();
+            listenForKeyPress();
+        }
+
+        function displayWord() {
+            document.getElementById('wordDisplay').textContent = wordArr.join(" ");
+            document.getElementById('chancesDisplay').textContent = "남은 기회: " + chances;
+        }
+
+        function updateAlphabet(letter, correct) {
+            let letterElement = document.getElementById(letter);
+            if (letterElement) {
+                if (correct) {
+                    letterElement.classList.add('correct');
+                } else {
+                    letterElement.classList.add('incorrect');
+                }
+            }
+        }
+
+        function setupAlphabet() {
+            document.getElementById('alphabet').innerHTML = '';
+            let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+            let alphabetDiv = document.getElementById('alphabet');
+            alphabet.split('').forEach(function(letter) {
+                let letterElement = document.createElement('span');
+                letterElement.id = letter;
+                letterElement.textContent = letter.toUpperCase();
+                letterElement.className = 'letter';
+                letterElement.onclick = function() { guess(letter); };
+                alphabetDiv.appendChild(letterElement);
+            });
+        }
+
+        function guess(letter) {
+            if (usedLetters.includes(letter) || chances <= 0) {
+                return;
+            }
+            usedLetters.push(letter);
+
+            let correct = false;
+            let idx = word.indexOf(letter);
+            while (idx !== -1) {
+                wordArr[idx] = letter;
+                idx = word.indexOf(letter, idx + 1);
+                correct = true;
+            }
+
+            if (!correct) {
+                chances--;
+            }
+
+            updateAlphabet(letter, correct);
+            displayWord();
+
+            if (wordArr.indexOf('_') === -1) {
+                alert("정답입니다! 단어는 " + word + "였습니다.");
+            } else if (chances <= 0) {
+                alert("기회를 모두 소진하였습니다. 정답은 " + word + "였습니다.");
+            }
+        }
+
+        function setupHintButton() {
+            let hintButton = document.createElement('button');
+            hintButton.textContent = "힌트";
+            hintButton.onclick = showHint;
+            document.body.appendChild(hintButton);
+        }
+
+        function showHint() {
+            let uniqueLettersCount = new Set(word.split('')).size;
+            let requiredChances = Math.ceil((uniqueLettersCount + 5) / 2);
+            if (chances > requiredChances) {
+                let n = Math.ceil(chances - requiredChances);
+                alert(`아직 힌트를 볼 수 없습니다!, ${n}번의 기회를 더 쓰셔야 합니다.`);
+            } else {
+                getWordDefinition(word);
+            }
+        }
+
+        function getWordDefinition(word) {
+            // LibreTranslate를 사용하여 단어의 뜻을 번역합니다.
+            fetch(`https://libretranslate.de/translate`, {
+                method: "POST",
+                body: JSON.stringify({
+                    q: word,
+                    source: "en",
+                    target: "ko",
+                    format: "text"
+                }),
+                headers: { "Content-Type": "application/json" },
+                mode: 'cors'
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(`힌트: ${data.translatedText}`);
+            })
+            .catch(error => {
+                console.error('Error fetching word definition:', error);
+                alert('힌트를 가져오는 데 실패했습니다.');
+            });
+        }
+
+        function listenForKeyPress() {
+            document.addEventListener('keydown', function(event) {
+                const key = event.key.toLowerCase();
+                if (key >= 'a' && key <= 'z' && !event.metaKey && !event.ctrlKey) {
+                    guess(key);
+                }
+            });
+        }
+
+        fetchWord(); // 게임 시작
+    </script>
+</body>
+</html>

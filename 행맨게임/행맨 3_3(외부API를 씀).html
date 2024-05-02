@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>행맨게임</title>
+    <style>
+        .letter {
+            display: inline-block;
+            width: 20px;
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #000;
+        }
+        .correct {
+            color: blue;
+        }
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="alphabet"></div>
+    <div id="wordDisplay"></div>
+    <div id="chancesDisplay"></div>
+    <script>
+        let word = '';
+        let wordArr = [];
+        let chances = 0;
+        let usedLetters = [];
+
+        function fetchWord() {
+            fetch('https://random-word-api.herokuapp.com/word?number=1')
+                .then(response => response.json())
+                .then(words => {
+                    word = words[0];
+                    wordArr = new Array(word.length).fill('_');
+                    chances = calculateChances(word);
+                    setupGame();
+                })
+                .catch(error => console.error('Error fetching word:', error));
+        }
+
+        function calculateChances(word) {
+            let uniqueLetters = new Set(word).size;
+            return uniqueLetters * 2;
+        }
+
+        function setupGame() {
+            setupAlphabet();
+            displayWord();
+            setupHintButton();
+        }
+
+        function displayWord() {
+            document.getElementById('wordDisplay').textContent = wordArr.join(" ");
+            document.getElementById('chancesDisplay').textContent = "남은 기회: " + chances;
+        }
+
+        function updateAlphabet(letter, correct) {
+            let letterElement = document.getElementById(letter);
+            if (correct) {
+                letterElement.classList.add('correct');
+            } else {
+                letterElement.classList.add('incorrect');
+            }
+        }
+
+        function setupAlphabet() {
+            document.getElementById('alphabet').innerHTML = '';
+            let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+            let alphabetDiv = document.getElementById('alphabet');
+            alphabet.split('').forEach(function(letter) {
+                let letterElement = document.createElement('span');
+                letterElement.id = letter;
+                letterElement.textContent = letter.toUpperCase();
+                letterElement.className = 'letter';
+                letterElement.onclick = function() { guess(letter); };
+                alphabetDiv.appendChild(letterElement);
+            });
+        }
+
+        function guess(letter) {
+            if (usedLetters.includes(letter) || chances <= 0) {
+                return;
+            }
+            usedLetters.push(letter);
+
+            let correct = false;
+            let idx = word.indexOf(letter);
+            while (idx !== -1) {
+                wordArr[idx] = letter;
+                idx = word.indexOf(letter, idx + 1);
+                correct = true;
+            }
+
+            if (!correct) {
+                chances--;
+            }
+
+            updateAlphabet(letter, correct);
+            displayWord();
+
+            if (wordArr.indexOf('_') === -1) {
+                alert("정답입니다! 단어는 " + word + "였습니다.");
+            } else if (chances <= 0) {
+                alert("기회를 모두 소진하였습니다. 정답은 " + word + "였습니다.");
+            }
+        }
+
+        function setupHintButton() {
+            let hintButton = document.createElement('button');
+            hintButton.textContent = "힌트";
+            hintButton.onclick = showHint;
+            document.body.appendChild(hintButton);
+        }
+
+        function showHint() {
+            let uniqueLettersCount = new Set(word.split('')).size;
+            let requiredChances = Math.ceil((uniqueLettersCount + 5) / 2);
+            if (chances > requiredChances) {
+                let n = Math.ceil(chances - requiredChances);
+                alert(`아직 힌트를 볼 수 없습니다!, ${n}번의 기회를 더 쓰셔야 합니다.`);
+            } else {
+                getWordDefinition(word);
+            }
+        }
+
+        function getWordDefinition(word) {
+            // LibreTranslate를 사용하여 단어의 뜻을 번역합니다.
+            // 실제 사용 시 다른 API로 대체하거나, API 키가 필요한 경우 관리가 필요합니다.
+            fetch(`https://libretranslate.de/translate`, {
+                method: "POST",
+                body: JSON.stringify({
+                    q: word,
+                    source: "en",
+                    target: "ko",
+                    format: "text"
+                }),
+                headers: { "Content-Type": "application/json" },
+                mode: 'cors'
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(`힌트: ${data.translatedText}`);
+            })
+            .catch(error => {
+                alert(`힌트: 현재 "${word}"의 뜻을 가져오는 데 문제가 발생했습니다. 잠시 후 다시 시도해주세요.`);
+            });
+        }
+
+        fetchWord(); // 게임 시작
+    </script>
+</body>
+</html>
+
+
+
+<!-- 
+번역 API : LibreTranslate
+
+[사용하는 코드]
+const res = await fetch("https://ko.libretranslate.com/translate", {
+	method: "POST",
+	body: JSON.stringify({
+		q: "뚱 베어",
+		source: "auto",
+		target: "en",
+		format: "text",
+		api_key: ""
+	}),
+	headers: { "Content-Type": "application/json" }
+});
+
+console.log(await res.json());
+
+
+[응답코드]
+
+{
+    "detectedLanguage": {
+        "confidence": 90,
+        "language": "ko"
+    },
+    "translatedText": "teen"
+}
+ -->

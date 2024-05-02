@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>행맨게임</title>
+    <style>
+        .letter {
+            display: inline-block;
+            width: 20px;
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #000;
+        }
+        .correct {
+            color: blue;
+        }
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="alphabet"></div>
+    <div id="wordDisplay"></div>
+    <div id="chancesDisplay"></div>
+    <script>
+        let word = 'example'; // 예시 단어로 변경
+        let wordArr = new Array(word.length).fill('_');
+        let chances = calculateChances(word);
+        let usedLetters = [];
+
+        function calculateChances(word) {
+            let uniqueLetters = new Set(word).size;
+            return uniqueLetters * 2;
+        }
+
+        function setupGame() {
+            setupAlphabet();
+            displayWord();
+            setupHintButton();
+        }
+
+        function displayWord() {
+            document.getElementById('wordDisplay').textContent = wordArr.join(" ");
+            document.getElementById('chancesDisplay').textContent = "남은 기회: " + chances;
+        }
+
+        function updateAlphabet(letter, correct) {
+            let letterElement = document.getElementById(letter);
+            if (correct) {
+                letterElement.classList.add('correct');
+            } else {
+                letterElement.classList.add('incorrect');
+            }
+        }
+
+        function setupAlphabet() {
+            document.getElementById('alphabet').innerHTML = '';
+            let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+            let alphabetDiv = document.getElementById('alphabet');
+            alphabet.split('').forEach(function(letter) {
+                let letterElement = document.createElement('span');
+                letterElement.id = letter;
+                letterElement.textContent = letter.toUpperCase();
+                letterElement.className = 'letter';
+                letterElement.onclick = function() { guess(letter); };
+                alphabetDiv.appendChild(letterElement);
+            });
+        }
+
+        function guess(letter) {
+            if (usedLetters.includes(letter) || chances <= 0) {
+                return;
+            }
+            usedLetters.push(letter);
+
+            let correct = false;
+            let idx = word.indexOf(letter);
+            while (idx !== -1) {
+                wordArr[idx] = letter;
+                idx = word.indexOf(letter, idx + 1);
+                correct = true;
+            }
+
+            if (!correct) {
+                chances--;
+            }
+
+            updateAlphabet(letter, correct);
+            displayWord();
+
+            if (wordArr.indexOf('_') === -1) {
+                alert("정답입니다! 단어는 " + word + "였습니다.");
+            } else if (chances <= 0) {
+                alert("기회를 모두 소진하였습니다. 정답은 " + word + "였습니다.");
+            }
+        }
+
+        function setupHintButton() {
+            let hintButton = document.createElement('button');
+            hintButton.textContent = "힌트";
+            hintButton.onclick = showHint;
+            document.body.appendChild(hintButton);
+        }
+
+        function showHint() {
+            let uniqueLettersCount = new Set(word.split('')).size;
+            if (chances > uniqueLettersCount / 2) {
+                alert(`아직 힌트를 볼 수 없습니다. ${chances - Math.floor(uniqueLettersCount / 2)}번의 기회를 써야 힌트를 보실 수 있습니다.`);
+            } else {
+                let definition = getWordDefinition(word);
+                alert("힌트: " + definition);
+            }
+        }
+
+        function getWordDefinition(word) {
+            // 실제 API 호출 대신, 단순한 가상의 뜻을 반환합니다.
+            return `"${word}"의 가상의 뜻입니다.`;
+        }
+
+        setupGame(); // 게임 시작
+    </script>
+</body>
+</html>

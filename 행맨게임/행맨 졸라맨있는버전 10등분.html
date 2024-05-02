@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>행맨 게임</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          flex-direction: column;
+        }
+        .hangman-svg {
+          width: 200px;
+          height: 250px;
+          margin-bottom: 20px;
+        }
+        .svg-part {
+          display: none;
+        }
+    </style>
+</head>
+<body>
+<svg class="hangman-svg" viewBox="0 0 100 120">
+    <!-- 교수대 -->
+    <line x1="10" y1="110" x2="30" y2="110" stroke="black" stroke-width="2"/> <!-- 기지 -->
+    <line x1="20" y1="110" x2="20" y2="10" stroke="black" stroke-width="2"/> <!-- 세로줄 -->
+    <line x1="20" y1="10" x2="60" y2="10" stroke="black" stroke-width="2"/> <!-- 가로줄 -->
+    <line x1="60" y1="10" x2="60" y2="20" stroke="black" stroke-width="2"/> <!-- 매달리는 줄 -->
+    <!-- 졸라맨 -->
+    <circle id="part1" class="svg-part" cx="60" cy="30" r="10" stroke="black" stroke-width="2" fill="none"/> <!-- 머리 -->
+    <line id="part2" class="svg-part" x1="60" y1="40" x2="60" y2="70" stroke="black" stroke-width="2"/> <!-- 몸통 -->
+    <line id="part3" class="svg-part" x1="60" y1="50" x2="50" y2="60" stroke="black" stroke-width="2"/> <!-- 왼팔 -->
+    <line id="part4" class="svg-part" x1="60" y1="50" x2="70" y2="60" stroke="black" stroke-width="2"/> <!-- 오른팔 -->
+    <line id="part5" class="svg-part" x1="60" y1="70" x2="50" y2="80" stroke="black" stroke-width="2"/> <!-- 왼쪽 다리 -->
+    <line id="part6" class="svg-part" x1="60" y1="70" x2="70" y2="80" stroke="black" stroke-width="2"/> <!-- 오른쪽 다리 -->
+</svg>
+<input id="guess" type="text" maxlength="1">
+<button id="guessButton">추측</button>
+<div id="answer"></div>
+<div id="attempts"></div>
+
+<script>
+    const words = ['apple', 'banana', 'cherry', 'date', 'elderberry'];
+    const word = words[Math.floor(Math.random() * words.length)];
+    let answerArray = new Array(word.length).fill('_');
+    let attempts = 6; // 졸라맨의 몸체 부분이 6개이므로 시도 횟수를 6으로 설정
+
+    const guessInput = document.getElementById('guess');
+    const guessButton = document.getElementById('guessButton');
+    const answerHtml = document.getElementById('answer');
+    const attemptsHtml = document.getElementById('attempts');
+
+    function updateAnswer() {
+      answerHtml.innerHTML = answerArray.join(' ');
+      attemptsHtml.innerHTML = `남은 시도: ${attempts}`;
+    }
+
+    function handleGuess() {
+      const guess = guessInput.value;
+      guessInput.value = '';
+      if (guess.length !== 1) {
+        alert('한 글자만 입력해주세요!');
+        return;
+      }
+
+      let correctGuess = false;
+      for (let i = 0; i < word.length; i++) {
+        if (word[i] === guess && answerArray[i] === '_') {
+          answerArray[i] = guess;
+          correctGuess = true;
+        }
+      }
+
+      if (!correctGuess) {
+        document.getElementById(`part${7 - attempts}`).style.display = 'inline';
+        attempts--;
+      }
+
+      if (attempts <= 0) {
+        alert('게임 오버! 단어는 ' + word + '였습니다.');
+        // 게임 리셋 또는 종료 코드 추가
+      } else if (answerArray.indexOf('_') === -1) {
+        alert('축하합니다! 단어를 모두 맞추셨습니다!');
+        // 게임 리셋 또는 종료 코드 추가
+      }
+
+      updateAnswer();
+    }
+
+    guessButton.addEventListener('click', handleGuess);
+    updateAnswer();
+</script>
+</body>
+</html>
