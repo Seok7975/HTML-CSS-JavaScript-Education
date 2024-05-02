@@ -1,0 +1,240 @@
+1.
+DOM 요소를 id 선택자로 접근하는 함수 - getElementById()
+
+2.
+DOM 요소를 class 값으로 찾아내는 함수 - getElementsByClassName()
+
+3.
+태그 이름이 h2인것을 선택
+document.getElementsByTagName("h2");
+
+4.
+아이디가 heading인 것을 선택해서 클릭 이벤트를 주자. 
+클릭 이벤트가 발생했을 때 글자 사이즈를 5배로 하자.
+document.getElementById("heading").onclick = function() 
+{
+	this.style.fontSize = "5em";
+}
+
+5.
+h2 태그 이름으로 접근한 DOM 요소 중 첫 번째 요소의 배경색을 #eee 로 바꾸자.
+document.getElementsByTagName("h2")[0].style.backgroundColor = "#eee";
+
+6.
+h2 태그 이름으로 접근한 DOM 요소 중 첫 번째 요소의 배경색을 없애기
+document.getElementsByTagName("h2")[0].style.backgroundColor = "";
+
+7.
+아이디가 container인 것을 선택하는 두 가지 방법?
+document.getElementById("container");
+document.querySelector("#container");
+
+getElementById()
+ㆍ정의 : 이 함수는 주어진 ID 값을 가진 DOM 요소를 반환한다.
+ㆍ사용법 : documet.getElementById(id)
+ㆍ매개변수 : id - 찾고자 하는 요소의 ID 속성 값
+ㆍ반환 값 : 
+  - 지정된 ID를 가진 첫 번째 요소를 반환한다. 
+  - 해당 ID를 가진 요소가 없으면 null을 반환
+ㆍ특징
+  - ID는 문서 내에서 유일해야 한다.
+  - 속도 면에서 querySeletor() 보다 빠를 수 있다.
+    (ID를 통한 직접 접근이기 때문)
+
+
+querySelector()
+ㆍ정의 : 이 함수는 CSS 선택자를 만족하는 문서 내의 첫 번째 요소를 반환한다.
+ㆍ사용법 : document.querySelectortor(selectors)
+ㆍ매개변수 : selectors (CSS 선택자 문자열)
+ㆍ반환 값 : 
+  - 지정된 선택자에 해당하는 첫 번째 요소를 반환한다.
+  - 해당하는 요소가 없으면 null을 반환
+ㆍ특징
+  - ID, 클래스, 태그 등 다양한 CSS 선택자를 사용할 수 있다.
+  - getElementByID(), getElementsByClassName(), getElementsByTagName() 등의
+    기능을 통합하여 사용할 수 있어 더 유연합니다.
+  - querySelctor("#container > ul")처럼 둘 이상의 선택자를 사용해서 
+    한 요소에 접근도 가능
+  - 선택자에 맞는 첫 번째 요소만 반환합니다. 모든 요소를 선택하려면
+    querySelectorAll()을 사용해야  한다.
+
+8.
+DOM 요소를 다양한 방법으로 찾아주는 함수 - querySelector(), querySelectorAll()
+(querySelector() 함수와 함께 class 선택자나 태그 이름을 사용할 때는 
+여러 요소 중 첫 번째 요소에만 접근할 수 있다.)
+
+9.
+클래스 이름이 accent인 것들중에 두 번째 것에 배경색을 yellow로 하자.
+document.querySelectorAll(".accent")[1].style.backgroundColor = "yellow";
+
+10.
+HTML 태그 속성을 가져오거나 수정하는 함수 - getAttribute(), setAttribute()
+
+11.
+img 태그 중에 소스가 images/coffee-pink.jpg 이미지의 src 속성을 가져오자.
+document.querySelector("#prod-img > img").getAttribute("src");
+
+12.
+img 태그 중에 소스가 images/coffee-pink.jpg 이미지를 
+"images/coffee-blue.jpg"로 지정해 보자.
+document.querySelector("#prod-img > img").setAttribute("src", "images/coffee-blue.jpg");
+
+src는 HTML에서 이미지 요소<img> 속성 중 하나인데, 이미지의 소스(위치와 이름)을 지정
+
+13.
+이벤트 처리하는 3가지 방법에 대해 기술하시오.
+ㆍ인라인 이벤트 핸들러(Inline Event Handlers)
+  - HTML 요소 내에 직접 이벤트 핸들러를 작성하는 방식.
+  - JavaScript 코드를 HTML 태그 내에서 직접 작성하여 이벤트를 처리
+ex)
+<button onclick="alert('버튼 클릭')">클릭하시오</button>
+  - 장점 : 간단한 이벤트 처리에 적합, 빠르게 테스트하고 구현 가능
+  - 단점 : HTML과 JavaScript 코드가 혼합되어 유지보수가 어려워지고, 보안 문제 야기가능
+ 
+ㆍ이벤트 핸들러 속성 (Event Handler Properties)
+  - DOM 요소의 이벤트 핸들러 속성을 사용하여 이벤트를 처리하는 방식 
+  - JavaScript에서 해당 요소를 찾고, 이벤트에 대응하는 속성에 함수를 할당
+ex)
+document.getElementById("myButton").onclick = function() {
+    alert('버튼 클릭');
+};
+  - 장점 : HTML과 JavaScript가 분리되어 코드의가독성과 유지보수성 향상됨
+  - 단점 : 하나의 요소에 대해 같은 이벤트에 여러 핸들러를 추가 할 수 없다.
+            나중에 할당된 핸들러가 이전 핸들러를 덮어씀.
+
+ㆍaddEventListener() 메소드
+  - addEventListener() 메소드를 사용하여 이벤트를 처리하는 방식.
+  - 이 방법을 사용하면 하나의 이벤트에 여러 핸들러를 등록할 수 있고, 
+    이벤트 캡처링 또는 버블링을 제어할 수 있다.
+ex)
+document.getElementById("myButton").addEventListener("click", function() {
+    alert('버튼 클릭');
+});
+  - 장점 : 가장 유연한 이벤트 처리 방법으로, 하나의 이벤트에 여러 이벤트 리스너를
+            추가 가능하며, 이벤트 캡처링과 버블링을 제어할 수 있다.
+  - 단점 : 오래된 브라우저에서는 지원이 되지 않을 수 있다.
+
+14. 제목 텍스트의 글자 색상 변경
+document.querySelector("#heading").style.color = "아무개";
+
+15. 텍스트 단락(id="desc")의 글자를 빨간색으로 바꿔 보자
+document.querySelector("#desc").style.color = "red";
+
+16. 아이디가 heading인 것의 배경색을 "gray"로 하자.
+document.querySelector("#heading").style.backgroundColor = "gray";
+
+17. DOM에 요소 추가하기
+● 모든 HTML 태그는 '요소(Element) 노드'로 표현한다.
+● HTML 태그에서 사용하는 텍스트 내용은 '텍스트(Text) 노드'로 표현한다.
+● HTML 태그에 있는 속성은 모두 '속성(Attribute)노드'로 표현한다.
+● 주석은 '주석(Comment) 노드'로 표현한다.
+
+새로운 노드를 만들거나 부모 노드에 연결할 때는 다음 함수를 사용한다
+1	createElement()		새 요소 노드를 만든다.
+2-1	createTextNode()		텍스트 내용이 있을 경우 텍스트 노드를 만든다.
+	appendChild()		텍스트 노드를 요소 노드에 자식 노드로 추가한다.
+2-2	createAttribute()		요소에 속성이 있을 경우 속성 노드를 만든다.
+	setAttributeNode()		속성 노드를 요소 노드에 연결한다.
+3	appendChild()		새로 만든 요소 자식 노드를 부모 노드에 추가한다.
+
+
+18. 자식 노드 확인하기 - hasChildNodes() 함수
+hasChildNodes() 함수는 특정 노드에 자식 노드가 있는지를 확인하는 함수이다. 
+자식 노드가 있다면 true를, 그렇지 않다면 false를 반환한다.
+
+ex) document.querySelectorAll("p")[0].hasChildNodes();
+여러 p 노드 중 첫번째 p 노드에 자식 노드가 있는지 확인하는 것이다. 
+결과가 true로 표시되었으니 첫 번째 p 노드에는 자식 노드가 있겠군요.
+
+
+19. 자식 노드에 접근하기 - childNodes 속성
+자식 노드가 있다면 childNodes 속성을 사용해서 
+현재 노드의 자식 노드에 접근할 수 있다. 
+이때 요소 노드뿐만 아니라 태그와 태그 사이의 줄바꿈도 
+빈 텍스트 노드인 자식 노드로 인식한다.
+(자식 노드는 한 개일 수도 있고 여러 개일 수도 있기 때문에 
+속성 이름이 복수형인 점을 기억해 두자.)
+
+ex) document.querySelector("#nameList").childNodes
+
+20. 요소에만 접근하려면 children 속성을 사용
+DOM에서 childNodes 속성을 사용하면 
+요소 노드뿐만 아니라 텍스트 노드나 주석 노드까지 모두 접근할 수 있다. 
+만약 자식 노드 중에서 텍스트 노드와 주석 노드는 필요하지 않고 요소 노드 에만
+접근한다면 children 속성을 사용하면 된다.
+
+ex)
+document.querySelector("#nameList").children
+document.querySelector("#nameList").children[0]
+document.querySelector("#nameList").children[1]
+
+21. 원하는 위치에 노드 삽입하기 - insertBefore() 함수
+insertBefore(추가하는 노드, 기준이 되는 노드)
+자식 노드를 추가하는 appendChild()  함수는 부모 노드에 
+자식 노드가 있을 경우 마지막 자식 노드로 추가 된다. 
+하지만 insertBefore() 함수를 사용하면 부모 노드에 자식 노드를 
+추가할 때 기준이 되는 노드를 지정하고 그 앞에 자식 노드를 추가할 수 있다.
+
+insertBefore() 함수에서는 2개의 인수를 사용하는데, 
+첫 번째 인수는 추가하는 노드, 두 번째 인수는 기준이 되는 노드
+
+ex)
+다음 소스에서 기준이 되는 노드는 nameList의 첫 번째 자식 노드이고, 
+삽입할 노드는 nameList의 세 번째 자식 노드이다. 
+즉 세 번째 자식 노드를 첫 번째 자식 노드 앞에 추가하는 것이다.
+
+nameList.insertBefore(nameList.children[2], nameList.children[0]);
+
+22. 특정 노드 삭제하기 - removeChild() 함수와 parentNode 속성
+removeChild(삭제하려는 자식 노드)
+부모 노드에서 자식 노드를 삭제하는 함수
+
+노드는 스스로 자신을 삭제할 수 없기 때문에 
+부모 노드에 접근한 후 부모 노드에서 삭제해야 한다. 
+그래서 특정 노드를 삭제하려고 할 때 그 노드의 부모 노드를 먼저 찾아야 하는데, 
+부모 노드 정보를 가지고 있는 속성이 parentNode 속성이다. 
+parentNode 속성은 현재 노드의 부모 요소 노드를 반환한다.
+(참고. childNodes는 끝에 -s가 붙는 복수형이지만 부모 노드는 하나뿐이므로 
+parentNode는 단수형으로 사용한다.)
+
+ex)
+<span class="del">X</span> 요소를 삭제
+첫 번째 p요소에서 removeChild() 함수를 실행해야 한다.
+
+var firstDel = document.querySelectorAll(".del")[0];  //첫 번째 X
+var firstP = document.querySelectorAll("p")[0];  // 첫 번째 p 요소
+firstP.removeChild(firstDel);  // 첫 번째 p 요소에 있는 첫번째 x 삭제
+
+//document.querySelectorAll("p")[0].removeChild(firstDel);
+
+23.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

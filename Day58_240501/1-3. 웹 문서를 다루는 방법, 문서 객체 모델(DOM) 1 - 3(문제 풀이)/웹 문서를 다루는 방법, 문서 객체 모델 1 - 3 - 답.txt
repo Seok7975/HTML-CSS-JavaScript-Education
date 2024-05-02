@@ -1,0 +1,190 @@
+dom.html을 크롬으로 열자. 다음을 콘솔창을 열어서 코딩하자.
+
+1. 상세설명이 보이지 않게 하자.
+
+document.querySelector('#detail h3').style.visibility = 'hidden';
+document.querySelector('#detail p').style.visibility = 'hidden';
+
+(visibility:hidden과 display:none 차이점
+① display: none → 화면에 보이지 않게 처리하고 차지하고 있는 공간도 없어집니다. 
+② visibility: hidden → 화면에 보이지 않게 처리하지만 차지하고 있는 공간은 그대로 둡니다.)
+
+2. 콘솔 창에 document라고 입력하고 결과를 보자.
+
+accessDom.html을 크롬으로 열자. 다음을 콘솔창을 열어서 코딩하자.
+
+3. 아이디가 heading인 것을 선택하자.
+document.getElementById("heading");
+
+4. 아이디가 heading인 것을 선택해서 클릭 이벤트를 주자. 클릭 이벤트가 발생했을 때 글자 사이즈를 5배로 하자.
+document.getElementById("heading").onclick = function() {
+	this.style.fontSize = "5em";
+}
+
+5. accessDom.html 문서에서 그림 오른쪽의 텍스트 부문은 <div id="desc"> 태그로 감싸져 있다. 이 텍스트 부분에 접근하는 소스를 작성하시오.
+document.getElementById("desc");
+
+6. class 이름이 accent인 것들에 접근
+document.getElementsByClassName("accent");
+
+7. class 이름이 accent인 것들 중에 첫번째 것에 접근
+document.getElementsByClassName("accent")[0];
+
+8. class 이름이 accent인 것들 중에 첫번째 것에 접근하여 밑줄 긋기
+document.getElementsByClassName("accent")[0].style.textDecoration = "underline"
+
+9. class="accent"를 사용하는 웹 요소 중 두 번째 요소에 접근하는 소스
+document.getElementsByClassName("accent")[1];
+
+10. 태그 이름이 h2인것을 선택
+document.getElementsByTagName("h2");
+
+11. h2 태그 이름으로 접근한 DOM 요소 중 첫 번째 요소의 배경색을 #eee 로 바꾸자.
+document.getElementsByTagName("h2")[0].style.backgroundColor = "#eee";
+
+12. h2 태그 이름으로 접근한 DOM 요소 중 첫 번째 요소의 배경색을 없애기
+document.getElementsByTagName("h2")[0].style.backgroundColor = "";
+
+13. 아이디가 container인 것을 선택하는 두 가지 방법?
+document.getElementById("container");
+document.querySelector("#container");
+
+14. id="heading"인 제목(에디오피아 게뎁) 요소를 선택
+document.querySelector("#heading");
+
+15. class 값이 accent인 DOM 요소에 접근해 보자.
+document.querySelectorAll(".accent");
+
+16. 클래스 이름이 accent인 것들중에 두 번째 것에 배경색을 yellow로 하자.
+document.querySelectorAll(".accent")[1].style.backgroundColor = "yellow";
+
+17. img 태그 중에 소스가 images/coffee-pink.jpg 이미지의 src 속성을 가져오자.
+document.querySelector("#prod-img > img").getAttribute("src");
+
+18. img 태그 중에 소스가 images/coffee-pink.jpg 이미지를 "images/coffee-blue.jpg"로 지정해 보자.
+document.querySelector("#prod-img > img").setAttribute("src", "images/coffee-blue.jpg");
+
+19. 
+showBig.html 파일을 이용하여 작은 이미지를 클릭하면 
+큰 이미지가 바뀌도록 코딩하자.(visual studio code에 직접 작성하자.)
+showBig-result.html 참고
+
+// showBig-result.html
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>DOM</title>
+	<link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+	<div id="container">
+			<h1 id="heading">에디오피아 게뎁</h1>
+			<div id="prod-pic">
+				<img src="images/coffee-pink.jpg" alt="에디오피아 게뎁" id="cup" width="200" height="200">
+					<div id="small-pic">
+						<img src="images/coffee-pink.jpg" class="small">
+						<img src="images/coffee-blue.jpg" class="small">
+						<img src="images/coffee-gray.jpg" class="small">
+					</div>
+			</div>			
+			<div id="desc">
+				<ul>
+					<li>상품명 : 에디오피아 게뎁</li>
+					<li class="bluetext">판매가 : 9,000원</li>
+					<li>배송비 : 3,000원<br>(50,000원 이상 구매 시 무료)</li>
+					<li>적립금 : 180원(2%)</li>
+					<li>로스팅 : 2019.06.17</li>
+					<button>장바구니 담기</button>
+				</ul>				
+				<a href="#" id="view">상세 설명 보기</a>				
+			</div>
+			
+			<div id="detail">									
+					<hr>
+					<h2>상품 상세 정보</h2>
+					<ul>
+						<li>원산지 : 에디오피아</li>
+						<li>지 역 : 이르가체프 코체레</li>
+						<li>농 장 : 게뎁</li>
+						<li>고 도 : 1,950 ~ 2,000 m</li>
+						<li>품 종 : 지역 토착종</li>
+						<li>가공법 : 워시드</li>
+					</ul>
+					<h3>Information</h3>
+					<p>2차 세계대전 이후 설립된 게뎁 농장은 유기농 인증 농장으로 여성의 고용 창출과 지역사회 발전에 기여하며 3대째 이어져 내려오는 오랜 역사를 가진 농장입니다. 게뎁 농장은 SCAA 인증을 받은 커피 품질관리 실험실을 갖추고 있어 철처한 관리를 통해 스페셜티 커피를 생산합니다.</p>
+					<h3>Flavor Note</h3>
+					<p>은은하고 다채로운 꽃향, 망고, 다크 체리, 달달함이 입안 가득.</p>
+			</div>
+	</div>
+
+	<script src="js/showBig-result.js"></script>
+</body>
+</html>
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+showBig-result.js
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		var bigPic = document.querySelector("#cup");  // 큰 이미지 가져옴
+		var smallPics = document.querySelectorAll(".small");  // 작은 이미지들을 노드 리스트로 가져옴
+
+		for(var i = 0; i < smallPics.length; i++) {
+			smallPics[i].addEventListener("click", chagePic);   // 노드를 클릭하면 changePic 함수 실행
+		}
+
+		function chagePic() {
+				var newPic = this.src;   // click 이벤트가 발생한 대상의 src 속성 값 가져옴
+				bigPic.setAttribute("src", newPic);  // newPic 값을 큰 이미지의 src 속성에 할당.
+				// 윗 줄을 cup.src = newPic; 로 사용해도 됨.
+			}	
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+20. 이벤트 처리하는 3가지 방법에 대해 기술하시오.
+ㆍ인라인 이벤트 핸들러(Inline Event Handlers)
+  - HTML 요소 내에 직접 이벤트 핸들러를 작성하는 방식.
+  - JavaScript 코드를 HTML 태그 내에서 직접 작성하여 이벤트를 처리
+ex)
+<button onclick="alert('버튼 클릭')">클릭하시오</button>
+  - 장점 : 간단한 이벤트 처리에 적합, 빠르게 테스트하고 구현 가능
+  - 단점 : HTML과 JavaScript 코드가 혼합되어 유지보수가 어려워지고, 보안 문제 야기가능
+ 
+ㆍ이벤트 핸들러 속성 (Event Handler Properties)
+  - DOM 요소의 이벤트 핸들러 속성을 사용하여 이벤트를 처리하는 방식 
+  - JavaScript에서 해당 요소를 찾고, 이벤트에 대응하는 속성에 함수를 할당
+ex)
+document.getElementById("myButton").onclick = function() {
+    alert('버튼 클릭');
+};
+  - 장점 : HTML과 JavaScript가 분리되어 코드의가독성과 유지보수성 향상됨
+  - 단점 : 하나의 요소에 대해 같은 이벤트에 여러 핸들러를 추가 할 수 없다.
+            나중에 할당된 핸들러가 이전 핸들러를 덮어씀.
+
+ㆍaddEventListener() 메소드
+  - addEventListener() 메소드를 사용하여 이벤트를 처리하는 방식.
+  - 이 방법을 사용하면 하나의 이벤트에 여러 핸들러를 등록할 수 있고, 
+    이벤트 캡처링 또는 버블링을 제어할 수 있다.
+ex)
+document.getElementById("myButton").addEventListener("click", function() {
+    alert('버튼 클릭');
+});
+  - 장점 : 가장 유연한 이벤트 처리 방법으로, 하나의 이벤트에 여러 이벤트 리스너를
+            추가 가능하며, 이벤트 캡처링과 버블링을 제어할 수 있다.
+  - 단점 : 오래된 브라우저에서는 지원이 되지 않을 수 있다.
+
+21. 
+마우스를 이미지 위에 놓으면 boy.png가 나오게 하고, 
+마우스를 이미지 밖으로 빼면 girl.png가 나오게 하자.
+domEvent-result.html 참고
+
+22. 웹 문서의 어디를 누르든지 '안녕하세요?'라는 알림 창이 나타나도록 소스를 작성하시오.
+document.addEventListener('click', function() {
+	alert("Hello");
+});
