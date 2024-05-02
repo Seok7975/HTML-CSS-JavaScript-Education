@@ -1,0 +1,194 @@
+domCss1.html 문서를 열자. 그리고 콘솔 창에 작성하자.
+
+23. 제목 텍스트의 글자 색상을 "white"로 바꾸자.
+document.querySelector("#heading").style.color = "white";
+
+24. 텍스트 단락(id="desc")의 글자를 빨간색으로 바꿔 보자
+document.querySelector("#desc").style.color = "red";
+
+25. 아이디가 heading인 것의 배경색을 "gray"로 하자.
+document.querySelector("#heading").style.backgroundColor = "gray";
+
+26. 도형 위로 마우스 포인터를 올렸을 때 녹색바탕의 둥근 원이 되게 하고,
+도형 위에서 마우스 포인터가 빠져나왔을 때 네모난 사각형이 되게 하자.
+
+domCss2.html 참고
+// domCss2.html
+var myRect = document.querySelector("#rect");
+myRect.addEventListener("mouseover", function() {  // mouseover 이벤트 처리
+	myRect.style.backgroundColor = "green";  // myRect 요소의 배경색 
+	myRect.style.borderRadius = "50%";  // myRect 요소의 테두리 둥글게 처리
+});
+myRect.addEventListener("mouseout", function() {  // mouseout 이벤트 처리
+	myRect.style.backgroundColor = "";  // myRect 요소의 배경색 지우기 
+	myRect.style.borderRadius = "";  // myRect 요소의 테두리 둥글게 처리 안 함
+});
+
+27. product.html을 이용하여
+"상세 설명 보기"를 누르면 상품 상세 정보가 보이면서 
+"상세 설명 보기"가 "상세 설명 닫기"로 바뀐다.
+"상세 설명 닫기"를 누르면 상품 상세 정보가 안보이면서 
+"상세 설명 닫기"가 "상세 설명 보기"로 바뀐다.
+위와 같이 되도록 코딩하시오.
+
+product-result.html 참고
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>DOM</title>
+	<link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+	<div id="container">
+			<h1 id="heading">에디오피아 게뎁</h1>
+			<div id="prod-pic">
+				<img src="images/coffee-pink.jpg" alt="에디오피아 게뎁" id="cup" width="200" height="200">
+					<div id="small-pic">
+						<img src="images/coffee-pink.jpg" class="small">
+						<img src="images/coffee-blue.jpg" class="small">
+						<img src="images/coffee-gray.jpg" class="small">
+					</div>
+			</div>			
+			<div id="desc">
+				<ul>
+					<li>상품명 : 에디오피아 게뎁</li>
+					<li class="bluetext">판매가 : 9,000원</li>
+					<li>배송비 : 3,000원<br>(50,000원 이상 구매 시 무료)</li>
+					<li>적립금 : 180원(2%)</li>
+					<li>로스팅 : 2019.06.17</li>
+					<button>장바구니 담기</button>
+				</ul>				
+				<a href="#" id="view">상세 설명 보기</a>				
+			</div>
+			<hr>
+			<div id="detail">									
+					
+					<h2>상품 상세 정보</h2>
+					<ul>
+						<li>원산지 : 에디오피아</li>
+						<li>지 역 : 이르가체프 코체레</li>
+						<li>농 장 : 게뎁</li>
+						<li>고 도 : 1,950 ~ 2,000 m</li>
+						<li>품 종 : 지역 토착종</li>
+						<li>가공법 : 워시드</li>
+					</ul>
+					<h3>Information</h3>
+					<p>2차 세계대전 이후 설립된 게뎁 농장은 유기농 인증 농장으로 여성의 고용 창출과 지역사회 발전에 기여하며 3대째 이어져 내려오는 오랜 역사를 가진 농장입니다. 게뎁 농장은 SCAA 인증을 받은 커피 품질관리 실험실을 갖추고 있어 철처한 관리를 통해 스페셜티 커피를 생산합니다.</p>
+					<h3>Flavor Note</h3>
+					<p>은은하고 다채로운 꽃향, 망고, 다크 체리, 달달함이 입안 가득.</p>
+			</div>
+	</div>
+
+	<script src="js/product-result.js"></script>
+</body>
+</html>
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+product-result.js
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		var isOpen = false;
+		var bigPic = document.querySelector("#cup");  
+		var smallPics = document.querySelectorAll(".small");  
+
+		for(i=0; i<smallPics.length; i++) {
+			smallPics[i].addEventListener("click", function() {
+				newPic = this.src;
+				bigPic.setAttribute("src", newPic);
+			});
+		}
+
+		var view = document.querySelector("#view");  // #view 요소를 가져옴
+		view.addEventListener("click", function() {
+			if (isOpen == false) {  // 상세 정보가 감춰져 있다면 
+				document.querySelector("#detail").style.display = "block";  // 상세 정보를 화면에 표시
+				view.innerHTML = "상세 설명 닫기";  // 링크 내용 수정
+				isOpen = true;  // 표시 상태로 지정
+			}
+			else {  // 상세 정보가 표시되어 있다면 
+				document.querySelector("#detail").style.display = "none";  // 상세 정보를 화면에서 감춤
+				view.innerHTML = "상세 설명 보기";  // 링크 내용 수정
+				isOpen = false;  // 감춰진 상태로 지정
+			}
+		});
+domNode.html 문서를 열고 콘솔 창에 입력한다.
+
+28. 다음 내용을 동적으로 추가해 보자.
+<p class="accent"> 주문이 완료되었습니다.</p>
+
+var newP = document.createElement("p");
+var newText = document.createTextNode("주문이 완료되었습니다.");
+newP.appendChild(newText);
+document.body.appendChild(newP);
+var attr = document.createAttribute("class");
+attr.value = "accent";
+newP.setAttributeNode(attr);
+
+또는
+
+var newP = document.createElement("p");
+var newText = document.createTextNode("주문이 완료되었습니다.");
+newP.appendChild(newText);
+document.body.appendChild(newP);
+newP.setAttribute("class", "accent");
+
+29. id = "doit_js" 속성을 추가하려고 한다. 콘솔 창에서 easys라는 속성 노드를 만들고 속성 값을
+지정해 보시오.
+
+var easys = document.createAttribute("id");
+easys.value = "doit_js";
+
+30. register.html 을 이용하여
+이름을 입력하고 버튼을 누르면 이름이 순서대로 추가되도록 하자.
+register-create.html 참고
+
+nodeList.html을 웹 브라우저에서 열고 콘솔창에 입력하자.
+
+31.웹 브라우저에서 nodeList.html을 열고 콘솔 창에 다음과 같이 입력한 다음 NodeList 왼쪽의 ▶를 눌러 노드 리스트의 내용을 확인해 보자.
+document.querySelectorAll("p")
+
+32. 31번 NodeList에서 첫번째 값을 가져올려면?
+document.querySelectorAll("p")[0];
+
+33. 31번 NodeList에서 두번째 값을 가져올려면?
+document.querySelectorAll("p")[1]
+
+34. 31번 NodeList에서 첫번째요소의 자식 노드가 있는지 확인하자.
+document.querySelectorAll("p")[0].hasChildNodes();
+
+35. 콘솔 창에 다음과 같이 입력해 보자.
+document.querySelector("#nameList").childNodes
+
+36. 콘솔 창에 다음과 같이 입력해 보자.
+document.querySelector("#nameList").children
+
+37. appendChild() 함수와 insertBefore() 함수에 대해 설명하시오.
+자식 노드를 추가하는 appendChild()  함수는 부모 노드에 자식 노드가 있을 경우 마지막 자식 노드로 추가 된다. 하지만 insertBefore() 함수를 사용하면 부모 노드에 자식 노드를 추가할 때 기준이 되는 노드를 지정하고 그 앞에 자식 노드를 추가할 수 있다.
+
+38. 웹 브라우저에 nodeList.html 문서를 열자. 화면에 3개의 이름이 나열되어 있는데, 3번째 이름을 맨 앞으로 옮겨 보자.
+var nameList = document.querySelector("#nameList");
+nameList.insertBefore(nameList.children[2], nameList.children[0]);
+
+39. 이 문서에서 첫 번째 <span class="del">X</span> 요소의 부모 노드는 무엇일까?
+document.querySelectorAll(".del")[0].parentNode
+
+40. nodeList.html 문서에서 "홍길동"이라는 텍스트의 부모 노드는 어떤 노드일까?
+document.querySelectorAll("p")[0].parentNode
+
+41. 첫 번째 <span class="del">X</span> 요소를 삭제하려면
+
+var firstDel = document.querySelectorAll(".del")[0];		// 첫 번째 X
+var firstP = document.querySelectorAll("p")[0];		// 첫 번째 p 요소
+firstP.removeChild(firstDel);				// 첫 번째 p 요소에 있는 첫번째 x 삭제
+// document.querySelectorAll("p")[0].removeChild(firstDel);
+
+42. register.html을 이용 register1.png, register2.png, register3.png를 참고하여, 이름을 입력하면 최신에 입력한 이름이 상위로 가게 한다.
+이름 옆에는 x도 같이 표시가 되게 한다. x를 누르면 이름과 x과 같이 삭제되게 한다.
+register-result.html 참고

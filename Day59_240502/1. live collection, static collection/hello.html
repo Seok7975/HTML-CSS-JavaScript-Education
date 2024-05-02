@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{color: red;}
+        .blue{color:blue;}
+    </style>
+</head>
+<body>
+    <div class="red">안녕</div>
+    <div class="red">안녕</div>
+    <div class="red">안녕</div>
+    <script>
+        const temp = document.getElementsByClassName('red');
+        for(let i=0;i<temp.length;i++){
+            temp[i].className = 'blue';
+        }
+        // const temp = document.getElementsByClassName('red');
+        // for(let i=temp.length-1;i>=0;i--){
+        //     temp[i].className = 'blue';
+        // }        
+        // const temp = document.querySelectorAll('.red');
+        // for(let i=0;i<temp.length;i++){
+        //     temp[i].className = 'blue';
+        // }        
+    </script>
+</body>
+</html>
