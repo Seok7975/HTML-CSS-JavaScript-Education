@@ -2,18 +2,29 @@ order.html 문서를 열고 콘솔 창도 함께 열어 보자.
 
 1. 아이디가 billingName인 것의 값(value)를 출력하자.
 
-2.  [연락처: ] 필드의 id 값을 확인한 후 그 필드에 전화번호를 입력했을 때 그 내용을 가져오는 소스를 콘솔 창에 작성하시오.
+2.  [연락처: ] 필드의 id 값을 확인한 후 그 필드에 전화번호를 입력했을 때 
+그 내용을 가져오는 소스를 콘솔 창에 작성하시오.
 
-3. order.html 문서를 '배송 정보' 중 [이름: ] 항목의 텍스트 필드에 접근(name 값으로 접근하자.) 두 가지 방법을 기술하시오.
+3. order.html 문서를 '배송 정보' 중 [이름: ] 항목의 텍스트 필드에 
+접근(name 값으로 접근하자.) 두 가지 방법을 기술하시오.
+document.ship.shippingName
+
+document.forms["ship"].elements["shippingName"]
 
 4. name이 shippingName의 값(value) 가져오기.
+document.ship.shippingName.value
+document.forms["ship"].elements["shippingName"].value
 
-5. '배송 정보' 중 [주소] 항목에 내용을 입력했을 때 name 속성을 사용해 그 내용에 접근하는 코드
+5. '배송 정보' 중 [주소] 항목에 내용을 입력했을 때 
+name 속성을 사용해 그 내용에 접근하는 코드
+document.ship.shippingAddr.value
+document.forms["ship"].elements["shippingAddr"].value
+
 
 웹 브라우저에서 reg.html 문서를 열어 보자. 그리고 콘솔 창도 열자.
 
 6. 콘솔 창에 다음을 입력하자.
-document.forms
+
 
 7. 현재 문서의 첫 번째 form의 첫 번째 요소의 값
 
