@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const h1 = document.querySelector('h1')
+        const print = (event) => {
+          let output = ''
+          output += `alt: ${event.altKey}<br>`
+          output += `ctrl: ${event.ctrlKey}<br>`
+          output += `shift: ${event.shiftKey}<br>`              // 이벤트가 발생하면 불 값을 반환합니다.
+          output += `code: ${typeof(event.code) !== 'undefined' ? 
+            event.code : event.keyCode}<br>`
+        h1.innerHTML = output
+        }
+
+        document.addEventListener('keydown', print)
+        document.addEventListener('keyup', print) 
+      })
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+  </body>
+</html>
+
+<!--
+  키보드 키 코드 사용하기
+  키보드 이벤트가 발생할 때는 이벤트 객체로 어떤 키를 눌렀는지와 관련된 속성들이 따라옵니다.여러
+  속성들이 있만, 여기서는 다음과 같은 속성만 살펴보겠습니다.
+
+  이벤트 속성이름             설명
+  code                      입력한 키
+  keyCode                   입력한 키를 나타내는 숫자
+  altKey                    Alt키를 눌렀는지
+  ctrlKey                   Ctrl키를 눌렀는지
+  shiftKey                  Shift키를 눌렀는지
+-->
+
+<!--
+  페이스북과 트위터 등과 같은 현대적인 소셜 네트워크 사이트는 여러 단축키를
+  사용할 수 있습니다. 예를 들어 페이스북에서 Alt + 숫자(1, 2, 3, 4, 5, 6, 7)
+  를 입력하면 특정 페이지로 이동합니다. 이러한 단축키를 구현할 때 키보드 이벤트 속성을
+  사용한 것입니다.
+-->
+<!--
+  event.altKey, event.ctrlKey, event.shiftKey는 KeyboardEvent가 발생했을 때 해당 키가
+  눌려있는지를 알려준다. 따라서 shift키가 up 된 상태에서 shiftKey값은 false이다. ctrl과
+  shift를 동시에 누른 후 ctrl만 떼면 shift는 true이다.
+-->
+
+<!-- 
+  코드에서 'event.code가 있는 경우'를 확인하는 코드를 사용했는데, 이는 인터넷 익스플로러와 구버전의
+  엣지브라우저를 지원하기 위해서 입니다. 그런데 인터넷 익스플로러와 구 버전의 엣지 웹 브라우저는 code
+  속성을 지원하지 않습니다. 이런 웹 브라우저까지 지원하려면 keyCode 속성을 활용해서 프로그램을
+  구현해야 합니다.
+
+  code 속성 값
+  https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code/code_values
+
+  keyCode 속성 값
+  https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
+
+  key 속성 값
+  https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values
+-->

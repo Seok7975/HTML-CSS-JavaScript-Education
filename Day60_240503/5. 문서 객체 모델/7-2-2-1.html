@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const h1 = document.querySelector('h1')
+        const print = (event) => {
+          let output = ''
+          output += `code: ${event.key}`
+          h1.innerHTML = output
+        }
+
+        document.addEventListener('keydown', print)
+        document.addEventListener('keyup', print) 
+      })
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+  </body>
+</html>
+
+<!--
+  keyCode는 이제 deprecated 되었다. 대신 key 속성을 사용하자.
+-->
