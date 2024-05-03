@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          const h1 = document.querySelector('h1')
+
+	h1.parentNode.removeChild(h1)
+
+          // document.body.removeChild(h1)
+          // h1.parentNode가 document.body이므로, 이런 형태로도 제거할 수 있습니다.
+        }, 3000)
+      })
+    </script>
+  </head>
+  <body>
+    <hr>
+    <h1>제거 대상 문서 객체</h1>
+    <hr>
+  </body>
+</html>
+
+<!--
+  문서 객체 제거하기
+  문서 객체를 제거할 때는 removeChild() 메소드를 사용합니다.
+  부모 객체.removeChild(자식 객체)
+
+  appendChild() 메소드 등으로 부모 객체와 이미 연결이 완료된 문서 객체의 경우 parentNode
+  속성으로 부모 객체에 접근할 수 있으므로, 일반적으로 어떤 문서 객체를 제거할 땐느 다음과 같은
+  형태의 코드를 사용합니다.
+
+  문서 객체.parentNode.removeChild(문서 객체)
+  부모 객체를 이런 방법으로 선택할 수 있습니다.
+-->

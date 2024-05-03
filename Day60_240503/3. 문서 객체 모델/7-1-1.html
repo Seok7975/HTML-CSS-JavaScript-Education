@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOMContentLoaded</title>
+    <script>
+      // HTML 태그를 쉽게 만들 수 있는 콜백 함수를 선언합니다.
+      const h1 = (text) => `<h1>${text}</h1>`
+    </script>
+    <script>
+      document.body.innerHTML += h1('1번째 script 태그')
+    </script>
+  </head>
+  <body>
+    <script>
+      document.body.innerHTML += h1('2번째 script 태그')
+    </script>
+    <h1>1번째 h1 태그</h1>
+    <script>
+      document.body.innerHTML += h1('3번째 script 태그')
+    </script>
+    <h1>2번째 h2 태그</h1>
+  </body>
+</html>
+
+<!--
+  HTML 페이지에 있는 html, head, body, title, h1, div, span 등을 HTML 언어에서는 요소(element)라고 부른다. 
+  그리고 자바스크립트에서는 이를 문서 객체(document object)라고 부른다. 따라서 '문서 객체를 조작한다'는 말은 
+  'HTML 요소들을 조작한다'는 의미이다. 문서 객체를 조합해서 만든 전체적인 형태를 문서 객체 모델 
+  (DOM, Document Objects Model)이라고 부른다.
+
+  화면에 문자열들이 나타나는데, body 태그가 생성되기 이전에 head 태그 안의 script 태그에서 body 태그를
+  조작하던 부분(<h1>1번째 script 태그</h1>를 출력하는 부분)은 화면에 출력되지 않는다. 정리하면
+  기본적으로는 head 태그 내부에 script 태그를 배치하면 body 태그에 있는 문서 객체(요소)에 접근할 수
+  없다.
+  head 태그 내부의 script 태그에서 body 태그에 있는 문서에 접근하려면 화면에 문서 객체(요소)를 모두 읽어들일 
+  때까지 기다려야 한다.
+-->

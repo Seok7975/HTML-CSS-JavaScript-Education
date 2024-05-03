@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const rects = document.querySelectorAll('.rect')
+
+        rects.forEach((rect, index) => {
+          const width = (index + 1) * 100
+          const src = `http://placekitten.com/${width}/250`
+          rect.setAttribute('src', src)
+        })
+      })
+
+      /*
+        index 값은 [0,1,2,3]이 반복된다. 1을 더해서
+        [1,2,3,4]가 되게 만들고, 100을 곱해서 너비가
+        [100, 200, 300, 400]이 되게 만든 것이다.
+        */
+       /*
+        추가로 HTML 표준에 정의된 속성은 간단한 사용 방법을 제공합니다. setAttribute()와
+        getAttribute() 메소드를 사용하지 않고도 다음과 같이 온점을 찍고 속성을 바로 읽어들이거나
+        지정할 수 있습니다.
+
+        rets.forEach((rect, index) =>{
+          const width = (index + 1) * 100
+          const src = `http://placekitten.com/${width}/250`
+          rect.src = src    // 간단하게 사용한 예
+        })
+       */
+    </script>
+  </head>
+  <body>
+    <img class="rect">
+    <img class="rect">
+    <img class="rect">
+    <img class="rect">
+  </body>
+</html>
+
+<!--
+  속성 조작하기
+  
+  메소드 이름                                   설명
+  문서객체.setAttribute(속성이름.값)            특정 속성에 값을 지정한다.
+  문서객체.getAttribute(속성이름)               특정 속성을 추출합니다.
+
+  http://placekitten.com/너비/높이
+-->

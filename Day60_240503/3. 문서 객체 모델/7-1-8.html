@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 문서 객체 생성하기
+        const header = document.createElement('h1')
+
+        // 생성한 태그 조작하기
+        header.textContent = '문서 객체 동적으로 생성하기'
+        header.setAttribute('data-custom', '사용자 정의 속성') // data가 붙는건 사용자 정의 속성
+        header.style.color = 'white'
+        header.style.backgroundColor = 'black'
+
+        // h1 태그를 body 태그 아래에 추가하기
+        document.body.appendChild(header)
+      })
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
+
+<!--
+  문서 객체 생성하기
+  문서 객체를 생성하고 싶을 때에는 document.createElement() 메소드를 사용합니다.
+
+  document.createElement(문서 객체 이름)
+
+  그런데 문서 객체를 만들었다고 문서 객체가 배치되는 것은 아닙니다. 문서를 어떤 문서 아래에
+  추가할지를 지정해줘야 합니다. 이러한 프로그래밍에서는 트리(tree)라고 부릅니다. 어떤 문서
+  객체가 있을 때 위에 있는 것을 부모(parent)라고 부르고, 아래에 있는 것을 자식(child)라고
+  부릅니다.
+
+  문서 객체에는 appendChild() 메소드가 있으며, 이를 활용하면 어떤 부모 객체 아래에 자식 객체를
+  추가할 수 있습니다. 문서 객체 트리 구조를 만드는 방법은 다음과 같습니다.
+
+  부모객체.appendChlid(자식객체)
+-->

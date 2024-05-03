@@ -1,0 +1,76 @@
+<!-- 
+1. 
+quiz-1.html 문서를 활용해 피자를 주문할 때 
+추가 주문 항목에서 체크 상자를 누르면 피자 값에 체크한 항목의 금액만큼 더해서 
+'합계' 항목에 표시하고, 체크 상자의 체크를 해제하면 
+합계에서 그 금액만큼 빼서 표시하는 자바스크립트 소스를 작성하세요. 
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>연습문제 1</title>
+	<link rel="stylesheet" href="css/sol-1.css">
+</head>
+<body>
+	<div id="container">
+    <h1>피자 주문</h1>
+		<form>
+    <fieldset>
+        <legend>사이즈</legend>
+        <p>Large - 24000 원 </p>
+    </fieldset>
+    <fieldset>
+        <legend>추가 주문 </legend>        
+          <label><input type="checkbox" name="pickle" class="checkbx" value="800">피클(800원)</label>
+          <label><input type="checkbox" name="chilly" class="checkbx" value="300">칠리 소스(300원)</label>
+          <label><input type="checkbox" name="deeping" class="checkbx" value="200">디핑 소스(200원)</label>
+          <label><input type="checkbox" name="stick" class="checkbx" value="4800">치즈스틱(4개, 4800원)</label>
+          <label><input type="checkbox" name="salad" class="checkbx" value="2400">콘 샐러드(2400원)</label>        
+    </fieldset>
+    <fieldset>
+        <legend>합계</legend>
+        <input type="text" id="total" name="total" class="price" readonly>
+    </fieldset>
+		</form>	
+	</div>
+
+    <script>
+        //초기 피자값을 설정
+        let initial_PriceOfPizza = 24000;
+        
+        //가격 합계 설정할 변수 설정
+        let totalPrice = document.getElementById('total');
+        totalPrice.value = initial_PriceOfPizza + '원';
+
+        //체크를 하면 박스 요소에 대한 참조 할 것을 가져옴
+        let checkboxes = document.querySelectorAll('.checkbx');
+
+        //각 체크 박스에 이벤트 리스너 추가
+        checkboxes.forEach(function(checkbox)
+        {
+            checkbox.addEventListener('change', function()
+            {
+                let itemPrice = parseInt(this.value);
+            
+            //체크박스가 선택되면 금액을 더하고, 체크박스가 해제되면 금액을 빼고
+            if(this.checked)
+            {
+                initial_PriceOfPizza += itemPrice;
+            }
+            else
+            {
+                initial_PriceOfPizza -= itemPrice;
+            }
+            totalPrice.value = initial_PriceOfPizza + '원';
+            });
+        
+        });
+        //합계 필드를 업데이트
+        
+    </script>
+</body>
+</html>

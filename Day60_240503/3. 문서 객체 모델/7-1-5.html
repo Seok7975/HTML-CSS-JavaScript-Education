@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const a = document.querySelector('#a')
+        const b = document.querySelector('#b')
+
+        a.textContent = '<h1>textContent 속성</h1>'
+        b.innerHTML = '<h1>innerHTML 속성</h1>'
+      })
+    </script>
+  </head>
+  <body>
+    <div id="a"></div>
+    <div id="b"></div>
+  </body>
+</html>
+
+<!--
+  글자 조작하기
+
+  속성 이름                         설명
+  문서 객체.textContent             입력된 문자열을 그대로 넣습니다.
+  문서 객체.innerHTML               입려고딘 문자열을 HTML 형식으로 넣습니다.
+
+  참고
+  innerText보다 textContent가 최신 속성. 둘 중에 textContent가 성능이 더 좋다.
+-->

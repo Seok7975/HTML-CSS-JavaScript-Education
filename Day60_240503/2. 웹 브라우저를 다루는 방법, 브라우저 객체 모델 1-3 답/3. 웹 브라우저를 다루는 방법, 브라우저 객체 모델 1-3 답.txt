@@ -1,0 +1,193 @@
+1. 다음 브라우저 내장 객체에 대해 기술하시오.
+
+Window		
+브라우저 창이 열릴 때마다 하나씩 만들어지는 객체입니다. 
+브라우저 창 안에 존재하는 모든 요소의 최상위 객체입니다.
+
+Document	
+웹 문서에서 <body> 태그를 만나면 만들어지는 객체입니다. 
+HTML 문서 정보를 가지고 있습니다.
+
+History		
+현재 창에서 사용자의 방문 기록을 저장하고 있는 객체입니다.
+
+Location		
+현재 페이지에 대한 URL 정보를 가지고 있는 객체입니다.
+
+Navigator		
+현재 사용중인 웹 브라우저 정보를 가지고 있는 객체입니다.
+
+Screen		
+현재 사용 중인 화면 정보를 다루는 객체입니다.
+
+2. 웹 브라우저에서 빈 페이지 실행
+about:blank
+
+3. 다음 내용을 입력해 보자.
+window.innerWidth;
+window.innerHeight;
+window.outerWidth
+window.outerHeight
+
+4. "https://www.daum.net"를 새창에서 열어보자.
+window.open("https://www.daum.net");
+
+5. 새 창으로 빈 문서를 열어보자.
+window.open("");
+
+6. 
+open() 함수의 두 번째 매개변수는 새 창의 타깃(Target)이나 
+윈도우 이름을 지정하는 부분이다.
+window.open("https://www.daum.net", "_self");
+
+7. 두 번째 매개변수 값을 "_self"로 지정하면 현재 창에 새 창이 표시된다.
+window.open("https://www.daum.net", "_self");
+
+8. 새창으로 daum을 왼쪽 위에 가로 300px 세로 300px로 띄우자.
+window.open("https://www.daum.net", "", "left=0, top=0, width=300, height=300");
+
+9. 웹 브라우저로 가로 300, 세로 300의 새창을 만든다.
+var newWin = window.open(" ", " ", "width=300, height=300");
+
+10. 9번에서 만든 새창의 크기를 가로 100픽셀 세로 100픽셀을 늘린다.
+newWin.resizeBy(100, 100);
+
+11. 9번에서 반든 새창의 크기를 가로 100픽셀 세로 100픽셀을 줄인다.
+newWin.resizeBy(-100, -100);
+
+12. ( resizeTo() ) 함수는 최종 크기를 지정합니다. 
+즉 알림 창의 크기를 가로와 세로 각각 200픽셀로 지정하려면 
+콘솔 창에 다음과 같이 입력하면 된다. 
+resizeBy() 함수에서는 음수 값을 사용할 수 있지만 
+( resizeTo() ) 함수에서는 음수 값을 사용할 수 없습니다.
+newWin.resizeTo(200, 200);
+
+13. 9번에서 만든 창을 현재 위치에서 가로로 500픽셀만큼, 세로로 500픽셀만큼 이동.
+newWin.moveBy(500, 500);
+
+14. 9번에서 만든 창을 좌푯값(0,0)으로 옮깁니다.
+newWin.moveTo(0, 0);
+
+15. 팝업 창이 차단 되었을 때 경고 메시지를 띄운다.
+// main-result.html 참고
+
+16. 앵커태그를 이용하여 창닫기.
+<a href="javascript:window.close();">창닫기</a>
+또는
+<a href="#" onclick="javascript:window.close();">창닫기</a> 
+
+17. History 객체의 속성과 함수
+
+속성		설명
+length		현재 브라우저 창의 History 목록에 잇는 항목의 개수, 즉 방문한 사이트 개수를 반환합니다.
+
+함수		설명
+back()		History 목록에서 이전 페이지를 현재 화면에 불러옵니다.
+forward()		History 목록에서 다음 페이지를 현재 화면에 불러옵니다.
+go()		History 목록에서 현재 페이지를 기준으로 상대 위치에 있는 페이지를 현재 화면에 불러옵니다. 예를 들어 history.go(1)은 다음 페이지를 가져오고, history.go(-1)은 이전 페이지를 불러옵니다.
+
+18. Location 객체의 속성과 함수
+속성		설명
+href		전체 URL입니다. 이 값을 변경하면 해당 주소로 이동할 수 있습니다.
+port		URL의 포트 번호를 나타냅니다.
+search		URL 중 ?(물음표)로 시작하는 검색 내용 부분을 나타냅니다.
+
+함수		설명
+assign()		현재 문서에 새 문서 주소를 할당해 새 문서를 가져옵니다.
+reload()		현재 문서를 다시 불러옵니다. 브라우저의 [새로 고침]과 같은 역할을 합니다.
+replace()		현재 문서의 URL을 지우고 다른 URL의 문서로 교체합니다.
+toString()		현재 문서의 URL을 문자열로 반환합니다.
+
+19. 
+Window 객체의 innerWidth/innerHeight나 outerWidth/outerHeight 속성은 
+웹 브라우저 창의 너비나 높이를 측정하고, 
+Screen 객체의 availWidth/availHeight나 width/height 속성은 
+화면 자체의 너비나 높이를 측정한다는 것입니다. 
+웹 브라우저 창의 크기를 늘리거나 줄인 후 [새로 고침]을 눌러 보세요. 
+Window 객체의 속성 값은 바뀌지만, Screen 객체의 속성 값은 바뀌지 않습니다.
+
+20. 
+quit-1.html 문서에 20.png 처럼 웹 브라우저에서 문서를 불러오면 자동으로 
+current.html 문서를 알림 창에 표시하는 소스를 작성하세요. 
+단 알림 창의 너비는 300픽셀, 높이는 50픽셀입니다.
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>현재 시각</title>
+  <style>
+    * {
+      margin:0;
+      padding:0;
+      overflow:hidden;
+    }
+    #container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+    }
+    p {
+      font-size:1.2em;
+      font-size:1.5em; 
+      font-weight:bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <p id="current" class="display"></p>
+  </div>
+
+  <script>
+    setInterval(displayNow, 1000);  // 1초마다 시간 계산 함수 실행
+
+    function displayNow() {  // 시간 계산 함수
+      var now = new Date();     // Date 객체의 인스턴스를 만듦      
+      var currentTime = now.toLocaleTimeString();     //  toLocaleTmeString() 메서드를 사용해 지역에 맞는 시간을 가져옴
+
+      document.querySelector("#current").innerHTML = currentTime;   // id="current" 인 요소에 현재 시간 표시
+    }
+  </script>
+</body>
+
+21. 
+quiz-2.html 문서를 가져와 [새로고침] 버튼을 누를 때마다 
+웹 문서의 배경색이 달라집니다. 이것을 페이지를 다시 불러오는 형식으로 작성해 보세요.
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>새로고침 연습</title>
+  <link rel="stylesheet" href="css/reload.css">
+</head>
+<body>
+  <div id="container">
+      <p>현재 문서는 랜덤 배경색을 사용하고 있습니다. </p>
+      <p>'새로고침' 버튼을 클릭할 때마다 배경색이 달라질 것입니다.</p>
+      <button onclick="location.reload()">새로고침</button>
+  </div>
+  <script src="js/sol-2.js"></script>
+</body>
+</html>
+
+
+///////////////////////////////
+<script>
+    function changeBg() {
+      var x = Math.floor(Math.random() * 256);
+      var y = Math.floor(Math.random() * 256);
+      var z = Math.floor(Math.random() * 256);
+      var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+        document.body.style.background = bgColor;
+    }
+
+    changeBg();
+</script>

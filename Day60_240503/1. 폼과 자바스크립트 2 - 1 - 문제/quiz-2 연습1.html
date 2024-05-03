@@ -1,0 +1,63 @@
+<!-- 
+2. quiz-2.html 문서를 활용해 [반지름] 텍스트 필드에 원의 반지름 값을 입력한 후 
+[계산]을 누르면 원의 둘레와 원의 넓이를 계산하여 
+[원둘레] 필드와 [원넓이]필드에 계산한 값을 표시하도록 자바스크립트 소스를 작성하세요. 
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>연습문제 2</title>
+	<link rel="stylesheet" href="css/sol-2.css">
+</head>
+<body>
+	<h1>원 둘레과 넓이 계산</h1>
+	<div id="container">
+		<form>
+			<div id="calc">
+				<p>반지름 : <br>
+					<input type="text" id="radius" name="radius">					
+					<span id="start">계산</span>
+				</p>
+				<hr>
+				<p>원둘레 : <br>
+					<input type="text" id="round">
+				</p>
+				<p>원넓이 : <br>
+					<input type="text" id="area">
+				</p>
+			</div>
+		</form>	
+    </div>
+
+	<script>
+		document.getElementById('start').addEventListener('click', function()
+		{
+			//반지름을 넣을 변수 및 입력한 것을 가져오기
+			let radius = document.getElementById('radius').value;	
+
+			//반지름 체크
+			if (!radius || radius <= 0)
+			{
+				alert("유효한 반지름 값을 입력해주세요.");
+				return;
+			}
+
+			//원의 둘레와 넓이 계산
+			let round = 2 * Math.PI * radius;
+			let area = Math.PI * radius**2
+
+			//결과 출력
+			document.getElementById('round').value = round.toFixed(2); // 소수점 둘째 자리까지 반올림해 표시
+			document.getElementById('area').value = area.toFixed(2); // 소수점 둘째 자리까지 반올림해 표시
+		});
+
+
+
+	</script>
+    
+</body>
+</html>

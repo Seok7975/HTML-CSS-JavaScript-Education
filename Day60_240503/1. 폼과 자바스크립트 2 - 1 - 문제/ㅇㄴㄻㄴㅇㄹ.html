@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input[type="text"]{
+        padding: 10px;
+        border-radius: 10px;
+    }
+    #start{
+        padding: 5px 10px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <h1>원 둘레와 넓이 계산</h1>
+    <div id = "container">
+        <form>
+            <div id = calc>
+                <p>반지름 : <br>
+                    <input type="text" id="radius" name="radius">
+                    <span id = "start">계산</span>
+                </p>
+                <hr>
+                <p>원 둘레 : <br>
+                    <input type="text" id="round">
+                </p>
+                <p>원 넓이 : <br>
+                    <input type="text" id="area">
+                </p>
+            </div>
+        </form>
+    </div>
+    <script>
+        let resultPrint = document.getElementById('start');
+        //let round = document.querySelector('#round');
+        //let area = document.querySelector('#area');
+        
+        resultPrint.addEventListener("click", function(){
+            let radius = document.getElementById('radius').value;
+           if(!isNaN(radius)){
+            let cal1 = 2 * Math.PI * radius;
+            round = cal1.toFixed(2);
+
+
+            let cal2 = Math.PI * Math.pow(radius, 2);
+            area = cal2.toFixed(2);
+           }else alert("숫자를 입력하세요.")
+
+           document.getElementById('round').value = round; 
+		   document.getElementById('area').value = area;
+        })
+    </script>
+</body>
+</html>

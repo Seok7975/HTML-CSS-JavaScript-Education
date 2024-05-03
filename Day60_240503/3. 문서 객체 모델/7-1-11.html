@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        let counter = 0
+        const h1 = document.querySelector('h1')
+
+        h1.addEventListener('click', (event) => {
+          counter++
+          h1.textContent = `클릭 횟수:${counter}`
+        })
+      })
+    </script>
+    <style>
+      h1{
+        /* 클릭을 여러 번 했을 때
+           글자가 선택되는 것을 막기 위한 스타일 */
+        user-select: none;
+      }
+      /*
+        user-selet 속성을 none 으로 지정하면 해당 태그를 마우스로 드래그하지
+        못합니다.
+      */
+    </style>
+  </head>
+  <body>
+    <h1>클릭 횟수: 0</h1>
+  </body>
+</html>
+
+<!--
+  이벤트 설정하기
+  document.addEventListener('DOMContentLoaded', ()=>{})
+  이 코드는 "document라는 문서 객체의 DOMContentLoaded 이벤트가
+  발생했을 때, 매개변수로 지정한 콜백 함수를 실행해라"
+
+  모든 문서 객체는 생성되거나 클릭되거나 마우스를 위에 올리거나 할 때 이벤트(event)라는 것이 발생합
+  니다. 그리고 이 이벤트가 발생할 때 실행할 함수는 addEventListener() 메소드를 사용합니다.
+
+  문서객체.addEventListener(이벤트 이름, 콜백 함수)
+                                          이벤트 리스너 또는 이벤트 핸들러라고 부릅니다.
+
+  이벤트가 발생할 때 실행할 함수를 이벤트 리스너(event listener) 또는 이벤트 핸들러(event handler)라고
+  부릅니다.
+-->
