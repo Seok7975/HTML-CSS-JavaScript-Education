@@ -200,7 +200,7 @@
             let gameEnded = false; // 게임 종료 상태
             let hintButton; // 힌트 버튼 전역 변수로 선언
 
-            function fetchWord() 
+            function fetchWord() // 단어 추출하기 위한 외부 API 가져옴 
             {
                 fetch('https://random-word-api.herokuapp.com/word?number=1')
                     .then(response => response.json())
@@ -390,7 +390,7 @@
                 }
             }
 
-            function getWordDefinition(word) 
+            function getWordDefinition(word) // 힌트에 답의 뜻을 알려주기위한 공개 번역 API 가져옴
             {
                 fetch(`https://libretranslate.de/translate`, 
                 {
