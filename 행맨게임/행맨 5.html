@@ -30,10 +30,6 @@
         .svg-part {
           display: none;
         }
-        /* button
-        {
-            width : 60px;
-        } */
     </style>
 </head>
 <body>
@@ -44,21 +40,20 @@
         <line x1="20" y1="10" x2="60" y2="10" stroke="black" stroke-width="2"/> <!-- 가로줄 -->
         <line x1="60" y1="10" x2="60" y2="20" stroke="black" stroke-width="2"/> <!-- 매달리는 줄 -->
         <!-- 졸라맨 -->
-        <circle id="part1" class="svg-part" cx="60" cy="30" r="10" stroke="black" stroke-width="2" fill="none"/> <!-- 머리, 크기를 더 크게 조정 -->
-        <line id="part2" class="svg-part" x1="60" y1="40" x2="60" y2="50" stroke="black" stroke-width="2"/> <!-- 목, 짧게 조정 -->
-        <line id="part3" class="svg-part" x1="60" y1="50" x2="60" y2="80" stroke="black" stroke-width="2"/> <!-- 몸통 -->
-        <line id="part4" class="svg-part" x1="60" y1="60" x2="50" y2="70" stroke="black" stroke-width="2"/> <!-- 왼팔 -->
-        <line id="part5" class="svg-part" x1="60" y1="60" x2="70" y2="70" stroke="black" stroke-width="2"/> <!-- 오른팔 -->
-        <line id="part6" class="svg-part" x1="60" y1="80" x2="50" y2="90" stroke="black" stroke-width="2"/> <!-- 왼쪽 다리 -->
-        <line id="part7" class="svg-part" x1="60" y1="80" x2="70" y2="90" stroke="black" stroke-width="2"/> <!-- 오른쪽 다리 -->
-        <!-- 추가적인 부분 -->
-        <circle id="part8" class="svg-part" cx="56" cy="29" r="1" fill="black"/> <!-- 왼쪽 눈 -->
-        <circle id="part9" class="svg-part" cx="64" cy="29" r="1" fill="black"/> <!-- 오른쪽 눈 -->
-        <line id="part10" class="svg-part" x1="57" y1="33" x2="63" y2="33" stroke="black" stroke-width="1"/> <!-- 입 -->
-        <line id="part11" class="svg-part" x1="50" y1="70" x2="45" y2="68" stroke="black" stroke-width="2"/> <!-- 왼손 -->
-        <line id="part12" class="svg-part" x1="70" y1="70" x2="75" y2="68" stroke="black" stroke-width="2"/> <!-- 오른손 -->
-        <line id="part13" class="svg-part" x1="50" y1="90" x2="45" y2="93" stroke="black" stroke-width="2"/> <!-- 왼발 -->
-        <line id="part14" class="svg-part" x1="70" y1="90" x2="75" y2="93" stroke="black" stroke-width="2"/> <!-- 오른발 -->
+        <circle id="part1" class="svg-part" cx="60" cy="30" r="10" stroke="black" stroke-width="2" fill="none"/> <!-- 머리 -->
+        <line id="part2" class="svg-part" x1="60" y1="40" x2="60" y2="80" stroke="black" stroke-width="2"/> <!-- 몸통 -->
+        <line id="part3" class="svg-part" x1="60" y1="50" x2="50" y2="60" stroke="black" stroke-width="2"/> <!-- 왼팔 -->
+        <line id="part4" class="svg-part" x1="60" y1="50" x2="70" y2="60" stroke="black" stroke-width="2"/> <!-- 오른팔 -->
+        <line id="part5" class="svg-part" x1="60" y1="80" x2="50" y2="90" stroke="black" stroke-width="2"/> <!-- 왼쪽 다리 -->
+        <line id="part6" class="svg-part" x1="60" y1="80" x2="70" y2="90" stroke="black" stroke-width="2"/> <!-- 오른쪽 다리 -->
+        <circle id="part7" class="svg-part" cx="56" cy="29" r="1" fill="black"/> <!-- 왼쪽 눈 -->
+        <circle id="part8" class="svg-part" cx="64" cy="29" r="1" fill="black"/> <!-- 오른쪽 눈 -->
+        <line id="part9" class="svg-part" x1="57" y1="33" x2="63" y2="33" stroke="black" stroke-width="1"/> <!-- 입 -->
+        <line id="part10" class="svg-part" x1="50" y1="60" x2="45" y2="55" stroke="black" stroke-width="2"/> <!-- 왼손 -->
+        <line id="part11" class="svg-part" x1="70" y1="60" x2="75" y2="55" stroke="black" stroke-width="2"/> <!-- 오른손 -->
+        <line id="part12" class="svg-part" x1="50" y1="90" x2="45" y2="95" stroke="black" stroke-width="2"/> <!-- 왼발 -->
+        <line id="part13" class="svg-part" x1="70" y1="90" x2="75" y2="95" stroke="black" stroke-width="2"/> <!-- 오른발 -->
+        <line id="part14" class="svg-part" x1="60" y1="10" x2="60" y2="20" stroke="red" stroke-width="2" stroke-dasharray="5,5"/> <!-- 루프 -->
     </svg>
 
     <div id="alphabet"></div>
@@ -69,11 +64,8 @@
         let wordArr = []; 
         let chances = 0; // 기회
         let usedLetters = [];   //입력한 알파벳 추가할 배열
-
-
-        let attemptsLeft = Math.min(14, word.length); // 문제의 길이에 따라 시도 횟수를 조정
+        let currentPart = 0; // 현재 그려야 할 졸라맨의 부분
         const totalParts = 14; // 졸라맨을 그릴 총 부분 수
-        let partsToDraw = Math.ceil(totalParts / attemptsLeft); // 그릴 부분의 수를 조정
 
         function fetchWord() // 오픈 기계번역 사이트 API
         {
@@ -89,25 +81,9 @@
                 .catch(error => console.error('Error fetching word:', error));
         }
 
-        /* 
-                fetch(url)
-                .then(response => response.json())
-                .then(json => console.log(json))
-                1. fetch()안에는 기본적으로 요청할 url을 넣는다.
-                2. get, post, put, delete 중 default값으로는 get으로 동작
-                3. 해당 주소에 요청을 하고 응답객체(object response)를 받는다.
-                4. 첫번째 .then()에서 응답을 받고 .json() 메소드로 파싱한 json()값을 리턴
-                5. 두번째 .then()에서 리턴받은 json값을 받고, 원하는대로 처리가 가능
-
-                확장
-                fetch(url, options)
-                .then((resonse) => console.log("response :", response))
-                .catch((error) => console.log("error : ", error));
-         */
-
         function calculateChances(word) {
             let uniqueLetters = new Set(word).size;
-            return uniqueLetters * 2;
+            return Math.min(14, uniqueLetters + 3); // 최소 기회를 14회로 제한
         }
 
         function setupGame() {
@@ -122,6 +98,67 @@
             document.getElementById('chancesDisplay').textContent = "남은 기회: " + chances;
         }
 
+        function drawHangman() {
+    // 남은 기회에 따라 그려야 할 졸라맨 부분을 계산합니다.
+    let drawableParts = Math.floor(totalParts / calculateChances(word));
+    let partsToDraw = drawableParts - (drawableParts * chances / calculateChances(word));
+
+    // 마지막 기회에서는 남은 모든 부분을 그립니다.
+    if (chances === 0) {
+        partsToDraw = totalParts - currentPart;
+    }
+
+    for (let i = 0; i < partsToDraw; i++) {
+        if (currentPart < totalParts) {
+            const part = document.getElementById(`part${currentPart + 1}`);
+            if (part) {
+                part.style.display = 'block';
+            }
+            currentPart++;
+        }
+    }
+}
+
+function guess(letter) {
+    if (usedLetters.includes(letter) || chances <= 0) {
+        return;
+    }
+    usedLetters.push(letter);
+
+    let correct = false;
+    let idx = word.indexOf(letter);
+    while (idx !== -1) {
+        wordArr[idx] = letter;
+        idx = word.indexOf(letter, idx + 1);
+        correct = true;
+    }
+
+    if (!correct) {
+        chances--;
+    } else {
+        // 단어 배열에서 '_'가 없다면, 모든 글자를 맞췄다는 의미입니다.
+        if (!wordArr.includes('_')) {
+            // 모든 글자를 맞췄으므로 게임 승리 메시지를 표시합니다.
+            alert("정답입니다! 단어는 " + word + "였습니다.");
+            // 여기서 함수를 종료하여, 추가적인 그림 그리기를 방지합니다.
+            return;
+        }
+    }
+
+    updateAlphabet(letter, correct);
+    displayWord();
+
+    // 틀렸을 때만 졸라맨을 그립니다.
+    if (!correct && chances > 0) {
+        drawHangman();
+    } else if (chances <= 0) {
+        // 기회를 모두 소진했을 때 남은 부분을 모두 그립니다.
+        while (currentPart < totalParts) {
+            drawHangman();
+        }
+        alert("기회를 모두 소진하였습니다ㅠㅠ. 정답은 " + word + "였습니다.");
+    }
+}
         function updateAlphabet(letter, correct) {
             let letterElement = document.getElementById(letter);
             if (letterElement) {
@@ -134,9 +171,9 @@
         }
 
         function setupAlphabet() {
-            document.getElementById('alphabet').innerHTML = '';
             let alphabet = 'abcdefghijklmnopqrstuvwxyz';
             let alphabetDiv = document.getElementById('alphabet');
+            alphabetDiv.innerHTML = '';
             alphabet.split('').forEach(function(letter) {
                 let letterElement = document.createElement('span');
                 letterElement.id = letter;
@@ -147,63 +184,29 @@
             });
         }
 
-        function guess(letter) {
-            if (usedLetters.includes(letter) || chances <= 0) {
-                return;
-            }
-            usedLetters.push(letter);
-
-            let correct = false;
-            let idx = word.indexOf(letter);
-            while (idx !== -1) {
-                wordArr[idx] = letter;
-                idx = word.indexOf(letter, idx + 1);
-                correct = true;
-            }
-
-            if (!correct) {
-                chances--;
-            }
-
-            updateAlphabet(letter, correct);
-            displayWord();
-
-            if (wordArr.indexOf('_') === -1) {
-                alert("정답입니다! 단어는 " + word + "였습니다.");
-            } else if (chances <= 0) {
-                alert("기회를 모두 소진하였습니다. 정답은 " + word + "였습니다.");
-            }
-        }
-
         function setupHintButton() {
             let hintButton = document.createElement('button');
             hintButton.textContent = "힌트";
-            hintButton.onclick = showHint;
+            hintButton.onclick = function() { showHint(); };
             document.body.appendChild(hintButton);
         }
 
         function showHint() {
             let uniqueLettersCount = new Set(word.split('')).size;
             let requiredChances = Math.ceil((uniqueLettersCount + 5) / 2);
-            if (chances > requiredChances) 
-            {
+            if (chances > requiredChances) {
                 let n = Math.ceil(chances - requiredChances);
                 alert(`아직 힌트를 볼 수 없습니다!, ${n}번의 기회를 더 쓰셔야 합니다.`);
-            } 
-            else 
-            {
+            } else {
                 getWordDefinition(word);
             }
         }
 
-        function getWordDefinition(word) 
-        {
+        function getWordDefinition(word) {
             // LibreTranslate를 사용하여 단어의 뜻을 번역합니다.
-            fetch(`https://libretranslate.de/translate`, 
-            {
+            fetch(`https://libretranslate.de/translate`, {
                 method: "POST",
-                body: JSON.stringify(
-                {
+                body: JSON.stringify({
                     q: word,
                     source: "en",
                     target: "ko",
@@ -213,32 +216,26 @@
                 mode: 'cors'
             })
             .then(response => response.json())
-            .then(data => 
-            {
+            .then(data => {
                 alert(`힌트: ${data.translatedText}`);
             })
-            .catch(error => 
-            {
+            .catch(error => {
                 console.error('Error fetching word definition:', error);
                 alert('힌트를 가져오는 데 실패했습니다.');
             });
         }
 
-        function listenForKeyPress() 
-        {
-            document.addEventListener('keydown', function(event) 
-            {
+
+        function listenForKeyPress() {
+            document.addEventListener('keydown', function(event) {
                 const key = event.key.toLowerCase();
-                if (key >= 'a' && key <= 'z' && !event.metaKey && !event.ctrlKey) 
-                {
+                if (key >= 'a' && key <= 'z' && !event.metaKey && !event.ctrlKey) {
                     guess(key);
                 }
             });
         }
 
-
         fetchWord(); // 게임 시작
-
     </script>
 </body>
 </html>

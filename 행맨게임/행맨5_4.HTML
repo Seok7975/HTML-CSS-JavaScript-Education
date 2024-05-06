@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>행맨게임</title>
+    <style>
+        .letter {
+            display: inline-block;
+            width: 20px;
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #000;
+            text-align: center;
+        }
+        .correct {
+            color: blue;
+        }
+        .incorrect {
+            color: red;
+        }
+        .hangman-svg {
+            width: 200px;
+            height: 250px;
+            margin-bottom: 20px;
+        }
+        .svg-part {
+            display: none;
+        }
+        .win-svg-part {
+            display: none;
+             /* 승리 시 졸라맨 색상 변경 */
+        }
+        .blood {
+            display: none;
+            fill: red;
+        }
+
+        .win-svg-part {
+    animation: fallDown 0.5s ease forwards;
+}
+
+@keyframes fallDown {
+    to {
+        transform: translateY(13px);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <svg class="hangman-svg" viewBox="0 0 100 120">
+        <!-- 교수대는 항상 표시 -->
+        <line x1="10" y1="110" x2="30" y2="110" stroke="black" stroke-width="2"/> <!-- 기지 -->
+        <line x1="20" y1="110" x2="20" y2="10" stroke="black" stroke-width="2"/> <!-- 세로줄 -->
+        <line x1="20" y1="10" x2="60" y2="10" stroke="black" stroke-width="2"/> <!-- 가로줄 -->
+        <line x1="60" y1="10" x2="60" y2="20" stroke="black" stroke-width="2"/> <!-- 매달리는 줄 -->
+        <!-- 졸라맨 -->
+        <circle id="part1" class="svg-part" cx="60" cy="30" r="10" stroke="black" stroke-width="2" fill="none"/> <!-- 머리 -->
+        <line id="part2" class="svg-part" x1="60" y1="40" x2="60" y2="80" stroke="black" stroke-width="2"/> <!-- 몸통 -->
+        <line id="part3" class="svg-part" x1="60" y1="50" x2="50" y2="60" stroke="black" stroke-width="2"/> <!-- 왼팔 -->
+        <line id="part4" class="svg-part" x1="60" y1="50" x2="70" y2="60" stroke="black" stroke-width="2"/> <!-- 오른팔 -->
+        <line id="part5" class="svg-part" x1="60" y1="80" x2="50" y2="90" stroke="black" stroke-width="2"/> <!-- 왼쪽 다리 -->
+        <line id="part6" class="svg-part" x1="60" y1="80" x2="70" y2="90" stroke="black" stroke-width="2"/> <!-- 오른쪽 다리 -->
+        <circle id="part7" class="svg-part" cx="56" cy="29" r="1" fill="black"/> <!-- 왼쪽 눈 -->
+        <circle id="part8" class="svg-part" cx="64" cy="29" r="1" fill="black"/> <!-- 오른쪽 눈 -->
+        <line id="part9" class="svg-part" x1="57" y1="33" x2="63" y2="33" stroke="black" stroke-width="1"/> <!-- 입 -->
+        <line id="part10" class="svg-part" x1="50" y1="60" x2="45" y2="55" stroke="black" stroke-width="2"/> <!-- 왼손 -->
+        <line id="part11" class="svg-part" x1="70" y1="60" x2="75" y2="55" stroke="black" stroke-width="2"/> <!-- 오른손 -->
+        <line id="part12" class="svg-part" x1="50" y1="90" x2="45" y2="95" stroke="black" stroke-width="2"/> <!-- 왼발 -->
+        <line id="part13" class="svg-part" x1="70" y1="90" x2="75" y2="95" stroke="black" stroke-width="2"/> <!-- 오른발 -->
+        <!-- 피자국 -->
+        <ellipse class="blood" cx="60" cy="108" rx="15" ry="5" />
+        <!-- 승리 시 졸라맨 -->
+        <g class="win-svg-part" transform="translate(0,20)" stroke="blue"> <!-- 아래로 떨어지도록 위치 조정 -->
+            <circle id="part1" class="svg-part" cx="60" cy="30" r="10" stroke="black" stroke-width="2" fill="none"/> <!-- 머리 -->
+            <line x1="60" y1="40" x2="60" y2="80" stroke="black" stroke-width="2"/> <!-- 몸통 -->
+            <line x1="60" y1="50" x2="50" y2="60" stroke="black" stroke-width="2"/> <!-- 왼팔 -->
+            <line x1="60" y1="50" x2="70" y2="60" stroke="black" stroke-width="2"/> <!-- 오른팔 -->
+            <line x1="60" y1="80" x2="50" y2="90" stroke="black" stroke-width="2"/> <!-- 왼쪽 다리 -->
+            <line x1="60" y1="80" x2="70" y2="90" stroke="black" stroke-width="2"/> <!-- 오른쪽 다리 -->
+            <circle cx="56" cy="29" r="1" fill="black"/> <!-- 왼쪽 눈 -->
+            <circle cx="64" cy="29" r="1" fill="black"/> <!-- 오른쪽 눈 -->
+            <line x1="57" y1="33" x2="63" y2="33" stroke="black" stroke-width="1"/> <!-- 입 -->
+        </g>
+    </svg>
+    <div id="alphabet"></div>
+    <div id="wordDisplay"></div>
+    <div id="chancesDisplay"></div>
+    <script>
+        let word = ''; // 문제가 될 단어
+        let wordArr = []; 
+        let chances = 0; // 기회
+        let usedLetters = [];   //입력한 알파벳 추가할 배열
+        let currentPart = 0; // 현재 그려야 할 졸라맨의 부분
+        const totalParts = 14; // 졸라맨을 그릴 총 부분 수
+        let gameEnded = false; // 게임 종료 상태
+        let hintButton; // 힌트 버튼 전역 변수로 선언
+
+        function fetchWord() {
+        fetch('https://random-word-api.herokuapp.com/word?number=1')
+            .then(response => response.json())
+            .then(words => {
+                word = words[0].toLowerCase(); // 단어를 소문자로 변환
+                if (word.length <= 14) { // 단어 길이가 14글자 이하인지 확인
+                    setupWord(word);
+                } else {
+                    fetchWord(); // 조건에 맞지 않으면 다시 단어를 요청
+                }
+            })
+            .catch(error => console.error('Error fetching word:', error));
+    }
+
+    function setupWord(word) {
+        wordArr = new Array(word.length).fill('_');
+        chances = calculateChances(word);
+        setupGame();
+    }
+
+    function calculateChances(word) {
+        let uniqueLetters = new Set(word).size; // 단어에서 고유 문자의 수를 구함
+        return Math.ceil(uniqueLetters / 2) + 10; // (고유 문자 수 / 2) + 10로 기회 계산
+    }
+
+        function setupGame() {
+            setupAlphabet();
+            displayWord();
+            setupHintButton();
+            listenForKeyPress();
+        }
+
+        function displayWord() {
+            document.getElementById('wordDisplay').textContent = wordArr.join(" ");
+            document.getElementById('chancesDisplay').textContent = "남은 기회: " + chances;
+        }
+
+        function drawHangman() {
+            if (gameEnded) return; // 게임이 끝났으면 그리지 않음
+            let drawableParts = Math.floor(totalParts / calculateChances(word));
+            let partsToDraw = drawableParts - (drawableParts * chances / calculateChances(word));
+
+            if (chances === 0) {
+                partsToDraw = totalParts - currentPart;
+            }
+
+            for (let i = 0; i < partsToDraw; i++) {
+                if (currentPart < totalParts) {
+                    const part = document.getElementById(`part${currentPart + 1}`);
+                    if (part) {
+                        part.style.display = 'block';
+                    }
+                    currentPart++;
+                }
+            }
+        }
+
+        function guess(letter) {
+            if (gameEnded || usedLetters.includes(letter) || chances <= 0) {
+                return;
+            }
+            usedLetters.push(letter);
+
+            let correct = false;
+            let idx = word.indexOf(letter);
+            while (idx !== -1) {
+                wordArr[idx] = letter;
+                idx = word.indexOf(letter, idx + 1);
+                correct = true;
+            }
+
+            if (!correct) {
+                chances--;
+            } else {
+                if (!wordArr.includes('_')) {
+                    alert("정답입니다! 단어는 " + word + "였습니다.");
+                    showWinningHangman();
+                    endGame();
+                    return;
+                }
+            }
+
+            updateAlphabet(letter, correct);
+            displayWord();
+
+            if (!correct && chances > 0) {
+                drawHangman();
+            } else if (chances <= 0) {
+                while (currentPart < totalParts) {
+                    drawHangman();
+                }
+                document.querySelectorAll('.svg-part').forEach(part => {
+                    part.style.stroke = 'red';
+                });
+                document.querySelector('.blood').style.display = 'block'; // 피자국 표시
+                alert("기회를 모두 소진하였습니다. 정답은 " + word + "였습니다.");
+                endGame();
+            }
+        }
+
+        function updateAlphabet(letter, correct) {
+            let letterElement = document.getElementById(letter);
+            if (letterElement) {
+                if (correct) {
+                    letterElement.classList.add('correct');
+                } else {
+                    letterElement.classList.add('incorrect');
+                }
+            }
+        }
+
+        function setupAlphabet() {
+            let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+            let alphabetDiv = document.getElementById('alphabet');
+            alphabetDiv.innerHTML = '';
+            alphabet.split('').forEach(function(letter) {
+                let letterElement = document.createElement('span');
+                letterElement.id = letter;
+                letterElement.textContent = letter.toUpperCase();
+                letterElement.className = 'letter';
+                letterElement.onclick = function() { guess(letter); };
+                alphabetDiv.appendChild(letterElement);
+            });
+        }
+
+        // function setupHintButton() {
+        //     let hintButton = document.createElement('button');
+        //     hintButton.textContent = "힌트";
+        //     hintButton.onclick = function() { showHint(); };
+        //     document.body.appendChild(hintButton);
+        // }
+        function setupHintButton() {
+        hintButton = document.createElement('button');
+        hintButton.textContent = "힌트";
+        hintButton.onclick = function() { showHint(); };
+        document.body.appendChild(hintButton);
+    }
+
+        function showHint() {
+            let uniqueLettersCount = new Set(word.split('')).size;
+            let requiredChances = Math.ceil((uniqueLettersCount + 5) / 2);
+            if (chances > requiredChances) {
+                let n = Math.ceil(chances - requiredChances);
+                alert(`아직 힌트를 볼 수 없습니다!, ${n}번의 기회를 더 쓰셔야 합니다.`);
+            } else {
+                getWordDefinition(word);
+            }
+        }
+
+        function getWordDefinition(word) {
+            fetch(`https://libretranslate.de/translate`, {
+                method: "POST",
+                body: JSON.stringify({
+                    q: word,
+                    source: "en",
+                    target: "ko",
+                    format: "text"
+                }),
+                headers: { "Content-Type": "application/json" },
+                mode: 'cors'
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(`힌트: ${data.translatedText}`);
+            })
+            .catch(error => {
+                console.error('Error fetching word definition:', error);
+                alert('힌트를 가져오는 데 실패했습니다.');
+            });
+        }
+
+        function endGame() {
+        gameEnded = true; // 게임 종료 상태 설정
+        document.removeEventListener('keydown', handleKeyPress); // 키보드 이벤트 리스너 제거
+        document.getElementById('alphabet').style.pointerEvents = 'none'; // 알파벳 클릭 불가능하게 설정
+        hintButton.disabled = true; // 힌트 버튼 비활성화
+    }
+
+    function showWinningHangman() {
+    document.querySelectorAll('.svg-part').forEach(part => {
+        part.style.display = 'block'; // 승리 졸라맨 표시
+        part.style.stroke = 'blue'; // 졸라맨의 윤곽을 파랗게 변경
+    });
+    // 졸라맨이 아래로 떨어지는 효과 추가
+    const hangmanParts = document.querySelectorAll('.svg-part');
+    if (hangmanParts.length > 0) {
+        hangmanParts.forEach(part => {
+            part.classList.add('win-svg-part'); // 승리 시 졸라맨 부분에 클래스 추가
+        });
+    }
+}
+
+
+
+
+        function listenForKeyPress() {
+            document.addEventListener('keydown', handleKeyPress);
+        }
+
+        function handleKeyPress(event) {
+            const key = event.key.toLowerCase();
+            if (key >= 'a' && key <= 'z' && !event.metaKey && !event.ctrlKey) {
+                guess(key);
+            }
+        }
+
+        fetchWord(); // 게임 시작
+    </script>
+</body>
+</html>
+
