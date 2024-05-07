@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .completed {
+            text-decoration: line-through;
+        }
+
+        ul
+        {
+            list-style-type: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const addButton = document.querySelector('button');
+            const inputField = document.getElementById('schedule');
+            const list = document.createElement('ul');
+            document.body.appendChild(list);
+
+            function addTodo() {
+                const value = inputField.value.trim();
+                if (!value) {
+                    alert("할 일을 입력해 주세요.");
+                    return;  // 얘를 안쓰면 빈 리스트가 추가가 되네
+                }
+
+                const listItem = document.createElement('li');
+                const checkBox = document.createElement('input');
+                checkBox.type = 'checkbox';
+                checkBox.addEventListener('change', () => {
+                    if (checkBox.checked) {
+                        listItem.classList.add('completed');
+                    } else {
+                        listItem.classList.remove('completed');
+                    }
+                
+
+                    const textNode = document.createTextNode(value);
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = '제거하기';
+                    removeButton.addEventListener('click', () => {
+                        list.removeChild(listItem);
+                    });
+                });
+
+                listItem.appendChild(checkBox);
+                listItem.appendChild(textNode);
+                listItem.appendChild(removeButton);
+                list.appendChild(listItem);
+
+                inputField.value = ''; // 입력 필드 초기화
+            }
+
+            addButton.addEventListener('click', addTodo);
+            
+            inputField.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    addTodo();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>할 일 목록</h1>
+    <input id="schedule"><button>추가하기</button>
+    <p></p>
+</body>
+</html>

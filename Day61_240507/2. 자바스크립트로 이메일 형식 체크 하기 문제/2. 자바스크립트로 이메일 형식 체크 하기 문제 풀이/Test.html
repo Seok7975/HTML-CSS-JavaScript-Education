@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let temp = Array(10).fill(0);
+        console.log(temp);
+        let temp1 = Array(10).fill();   // 10개 짜리 배열을 undefined로 채운다.
+        console.log(temp1);
+        let temp2 = Array(10).fill().map((v,i)=>i+1);
+        console.log(temp2);
+        let temp3 = String.fromCharCode(65); // 유니코드 값을 문자열로 변환시킨다.
+        console.log(temp3);
+        let temp4 = "A".charCodeAt();   // 문자를 유니코드 값으로 변환시킨다.
+        console.log(temp4);
+
+        let arr = Array(26).fill().map((v,i)=>String.fromCharCode(i+97));
+        console.log(arr);
+    </script>
+</body>
+</html>

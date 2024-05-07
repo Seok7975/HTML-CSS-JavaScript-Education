@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const input = document.querySelector('input')
+        const button = document.querySelector('button')
+        const p = document.querySelector('p')
+
+        button.addEventListener('click', () => {
+          // 입력을 숫자로 변환합니다.
+          const inch = Number(input.value)
+          // 숫자가 아니라면 바로 리턴합니다.
+          if (isNaN(inch)) { //숫자가 아니면 true, 숫자면 false
+            p.textContent = '숫자를 입력해주세요'
+            return
+          }
+          // 변환해서 출력합니다.
+          const cm = inch * 2.54
+          p.textContent = `${cm} cm`
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <input type="text"> inch<br>
+    <button>계산</button>
+    <p></p>
+  </body>
+</html>
+
+
+<!--
+          // 숫자가 아니라면 바로 리턴합니다.
+          // 조기 리턴
+          if (isNaN(inch)) {
+            p.textContent = '숫자를 입력해주세요'
+            return
+          }
+          // 변환해서 출력합니다.
+          const cm = inch * 2.54
+          p.textContent = `${cm} cm`
+
+          또한 isNaN() 함수의 결과가 true로 나오는 숫자가 아닌 경우 바로 return 키워드로 리턴해서
+          이후의 코드를 실행하지 않습니다. 다음과 같이 else 키워드를 사용할 수도 있지만, 위와 같이
+          사용하면 들여쓰기 단계를 하나 줄일 수 있으므로 코드가 깔끔해집니다. 자주 사용되는 형태의
+          코드라서 조기 리턴(early return)이라는 이름까지 붙어 있는 패턴입니다. 기억해두면 다른 코드를
+          작성할 때도 편리합니다.
+
+          if (isNaN(inch)) {
+            p.textContent = '숫자를 입력해주세요'
+            return
+          }
+          else{
+            const cm = inch * 2.54
+            p.textContent = `${cm} cm`
+          }
+
+-->

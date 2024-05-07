@@ -1,0 +1,75 @@
+1. (           ) 이벤트는 웹 브라우저가 문서 객체를 모두 읽고 나서 실행하는 이벤트이다.
+HTML5부터 추가된 이벤트이다. 이전에는 load 이벤트를 썼다.
+
+2.   글자 조작하기
+
+  속성 이름                         설명
+  문서 객체.(          )             입력된 문자열을 그대로 넣습니다.
+  문서 객체.(          )               입력된 문자열을 HTML 형식으로 넣습니다.
+
+3. 3.png를 참고하여 다음 소스코드를 완성하자.
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+	
+    </script>
+  </head>
+  <body>
+    <!-- div 태그 25개 -->
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+  </body>
+</html>
+
+4. 4-1.png와 4-2.png를 참고하여
+h1태그를 동적으로 만들어서. 1초마다 태그의 위치를 바꾸자.
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <div id="first">
+      <h1>첫 번째 div 태그 내부</h1>
+    </div>
+    <hr>
+    <div id="second">
+      <h1>두 번째 div 태그 내부</h1>
+    </div>
+  </body>
+</html>
+
+5. h1 태그를 3초후에 제거하는 자바스크립트를 완성하자.
+<h1>제거 대상 문서 객체</h1>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <hr>
+    <h1>제거 대상 문서 객체</h1>
+    <hr>
+  </body>
+</html>
+
+6. 6-1.png, 6-2.png, 6-3.png를 참고하여 이벤트 연결 버튼을 클릭하면
+클릭 횟수를 클릭했을 때 카운트가 올라가게 하고 단락태그에는 
+"이벤트 연결 상태 : 연결" 이라고 출력한다.
+이벤트 제거 버튼을 클릭하면 클릭횟수를 클릭해도 카운트가 올라가지 않게 하고
+단락태그에는 "이벤트 연결 상태 : 해제"라고 출력한다.

@@ -1,0 +1,103 @@
+다음의 실행 결과는?
+(크롬에서 주소표시줄에 about:blank을 타이핑하고 F12를 console창에서 확인하시오.
+
+1. console.log('Cat' && 'Dog');
+
+2. console.log('Cat' || 'Dog');
+
+3. console.log(true || 'anything');
+
+4. console.log(false || 'anything'); 
+
+5. console.log(true && 'anything');
+
+6. console.log(false && 'anything');
+
+7. 
+var done = true;
+var message = '';
+if (done) message = '완료';
+message = done && '완료';
+console.log(message); // ?
+
+8. 
+var done = false;
+var message = '';
+
+if (done) message = '미완료'
+
+message = done || '미완료';
+console.log(message); // ?
+
+
+
+9.
+var done = true;
+var message = '';
+
+if (done) message = '완료'
+else	  message = '미완료'
+console.log(message); // ?
+
+message = done ? '완료' : '미완료';
+console.log(message); // ?
+
+10.
+var elem = null;
+var value = elem.value; // ?
+
+11. 
+var elem = null;
+var value = elem && elem.value; // ?
+
+12.
+// 단축 평가를 사용한 매개변수의 기본값 설정
+function getStringLength(str) {
+  str = str || '';
+  return str.length;
+}
+
+getStringLength(); // ?
+getStringLength('hi'); // ?
+
+12-1.
+// ES6의 매개변수의 기본값 설정
+function getStringLength(str = '') {
+  return str.length
+}
+
+getStringLength(); // ?
+getStrringLength('hi'); // ?
+
+13.
+var elem = null;
+
+var value = elem?.value;
+console.log(value); // ?
+
+14.
+var elem = null;
+var value = elem&&elem.value;
+console.log(value); // ?
+
+15.
+var str = '';
+var length = str && str.length;
+console.log(length); // ?
+
+16.
+var str = '';
+var length = str?.length;
+console.log(length); // ?
+
+17.
+var foo = null ?? 'default string';
+console.log(foo); // ?
+
+18.
+var foo = '' || 'default string';
+console.log(foo); // ?
+
+19.
+var foo = '' ?? 'default string';
+console.log(foo); // ?

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const textarea = document.querySelector('textarea')
+        const h1 = document.querySelector('h1')
+        let timerId
+
+        textarea.addEventListener('focus', (event) => {
+          timerId = setInterval(() => {
+            const length = textarea.value.length
+            h1.textContent = `글자 수: ${length}`
+          }, 50)
+        })
+        textarea.addEventListener('blur', (event) => {
+          clearInterval(timerId)
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+    <textarea></textarea>
+  </body>
+</html>
+
+<!--
+  타이머로 구현한 남은 글자 수 세기
+
+  아시아권의 문자는 키보드 이벤트(keydown, keypress, keyup 이벤트)로 원하는 것을 제대로
+  구현할 수 없는 경우가 많습니다. 본문에서 살펴보았던 남은 글자 수 세기 프로그램도 문제가 있다고
+  언급했습니다.
+  실제로 트위터는 위와 같이 타이머를 사용해서 50밀리초마다 입력 양식 내부의 글자를 확인해서
+  글자 수를 셉니다. focus 이벤트와 blur 이벤트를 사용했는데요. 이 이벤트는 입력 양식에 초점을
+  맞춘 경우(활성화 상태)와 초점을 해제한 경우(비활성화 상태)에 발생하는 이벤트입니다. 입력 양식에
+  글자를 입력하려고 선택한 순간부터 타이머를 돌리고, 다른 일을 하기 위해서 입력 양식에서 초점을
+  해제하면 타이머를 정지하게 만든 것입니다.
+  어떤 상황에서도, 어떤 언어를 입력하더라도 글자 수를 정상적으로 출력하도록 작성한 코드입니다.
+-->

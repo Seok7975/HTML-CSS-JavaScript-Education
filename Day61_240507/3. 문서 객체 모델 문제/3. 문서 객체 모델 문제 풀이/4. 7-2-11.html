@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const imgs = document.querySelectorAll('img') // img태그 모두
+       
+        imgs.forEach((img) => {
+          img.addEventListener('contextmenu', (event) => {
+            event.preventDefault()  // 컨텍스트 메뉴를 출력하는 기본 이벤트를 제거합니다.
+          })
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <img src="http://placekitten.com/300/300" alt="">
+  </body>
+</html>
+
+<!--
+  기본 이벤트 막기
+  웹 브라우저는 이미지에서 마우스 오른쪽 버튼을 클릭하면 컨텍스트 메뉴(context menu)를
+  출력합니다. 이처럼 어떤 이벤트가 발생했을 때 웹 브라우저가 기본적으로 처리해주는 것을
+  기본 이벤트라고 부릅니다.
+
+  링크를 클릭했을 때 이동하는 것, 제출 버튼을 눌렀을 때 이동하는 것 등이 모두 기본 이벤트의
+  예입니다. 이러한 기본 이벤트를 제거할 때는 event 객체의 preventDefault() 메소드를 사용합니다.
+
+  위의 코드는 모든 img 태그의 contextmenu 이벤트가 발생할 때 preventDefault() 메소드를 호출해서
+  기본 이벤트를 막는 예입니다. contextmenu 이벤트는 기본적으로 그림 위에서 오른쪽 마우스 클릭하면
+  컨텍스트 메뉴를 출력하는데, 이를 막으면 이미지에서 마우스 오른쪽 버튼을 클릭해도 아무 반응이
+  없습니다.
+
+  인터넷에서 이미지 불펌(불법 + 퍼옴의 합성어) 방지 등을 구현할 때 사용하는 코드이므로 기억해두면
+  유용하게 활용할 수 있습니다.
+-->
+
+<!-- contextmenu : 마우스 오른쪽 버튼 누를 때 나오는 메뉴-->

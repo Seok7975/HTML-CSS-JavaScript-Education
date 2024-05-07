@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const textarea = document.querySelector('textarea')
+        const h1 = document.querySelector('h1')
+
+        textarea.addEventListener('keyup', (event) => {
+          const length = textarea.value.length
+          h1.textContent = `글자 수: ${length}`
+        })
+      })
+
+      // textarea는 문서 객체 변수로 문서 객체의 value 속성을 추출합니다.
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+    <textarea></textarea>
+  </body>
+</html>
+
+<!--
+  이벤트 발생 객체
+  지금까지는 이벤트 내부에서 문서 객체 변수를 사용해 문서 객체와 관련된 정보를 추출했습니다.
+
+  이전에 사용했던 코드
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const textarea = document.querySelector('textarea')
+        const h1 = document.querySelector('h1')
+
+        textarea.addEventListener('keyup', (event) => {
+          const length = textarea.value.length
+          h1.textContent = `글자 수: ${length}`
+        })
+      })
+
+      // textarea는 문서 객체 변수로 문서 객체의 value 속성을 추출합니다.
+    </script>
+-->

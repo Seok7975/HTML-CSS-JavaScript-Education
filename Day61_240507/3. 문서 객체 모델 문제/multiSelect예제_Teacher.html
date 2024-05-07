@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const select = document.querySelector('select')
+        const p = document.querySelector('p') // 문서에서 첫 번째 <p> 태그를 찾아서 p 변수에 할당합니다.
+
+        select.addEventListener('change', (event) => {
+          const options = event.currentTarget.options
+          const list = [] // option을 넣을 리스트
+          for (const option of options) {
+            if (option.selected) {
+              list.push(option.textContent)
+            }
+          }
+          p.textContent = `선택: ${list.join(',')}`
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <select multiple>
+      <option>떡볶이</option>
+      <option>순대</option>
+      <option>오뎅</option>
+      <option>튀김</option>
+    </select>
+    <p></p>
+  </body>
+</html>
+
+<!--
+  options 속성에는 forEach() 메소드가 없습니다.
+  따라서 위와 같이 반복문을 돌려야 합니다.
+-->
+
+<!--  
+    document.addEventListener('DOMContentLoaded', () => {...}):
+
+    이 코드는 HTML 문서의 로딩이 완료되었을 때, 즉 모든 DOM 요소가 로드되고 준비가 완료되었을 때 실행될 콜백 함수를 등록합니다.
+    DOMContentLoaded 이벤트는 외부 리소스(예: 이미지, 스타일시트)의 로딩 완료를 기다리지 않고, HTML 문서만 로드되면 발생합니다.  
+-->
+
+<!-- 
+    const select = document.querySelector('select'):
+
+    문서에서 첫 번째 <select> 엘리먼트를 찾아서 select 변수에 할당합니다.
+    querySelector 메소드는 제공된 선택자와 일치하는 문서 내의 첫 번째 엘리먼트를 반환합니다. 
+-->
+
+<!-- 
+    select.addEventListener('change', (event) => {...}):
+
+    select 엘리먼트에 change 이벤트 리스너를 추가합니다. 이는 사용자가 선택 옵션을 변경할 때마다 실행됩니다.
+    이벤트 리스너의 콜백 함수는 이벤트 객체를 매개변수로 받습니다. 
+-->
+
+
+<!-- 
+    const options = event.currentTarget.options:
+
+    event.currentTarget은 이벤트가 바인딩된 현재 엘리먼트, 즉 <select> 엘리먼트를 가리킵니다.
+    .options 속성은 <select> 엘리먼트의 모든 옵션을 담고 있는 HTMLCollection을 반환합니다.
+-->
+
+<!-- 
+    const list = []:
+
+    사용자가 선택한 옵션의 텍스트를 저장할 빈 배열을 생성합니다.
+    --> 
+
+<!-- 
+    for (const option of options) {...}:
+
+    options 컬렉션에 있는 각 옵션에 대해 반복합니다. -->
+
+<!--     
+    if (option.selected) {...}:
+
+    현재 반복 중인 옵션이 선택된 상태(selected 속성이 true)인지 확인합니다.
+    선택된 옵션만 처리하기 위한 조건문입니다.
+    
+-->
+
+<!--
+    list.push(option.textContent): 
+
+    선택된 옵션의 텍스트 내용(textContent)을 list 배열에 추가합니다.
+     
+-->
+
+<!-- 
+    p.textContent = '선택: ' + list.join(','):
+    
+    list 배열의 모든 항목을 쉼표로 구분하여 하나의 문자열로 결합하고, 이 문자열 앞에 '선택: '을 붙여 <p> 태그의 텍스트 내용으로 설정합니다.
+    사용자가 선택한 옵션들이 <p> 태그에 표시됩니다. 
+ -->
