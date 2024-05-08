@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      const listener = function(event) {
+        const length = this.value.length// textarea의 글자의 길이 값을 가져오자.
+        const h1 = document.querySelector('h1')
+        h1.textContent = `글자 수 : ${length}`
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const textarea = document.querySelector('textarea')
+        textarea.addEventListener('keyup', listener)
+      })
+      // 이벤트 리스너가 외부로 분리되었습니다.
+      
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+    <textarea></textarea>
+  </body>
+</html>
+
+<!-- 
+이벤트 리스너를 외부로 분리할 때 이벤트를 발생시킨 객체에 접근하는 방법
+1. event.currentTarget 속성 사용
+() => {},  function() {} 형태 둘다 사용 가능
+
+2. this키워드 사용
+function() {} 형태를 사용할 때 사용 
+-->

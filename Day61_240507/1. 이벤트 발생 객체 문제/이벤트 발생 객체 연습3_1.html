@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+        //이벤트 핸들러
+        const listener = (event) => {
+        const length = event.currentTarget.value.length// textarea의 글자의 길이 값을 가져오자.
+        const h1 = document.querySelector('h1')
+        h1.textContent = `글자 수 : ${length}`
+      }
+
+      //리스너에서 이벤트 핸들러 정의 및 대기
+      document.addEventListener('DOMContentLoaded', () => {
+        const textarea = document.querySelector('textarea')
+        
+        textarea.addEventListener('keyup', listener)
+      })
+      // 이벤트 리스너가 외부로 분리되었습니다.
+      
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+    <textarea></textarea>
+  </body>
+</html>
+
+<!-- 
+document.addEventListener('DOMContentLoaded', () => {
+    const textarea = document.querySelector('textarea')
+    const h1 = document.querySelector('h1')
+  
+    textarea.addEventListener('keyup', (e) => {
+        const length = textarea.value.length
+        h1.textContent = `글자 수 : ${length}`
+    })
+  })
+ -->
