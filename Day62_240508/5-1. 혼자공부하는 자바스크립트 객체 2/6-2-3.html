@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      // 자료를 생성합니다.
+      const data = [{
+        name: '혼자 공부하는 파이썬',
+        price: 18000,
+        publisher: '한빛미디어'
+      },{
+        name: 'HTML5 웹 프로그래밍 입문',
+        price: 26000,
+        publisher: '한빛아카데미'
+      }]
+
+      // 자료를 JSON으로 변환합니다.
+      console.log(JSON.stringify(data))
+      console.log(JSON.stringify(data, null, 2))
+      /*
+        2번째 매개변수는 객체에서 어떤 속성만 선택해서 추출하고 싶을 때
+        사용하나 거의 사용하지 않으며, 일반적으로 null(아무 것도 없음)을 넣습니다.
+        3번째 매개변수 2가 의미하는 것은 들여쓰기 2칸을 의미합니다.
+      */
+    </script>
+  </head>
+  <body></body>
+</html>
+
+
+<!--
+  Number 객체
+  
+  숫자 N번째 자리수까지 출력하기 : toFixed()
+  Number 객체에서 자주 사용하는 메소드는 toFixed() 메소드이다. 소수점 이하 몇 자리까지만
+  출력하고 싶을 때 사용한다. 소수점 아래 2자리까지 출력하고 싶다면 toFixed(2), 3자리까지
+  출력하고 싶다면 toFixed(3) 형태로 사용합니다.
+
+  > const l = 123.456789
+  undefined
+
+  > l.toFixed(2)
+  "123.46"
+
+  > l.toFixed(3)
+  "123.457"
+
+  > l.toFixed(4)
+  "123.4568"
+
+  NaN과 Infinity 확인하기: isNaN(), isFinite()
+  어떤 숫자가 NaN(Not a Number)인지 또는 Infinity(무한)인지 확인할 때는 Number.isNaN()
+  메소드와 Number.isFinite() 메소드를 사용합니다. 이 메소드들은 숫자 자료 뒤에 온점을
+  찍고 사용하는 것이 아니라 Number 뒤에 점을 찍고 사용합니다.
+
+  일단 NaN을 확인해봅시다. NaN과 비교하면 모든 값이 false로 나오므로 isNaN() 메소드를
+  사용해야 NaN인지 확인할 수 있습니다.
+-->
+
+<!--
+  NaN(Not a Number)은 '숫자가 아니다'라는 의미로 자바스크립트에서 숫자로 나타낼 수 없는
+  숫자를 의미합니다.
+-->
+<!--
+  > const m = Number('숫로 변환할 수 없는 경우')
+  undefined
+
+  > m
+  NAN
+
+  > m === NaN
+  false
+  // NaN과 비교해서는 NaN인지 확인할 수 없다.
+
+  > Number.isNaN(m)
+  true
+-->
+
+<!--
+  Infinity는 숫자를 0으로 나누는 것과 같이 무한대 숫자를 의미한다.
+-->
+
+<!--
+  > const n = 10 / 0
+  undefined
+  > n
+  Infinity    // 양의 무한대를 생성한다.
+
+  > const o = -10 / 0
+  undefined
+  > o
+  -Infinity   // 음의 무한대를 생성한다.
+
+  > Number.isFinite(n)
+  false
+
+  > Number.isFinite(o)
+  false
+
+  > Number.isFinite(1)
+  true
+
+  > Number.isFinite(10)
+  true
+
+  무한대 숫자는 양의 무한대 숫자와 음의 무한대 숫자로 나뉩니다. isFinite() 메소드가 false인 경우는
+  양의 무한대 숫자와 음의 무한대 숫자 2가지 경우입니다.
+  참고로 NaN과 다르게 무한대 값은 비교 연산자로 비교할 수 있습니다.
+
+  > n === Infinity || n === -Infinity
+  true
+
+  모질라 Number객체의 속성과 메소드
+  https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Number
+-->
+
+<!--
+  문자열 양쪽 끝의 공백 없애기 : trim()
+  페이스북, 트위터, 카카오톡과 같은 소셜 네트워크 서비스를 사용하다 보면 문자열 앞뒤에 공백을 넣고
+  댓글을 입력하거나 메시지를 보냈는데, 앞뒤 공백이 사라진 상태로 전송된 경험이 있습니다.
+
+  "      안녕하세요      "  ->  "안녕하세요"
+
+  사용자의 실수 또는 악의적인 목적으로 문자열 앞뒤에 공백이 추가되는 경우가 많으므로 이런 것들을
+  미리 제거하는 것입니다. 이러한 기능을 trim이라고 부릅니다. 문자열의 trim() 메소드를 사용하면 
+  문자열 앞뒤 공백(띄어쓰기, 줄바꿈 등)을 제거할 수 있습니다.
+
+  > const stringA = `
+  메시지를 입력하다 보니 앞에 줄바꿈도 들어가고`
+  undefined
+  >const stringB = `    앞과 뒤에 공백도 들어가고      `
+  undefined
+  >stringA
+  "
+  메시지를 입력하다보니 앞에 줄바꿈도 들어가고"
+  >stringB
+  "   앞과 뒤에 공백도 들어가고     "
+
+  >stringA.trim()
+  "메시지를 입력하다보니 앞에 줄바꿈도 들어가고"
+  >stringB.trim()
+  "앞과 뒤에 공백도 들어가고"
+
+  문자열을 특정 기호로 자르기:split()
+  알고리즘 대회 문제를 풀거나 웹 페이지에서 데이터를 긁으면 다음과 같이 쉼표(또는 다른 것)로 구분된
+  문자열을 읽어서 분해해야 하는 경우가 있습니다.
+
+  일자,달러,엔,유로
+  02,1141.8,1097.46,1262.37
+  03,1148.7,1111.36,1274.65
+  04,1140.6,1107.81,1266.58
+  ...생략...
+
+  이런 경우에는 split() 메소드를 사용합니다. split() 메소드는 문자열을 매개변수(다른 문자열)로 잘라서
+  배열을 만들어 리턴하는 메소드입니다.
+
+> let input = `
+일자,달러,엔,유로
+02,1141.8,1097.46,1262.37 
+03,1148.7,1111.36,1274.65
+04,1140.6,1107.81,1266.58  
+07,1143.4,1099.58,1267.8
+08,1141.6,1091.97,1261.07
+`
+undefined
+
+  > input = input.trim()    // 앞뒤 공백을 제거합니다.
+    '일자,달러,엔,유로\n      02,1141.8,1097.46,1262.37\n      03,1148.7,1111.36,1274.65\n      04,1140.6,1107.81,1266.58  \n      07,1143.4,1099.58,1267.8\n      08,1141.6,1091.97,1261.07'
+  
+  > input = input.split('\n')
+(6) ['일자,달러,엔,유로', '      02,1141.8,1097.46,1262.37', '      03,1148.7,1111.36,1274.65', '      04,1140.6,1107.81,1266.58  ', '      07,1143.4,1099.58,1267.8', '      08,1141.6,1091.97,1261.07']
+
+  > input = input.map((line)=>line.split(','))
+  (6) [Array(4), Array(4), Array(4), Array(4), Array(4), Array(4)]
+
+  JSON.stringify(input, null, 2)  
+-->
+<!--
+  이외에도 String 객체의 중요 속성은 앞에서 살펴본 length 속성, 중요 메소드는 indexOf() 메소드 등이
+  있습니다. 더 많은 메소드는 모질라 문서를 참고하세요.
+
+  모질라 String 객체의 속성과 메소드
+  https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String
+-->

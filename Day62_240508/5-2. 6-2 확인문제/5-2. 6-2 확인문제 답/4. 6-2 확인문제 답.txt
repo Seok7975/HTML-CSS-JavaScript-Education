@@ -1,0 +1,95 @@
+확인 문제
+1. 다음 코드의 실행 결과를 예측해보세요. 예측과 다른 결과가 나온다면 왜 그런지 생각해보세요.
+
+<script>
+	const num = 52000
+	num.원 = function() {
+		return this.valueOf() + '원'
+	}
+
+	console.log(num.원())
+</script>
+
+풀이
+오류 메시지가 나옵니다. num은 기본 자료형이므로 메소드가 추가되지 않습니다. num과 같은 기본 자료형은 대응되는 객체 자료형의 프로토타입(prototype 속성)에 메소드를 추가해야 합니다.
+
+Uncaught TypeError : num.원 is not a function
+
+2. 다음 코드의 실행 결과를 예측해보세요.
+
+<script>
+	function printLang(code){
+		return printLang._lang[code]
+	}
+	printLang._lang = {
+		ko: '한국어',
+		en: '영어',
+		ja: '일본어',
+		fr: '프랑스어',
+		es: '스페인어'
+	}
+
+	console.log('printLang("ko"):', printLang('ko'))
+	console.log('printLang("en"):', printLang('en'))
+</script>
+
+풀이
+printLang("ko"): 한국어
+printLang("en"): 영어
+
+3. 다음 중 어떤 종류의 객체들이 모두 공유하는 속성과 메소드를 추가할 때 사용하는
+객체의 이름을 골라주세요. ②
+
+① classProp ② prototype ③sample ④frame
+
+4. 본문에서는 Loadash 라이브러리의 _.sortBy() 메소드를 살펴보았다. _orderBy() 메소드도 한번 살펴보고 어떤 형태로 사용해야 하는지 직접 예제를 작성해보세요. 그리고 다음과 같은 배열을 이름(name)으로 오름차순 정렬해주세요. (https://lodash.com/docs/4.17.15 참고)
+
+    <script>
+      // 데이터를 생성합니다.
+      const books = [{
+        name: '혼자 공부하는 파이썬',
+        price: 18000,
+        publisher: '한빛미디어'
+      }, {
+        name: 'HTML5 웹 프로그래밍 입문',
+        price: 26000,
+        publisher: '한빛아카데미'
+      }, {
+        name: '머신러닝 딥러닝 실전 개발 입문',
+        prie: 30000,
+        publisher: '위키북스'
+      }, {
+        name: '딥러닝을 위한 수학',
+        price: 25000,
+        publisher: '위키북스'
+      }]
+
+ 
+    </script>
+
+풀이
+
+    <script>
+      // 데이터를 생성합니다.
+      const books = [{
+        name: '혼자 공부하는 파이썬',
+        price: 18000,
+        publisher: '한빛미디어'
+      }, {
+        name: 'HTML5 웹 프로그래밍 입문',
+        price: 26000,
+        publisher: '한빛아카데미'
+      }, {
+        name: '머신러닝 딥러닝 실전 개발 입문',
+        prie: 30000,
+        publisher: '위키북스'
+      }, {
+        name: '딥러닝을 위한 수학',
+        price: 25000,
+        publisher: '위키북스'
+      }]
+
+      // 가격으로 정렬한 뒤 출력합니다.
+      const output = _.orderBy(books, 'name', 'asc')
+      console.log(JSON.stringify(output, null,2))       
+    </script>

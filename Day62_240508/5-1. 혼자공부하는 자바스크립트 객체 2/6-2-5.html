@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      const num = Math.random()
+
+      console.log('# 랜덤한 숫자')
+      console.log('0~1 사이의 랜덤한 숫자:', num)
+      console.log('')
+      
+      console.log('# 랜덤한 숫자 범위 확대')
+      console.log('0~10 사이의 랜덤한 숫자:', num * 10)
+      console.log('0~50 사이의 랜덤한 숫자:', num * 50)
+      console.log('')
+
+      console.log('# 랜덤한 숫자 범위 이동')
+      console.log('-5~5 사이의 랜덤한 숫자:', num * 10 - 5)
+      console.log('-25~25 사이의 랜덤한 숫자:', num * 50 -25)
+      console.log('')
+
+      console.log('# 랜덤한 정수 숫자')
+      console.log('-5~5 사이의 랜덤한 정수 숫자:', Math.floor(num * 10 - 5))
+      console.log('-25~25 사이의 랜덤한 정수 숫자:', Math.floor(num * 50 - 25))
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!--
+  Math 객체
+  수학과 관련된 기본적인 연산을 할 때는 Math 객체를 사용합니다. Math 객체 속성으로는 pi, e와
+  같은 수학 상수가 있습니다. 메소드로는 Math.sin(), Math.cos(), Math.tan()와 같은삼각함수도
+  있습니다.
+
+  모질라 Math 객체의 속성과 메소드
+  https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math
+-->

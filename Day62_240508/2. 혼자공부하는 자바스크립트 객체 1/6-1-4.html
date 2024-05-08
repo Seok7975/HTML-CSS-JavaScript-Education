@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      // 객체를 선언합니다.
+      const pet = {
+        name: '구름',
+        eat (food) {
+          alert(this.name + '은/는 ' + food + '을/를 먹습니다.')
+        }
+      }
+
+      // 메소드를 호출합니다.
+      pet.eat('밥')
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!--
+  메소드 간단 선언 구문
+  function() {} 형태로 메소드를 선언할 수 있다고 배웠다. 최신 자바스크립트에서는 메소드를
+  조금 더 쉽게 선언할 수 있는 전용 구문이 있다.
+-->

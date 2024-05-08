@@ -1,0 +1,40 @@
+<!-- 
+2. student라는 빈 객체를 만들자.
+동적으로 student 객체에 이름을 '윤인성', 취미를 '악기', 장래희망을 '생명공학자'를 추가하자.
+콘솔창에 다음과 같이 JSON 형태로 출력하자.
+
+{
+  "이름": "윤인성",
+  "취미": "악기",
+  "장래희망": "생명공학자"
+}
+ -->
+
+
+ <!DOCTYPE html>
+ <html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script>
+            const student = {}
+            student.이름 = "윤인성",
+            student.취미 = "악기",
+            student.장래희망 = "생명공학자"
+
+            console.log(JSON.stringify(student, null, 10))
+        </script>
+    </body>
+ </html>
+
+ 
+<!-- 
+ JSON.stringify(a, b, c)
+ JS 객체를 JSON 문자열로 반환하는 함수
+
+ a : JSON 문자열로 변환될 JS 객체
+ b : "replace"함수로 사용될 수 있으며, 객체의 값을 변환하거나 결과에서 특정 속성을 제외하는 데 사용
+     null이 전달되면 객체의 모든 속성이 포함된 JSON문자열이 생성
+ c : 공백 문자의 수 지정(들여쓰기), 숫자 대신 탭 문자(\t)도 사용가능
+  -->

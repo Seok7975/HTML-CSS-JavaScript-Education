@@ -1,0 +1,33 @@
+classListTest.html을 열고 f12를 눌러서 console창을 연다.
+콘솔창에 다음 내용을 순서대로 타이핑하면서 결과를 본다.
+
+> p
+> p.className
+> p.className = 'red'
+> p
+> p.className = 'blue'
+> p
+> p.className = 'red blue'
+> p
+> p.className = 'blue'
+> p
+> p.classList
+> p.classList.add('red')	// 클래스 추가
+> p
+> p.classList.item(0)		// 0번째 클래스
+> p.classList.item(1)		// 1번째 클래스
+> p.classList.item(2)		// 2번째 클래스
+> p.classList.remove('red')	// red 클래스 제거
+> p
+> p.classList.contains('blue')	// 클래스 blue가 있으면 true 없으면 false
+> p.classList.contains('red')
+> p.classList.toggle('blue')	// 클래스 blue가 있으면 클래스 blue를 삭제하고 없으면 추가한다.
+> p
+> p.classList.toggle('blue')
+> p
+> p.classList.replace('blue', 'yellow')	// 클래스 blue를 yellow로 교체
+> p
+
+
+
+

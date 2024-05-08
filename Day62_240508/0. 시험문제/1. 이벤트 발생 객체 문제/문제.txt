@@ -1,0 +1,4 @@
+eventObject3.html과 eventObject4.html를 이용하여
+// textarea의 글자의 길이 값을 가져오자.
+위에 주석부분을 완성하자.
+그래서 textarea의 글자의 길이를 출력할 수 있게 하자.
