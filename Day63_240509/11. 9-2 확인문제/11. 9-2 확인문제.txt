@@ -1,0 +1,42 @@
+1. 다음 중 클래스 상속을 할 때 사용하는 키워드를 골라주세요.
+① extend ②extends ③based ④derive
+
+2. 다음 중 자식 클래스에서 부모 클래스를 호출할 때 사용하는 식별자를 골라주세요.
+① parent ②super ③mother ④upper
+
+3. 다음 중에서 정적 속성을 만들 때 사용하는 키워드를 골라주세요.
+①static ②silent ③dynamic ④noisy
+
+4. 다음 중에서 외부에서 접근할 수 없는 속성을 만들 때 사용하는 기호를 골라주세요.
+①private ②public ③@ ④#
+
+5. 다음 중 옳지 않은 것은 무엇인가?
+① static 키워드를 붙인 속성과 메소드는 클래스 이름을 기반으로 사용합니다.
+② 속성을 만들 때 # 기호를 붙이면 클래스 외부에서는 접근할 수 없습니다.
+③ 메소드를 만들 때 # 기호를 붙이면 클래스 외부에서는 접근할 수 없습니다.
+④ # 기호를 붙인 private 속성과 메소드는 상속받은 클래스에서는 사용할 수 있습니다.
+
+6. 다음 코드의 실행 결과를 예측해주세요.
+class Parent{
+    test(){
+        console.log("Parent.test() 메소드")
+    }
+}
+
+class ChildA extends Parent {
+    test(){
+        super.test()
+        console.log("ChlidA.test() 메소드")
+    }
+}
+
+class ChildB extends Parent{
+    test(){
+        console.log("ChildB.test() 메소드")
+        super.test()
+    }
+}
+
+new ChildA().test()
+new ChildB().test()
+

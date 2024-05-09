@@ -1,0 +1,53 @@
+1. 다음 중 예외를 강제로 발생시킬 때 사용하는 키워드는 무엇인가요?
+① raise     ② exception     ③ trigger   ④ throw
+
+
+2. 다음 중에서 예외 객체를 e라는 변수로서 추출하는 방법으로 옳은 것을 골라주세요.
+
+①
+<script>
+try{
+
+}catch(e){
+
+}
+</script>
+②
+<script>
+try(e){
+
+} catch {
+
+}
+</script>
+③
+<script>
+try{
+
+} catch {
+    const e = this.exception
+}
+</script>
+④
+<script>
+try{
+
+} catch as e{
+
+}
+</script>
+
+3. 다음 코드의 실행 결과를 예측해주세요.
+<script>
+try{
+    console.log('try 구문입니다')
+    const array = ['사과', '바나나', '귤']
+    array.forEach(()=>{
+        throw '예외를 강제로 발생시킵니다.'
+    })
+} catch(e){
+    console.log('catch 구문입니다.')
+} finally {
+    console.log('finally 구문입니다.')
+}
+</script>

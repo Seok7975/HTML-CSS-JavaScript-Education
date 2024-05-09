@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>
+<script src="js/jquery.js"></script>
+<script>
+	$(function(){
+		$("#title").css("color","red");
+	});
+</script>
+</head>
+<body>
+	<h1 id="title">제목</h1>
+</body>
+</html>
+
+<!--
+제이쿼리란?
+제이쿼리는 모질라 사의 자바스크립트 개발자였던 존 레식(John Resig)이 자바스크립트를 이용해 만든 라이브러리 언어이다. 라이브러리 언어란 자바스크립트로 만들어진 다양한 함수들의 집합을 가리킨다.
+
+제이쿼리에서 개선된 사항들은 다음과 같습니다.
+
+호환성 문제 해결
+자바스크립트의 문서 객체 모델(DOM)과 이벤트 객체(Event Object)는 호환성(크로스 브라우징)이 떨어진다는 단점이 있습니다.
+
+쉽고 편리한 애니메이션 효과 기능 구현
+자바스크립트로 애니메이션 효과를 구현하려면 많은 코드를 사용해야 하기 때문에 개발에 많은 시간이 필요했습니다. 하지만 제이쿼리는 애니메이션과 다양한 효과(Effect)를 지원하는 메서드를 제공하기 때문에 개발 시간을 많이 단축할 수 있습니다.
+
+1. Jquery-제이쿼리란-제이쿼리-연동하기.png
+2. Jquery-제이쿼리란-제이쿼리-연동하기.png
+
+선택자
+3. DOM Tree.png
+HTML의 문서 객체 구조를 그림으로 표현하면 트리 구조가 됩니다. 이때 가장 상위에 위치하는 <html>은 뿌리(Root)라고 부르고, 뿌리로부터 가지처럼 뻗어나가는 모양의 요소를 노드(Node)라고 부릅니다. 노드의 종류에는 요소 노드(Element Node), 텍스트 노드(Text Node), 속성 노드(Attribute Node)가 있습니다.
+
+선택자 사용하기
+선택자를 사용하기 위해서는 문서 객체를 불러와야 합니다. 
+[방법 1]은 제이쿼리가 먼저 실행되고 그 다음 <body> 영역에 문서 객체를 불러옵니다. 이렇게 하면 <body>가 생성되기 이전에 선택자가 먼저 실행되어 선택자로 문서 객체를 선택할 수 없습니다.
+
+방법1(잘못된 적용)
+<head>
+...
+<script src="js/jquery.js"></script>
+<script>
+	$("#txt").css("color", "red");
+</script>
+</head>
+<body>
+	<p id="txt">내용</p>
+</body>
+
+<body> 영역에 문서 객체를 먼저 불러온 다음 선택자를 사용할 수 있도록 [방법2]나 [방법3]과 같이 작성해야 합니다.
+
+방법2(정상 적용)
+<head>
+...
+<script src="js/jquery.js"></script>
+<script>
+$(document).ready(function(){
+	$("#txt").css("color", "red");
+});
+</script>
+</head>
+<body>
+	<p id="txt">내용</p>
+</body>
+
+방법3(정상 적용)
+<head>
+...
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$("#txt").css("color", "red");
+});
+</script>
+</head>
+<body>
+	<p id="txt">내용</p>
+</body>
+
+다음은 제이쿼리 선택자로 스타일이나 속성을 적용하는 기본형입니다. 선택자는 $()에 문자형 데이터로 CSS 선택자를 입력하면 됩니다.
+
+기본형
+1. 선택한 요소에 지정한 스타일을 적용합니다.
+$("CSS 선택자").css("스타일 속성명", "값");
+
+2. 선택한 요소에 지정한 속성을 적용합니다.
+$("CSS 선택자").attr("속성명", "값");
+
+다음은 제이쿼리의 아이디 선택자를 적용하여 글자 색상을 바꾸는 예제입니다.
+
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>
+<script src="js/jquery.js"></script>
+<script>
+	$(function(){
+		$("#title").css("color","red");
+	});
+</script>
+</head>
+<body>
+	<h1 id="title">제목</h1>
+</body>	
+-->

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      // 사각형 클래스
+      class Square {
+        #length
+
+        constructor (length) {
+          if (length <= 0) {
+            throw '길이는 0보다 커야 합니다.'
+          }
+          this.#length = length
+        }
+        getPerimeter () { return 4 * this.#length }
+        getArea () { return this.#length * this.#length }
+      }
+
+      // 클래스 사용하기
+      const square = new Square(10)
+      square.length = -10
+      console.log(`정사각형의 둘레: ${square.getPerimeter()}`)
+      console.log(`정사각형의 넓이: ${square.getArea()}`)
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+<!--
+  이렇게 private 속성으로 변경하면 클래스 외부에서는 해당 속성에 접근할 수 없습니다. 예를
+  들어 square 객체의 length 속성을 변경해보겠습니다. 변경해도 클래스 내부에서 사용하고
+  있는 속성은 #length 속성이지 length 속성이 아니므로 결과에는 어떠한 영향도 주지 않습니다.
+-->

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      function createStudent(이름, 국어, 영어, 수학, 과학) {
+        return {
+          // 속성을 선언합니다.
+          이름: 이름,
+          국어: 국어,
+          영어: 영어,
+          수학: 수학,
+          과학: 과학,
+          // 메소드를 선언합니다.
+          getSum () {
+            return this.국어 + this.영어 + this.수학 + this.과학
+          },
+          getAverage () {
+            return this.getSum() / 4
+          },
+          toString () {
+            return `${this.이름}\t${this.getSum()}점\t${this.getAverage()}점\n`
+          }
+        }
+      }
+
+      // 객체를 선언합니다.
+      const students = []
+      students.push(createStudent('구름', 87, 98, 88, 90))
+      students.push(createStudent('별이', 92, 98, 96, 88))
+      students.push(createStudent('겨울', 76, 96, 94, 86))
+      students.push(createStudent('바다', 98, 52, 98, 92))
+    
+      // 출력합니다.
+      let output = '이름\t총점\t평균\n'
+      for (const s of students) {
+        output += s.toString()
+      }
+      console.log(output)
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+<!--
+  createStudent() 함수를 만들고, 여기에 객체를 만들어 리턴하게 만들었습니다.
+
+  이렇게 함수를 만들면 여러 가지 이득이 발생합니다.
+  객체를 하나하나 만들 때와 비교해서
+  * 오탈자의 위험이 줄어듭니다.
+  * 코드를 입력하는 양이 크게 줄어듭니다.
+  * 마지막으로 속성과 메소드를 한 함수 내부에서 관리할 수 있으므로 객체를 더
+  손쉽게 유지보수 할 수 있습니다.
+
+  그런데 현재 코드에는 눈에 보이지 않는 문제가 있습니다. 객체별로 getSum(),
+  getAverage(), toString() 메소드를 생성하므로 함수라는 기본 자료형보다 무거운
+  자료형이 여러 번 생성됩니다.
+-->

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      class Square {
+        #length
+        static #conuter = 0       // private 특성과 static 특성은 한꺼번에 적용할 수도 있다.
+        static get counter () {
+          return Square.#conuter
+        }
+        constructor (length) {
+          this.length = length
+          Square.#conuter += 1
+        }
+
+        static perimeterOf (length) {
+          return length * 4
+        }
+        static areaOf (length) {
+          return length * length
+        }
+        
+        get length () { return this.#length }
+        get perimeter () { return this.#length * 4 }
+        get area () { return this.#length * this.#length }
+
+        set length (length) {
+          if (length < 0) {
+            throw '길이는 0보다 커야 합니다.'
+          }
+          this.#length = length
+        }
+      }
+
+      // static 속성 사용하기
+      const squareA = new Square(10)
+      const squareB = new Square(20)
+      const squareC = new Square(30)
+      console.log(`지금까지 생성된 Square 인스턴스는 ${Square.counter}개입니다.`)
+      // static 메소드 사용하기
+      console.log(`한 변의 길이가 20인 정사각형의 둘레는 ${Square.perimeterOf(20)}입니다.`)
+      console.log(`한 변의 길이가 30인 정사각형의 둘레는 ${Square.areaOf(30)}입니다.`)
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+<!--
+  static 속성과 메소드
+
+  프레임워크 개발자들은 더 효율적으로 프레임워크를 개발할 수 있게 다양한 패턴을 고안합니다.
+  이러한 패턴을 디자인(design pattern)이라고 부릅니다.
+
+  원래 자바스크립트에는 클래스라는 기능이 없었습니다. 하지만 여러 디자인 패턴을 활용하기
+  위해서 클래스 문법들이 계속해서 추가된 것이라 할 수 있습니다. 비교적 최근 추가된 문법으로
+  static 속성과 static 메소드가 있습니다. static을 정적이라는 한국어로 불러서 정적 속성,
+  정적 메소드라고 부르기도 합니다.
+
+  class 클래스 이름{
+    static 속성 = 값
+    static 메소드 (){
+
+    }
+  }
+
+  static 속성과 메소드는 인스턴스를 만들지 않고 사용할 수 있는 속성과 메소드입니다. 그냥
+  일반적인 변수와 함수처럼 사용할 수 있습니다. 다음과 같이 클래스 이름 뒤에 점을 찍고 속성과
+  메소드를 사용합니다.
+
+  클래스이름.속성
+  클래스이름.메소드()
+-->
+
+<!--
+  #counter라는 이름의 static 속성과 counter()라는 이름의 static 메소드(게터)를 만들었습니다.
+  #counter라는 속성은 Square 객체의 생성자가 호출될 때마다 1씩 증가하도록 했습니다. 이를 활용하면
+  현재까지 Square 객체가 몇 개 생성되었는지 확인할 수 있습니다.
+
+  또한 perimeterOf() 메소드와 areaOf() 메소드를 추가했습니다. 이 메소드들은 Square 객체를
+  생성하지 않고도 둘레와 넓이를 간단하게 구할 수 있게 해주는 메소드입니다.
+
+  위의 코드를 보고 나면 외부에 변수와 함수를 선언해도 되겠다라는 생각을 할 수 있습니다. 그러나
+  이렇게 변수와 함수를 클래스 내부에 작성하면 다음과 같은 장점이 있습니다.
+
+  * 어떤 속성과 함수가 클래스 내부에 귀속되어 있다는 것을 명시적으로 나타낼 수 있습니다.
+  * private 특성과 게터, 세터를 부여해서 조금 더 안전한 변수와 함수로 사용할 수 있습니다.
+-->

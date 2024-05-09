@@ -1,0 +1,61 @@
+1. try catch 예시를 작성하시오.
+
+      try {
+        willExcept.byeBye()
+        console.log("try 구문의 마지막 줄")
+      } catch (exception) {
+        console.log("catch 구문의 마지막 줄")
+      }
+
+2. try catch finally 예시를 작성하시오.
+
+      try {
+        willExcept.byeBye()
+        console.log("try 구문의 마지막 줄")
+      } catch (exception) {
+        console.log("catch 구문의 마지막 줄")
+      } finally {
+        console.log("finally 구문의 마지막 줄")
+      }
+
+3. 다음 코드의 실행 결과를 유추하여 작성하시오.
+
+      function test() {
+        try {
+          alert('A 위치입니다.')
+          throw "예외 강제 발생"
+        } catch (exception) {
+          alert('B 위치입니다.')
+          return
+        }
+        alert('C 위치입니다.')
+      }
+
+      // 함수를 호출합니다.
+      test()
+
+풀이
+alert('A 위치입니다.')
+alert('B 위치입니다.')
+
+4. 다음 코드의 실행 결과를 유추하여 작성하시오.
+
+      function test() {
+        try {
+          alert('A 위치입니다.')
+          throw "예외 강제 발생"
+        } catch (exception) {
+          alert('B 위치입니다.')
+          return
+        } finally {
+          alert('C 위치입니다.')
+        }
+      }
+
+      // 함수를 호출합니다.
+      test()
+
+풀이
+alert('A 위치입니다.')
+alert('B 위치입니다.')
+alert('C 위치입니다.')

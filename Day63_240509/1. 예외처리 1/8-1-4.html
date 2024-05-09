@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      try {
+        willExcept.byeBye()
+        console.log("try 구문의 마지막 줄")
+      } catch (exception) {
+        console.log("catch 구문의 마지막 줄") // 1
+      } finally {
+        console.log("finally 구문의 마지막 줄") // 2
+      }
+    </script>     
+  </head>
+  <body>
+  </body>
+</html>
+
+<!--
+  기본 예외 처리
+  조건문을 사용해서 예외가 발생하지 않게 만드는 것을 기본 예외 처리라고 부릅니다.
+
+  고급 예외 처리
+  try catch finally 구문을 사용해서 예외를 처리하는 방법을 고급 예외 처리라고 부릅니다.
+
+  기본 예외 처리와 고급 예외 처리 중에 어떤 것이 좋다고 쉽게 판단할 수는 없습니다. 일반적으로
+  기본 예외 처리를 사용하는 것이 약간은 더 빠르지만, 컴퓨터의 성능이 너무 좋아져서 차이가
+  거의 없습니다. 기본적으로는 편하다고 생각하는 방법을 사용하면 되고, 어떤 예외가 발생할지
+  예측하기 힘든 경우가 있다면 고급 예외 처리로 처리해주는 것이 좋습니다.
+-->

@@ -1,0 +1,47 @@
+<!-- 
+1. 배열의 크기가 허용되는 크기 이상을 주고 예외 처리를 하자.
+그리고 예외의 이름과 메세지를 출력하자.
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            try
+            {
+                let maxArraySize = 10000
+                let arraySize = 10001
+        
+                if (arraySize > maxArraySize)
+                {
+                    //throw new Error(문자열)
+                    throw new Error(`허용된 배열 크기를 초과했습니다 : 최대 크기 = ${maxArraySize}, 요청 크기 = ${arraySize}`)
+
+
+                    //throw 문자열
+                    //throw '허용된 배열 크기를 초과했습니다 : 최대 크기 = ' + maxArraySize + ' , 요청 크기 = ' + arraySize
+                    //throw `허용된 배열 크기를 초과했습니다 : 최대 크기 = ${maxArraySize} , 요청 크기 = ${arraySize}`;
+
+
+                }
+        
+                // let myArray = new Array(arraySize);
+        
+            }
+        
+            catch (e)
+            {
+
+                //throw new Error(문자열)
+                console.log(e.name); // Error
+                console.log(e.message); //  new Error(`허용된 배열 크기를 초과했습니다 : 최대 크기 = ${maxArraySize}, 요청 크기 = ${arraySize}`)
+
+                //throw 문자열
+                //console.log(e)
+            }
+         </script>
+    </head>
+    <body>
+
+    </body>
+</html>
+ 

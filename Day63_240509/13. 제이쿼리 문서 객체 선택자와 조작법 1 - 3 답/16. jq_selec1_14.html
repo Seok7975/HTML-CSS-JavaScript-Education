@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>
+	$(function(){
+		$(".txt1").parents()
+		.css({
+			"border":"2px dashed #00f"
+		});
+
+		$(".txt2").parents("div")
+		.css({
+			"border":"2px solid #f00"
+		});
+	});
+</script>
+</head>
+<body>
+	<h1 class="title">선택자</h1>
+	<section>
+		<div>
+			<p class="txt1">내용</p>
+		</div>
+	</section>
+	<section>
+		<div>
+			<p class="txt2">내용</p>
+		</div>
+	</section>
+</body>
+</html>
+
+<!--
+상위 요소 선택자
+상위 요소 선택자는 선택한 요소를 기준으로 모든 상위 요소를 선택하거나 상위 요소 중 선택하고자 
+하는 요소만 선택할 때 사용합니다.
+
+① $("요소선택").parents()
+② $("요소선택").parents("요소선택")
+
+① 선택한 요소를 기준으로 상위 요소를 모두 선택합니다.
+② 선택한 요소를 기준으로 상위 요소 중 선택한 요소만 선택합니다.	
+-->

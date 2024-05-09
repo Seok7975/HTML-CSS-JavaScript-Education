@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      // 객체를 선언합니다.
+      const students = []
+      students.push({ 이름: '구름', 국어: 87, 영어: 98, 수학: 88, 과학: 90})
+      students.push({ 이름: '별이', 국어: 92, 영어: 98, 수학: 96, 과학: 88})
+      students.push({ 이름: '겨울', 국어: 76, 영어: 96, 수학: 94, 과학: 86})
+      students.push({ 이름: '바다', 국어: 98, 영어: 52, 수학: 98, 과학: 92})
+
+      // 객체를 처리하는 함수를 선언합니다.
+      function getSumOf (student) {
+        return student.국어 + student.영어 + student.수학 + student.과학
+      }
+
+      function getAverageOf (student) {
+        return getSumOf(student) / 4
+      }
+
+      // 출력합니다.
+      let output = '이름\t총점\t평균\n'
+      for (const s of students) {  // for in 은 index, for of는 value
+        output += `${s.이름}\t${getSumOf(s)}점\t${getAverageOf(s)}점\n`
+      }
+      console.log(output)
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+<!--
+  객체의 기능을 메소드로 추가하기
+  현재 코드에서는 객체가 학생 객체 하나이므로 이렇게 코드를 작성해도 문제가 없지만,
+  객체의 수가 늘어나면 함수 이름 충돌이 발생할 수 있습니다. 또한 매개변수에 어떤
+  종류의 객체를 넣을지 몰라 함수를 사용하는 데 혼동이 있을 수 있습니다. 이러한
+  문제를 해결하기 위해 함수 이름을 getAverageOfStudents() 처럼 의미를 알 수 있도록
+  길게 작성할 수도 있지만, 그러면 코드의 가독성이 떨어지는 문제가 생길 수 있습니다.
+
+  그래서 개발자들은 함수를 메소드로써 객체 내부에 넣어서 활용하는 방법을 사용하기
+  시작합니다.
+-->

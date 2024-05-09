@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>  
+
+<script src="js/jquery.js"></script>
+<script>
+	$(function(){
+		$(".txt1").closest("div")
+		.css({
+			"border":"2px solid #f00"
+		});
+	});
+</script>
+</head>
+<body>
+	<h1 class="title">선택자</h1>
+	<div>
+		<div>
+			<p class="txt1">내용</p>
+		</div>
+	</div>
+</body>
+</html>
+
+<!--
+가장 가까운 상위 요소 선택자
+가장 가까운 상위 요소 선택자는 선택한 요소를 기준으로 가장 가까운 상위 요소만 선택할 때 사용합니다.
+
+기본형
+$("요소선택").closest("요소선택")	
+-->

@@ -1,0 +1,349 @@
+1. Rectangle 클래스를 만들자.
+생성자에서 밑변과 높이를 초기화해주자.
+사각형의 둘레를 구해서 리턴하는 메소드
+사각형의 넓이를 구해서 리턴하는 메소드
+
+밑변이 10, 높이가 20인 사각형 객체를 만들자.
+사각형의 둘레와 사각형의 넓이를 구해서 콘솔에 출력하자.
+
+풀이
+
+      class Rectangle {
+        constructor (width, height) {
+          this.width = width
+          this.height = height
+        }
+
+        // 사각형의 둘레를 구하는 메소드
+        getPerimeter () {
+          return 2 * (this.width + this.height)
+        }
+
+        // 사각형의 넓이를 구하는 메소드
+        getArea () {
+          return this.width * this.height
+        }
+      }
+
+      const rectangle = new Rectangle(10, 20)
+      console.log(`사각형의 둘레: ${rectangle.getPerimeter()}`)
+      console.log(`사각형의 넓이: ${rectangle.getArea()}`)
+
+2. 1번에서만든 Rectangle 클래스를 상속하는 Square 클래스를 만들자.
+Square 클래스는 정사각형을 형상화한 클래스이다.
+생성자를 만드는데 매개변수를 하나받고 상위클래스의 생성자를 호출하도록 하자.
+한변의 길이가 10인 Square 객체를 만들자.
+그 객체의 둘레와 넓이를 구해서 출력하자.
+
+풀이
+
+      // 사각형 클래스
+      class Rectangle {
+        constructor (width, height) {
+          this.width = width
+          this.height = height
+        }
+
+        // 사각형의 둘레를 구하는 메소드
+        getPerimeter () {
+          return 2 * (this.width + this.height)
+        }
+
+        // 사각형의 넓이를 구하는 메소드
+        getArea () {
+          return this.width * this.height
+        }
+      }
+
+      // 정사각형 클래스
+      class Square extends Rectangle {
+        constructor (length) {
+          super(length, length)     // 부모의 생성자 함수를 호출하는 클래스
+        }
+
+      }
+
+      // 클래스 사용하기
+      const square = new Square(10, 20)
+      console.log(`정사각형의 둘레: ${square.getPerimeter()}`)
+      console.log(`정사각형의 넓이: ${square.getArea()}`)
+      /*
+        getPerimeter() 메소드와 getArea() 메소드를 선언하지 않았지만,
+        상속받았으므로 사용할 수 있습니다.
+      */
+
+3. 길이가 0보다 작으면 생성자에서 예외를 발생시키도록 하자
+
+      // 정사각형 클래스
+      class Square {
+        constructor (length) {
+            // 예외발생 코드 추가
+          this.length = length
+        }
+        getPerimeter () { return 4 * this.length }
+        getArea () { return this.length * this.length }
+      }
+
+      // 클래스 사용하기
+      const square = new Square(-10)
+      console.log(`정사각형의 둘레: ${square.getPerimeter()}`)
+      console.log(`정사각형의 넓이: ${square.getArea()}`)
+
+      풀이
+
+      // 정사각형 클래스
+      class Square {
+        constructor (length) {
+          if (length <= 0) {
+            throw '길이는 0보다 커야 합니다.'
+          }
+          this.length = length
+        }
+        getPerimeter () { return 4 * this.length }
+        getArea () { return this.length * this.length }
+      }
+
+      // 클래스 사용하기
+      const square = new Square(-10)
+      console.log(`정사각형의 둘레: ${square.getPerimeter()}`)
+      console.log(`정사각형의 넓이: ${square.getArea()}`)      
+
+4. 정사각형 클래스 Square를 만들자.
+한 변의 길이를 나타내는 속성을 private으로 선언하자.
+생성자와 사각형의 둘레를 리턴하는 메소드, 사각형의 면적을 리턴하는 메소드를 만들자.
+
+한변의 길이가 10인 정사각형 객체를 만들고 정사각형의 둘레와 넓이를 구하여 출력하자.
+
+풀이
+      // 사각형 클래스
+      class Square {
+        #length     // 이 위치에 해당 속성을 private 속성으로 사용하겠다고 미리 선언합니다.
+
+        constructor (length) {
+          if (length <= 0) {
+            throw '길이는 0보다 커야 합니다.'
+          }
+          this.#length = length
+        }
+        getPerimeter () { return 4 * this.#length }
+        getArea () { return this.#length * this.#length }
+      }
+
+      // 클래스 사용하기
+      const square = new Square(10)
+      console.log(`정사각형의 둘레: ${square.getPerimeter()}`)
+      console.log(`정사각형의 넓이: ${square.getArea()}`)
+
+
+5. 정사각형 클래스를 만들자
+정사각형의 변의 길이를 private으로 선언한자.
+생성자에서 변의 길이를 초기화하자.세터메소드가 호출되도록 하자.
+게터메소드와 세터메서드로 변의 길이를 반환하고 변의 길이를 대입하도록하자.
+세터메소드에서 변의 길이가 0보다 작으면 예외를 발생시키자.
+변의 길이가 10인 사각형 객체를 만들자. 변의 길이, 둘레, 넓이를 출력하자.
+한변의 길이가 -10인 객체를 만들자.그리고 예외가 발생하도록 하자.
+
+풀이
+
+      // 정사각형 클래스
+      class Square {
+        #length
+
+        /*
+        this.length에 값을 지정하면,
+        set length(length) 메소드 부분이 호출된다.
+        */
+        constructor (length) {
+          this.length = length
+          // this.#length = length
+        }
+
+        get length () {
+          return this.#length
+        }
+        
+        get perimeter () {
+          return this.#length * 4
+        }
+
+        get area () {
+           return this.#length * this.#length
+        }
+        set length (length) {
+          if (length <= 0) {
+            throw '길이는 0보다 커야 합니다.'
+          }
+          this.#length = length
+        }
+      }
+
+      // 클래스 사용하기
+      const squareA = new Square(10)
+      console.log(`한 변의 길이: ${squareA.length}`)
+      console.log(`둘레: ${squareA.perimeter}`)
+      console.log(`넓이: ${squareA.area}`)
+
+      // 예외 발생시키기
+      const squareB = new Square(-10)
+
+6. Square 클래스를 만든다.(정사각형을 형상화한 클래스)
+length를 private으로 선언한다.
+counter를 정적 private으로 선언한다.   
+counter를 반환하는 정적 메소드를 만든다.
+생성자에서 length를 초기화한다.
+생성자에서 counter를 1증가시킨다.   
+정사각형의 둘레를 구하는 정적 메소드를 만든다.
+정사각형의 면적을 구하는 정적 메소드를 만든다.
+길이를 반환하는 메소드를 만든다.
+둘레를 반환하는 메소드를 만든다.
+면적을 반환하는 메소드를 만든다.
+길이값을 설정하는 세터메소드를 만든다. 길이가 0보다 작으면 예외를 발생시킨다.
+Square 객체 3개를 생성한다.
+객체의 갯수를 출력한다.
+정적메소드로 길이가 20인 사각형의 둘레를 구한다.
+정적메소드로 길이가 30인 사각형의 면적을 구한다.
+
+풀이
+
+      class Square {
+        #length
+        static #conuter = 0       // private 특성과 static 특성은 한꺼번에 적용할 수도 있다.
+        static get counter () {
+          return Square.#conuter
+        }
+        constructor (length) {
+          this.length = length
+          Square.#conuter += 1
+        }
+
+        static perimeterOf (length) {
+          return length * 4
+        }
+        static areaOf (length) {
+          return length * length
+        }
+        
+        get length () { return this.#length }
+        get perimeter () { return this.#length * 4 }
+        get area () { return this.#length * this.#length }
+
+        set length (length) {
+          if (length < 0) {
+            throw '길이는 0보다 커야 합니다.'
+          }
+          this.#length = length
+        }
+      }
+
+      // static 속성 사용하기
+      const squareA = new Square(10)
+      const squareB = new Square(20)
+      const squareC = new Square(30)
+      console.log(`지금까지 생성된 Square 인스턴스는 ${Square.counter}개입니다.`)
+      // static 메소드 사용하기
+      console.log(`한 변의 길이가 20인 정사각형의 둘레는 ${Square.perimeterOf(20)}입니다.`)
+      console.log(`한 변의 길이가 30인 정사각형의 둘레는 ${Square.areaOf(30)}입니다.`)
+
+  7. 메소드 오버라이딩의 정의와 예시를 드시오.
+  부모 클래스의 메소드를 자식 클래스에서 재정의 하는 것
+
+  class AAA
+  {
+    a(){
+      console.log("AAA클래스의 a() 메소드입니다.");
+    }
+  }
+
+  class BBB extends AAA
+  {
+    a(){
+      super.a();
+      console.log("BBB 클래스의 a() 메소드입니다.");
+    }
+  }
+
+  const bbb = new BBB();
+  bbb.a();
+
+  8. 다음 코드의 실행 결과를 적으시오.
+
+      // 클래스를 선언합니다.
+      class LifeCycle {
+        call () {
+          this.a()
+          this.b()
+          this.c()         
+        }
+
+        a () { console.log('a() 메소드를 호출합니다.')}
+        b () { console.log('b() 메소드를 호출합니다.')}
+        c () { console.log('c() 메소드를 호출합니다.')}
+      }
+
+      class Child extends LifeCycle {
+        a () {
+          console.log('자식의 a() 메소드입니다.')
+        }
+      }
+
+      // 인스턴스를 생성합니다.
+      new Child().call()
+
+      풀이
+      자식의 a() 메소드입니다.
+      b() 메소드를 호출합니다.
+      c() 메소드를 호출합니다.
+
+  9. 다음 코드의 실행결과를 적으시오.
+
+  // 클래스를 선언합니다.
+      class LifeCycle {
+        call () {
+          this.a()
+          this.b()
+          this.c()         
+        }
+
+        a () { console.log('a() 메소드를 호출합니다.')}
+        b () { console.log('b() 메소드를 호출합니다.')}
+        c () { console.log('c() 메소드를 호출합니다.')}
+      }
+
+      class Child extends LifeCycle {
+        a () {
+          super.a()
+          console.log('자식의 a() 메소드입니다.')
+        }
+      }
+
+      // 인스턴스를 생성합니다.
+      new Child().call()    
+
+      풀이
+
+      a() 메소드를 호출합니다.
+      자식의 a() 메소드입니다.
+      b() 메소드를 호출합니다.
+      c() 메소드를 호출합니다.  
+
+10. 모든 클래스의 최상위 클래스는?
+Object
+
+11. 10번 클래스의 toString() 메소드를 메소드 오버라이딩하는 예시를 작성하시오.
+
+풀이
+
+      class Pet {
+        constructor (name, age) {
+          this.name = name
+          this.age = age
+        }
+
+        toString () {
+          return `이름: ${this.name}\n나이: ${this.age}살` 
+        }
+      }
+
+      const pet = new Pet('구름', 6)
+      alert(pet)
+      console.log(pet + '')

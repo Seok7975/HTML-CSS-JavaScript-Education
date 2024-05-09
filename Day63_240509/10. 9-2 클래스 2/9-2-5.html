@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      // 정사각형 클래스
+      class Square {
+        constructor (length) {
+          if (length <= 0) {
+            throw '길이는 0보다 커야 합니다.'
+          }
+          this.length = length
+        }
+        getPerimeter () { return 4 * this.length }
+        getArea () { return this.length * this.length }
+      }
+
+      // 클래스 사용하기
+      const square = new Square(-10)
+      console.log(`정사각형의 둘레: ${square.getPerimeter()}`)
+      console.log(`정사각형의 넓이: ${square.getArea()}`)
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+<!--
+  하지만 이러한 코드만으로는 다음과 같이 생성자로 객체를 생성한 이후에 사용자가
+  length 속성을 변경하는 것을 막을 수 없습니다.
+
+  사용자의 잘못된 사용 예
+  // 클래스 사용하기
+  const square = new Square(10)
+  square.length = -10     // 이렇게 음수를 지정하는 것을 막을 수 없다.
+  console.log(`정사각형의 둘레: ${square.getPerimeter()}`)
+  console.log(`정사각형의 넓이: ${square.getArea()}`)  
+
+  이처럼 클래스 사용자가 클래스 속성(또는 메소드)을 의도하지 않은 방향으로 사용하는 것을
+  막아 클래스의 안정성을 확보하기 위해 나온 문법이 private 속성과 메소드입니다.
+
+  class 클래스이름{
+    #속성이름
+    #메소드이름(){
+
+    }
+  }
+
+  속성과 메소드 이름 앞에 #을 붙이기만 하면 됩니다. 이처럼 #이 붙어있는 속성과 메소드는 모두
+  private 속성과 메소드가 됩니다. 주의할 것이 있다면 private 속성은 사용하기 전에 미리 외부에
+  어떤 속성을 private 속성으로 사용하겠다고 선언해줘야 한다는 것입니다
+-->

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const h1 = document.querySelector('h1')
+      if (h1) {
+        h1.textContent = '안녕하세요'
+      } else {
+        console.log('h1 태그를 추출할 수 없습니다.')
+      }
+    })
+  </script>
+</html>
+
+<!--
+  기본 예외 처리
+  조건문을 사용해서 예외가 발생하지 않게 만드는 것을 기본 예외 처리라고 부릅니다.
+-->
+
+<!--
+  자바스크립트는 다른 프로그래밍 언어와 비교해서 굉장히 유연하기 때문에 예외를 발생할
+  가능성이 적은 편입니다. 예를 들어 대부분의 프로그래밍 언어는 배열의 길이를 넘는 위치를
+  선택할 경우 오류를 발생하지만 자바스크립트는 undefined를 출력하기만 합니다.
+
+  > const array = [52, 273, 32, 103, 57]
+  > array[10]
+  undefined
+
+  이와 같은 유연함 때문에 예외를 발생하지 않는다고 좋은 것은 아닙니다. 프로그램에 문제가
+  발생했는데도 죽지 않고 실행되면 계속해서 문제를 만들 가능성이 있습니다. 따라서 문제가
+  발생할 수 있는 부분은 조건문 등으로 처리해주어야 합니다.
+-->

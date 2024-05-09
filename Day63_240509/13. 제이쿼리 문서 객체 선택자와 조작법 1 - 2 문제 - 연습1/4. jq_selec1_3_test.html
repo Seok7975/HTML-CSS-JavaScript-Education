@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>  
+<script src="js/jquery.js"></script>
+	<script>
+		/* 		
+		$(function(){
+			$('.tit').css("background-color", "#ff0")
+			.css("border", "2px dashed #f00");
+		}); 
+		*/
+
+
+		document.addEventListener('DOMContentLoaded', function(){
+			let elements = document.getElementsByClassName('tit')
+
+			for(let i=0 ; i<elements.length; i++)
+			{
+				elements[i].style.backgroundColor = '#ff0'
+				elements[i].style.border = '2px dashed #f00'
+			}
+			
+		})
+</script>
+</head>
+<body>
+	<h1>제이쿼리</h1>
+	<h2 class="tit">선택자</h2>
+	<h3>직접 선택자</h3>
+</body>
+</html>
+
+<!-- 4. 클래스 선택자를 이용하여 클래스가 tit인 것의 배경색을 "#ff0", border를 2px dashed #f00으로 주자. -->
+
+<!-- getElementsByClassName 메소드는 DOM에서 클래스 이름에 해당하는 모든 요소의 리스트를 반환
+따라서 반환된 요소들에 직접 스타일을 적용하려면 반복문을 사용해야 합니다. 
+또한, 스타일 속성 이름에서 camelCase 표기법을 사용해야 합니다(backgroundcolor 대신 backgroundColor를 사용해야 합니다). -->

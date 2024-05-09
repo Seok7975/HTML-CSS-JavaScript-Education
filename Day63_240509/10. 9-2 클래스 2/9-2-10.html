@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      // 정사각형 클래스
+      class Square {
+        #length
+
+        /*
+        this.length에 값을 지정하면,
+        set length(length) 메소드 부분이 호출된다.
+        */
+        constructor (length) {
+          this.length = length
+          // this.#length = length
+        }
+
+        get length () {
+          return this.#length
+        }
+        
+        get perimeter () {
+          return this.#length * 4
+        }
+
+        get area () {
+           return this.#length * this.#length
+        }
+        set length (length) {
+          if (length <= 0) {
+            throw '길이는 0보다 커야 합니다.'
+          }
+          this.#length = length
+        }
+      }
+
+      // 클래스 사용하기
+      const squareA = new Square(10)
+
+      //squareA.lenght = -10; //대입이 아닌 호출이 됨 -> 여기선 -10이 들어가므로 예외 발생
+
+      console.log(`한 변의 길이: ${squareA.length}`) // get length(length)를 호출, 다이렉트로 private 속성에 접근하지 않아 안전성 확보
+      console.log(`둘레: ${squareA.perimeter}`) // get perimeter 호출
+      console.log(`넓이: ${squareA.area}`) //get area() 호출
+
+      // 예외 발생시키기
+      const squareB = new Square(-10)
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            function ex_Try_Catch()
+            {
+                console.log("1번문제")
+
+                try
+                {
+                    willExcept.byeBye()
+                    console.log("try 구문의 마지막 줄")
+                }
+                catch(exception)
+                {
+                    console.log("catch 구문의 마지막 줄\n\n")
+                }
+            }
+
+            function ex_Try_Catch_Finally()
+            {
+                console.log("2번문제")
+                try
+                {
+                    willExcept.byeBye()
+                    console.log("try 구문의 마지막 줄")
+                }
+                catch(exception)
+                {
+                    console.log("catch 구문의 마지막 줄")
+                }
+                finally
+                {
+                    console.log("finally 구문의 마지막 줄")
+                }
+            }
+
+            ex_Try_Catch()
+            ex_Try_Catch_Finally()
+            
+        </script>
+    </body>
+</html>

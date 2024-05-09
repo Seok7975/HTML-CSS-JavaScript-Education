@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>
+	$(function(){
+		$("h1.tit").css("background-color","#0ff")
+		.css("border", "2px dashed #f00");
+	});
+</script>
+</head>
+<body>
+	<h1 class="tit">제이쿼리</h1>
+	<h2>선택자</h2>
+	<h3 class="tit">직접 선택자</h3>
+</body>
+</html>
+
+<!--
+종속 선택자
+종속 선택자는 선택한 요소의 id 또는 class 값이 일치하는 요소를 선택할 때 사용합니다. 
+종속 선택자의 기본형은 다음과 같습니다.
+
+기본형 	
+$("요소명#id값")
+$("요소명.class값")
+참고. 하위 선택자와 종속 선택자는 작성하는 방법이 비슷해 주의해야 합니다. 
+종속 선택자는 요소명과 id 값 사이에 공백이 없지만 하위 선택자는 공백이 있습니다.	
+-->

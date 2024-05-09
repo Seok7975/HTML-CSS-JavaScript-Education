@@ -1,0 +1,87 @@
+1. 추상화란 무엇인가?
+
+2.    다음 코드에서 객체에 getSum 메소드와 getAverage 메소드를 추가하여 실행결과가
+다음과 같이 나오게 하자.
+
+        // 객체를 선언합니다.
+      const students = []
+      students.push({ 이름: '구름', 국어: 87, 영어: 98, 수학: 88, 과학: 90})
+      students.push({ 이름: '별이', 국어: 92, 영어: 98, 수학: 96, 과학: 88})
+      students.push({ 이름: '겨울', 국어: 76, 영어: 96, 수학: 94, 과학: 86})
+      students.push({ 이름: '바다', 국어: 98, 영어: 52, 수학: 98, 과학: 92})
+    
+      // 코드 추가
+
+      // 출력합니다.
+      let output = '이름\t총점\t평균\n'
+      for (const s of students) {
+        output += `${s.이름}\t${s.getSum()}점\t${s.getAverage()}점\n`
+      }
+      console.log(output)
+
+      실행결과
+
+        이름	총점	평균
+        구름	363점	90.75점
+        별이	374점	93.5점
+        겨울	352점	88점
+        바다	340점	85점
+
+3. 다음 소스코드에 createStudent 함수를 완성해서, 실행결과와 같이 나오도록 하자.
+
+      // 객체를 선언합니다.
+      const students = []
+      students.push(createStudent('구름', 87, 98, 88, 90))
+      students.push(createStudent('별이', 92, 98, 96, 88))
+      students.push(createStudent('겨울', 76, 96, 94, 86))
+      students.push(createStudent('바다', 98, 52, 98, 92))
+    
+      // 출력합니다.
+      let output = '이름\t총점\t평균\n'
+      for (const s of students) {
+        output += s.toString()
+      }
+      console.log(output)
+
+    실행결과
+
+이름	총점	평균
+구름	363점	90.75점
+별이	374점	93.5점
+겨울	352점	88점
+바다	340점	85점
+
+4. 다음 코드가 실행될 수 있도록 Student 클래스를 만들고, 그 안에 생성자를 만들자.
+
+     
+      // 객체를 선언합니다.
+      const students = []
+      students.push(new Student('구름', 87, 98, 88, 90))
+      students.push(new Student('별이', 92, 98, 96, 88))
+      students.push(new Student('겨울', 76, 96, 94, 86))
+      students.push(new Student('바다', 98, 52, 98, 92))
+
+
+5. 다음과 같은 실행결과 나오도록 Student 클래스에 생성자와 getSum, getAverage, toString 메소드를 추가하자.
+
+      
+      // 객체를 선언합니다.
+      const students = []
+      students.push(new Student('구름', 87, 98, 88, 90))
+      students.push(new Student('별이', 92, 98, 96, 88))
+      students.push(new Student('겨울', 76, 96, 94, 86))
+      students.push(new Student('바다', 98, 52, 98, 92))
+
+      //출력합니다.
+      let output = '이름\t총점\t평균\n'
+      for (const s of students) {
+        output += s.toString()
+      }
+      console.log(output)
+
+      실행결과
+이름	총점	평균
+구름	363점	90.75점
+별이	374점	93.5점
+겨울	352점	88점
+바다	340점	85점

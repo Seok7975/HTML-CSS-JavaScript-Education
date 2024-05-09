@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      // 사각형 클래스
+      class Rectangle {
+        constructor (width, height) {
+          this.width = width
+          this.height = height
+        }
+
+        // 사각형의 둘레를 구하는 메소드
+        getPerimeter () {
+          return 2 * (this.width + this.height)
+        }
+
+        // 사각형의 넓이를 구하는 메소드
+        getArea () {
+          return this.width * this.height
+        }
+      }
+
+      // 정사각형 클래스, 사각형 클래스를 상속받음
+      class Square extends Rectangle {
+        constructor (length) {
+          super(length, length)     // 부모의 생성자 함수를 호출하는 클래스
+        }
+
+      }
+
+      // 클래스 사용하기
+      const square = new Square(10)
+      console.log(`정사각형의 둘레: ${square.getPerimeter()}`)
+      console.log(`정사각형의 넓이: ${square.getArea()}`)
+      /*
+        getPerimeter() 메소드와 getArea() 메소드를 선언하지 않았지만,
+        상속받았으므로 사용할 수 있습니다.
+      */
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+<!--
+  상속(inheritance)의 기본적인 형태
+
+  class 클래스이름 extends 부모클래스이름{
+
+  }
+
+  상속은 '상속'이라는 이름처럼 어떤 클래스가 가지고 있는 유산(속성과 메소드)을 다른 클래스에게
+  물려주는 형태로 사용합니다. 이때 유산을 주는 클래스를 부모 클래스(parent class), 유산을 받는
+  클래스를 자식 클래스(child class)라고 부릅니다.
+-->
+
+<!--
+  프로그래밍은 분업화가 매우 잘 되어 있는 분야입니다. 그래서 프로그램을 개발할 때 사용하는 거대한
+  규모의 클래스, 함수, 도구 등의 집합을 의미하는 프레임워크(framework)와 엔진(engine)이라는 것을
+  만드는 개발자와 이를 활용해서 다수를 대상으로 하는 서비스, 애플리케이션, 게임을 개발하는 개발자가
+  다른 경우가 많습니다. 전자를 프레임워크 개발자 또는 엔진 개발자 등으로 부르며, 후자를 애플리케이션
+  개발자 등으로 부릅니다.
+  이때 애플리케이션 개발자들이 프레임워크와 엔진을 활용하는 가장 기본적인 방법이 상속입니다. 그래서
+  상속을 어느 정도 알아야 프레임워크와 엔진을 다룰 수 있습니다.
+-->
