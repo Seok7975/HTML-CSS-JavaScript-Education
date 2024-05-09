@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Honk&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script2.js"></script>
+</head>
+<style>
+    /* Additional CSS styling */
+    .life {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .life img {
+        margin: 0 5px; /* Adjust margin as needed */
+    }
+</style>
+<body>
+    <header>
+        <h1>HANG MAN</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Services</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
+    <h1>Chating Game</h1>
+    <div class="chat">
+        <div class="yours messages">
+            <div class="message last">
+                안녕하세요 행맨입니다 a-z 까지 문자를 입력하세요!
+            </div>
+        </div>
+        <div class="mine messages">
+            <div class="message last">
+                your Message
+            </div>
+        </div>
+    </div>    
+
+    <div class="sendMessage">
+        <input type="text" id="messageInput" placeholder="메시지를 입력하세요" onkeypress="sendMessage(event)">
+        <img src="send2.jpg" alt="Send Icon" onclick="sendMessage()">
+    </div>
+
+    <div class = "life">
+        <img src="life.jpg" alt="Life" width="30px">
+        <img src="life.jpg" alt="Life" width="30px">
+        <img src="life.jpg" alt="Life" width="30px">
+        <img src="life.jpg" alt="Life" width="30px">
+        <img src="life.jpg" alt="Life" width="30px">
+        <img src="life.jpg" alt="Life" width="30px">
+    </div>
+
+
+  
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
