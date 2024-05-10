@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function( ) {
+	$("#box_1").on("mouseout", function(){
+		$(this).css("backgroundColor", "yellow");
+	});
+	$("#box_2").on("mouseleave", function(){
+		$(this).css("backgroundColor", "pink");
+	});
+});
+</script>
+</head>
+<body>
+<h1>mouseout</h1>
+<div id="box_1">
+				<p><a href="#">내용1</a></p>
+				<p><a href="#">내용2</a></p>
+				<p><a href="#">내용3</a></p>
+</div>
+
+<h1>mouseleave</h1>
+<div id="box_2">
+				<p><a href="#">내용4</a></p>
+				<p><a href="#">내용5</a></p>
+				<p><a href="#">내용6</a></p>
+</div>
+</body>
+</html>
+
+<!-- 
+7.  아이디 box_1의 영역을 벗어나면 mouseout 이벤트로 아이디 box_1의 영역의 배경색을 노랑색으로 주자.
+아이디 box_2의 영역을 벗어나면 mouseleave 이벤트로 아이디 box_2의 영역의 배경색을 pink로 주자. 
+-->
+
+<!--
+mouseenter() / mouseleave() 이벤트 메서드		(deprecated)
+mouseenter() 이벤트 메서드는 대상 요소의 경계 범위에 마우스 포인터가 들어오면 
+이벤트를 발생시키고, mouseleave() 이벤트 메서드는 대상 요소의 경계 범위에서 
+마우스 포인터가 완전히 벗어나면 이벤트를 발생시킵니다.
+(2.png, 3.png 참고)
+
+기본형
+① mouseenter 이벤트 등록
+$("이벤트 대상 선택").mouseenter(function() { 자바스크립트 코드; });		// (deprecated)
+$("이벤트 대상 선택").on("mouseenter", function() { 자바스크립트 코드; });
+
+② mouseenter 이벤트 강제 발생
+$("이벤트 대상 선택").mouseenter();
+
+기본형
+① mouseleave 이벤트 등록
+$("이벤트 대상 선택").mouseleave(function() { 자바스크립트 코드; });		// (deprecated)
+$("이벤트 대상 선택").on("mouseleave", function() { 자바스크립트 코드; });
+
+② mouseleave 이벤트 강제 발생
+$("이벤트 대상 선택").mouseleave();
+
+참고(https://api.jquery.com/mouseenter/)	
+
+(4.png 참고)
+-->

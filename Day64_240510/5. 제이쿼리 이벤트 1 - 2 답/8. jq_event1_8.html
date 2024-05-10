@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function( ) {
+    $(document).on("mousemove", function(e){    // e 매개 변수(이벤트 객체)
+        $(".posX").text(e.pageX);
+        $(".posY").text(e.pageY);
+    });
+});
+</script>
+</head>
+<body>
+<h1>mousemove</h1>
+<p>X : <span class="posX">0</span>px</p>
+<p>Y : <span class="posY">0</span>px</p>
+</body>
+</html>
+
+
+<!-- 8. 마우스가 움직이면 마우스의 좌표를 클래스 posX와 클래스 posY에 출력하자. -->
+
+<!--
+mousemove() 이벤트 메서드			(deprecated)
+기본형
+① mousemove 이벤트 등록
+① $("이벤트 대상 선택").mousemove(function() {자바스크립트 코드; }); // (deprecated)
+② $("이벤트 대상 선택").on("mousemove", function() {자바스크립트 코드; });
+
+② mousemove 이벤트 발생
+$("이벤트 대상 선택").mousemove();		// (deprecated)    
+-->
+<!--
+(참고: 이벤트가 발생하면 이벤트 핸들러의 매개변수에 이벤트 객체가 생성됩니다. 
+생성된 이벤트 객체에는 이벤트 성격에 맞는 다양한 속성이 들어 있습니다.)
+
+이벤트 객체와 종류
+사용자가 이벤트를 발생시킬 때마다 이벤트 핸들러의 매개변수에는 이벤트 객체가 생성되며, 
+이벤트 객체에는 이벤트 타입에 맞는 다양한 정보를 제공하는 속성과 메서드가 포함되어 있습니다. 
+다음은 이벤트 객체를 생성하기 위한 기본형입니다.
+
+기본형
+$("이벤트 대상 선택").mousemove(function(매개변수) {    // (deprecated)
+	매개변수(이벤트 객체).속성;
+});
+(07-제이쿼리-이벤트-4-이벤트-객체와-종류 참고)    
+-->

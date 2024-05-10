@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>
+<script src="js/jquery.js"></script>
+<script>
+$(function( ) {
+	$(".btn1").on('click', function(){
+		$(this).parent().next().css("color", "#f00")
+	})
+
+	$(".btn2").on('mouseover focus', function(){
+		$(this).parent().next().css("color", "#0f0")
+	})
+
+	$(".btn1").trigger("click")
+	$(".btn2").trigger("mouseover")
+})
+</script>
+</head>
+<body>
+	<p>
+	<button class="btn1">버튼1</button>
+	</p>
+	<p>내용1</p>
+	<p>
+		<button class="btn2">버튼2</button>
+	</p>
+	<p>내용2</p>
+</body>
+</html>
+
+<!-- 
+2. 클래스 btn1의 클릭 이벤트를 강제로 실행되게 하자.
+클래스 btn2의 mouseover 이벤트를 강제로 실행되게 하자. 
+-->
+
+
+<!--
+강제로 이벤트 발생시키기
+'이벤트가 강제로 발생했다'는 말은 '사용자에 의해' 이벤트가 발생했음을 의미하는 것이 아니라 
+'핸들러에 의해' 자동으로 이벤트가 발생했음을 의미한다. 예를 들어 버튼을 클릭할 때마다 
+변수의 값의 1씩 증가하는 버튼이 있다고 생각해 보자. 변수의 값을 증가시키려면 사용자가 
+직접 버튼을 클릭해야 한다. 하지만 단독 이벤트 등록 메서드를 사용하거나 trigger() 메서드를 
+사용하면 강제로 이벤트를 발생시킬 수 있다. 즉, 사용자가 버튼을 클릭하지 않아도 변수가 증가한다.
+
+다음은 단독 이벤트 등록 메서드와 trigger() 메서드를 사용해 강제로 이벤트를 발생시키는 
+메서드의 기본형과 예제이다.
+
+기본형
+① $("이벤트 대상").단독 이벤트 등록 메서드();	// (deprecated)
+② $("이벤트 대상").trigger("이벤트 종류");	
+-->
