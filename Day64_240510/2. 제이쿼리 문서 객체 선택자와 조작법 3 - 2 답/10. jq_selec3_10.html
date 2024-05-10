@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 객체 조작 및 생성 </title>  
+<script src="js/jquery.js"></script>
+<script>
+	$(function( ){
+		$("<li>appendTo</li>").appendTo("#listZone");
+		$("#listZone").prepend("<li>prepend</li>");
+	});
+</script>
+</head>
+<body>
+	<ul id="listZone">
+		<li>리스트</li>
+	</ul>
+</body>
+</html>
+
+<!--
+append() / appendTo() / prepend() / prependTo() 메서드
+append() 메서드와 appendTo() 메서드는 선택한 요소 내의 마지막 위치에 새 요소를 생성하고 추가합니다. 
+prepend() 메서드와 prependTo() 메서드는 선택한 요소 내의 앞 위치에 새 요소를 생성하고 추가합니다.
+
+기본형
+① 
+$("요소선택").append("새요소");
+$("새요소").appendTo("요소선택");
+
+②
+$("요소선택").prepend("새요소");
+$("새요소").prependTo("요소선택");
+
+① 선택한 요소 내의 마지막 위치에 새 요소를 생성하고 추가합니다.
+② 선택한 요소 내의 앞 위치에 새 요소를 생성하고 추가합니다.
+-->

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>
+	$(function(){
+		$("#inner_1 p:contains(내용1)")
+		.css({"background-color":"#ff0"});
+
+		$("#inner_1 p:has(strong)")
+		.css({"background-color":"#0ff"});
+
+		$("#outer_wrap").contents( )
+		.css({"border":"1px dashed #00f"});
+
+		$("#inner_2 p").not(":first") // id=inner_2의 후손 p중에 첫번재가 아닌 애
+		.css({"background-color":"#0f0"});
+
+		// id=inner_2의 후손 p중에 index가 2, 근데 end()는 가장 최근 필터링이 된 애를 무시. 따라서 eq(2)는 무시
+		$("#inner_2 p").eq(2).end() 
+		.css({"color":"#f00"});
+		/*
+			id 값이 "inner_2"인 요소의 하위 <p> 요소에서 인덱스가 2인 요소를 선택합니다.
+			그러나 다시 end() 메서드를 적용하기 때문에 인덱스를 선택하기 전의 선택지가
+			적용됩니다.
+		*/		
+	});
+</script>
+</head>
+<body>
+	<div id="outer_wrap">
+		<h1>콘텐츠 탐색 선택자</h1>
+		<section id="inner_1">
+			<h1>contains( ), contents( ), has( )</h1>
+			<p><span>내용1</span></p>
+			<p><strong>내용2</strong></p>
+			<p><span>내용3</span></p>
+		</section>
+		<section id="inner_2">
+			<h1>not( ), end( )</h1>
+			<p>내용4</p>
+			<p>내용5</p>
+			<p>내용6</p>
+		</section>
+	</div>
+</body>
+</html>
+
+<!--
+contains()/contents()/has()/not()/end() 탐색 선택자
+contains() 탐색 선택자는 선택한 요소 중 지정한 텍스트를 포함하는 요소만 선택하고, 
+contents() 탐색 선택자는 선택한 요소의 하위 요소 중 1 깊이의 텍스트와 태그 노드를 선택합니다. 
+has() 탐색 선택자는 선택한 요소 중 지정한 태그를 포함하는 요소만 선택합니다. 
+not() 탐색 선택자는 선택한 요소 중 지정한 요소만 제외한 채 선택하고, 
+end() 탐색 선택자는 필터링되기 이전의 선택자가 적용되도록 합니다.
+
+① $("요소선택:contains(텍스트)")
+② $("요소선택").contents()
+③ $("요소선택:has(요소명)") / $("요소선택").has("요소명")
+④ $("요소선택:not(제외할요소선택)") / $("요소선택").not(제외할요소선택)
+⑤ $("요소선택").탐색선택자().end()	
+-->

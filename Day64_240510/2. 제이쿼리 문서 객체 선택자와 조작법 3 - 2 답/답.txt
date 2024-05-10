@@ -1,0 +1,69 @@
+1. 아이디 sec_1의 하위요소를 콘솔에 출력하시오.
+아이디 sec_1의 후손 p의 하위요소를 <a href=\"#\">Text1</a>로 바꾸시오.
+아이디 sec_2의 텍스트를 콘솔에 출력하시오.
+아이디 sec_2의 후손h2의 내용을 text()로 바꾸시오.
+1. jq_selec3_1.html
+
+2.  아이디 값이 sec_1인 요소의 후손 img 요소를 선택하여 src 속성 값을 콘솔에 출력한다.
+아이디 값이 sec_1인 요소의 후손 img 요소의 속성을 width를 200으로 src 속성을 images/math_img_2.jpg로 alt를 바위로 새로 지정합니다. 그리고 border 속성을 없앱니다.
+2. jq_selec3_2.html
+
+3.  아이디 값이 p1인 것에 aqua 클래스를 넣는다.
+아이디 값이 p2인 것에 red 클래스를 제거한다.
+아이디 값이 p3인 것에 grren 클래스가 있으면 제거하고, 없으면 넣는다.
+아이디 값이 p4인 것에 green 클래스가 있으면 제거하고, 없으면 넣는다.
+아이디 값이 p6인 것에 텍스트를 아이디가 p5인 것에 yellow가 있으면 true, 없으면 false로 하자.
+3. jq_selec3_3.html
+
+4. 아이디가 user_name인 것에 값을 콘솔창에 출력하자.
+아이디가 user_id 인 것에 값을 javascript로 바꾸자.
+아이디가 user_id 인 것에 기본 값을 콘솔에 출력하자.
+4. jq_selec3_4.html
+
+5. 아이디가 chk1인 요소가 체크 상태인지 아닌지 true, false로 콘솔에 출력하시오.
+아이디가 chk2인 요소의 체크 상태를 true로 바꿉니다.
+아이디가 se_1인 요소의 옵션 중 selected 옵션의 인덱스 값을 가져옵니다.
+5. jq_selec3_5.html
+
+6. 아이디가 p1의 width를 구해서 콘솔에 출력
+아이디가 p1의 innerWidth를 구해서 콘솔에 출력
+아이디가 p1의 outerWidth를 구해서 콘솔에 출력
+아이디가 p2인 outerWidth를 100으로
+아이디가 p2인 outerHeight를 100으로
+6. jq_selec3_6.html
+
+7.  클래스 box의 document를 기준으로 top 좌표값을 구하여 클래스 txt_1의 후손 span에 출력하자.
+클래스 box의 아이디 box_wrap을 기준으로 한 top 좌표값을 구하여 클래스 txt_2의 후손 span에 출력하자.
+7. jq_selec3_7.html
+
+8. h1 태그의 document로 부터 top의 좌표를 구하여 스크롤바를 이동시킨다.
+스크롤바의 top의 좌표를 구하여 콘솔에 출력한다.
+8. jq_selec3_8.html
+
+9. 아이디 wrap에 후손 인덱스상 2번째 p 뒤에 "<p>After</p>" 추가
+아이디 wrap에 후손 인덱스상 1번째 p뒤에 "<p>insertAfter</p>" 추가
+아이디 wrap에 후손 인덱스상 1번째 p 앞에 "<p>Before</p>" 추가
+아이디 wrap에 후손 인덱스상 0번째 p 앞에 "<p>insertBefore</p>" 추가
+9. jq_selec3_9.html
+
+10. 아이디가 listZone인 것의 내에 마지막 위치에 "<li>appendTo</li>" 추가
+아이디가 listZone인 것의 내에 앞 위치에 "<li>prepend</li>" 추가
+10. jq_selec3_10.html
+
+11. class 값이 "box1"인 요소의 모든 자식 요소를 복제합니다. 그런 다음 변수 copyObj에 참조시킵니다.
+class 값이 "box2"인 요소를 삭제합니다.
+class 값이 "box3"인 요소의 모든 하위 요소를 삭제합니다.
+class 값이 "box3"인 요소인 것의 내에 마지막 위체에 copyObj에 저장된 요소를 추가합니다.
+11. jq_selec3_11.html
+
+12. 모든 태그 h2를 <h3>replace method</h3>로 바꾸시오.
+모든 div 태그를 <p>Change</p>로 바꾸시오.
+12. jq_selec3_12.html
+
+13. <strong> 요소를 감싸는 부모 요소를 제거합니다.
+<class> 값이 "ct1"인 요소를 각각 <div> 요소로 감쌉니다.
+<class> 값이 "ct2"인 요소를 한꺼번에 감쌉니다.
+<li> 요소의 모든 하위 요소를 <h3> 요소로 감쌉니다.
+13. jq_selec3_13.html
+
+

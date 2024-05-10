@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>
+	$(function(){
+		$("#wrap p:hidden").css({
+				"display":"block",
+				"background":"#ff0"
+		});
+
+		var z1 = $("#zone1 :selected").val( ); // id=zone1의 후손중에 selected인 친구.value
+		console.log(z1);
+		
+		var z2 = $("#zone2 :checked").val( ); //id=zone2의 후손중에 checked인 친구.value
+		console.log(z2);
+
+		var z3 = $("#zone3 :checked").val( ); //id=zone3의 후손중에 checked인 친구.value
+		console.log(z3);
+	});
+</script>
+</head>
+<body>
+	<div id="wrap">
+		<p>내용1</p>
+		<p style="display:none">내용2</p>
+		<p>내용3</p>
+	</div>
+	<form action="#">
+		<p id="zone1">
+		<select name="course" id="course">
+				<option value="opt1">옵션1</option>
+				<option value="opt2" selected>옵션2</option>
+				<option value="opt3">옵션3</option>
+		</select>
+		</p>
+		<p id="zone2">
+				<input type="checkbox" name="hobby1" value="독서"> 독서
+				<input type="checkbox" name="hobby2" value="자전거"> 자전거
+				<input type="checkbox" name="hobby3" value="등산" checked> 등산
+		</p>
+		<p id="zone3">
+				<input type="radio" name="gender" value="male"> 남성
+				<input type="radio" name="gender" value="female" checked> 여성  
+		</p>
+	</form>
+</body>
+</html>
+
+<!--
+속성 상태에 따른 탐색 선택자
+속성 상태에 따른 탐색 선택자는 선택한 요소 중 속성 상태에 따라 요소를 선택합니다.
+
+기본형
+① $("요소선택:[visible | hidden]")
+② $(":selected")
+③ $(":checked")
+
+① 선택한 요소 중 숨겨진 상태 또는 보이는 상태의 요소만 선택합니다.
+② 선택 상자 중 선택된 옵션 요소만 선택합니다.
+③ 체크 박스(checkbox) 또는 라디오(radio) 버튼 요소 중 체크된 요소만 선택합니다.	
+-->

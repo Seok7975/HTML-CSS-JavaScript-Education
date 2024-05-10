@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>
+	$(function(){
+		$("li:first-of-type")
+		.css({"background-color":"#ff0"});
+
+		$("li:last-of-type")
+		.css({"background-color":"#0ff"});
+	});
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul>
+		<li>내용1-1</li>
+		<li>내용1-2</li>
+		<li>내용1-3</li>
+	</ul>
+	<ul>
+		<li>내용2-1</li>
+		<li>내용2-2</li>
+		<li>내용2-3</li>
+	</ul>
+</body>
+</html>
+
+<!--
+first-of-type/last-of-type 선택자
+first-of-type 선택자는 선택한 요소의 무리 중 첫 번째 요소만 선택합니다. 
+이와 반대로 last-of-type은 선택한 요소의 무리 중 마지막에 위치한 요소만 선택합니다. 
+
+① $("요소선택:first-of-type")
+② $("요소선택:last-of-type")	
+-->

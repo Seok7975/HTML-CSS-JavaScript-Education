@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$("#menu li").eq(2).css({
+		"backgroundColor" : "#ff0"
+	})
+
+	$("#menu li:lt(2)").css({
+		"background-color" : "#0ff"
+	})
+
+	$("#menu li:gt(2)")
+	.css({
+		"backgroundColor" : "#f0f"
+	})
+});
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu">
+		<li>내용1</li>
+		<li>내용2</li>
+		<li>내용3</li>
+		<li>내용4</li>
+		<li>내용5</li>
+	</ul>
+</body>
+</html>
+
+
+<!-- 
+3. 아이디가 menu인 요소의 후손 li중에 인덱스가 2인 요소의 배경색을 #ff0으로 하자.
+아이디가 menu인 요소의 후손 li중에 인덱스가 2보다 작은 요소들의 배경색을 #0ff로 하자.
+아이디가 menu인 요소의 후손 li중에 인덱스가 2보다 큰요소들의 배경색을 #f0f로 하자. 
+-->
+
+<!--
+eq(index)/lt(index)/gt(index) 탐색 선택자
+eq(index) 탐색 선택자는 선택한 요소 중 지정한 인덱스가 참조하는 요소만 선택하고 lt(index) 
+선택자는 선택한 요소 중 지정한 인덱스보다 작은(lt, Less Than) 인덱스를 참조하는 요소만 선택합니다. 
+이와 반대로 gt(index)는 선택한 요소 중 지정한 인덱스보다 큰(gt, Greater Than) 인덱스를 참조하는 요소만 
+선택합니다. 다음은 eq(index), lt(index), gt(index) 선택자의 기본형 입니다.
+
+기본형
+① $("요소선택:eq(index)") 또는 $("요소선택").eq(index)
+② $("요소선택:lt(index)")
+③ $("요소선택:gt(index)")	
+-->

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 객체 조작 및 생성 </title>  
+<script src="js/jquery.js"></script>
+<script>
+	$(function( ){
+		var copyObj = $(".box1").children().clone();
+
+		$(".box2").remove( );
+
+		$(".box3").empty( );
+		$(".box3").append(copyObj);
+	});
+</script>
+</head>
+<body>
+	<div class="box1">
+		<p>내용1</p>
+		<p>내용2</p>
+	</div>
+	<div class="box2">
+		<p>내용3</p>
+		<p>내용4</p>
+	</div>
+	<div class="box3">
+		<p>내용5</p>
+		<p>내용6</p>
+	</div>
+</body>
+</html>
+
+<!--
+clone() / empty() / remove() 메서드
+
+clone() 메서드는 선택한 요소를 복제합니다. empty() 메서드는 선택한 요소의 모든 
+하위 요소를 삭제하고, remove() 메서드는 선택한 요소를 삭제합니다.
+
+기본형
+① $("요소선택").clone([true | false]);
+② $("요소선택").empty();
+③ $("요소선택").remove();
+
+① 선택한 요소를 복제합니다. 인자값이 true면 이벤트까지 복제하고, false면 요소만 복제합니다. 
+기본값은 false 입니다.
+② 선택한 요소의 모든 하위 요소를 삭제합니다.
+③ 선택한 요소를 삭제합니다.	
+-->

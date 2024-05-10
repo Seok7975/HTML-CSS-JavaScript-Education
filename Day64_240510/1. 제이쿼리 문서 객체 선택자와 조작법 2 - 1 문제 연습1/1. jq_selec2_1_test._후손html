@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title>
+<script src="js/jquery.js"></script>
+<script>
+/* $(function(){
+	$(function(){
+		$("#menu li:first")
+		.css({"background-color" : "#ff0"});
+
+		$("#menu li:last")
+		.css({"background-color" : "#0ff"})
+	})
+}); */
+
+
+//querySelector방법
+document.addEventListener("DOMContentLoaded", function(){
+	// id가 "menu"인 요소의 모든 자식 li 요소를 선택
+	let elements = document.querySelectorAll("#menu li");
+
+	// 첫 번째 li 요소의 배경색을 #ff0(노란색)으로 설정
+	if(elements.length > 0) {
+		elements[0].style.backgroundColor = "#ff0";
+	}
+
+	// 마지막 li 요소의 배경색을 #0ff(청록색)으로 설정
+	if(elements.length > 1) {
+		elements[elements.length - 1].style.backgroundColor = "#0ff";
+	}
+});
+
+
+/* 
+lements 배열(또는 유사 배열 객체)이 비어 있다면, 즉 선택된 요소가 없다면 이 코드는 오류를 발생시킬 것입니다. 
+JavaScript에서는 존재하지 않는 배열의 인덱스에 접근하려고 하면 undefined를 반환하며, 
+이후에 undefined에 대해 스타일 속성을 설정하려고 하면 오류가 발생합니다.
+
+따라서, if(elements.length > 0)와 같은 조건문을 사용하는 것은 이러한 가능한 오류를 방지하기 위함 
+*/
+
+/* 
+
+//getElementById방법
+document.addEventListener("DOMContentLoaded", function(){
+	let elements = document.getElementById("menu")
+
+	let children = elements.childNodes
+	let firstLi = null
+	let lastLi = null
+
+	for(let i = 0; i < children.length; i++)
+	{
+		if(children[i].nodeType === 1 && children[i].tagName === 'LI') //tagName은 대문자로 반환. 따라서 LI로 써야함
+		//children[i].nodeType === 1 : 요소 노드,텍스트 노드, 주석 노드 등에서 요소 노드는 노드타입이 1
+		{
+			if(firstLi === null)
+			{
+				firstLi = children[i]
+			}
+			lastLi = children[i]
+		}
+	}
+
+	if(firstLi !== null) firstLi.style.backgroundColor = "#ff0"
+	if(lastLi !== null) lastLi.style.backgroundColor = "#0ff"
+})
+ */
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu">
+		<li>내용1</li>
+		<li>내용2</li>
+		<li>내용3</li>
+		<li>내용4</li>
+	</ul>
+</body>
+</html>
+
+<!-- 
+1. 아이디가 menu인 요소의 후손 중에 첫 번째 li에 배경색을 #ff0로 준다. 
+아이디가 menu인 요소의 후손 중에 마지막 li에 배경색을 #0ff로 준다. 
+-->

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+ 
+});
+</script>
+</head>
+<body>
+	<div id="outer_wrap">
+		<h1>콘텐츠 탐색 선택자</h1>
+		<section id="inner_1">
+			<h2>find( ), filter( )</h2>
+			<p class="txt1">내용1</p>
+			<p class="txt2">내용2</p>
+		</section>
+		
+		<section id="inner_2">
+			<h2>filter(function)</h2>
+			<p>index 0</p>
+			<p>index 1</p>
+			<p>index 2</p>
+			<p>index 3</p>
+		</section>
+	</div>
+</body>
+</html>
+
+<!-- 
+14. 아이디 값이 inner_1인 요소의 후손 요소 중 class 값이 txt1을 선택하여 배경색을 #ff0을 준다(find)
+아이디 값이 inner_1의 후손 p에 class 값이 txt2을 선택하여 배경색을 #0ff를 준다.(filter)
+아이디 값이 inner_2의 후손 p에 짝수 번째 배경색을 #0ff로 주자.(filter, 콜백함수) 
+-->

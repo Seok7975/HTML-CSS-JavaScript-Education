@@ -1,0 +1,36 @@
+1. try catch 예시를 작성하시오.
+
+2. try catch finally 예시를 작성하시오.
+
+3. 다음 코드의 실행 결과를 유추하여 작성하시오.
+
+      function test() {
+        try {
+          alert('A 위치입니다.')
+          throw "예외 강제 발생"
+        } catch (exception) {
+          alert('B 위치입니다.')
+          return
+        }
+        alert('C 위치입니다.')
+      }
+
+      // 함수를 호출합니다.
+      test()
+
+4. 다음 코드의 실행 결과를 유추하여 작성하시오.
+
+      function test() {
+        try {
+          alert('A 위치입니다.')
+          throw "예외 강제 발생"
+        } catch (exception) {
+          alert('B 위치입니다.')
+          return
+        } finally {
+          alert('C 위치입니다.')
+        }
+      }
+
+      // 함수를 호출합니다.
+      test()

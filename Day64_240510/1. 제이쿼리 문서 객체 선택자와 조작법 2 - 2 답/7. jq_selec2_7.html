@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>
+	$(function(){ //$.each = jQuery.each
+		var obj = [
+			{"area":"서울"},
+			{"area":"부산"},
+			{"area":"전주"}
+		];
+
+		$(obj).each(function(i, o){
+				console.log(i + ":", o);
+		});
+		console.log("==== The End 1 ====");
+
+		$.each($("#menu2 li"), function(i, o){
+				console.log(i + ":", o);
+		});
+		console.log("==== The End 2 ====");    
+
+		$.each($("#menu2 li"), function(i){
+				console.log(i + ":", $(this));
+		});    
+	});
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu1">
+		<li>내용1-1</li>
+		<li>내용1-2</li>
+		<li>내용1-3</li>
+	</ul>
+	<ul id="menu2">
+		<li>내용2-1</li>
+		<li>내용2-2</li>
+		<li>내용2-3</li>
+	</ul>
+</body>
+</html>
+
+<!--
+제이쿼리 배열 관련 메서드
+
+each() / $.each() 메서드
+선택자로 선택한 요소(문서객체)는 배열에 순서대로 저장됩니다. 이때 each()와 $.each() 메서드는 
+배열에 저장된 요소를 순서대로 하나씩 선택하면서 인덱스 정보를 가져옵니다.
+
+기본형
+선택자로 선택한 요소(문서 객체)는 배열에 순서대로 저장됩니다. 이때 each()와 $.each()메서드는 
+배열에 저장된 요소를 순서대로 하나씩 선택하면서 인덱스 정보를 가져옵니다.
+기본형
+① $("요소선택").each(function(매개변수1, 매개변수2){})
+② $.each($("요소선택"), function(매개변수1, 매개변수2){})
+③ $("요소선택").each(function() { $(this) })
+④ $.each($("요소선택"), function() {$(this)})
+
+①,② 배열에 저장된 요소의 개수만큼 메서드를 반복 실행합니다. 메서드를 실행할 때마다 
+매개변수1, 매개변수2에는 배열에 저장된 요소와 인덱스의 값이 배열에 오름차순으로 대입됩니다.
+③,④ 배열에 저장된 요소의 개수만큼 메서드를 반복 실행합니다. 메서드를 실행할 때마다 
+$(this)에는 배열에 저장된 요소가 오름차순으로 대입됩니다.	
+-->

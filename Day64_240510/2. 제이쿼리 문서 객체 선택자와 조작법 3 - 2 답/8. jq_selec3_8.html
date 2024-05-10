@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 객체 조작 및 생성 </title>  
+<script src="js/jquery.js"></script>
+<script>
+	$(function( ){
+		var topNum = $("h1").offset().top;
+		$(window).scrollTop(topNum);
+
+		var sct = $(window).scrollTop();
+		console.log(sct);
+	});
+</script>
+<style>
+	*{margin:0;padding:0;}
+	body{line-height:1;} /* line-height는 텍스트 라인의 높이를 의미하는 것으로 주로 행간을 제어할 때 사용됩니다. */
+	#wrap{
+			height:5000px;
+			padding-top:2000px;
+	}
+</style>
+</head>
+<body>
+	<div id="wrap">
+			<h1>위치 메서드</h1>
+	</div>
+</body>
+</html>
+
+<!--
+스크롤바 위치 메서드
+scrollTop() 메서드는 브라우저의 스크롤바가 수직/수평으로 이동한 위칫값을 불러오거나 변경할 때 사용합니다.
+
+기본형
+① $(요소선택).scrollTop(); $(요소선택).scrollLeft();
+② $(요소선택).scrollTop(새값); $(요소선택).scrollLeft(새값);
+① 스크롤바가 수직 또는 수평으로 이동한 위칫값을 반환합니다.
+② 입력한 수치만큼 수직 또는 수평으로 스크롤바를 이동시킵니다.	
+-->

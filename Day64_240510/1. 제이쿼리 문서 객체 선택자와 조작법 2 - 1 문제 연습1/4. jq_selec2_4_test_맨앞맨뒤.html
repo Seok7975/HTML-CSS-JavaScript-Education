@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$("ul:first-of-type li:first-of-type")
+	.css({
+		"background-color" : "#ff0"
+	})
+
+	$("ul:last-of-type li:last-of-type")
+	.css({
+		"backgroundColor" : "#0ff"
+	})
+});
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul>
+		<li>내용1-1</li>
+		<li>내용1-2</li>
+		<li>내용1-3</li>
+	</ul>
+	<ul>
+		<li>내용2-1</li>
+		<li>내용2-2</li>
+		<li>내용2-3</li>
+	</ul>
+</body>
+</html>
+
+<!-- 
+4. 첫번째 li 요소의 배경색을 #ff0로 하자.
+마지막 li 요소의 배경색을 #0ff로 하자. 
+-->
