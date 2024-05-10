@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+	$(window).on("scroll",function(e){
+		$(".top").text($(this).scrollTop());
+		$(".left").text($(this).scrollLeft());
+	});
+</script>
+<style>
+	body{
+		height:10000px;
+		width:5000px;
+	}
+	#wrap{
+		position: fixed;
+		left: 10px; top: 10px;
+	}
+</style>
+</head>
+<body>
+<div id="wrap">
+	<p>scrollTop: <span class="top">0</span>px</p>
+	<p>scrollLeft: <span class="left">0</span>px</p>
+</div>
+</body>
+</html>
+
+
+<!-- 9. scroll 이벤트가 발생할 때 scrollTop과 scrollLeft의 값을 클래스 top과 클래스 left에 각각 출력하시오. -->
+
+<!--
+scroll() 이벤트 메서드
+scroll() 이벤트 메서드는 대상 요소의 스크롤바가 이동할 때마다 이벤트를 발생시키거나 강제로 
+scroll 이벤트를 발생시키는 데 사용합니다.
+
+기본형
+① scroll 이벤트 등록
+$("이벤트 대상 선택").scroll(function() { 자바스크립트 코드; });	// deprecated
+$("이벤트 대상 선택").on("scroll", function() { 자바스크립트 코드; });
+
+② scroll 이벤트 강제 발생
+$("이벤트 대상 선택").scroll();		// deprecated
+
+이번에는 스타일을 사용하여 스크롤바를 생성한 다음 사용자가 스크롤바를 이동시킬 때마다 
+이벤트가 발생되도록 해보겠습니다. 직접 스크롤바를 움직여 보며 scrollTop, scrollLeft의 
+속성값이 바뀌는 것을 확인해 보세요.	
+-->

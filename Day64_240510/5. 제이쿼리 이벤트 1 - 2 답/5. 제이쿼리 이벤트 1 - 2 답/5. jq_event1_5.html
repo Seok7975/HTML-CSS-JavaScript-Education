@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function( ) {
+	$(".btn1").on("click", function(e){
+		e.preventDefault();
+		$(".txt1").css("backgroundColor", "#ff0");
+	});
+	$(".btn2").on("click", function(){
+		$(".txt2").css("backgroundColor", "#0ff");
+	});
+	$(".btn3").on("dblclick", function(){
+		$(".txt3").css("backgroundColor", "#0f0");
+	});
+});
+</script>
+</head>
+<body>
+	<p><a href="http://www.easyspub.co.kr/" class="btn1">버튼1</a></p>
+	<p class="txt1">내용1</p>
+	<p><a href="http://www.easyspub.co.kr/" class="btn2">버튼2</a></p>
+	<p class="txt2">내용2</p>
+	<p><button class="btn3">버튼3</button></p>
+	<p class="txt3">내용3</p>
+</body>
+</html>
+
+
+<!-- 
+5. 클래스가 btn1인 요소를 클릭 했을 때, 기본 이벤트를 막고, 클래스 txt1의 배경색을 "#ff0"로 하자.
+클래스가 btn2인 요소를 클릭했을 때, 클래스가 txt2인 요소의 배경색을 "#0ff"로 하자.
+클래스가 btn3인 요소를 더블 클릭했을 때 클래스가 txt3인 요소의 배경색을 #0f0로 하자. 
+-->
+
+<!--
+마우스 이벤트
+마우스 이벤트는 사용자가 사이트에서 마우스를 이용해서 취하는 모든 행위를 말합니다. 
+가령 사용자가 지정한 요소에 마우스 포인터를 올리거나 클릭하는 등의 행위를 말합니다.
+
+click()/dblclick() 이벤트 메서드
+click() 이벤트 메서드는 선택한 요소를 클릭했을 때 이벤트를 발생시키거나 선택한 요소에 
+강제로 클릭 이벤트를 발생시킬 때 사용합니다.
+
+기본형
+① click 이벤트 등록
+$("이벤트 대상 선택").click(function() { 자바스크립트 코드; });		(deprecated)
+$("이벤트 대상 선택").on("click", function() { 자바스크립트 코드; });
+
+② click 이벤트 강제 발생
+$("이벤트 대상 선택").click();		(deprecated)
+
+dblclick() 이벤트 메서드는 선택한 요소를 연속해서 두 번 클릭했을 때 이벤트를 발생시키거나 
+선택한 요소에 강제로 더블클릭 이벤트를 발생시킵니다.
+
+기본형
+① dblclick 이벤트 등록
+$("이벤트 대상 선택").dblclick(function() { 자바스크립트 코드; });		(deprecated)
+$("이벤트 대상 선택").on("dblclick", function() { 자바스크립트 코드; });
+
+② dblclick 이벤트 강제 발생
+$("이벤트 대상 선택").dblclick();		(deprecated)
+
+<a>, <form> 태그에 클릭 이벤트 적용 시 기본 이벤트 차단하기
+<a> 요소에 click이나 dblclick을 등록하면 클릭할 때마다 <a>에 링크된 주소로 이동하는 
+문제가 발생합니다. 이 문제를 해결하려면 <a> 요소의 기본 이벤트를 차단해야 합니다. 
+<form> 요소의 제출버튼(submit)도 action에 등록된 주소로 이동시키는 문제가 발생합니다. 
+우리가 등록한 이벤트를 정상적으로 수행하려면 이러한 기본 이벤트를 차단해야 합니다.
+
+다음은 <a>, <form> 태그에 이벤트를 등록하기 위해 기본 이벤트를 차단하는 기본형입니다.
+
+기본형
+① return false를 이용한 차단 방식
+$("a 또는 form").이벤트 메서드(function() {
+	자바스크립트 코드;
+	return false;
+});
+
+② preventDefault() 메서드를 이용한 차단 방식
+$("a 또는 form").이벤트 메서드(function(e){
+	e.preventDefault();
+	자바스크립트 코드;
+});	
+-->

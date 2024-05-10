@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function( ) {
+	$(".btn1").on({
+		"mouseover" : function(){
+			$(".txt1").css("backgroundColor", "yellow");
+		},
+		"mouseout" : function(){
+			$(".txt1").css("background", "none");
+		}
+	});
+	$(".btn2").on({
+		"mouseover" : function(){
+			$(".txt2").css("backgroundColor", "aqua");
+		},
+		"mouseout" : function(){
+			$(".txt2").css("background", "none");
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<p><button class="btn1">Mouse Over/Mouse Out</button></p>
+	<p class="txt1">내용1</p>
+	<p><button class="btn2">Hover</button></p>
+	<p class="txt2">내용2</p>
+</body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function( ) {
+	$(".btn1").on({
+		"mouseover" : function( ) {
+			$(".txt1")
+			.css({"background-color":"yellow"});
+		},
+		"mouseout" : function( ) {
+			$(".txt1")
+			.css({"background":"none"});
+		}
+	});
+
+	$(".btn2").hover(function( ) {
+		$(".txt2")
+		.css({"background-color":"aqua"});
+	}, function(){
+		$(".txt2")
+		.css({"background":"none"});
+	});
+});
+</script>
+</head>
+<body>
+	<p><button class="btn1">Mouse Over/Mouse Out</button></p>
+	<p class="txt1">내용1</p>
+	<p><button class="btn2">Hover</button></p>
+	<p class="txt2">내용2</p>
+</body>
+</html>	
+-->
+
+<!-- 
+6. 클래스 btn1에 마우스를 올리면 클래스 txt1에 배경색을 노랑색으로 한다.
+클래스 btn1에 마우스 포인터가 벗어나면 클래스 txt1에 배경색을 제거한다.
+클래스 btn2에 마우스를 올리면 클래스 txt2에 배경색을 aqua로 하고 마우스 포인터가 벗어나면 배경색을 제거한다. 
+-->
+
+<!--
+mouseover() /mouseout() / hover() 이벤트 메서드		(deprecated)
+
+mouseover() 이벤트 메서드는 선택한 요소에 마우스 포인터를 올릴 때마다 이벤트를 
+발생시키거나 선택한 요소에 mouseover 이벤트를 강제로 발생시킵니다. mouseout() 
+이벤트 메서드는 선택한 요소에서 마우스 포인터가 벗어날 때마다 이벤트를 발생시키거나 
+선택한 요소에 mouseout 이벤트를 강제로 발생시킵니다. 
+그리고 hover() 이벤트 메서드는 선택한 요소에 마우스 포인터가 올라갈 때와 
+선택한 요소에서 벗어날 때 각각 이벤트를 발생시키며, 이때 각각 다른 이벤트 핸들러를 실행시킵니다.
+
+기본형
+① mouseover 이벤트 등록
+$("이벤트 대상 선택").mouseover(function() { 자바스크립트 코드; });		// (deprecated)
+$("이벤트 대상 선택").on("mouseover", function() { 자바스크립트 코드; });
+
+② mouseover 이벤트 강제 발생
+$("이벤트 대상 선택").mouseover();		// (deprecated)
+
+기본형
+① mouseout 이벤트 등록
+$("이벤트 대상 선택").mouseout(function() { 자바스크립트 코드; });		// (deprecated)
+$("이벤트 대상 선택").on("mouseout", function() { 자바스크립트 코드; });
+
+② mouseout 이벤트 강제 발생
+$("이벤트 대상 선택").mouseout();		// (deprecated)
+
+기본형 
+hover 이벤트 등록
+$("이벤트 대상 선택").hover(			// (deprecated)
+	function() { 마우스 오버 시 실행될 코드},
+	function() { 마우스 아웃 시 실행될 코드}
+};	
+-->
