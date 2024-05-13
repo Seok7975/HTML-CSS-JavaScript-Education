@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$("#user_id_1, #user_pw_1").on("focus", function(){
+					$(this).css({"background-color":"pink"});
+	});
+	$("#user_id_1, #user_pw_1").on("blur", function(){
+					$(this).css({"background-color":"#fff"});
+	});
+
+	$("#frm_2").on("focusin", function(){
+					$(this).css({"background-color":"pink"});
+	});
+	$("#frm_2").on("focusout", function(){
+					$(this).css({"background-color":"#fff"});
+	});
+});
+</script>
+</head>
+<body>
+<h1>focus / blur</h1>
+<form action="#">
+	<p>
+		<label for="user_id_1">ID</label>
+		<input type="text" name="user_id_1" id="user_id_1">
+	</p>
+	<p>
+		<label for="user_pw_1">PW</label>
+		<input type="password" name="user_pw_1" id="user_pw_1">
+	</p>
+</form>
+<h1>focusin / focusout</h1>
+<form action="#" id="frm_2">
+	<p>
+		<label for="user_id_2">ID</label>
+		<input type="text" name="user_id_2" id="user_id_2">
+	</p>
+	<p>
+		<label for="user_pw_2">PW</label>
+		<input type="password" name="user_pw_2" id="user_pw_2">
+	</p>
+</form>
+</body>
+</html>
+
+<!-- 
+1. 아이디가 user_id_1, user_pw_1인 요소에 포커스가 가면 포커스가 간 요소의 배경색을 pink로 하자.
+아이디가 user_id_1, user_pw_1인 요소에 포커스가 다른요소로 이동하면 배경색을 흰색으로 하자.
+아이디가 frm_2인 요소에 입력요소에 포커스가 이동하면 아이디가 frm_2인 요소에 배경색을 pink로 하자.
+아이디가 frm_2인 요소에 입력요소에서 포커스가 다른 곳으로 이동하면 frm_2인 요소에 배경색을 흰색으로 하자. 
+-->
+
+<!--
+포커스 이벤트
+포커스는 마우스로 <a> 또는 <input> 태그를 클릭하거나 Tab 키를 누르면 생성됩니다. 
+우리가 앞에서 배운 마우스 이벤트는 마우스가 없으면 사용할 수 없습니다. 마우스가 없다면 
+사용자는 키보드만 가지고 사용해야겠죠. 이때 사용자가 키보드만으로 사이트를 이용해도 
+불편함이 없도록 제이쿼리가 잘 작동되어야 하는데, 이를 키보드 접근성이라 합니다. 
+키보드 접근성을 높이기 위해서는 마우스 이벤트를 등록할 때 될 수 있으면 <a> 또는 
+<input> 태그에 등록하고, 키보드가 없을 경우를 고려하여 마우스 이벤트에 대응할 수 
+있는 키보드 이벤트까지 등록해야 합니다. (마우스-키보드 이벤트는 같이 주는게 좋다.)
+
+그러면 마우스 이벤트에 대응하는 focus(), focusin(), blur(), focusout() 이벤트 메서드에 
+대해 자세히 알아보겠습니다.
+
+focus() / blur() / focusin() / focusout() 이벤트 메서드		// (deprecated)
+focus() 이벤트 메서드 : 대상 요소로 포커스가 이동하면 이벤트를 발생시킵니다.
+blur() 이벤트 메서드 : 포커스가 대상 요소에서 다른 요소로 이동하면 이벤트를 발생시킵니다.
+focusin() 이벤트 메서드 : 대상 요소의 하위 요소 중 입력 요소로 포커스가 이동하면 이벤트를 발생시킵니다.
+focusout() 이벤트 메서드 : 대상 요소의 하위 요소 중 입력 요소에서 외부 요소로 이동하면 이벤트를 발생시킵니다.
+
+다음은 focus와 blur 이벤트 등록 메서드의 기본형입니다.
+
+기본형
+① focus 이벤트 등록
+$("이벤트 대상 선택").focus(function() { 자바스크립트 코드; });		// (deprecated)
+$("이벤트 대상 선택").on("focus", function() { 자바스크립트 코드; });
+
+② focus 이벤트 강제 발생
+$("이벤트 대상 선택").focus();		// (deprecated)
+
+③ blur 이벤트 등록
+$("이벤트 대상 선택").blur(function() { 자바스크립트 코드; });		// (deprecated)
+$("이벤트 대상 선택").on("blur", function() { 자바스크립트 코드; });
+
+④ blur 이벤트 강제 발생
+$("이벤트 대상 선택").blur();		// (deprecated)
+
+다음은 focusin과 focusout 이벤트 메서드의 기본형입니다.
+
+기본형
+① focusin 이벤트 등록
+$("이벤트 대상 선택").focusin(function() { 자바스크립트 코드; });	// (deprecated)
+$("이벤트 대상 선택").on("focusin", function() { 자바스크립트 코드; });
+
+② focusin 이벤트 강제 발생
+$("이벤트 대상 선택").focusin();	// (deprecated)
+
+③ focusout 이벤트 등록
+$("이벤트 대상 선택").focusout(function() { 자바스크립트 코드;});	// (deprecated)
+$("이벤트 대상 선택").on("focusout", function() { 자바스크립트 코드; });
+
+④ focus 이벤트 강제 발생 => trigger 사용
+$("이벤트 대상 선택").focusout();	// (deprecated)	
+-->

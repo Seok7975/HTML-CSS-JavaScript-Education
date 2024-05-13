@@ -6,7 +6,25 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ) {
-	
+	//지금까지 배운 방법
+	$(".btn1").on('mouseover', function(){
+		$(".txt1").css("backgroundColor", "yellow")
+	})
+
+	$(".btn1").on("mouseout", function(){
+		$(".txt1").css("background", "none")
+	})
+
+	//더 간단한 방법
+	$(".btn2").on({
+		"mouseover" : function(){
+			$(".txt2").css("backgroundColor", "aqua")
+		},
+
+		"mouseout" : function(){
+			$(".txt2").css("background", "none")
+		}
+	})
 });
 </script>
 </head>

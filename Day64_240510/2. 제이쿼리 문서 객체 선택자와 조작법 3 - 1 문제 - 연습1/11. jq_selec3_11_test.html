@@ -1,3 +1,11 @@
+
+<!-- 
+11. class 값이 "box1"인 요소의 모든 자식 요소를 복제합니다. 그런 다음 변수 copyObj에 참조시킵니다.
+class 값이 "box2"인 요소를 삭제합니다.
+class 값이 "box3"인 요소의 모든 하위 요소를 삭제합니다.
+class 값이 "box3"인 요소인 것의 내에 마지막 위체에 copyObj에 저장된 요소를 추가합니다.
+ -->
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,7 +14,12 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ){
+	let copyObj = $(".box1").children().clone()
 
+	$(".box2").remove()
+
+	$(".box3").empty()
+	$(".box3").append(copyObj)
 });
 </script>
 </head>
@@ -25,3 +38,20 @@ $(function( ){
 	</div>
 </body>
 </html>
+
+<!--
+clone() / empty() / remove() 메서드
+
+clone() 메서드는 선택한 요소를 복제합니다. empty() 메서드는 선택한 요소의 모든 
+하위 요소를 삭제하고, remove() 메서드는 선택한 요소를 삭제합니다.
+
+기본형
+① $("요소선택").clone([true | false]);
+② $("요소선택").empty();
+③ $("요소선택").remove();
+
+① 선택한 요소를 복제합니다. 인자값이 true면 이벤트까지 복제하고, false면 요소만 복제합니다. 
+기본값은 false 입니다.
+② 선택한 요소의 모든 하위 요소를 삭제합니다.
+③ 선택한 요소를 삭제합니다.	
+-->

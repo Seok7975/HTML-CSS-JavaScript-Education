@@ -6,7 +6,13 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ) {
+	$("#box_1").on("mouseout", function(){
+		$(this).css("backgroundColor", "yellow")
+	})
 
+	$("#box_2").on("mouseleave", function(){
+		$(this).css("backgroundColor", "pink")
+	})
 });
 </script>
 </head>

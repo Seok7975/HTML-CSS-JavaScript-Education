@@ -6,7 +6,17 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ) {
+	$(".btn1").on('click', function(){
+		$(this).parent().next().css("color", "#f00")
+	})
 
+	$(".btn2").on('mouseover focus', function(){
+		$(this).parent().next().css("color", "#0f0")
+	})
+
+	//이벤트 제거
+	 $(".btn1").off("click")
+	 $(".btn2").off("mouseover focus")
 });
 </script>
 </head>

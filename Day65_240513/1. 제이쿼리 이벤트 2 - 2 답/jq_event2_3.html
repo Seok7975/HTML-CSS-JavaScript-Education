@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$("#rel_site").on("change", function(){
+		$(".txt").text($(this).val());
+	});
+});
+</script>
+</head>
+<body>
+<select id="rel_site">
+		<option value="">사이트 선택</option>
+		<option value="www.google.com">구글</option>
+		<option value="www.naver.com">네이버</option>
+		<option value="www.daum.net">다음</option>
+</select>
+<p class="txt"></p>
+</body>
+</html>
+
+<!-- 아이디가 rel_site인 요소의 값이 변했을 때 그 값을 클래스 txt에 출력하시오. -->
+<!--
+change() 이벤트 메서드
+change() 이벤트 메서드는 선택한 폼 요소의 값(value)을 새 값으로 바꿉니다. 그리고 포커스가 
+다른 요소로 이동하면 이벤트를 발생시킵니다. change() 이벤트 등록 메서드의 기본형은 다음과 같습니다.
+
+기본형
+① change 이벤트 등록
+$("이벤트 대상 선택").change(function() { 자바스크립트 코드; });	 // (deprecated)
+$("이벤트 대상 선택").on("change", function() { 자바스크립트 코드; });
+② change 이벤트 강제 발생
+$("이벤트 대상 선택").change();	 // (deprecated)	
+-->

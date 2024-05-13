@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$(".btn_1").on("mouseover", function(){
+		alert("HELLO!");
+	});
+	$(document).on("mouseover", ".btn_2", function() {
+		alert("WELCOME!");
+	});   	
+	$("#wrap").append("<p><button class=\"btn_2\">버튼2</button></p>");
+	$(".del_1").on("click", function(){
+		$(".btn_1").off("mouseover");
+	});
+	$(".del_2").on("click", function(){
+		$(document).off("mouseover",".btn_2");
+	});
+});
+</script>
+</head>
+<body>
+<div id="wrap">
+	<p><button class="btn_1">버튼1</button></p>
+</div>
+<p>
+	<button class="del_1">버튼1 이벤트 해지</button> 
+	<button class="del_2">버튼2 이벤트 해지</button>
+</p>
+</body>
+</html>
+
+<!-- 
+8. 클래스가 btn_1인 것에 마우스를 올리면 경고창에 "HELLO!"이라고 경고창을 띄우자.
+클래스가 btn_2인 것에 마우스를 올리면 경고창에 "WELCOME!"이라고 경고창을 띄우자.
+아이디가 wrap인 것에 "<p><button class=\"btn_2\">버튼2</button></p>"을 추가하자.
+클래스가 del_1인 것을 클릭하면 클래스가 btn_1인 것에 마우스를 올렸을 때의 이벤트를 취소하자.
+클래스가 del_2인 것을 클릭하면 클래스가 btn_2인 것에 마우스를 올렸을 때의 이벤트를 취소하자. 
+-->
+
+<!--
+이벤트 제거 메서드
+이벤트 제거 메서드를 사용하면 이전에 등록된 이벤트를 제거할 수 있습니다. 
+
+이벤트 제거 메서드의 종류
+
+종류			설명
+off()			on() 메서드로 등록한 이벤트를 제거합니다.
+unbind()		bind() 메서드로 등록한 이벤트를 제거합니다.	// (deprecated)
+undelegate()	delegate() 메서드로 등록한 이벤트를 제거합니다.	// (deprecated)
+
+off()/unbind()/undelegate()로 이벤트 해제하기
+이벤트 등록 메서드에 따라 이벤트를 해제하는 방법도 달라집니다. on() 메서드는 off() 메서드로,
+bind() 메서드는 unbind() 메서드로, delegate() 메서드는 undelegate() 메서드로 이벤트를
+해제합니다.
+
+기본형
+
+① on() 이벤트 해제를 위한 off() 메서드
+- 기본 이벤트 제거 방식
+$("이벤트 대상 요소 선택").off("이벤트 종류");
+- 라이브 이벤트 제거 방식
+$([document | "이벤트 대상 상위 요소 선택"]).off("이벤트 종류", "이벤트 대상 요소 선택");
+
+② bind() 이벤트 해제를 위한 unbind() 메서드
+$("이벤트 대상 요소 선택").unbind("이벤트 종류")
+
+③ delegate() 이벤트 해제를 위한 undelegate() 메서드
+- 기본 이벤트 제거 방식
+$("이벤트 대상 요소 선택").delegat("이벤트 종류");
+- 라이브 이벤트 제거 방식
+$([document | "이벤트 대상의 상위 요소 선택"]).undelegate("이벤트 대상 선택", "이벤트 종류");	
+-->

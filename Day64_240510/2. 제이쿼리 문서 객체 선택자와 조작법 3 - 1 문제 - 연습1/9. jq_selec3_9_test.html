@@ -1,3 +1,11 @@
+
+<!-- 
+9. 아이디 wrap에 후손 인덱스상 2번째 p 뒤에 "<p>After</p>" 추가
+아이디 wrap에 후손 인덱스상 1번째 p뒤에 "<p>insertAfter</p>" 추가
+아이디 wrap에 후손 인덱스상 1번째 p 앞에 "<p>Before</p>" 추가
+아이디 wrap에 후손 인덱스상 0번째 p 앞에 "<p>insertBefore</p>" 추가
+ -->
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,7 +14,11 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ){
+	$("#wrap p:eq(2)").after("<p>After</p>")
+	$("<p>insertAfter</p>").insertAfter("#wrap p:eq(1)")
 
+	$("#wrap p:eq(1)").before("<p>Before</p>")
+	$("<p>insertBefore</p>").insertBefore("#wrap p:eq(0)")
 });
 </script>
 </head>
@@ -18,3 +30,19 @@ $(function( ){
 	</div>
 </body>
 </html>
+
+<!--
+객체 편집 메서드
+
+before() / insertBefore() / after() /insertAfter() 메서드
+before()와 insertBefore() 메서드는 선택한 요소의 이전 위치에 새 요소를 생성하고, 
+after()와 insertAfter() 메서드는 선택한 요소의 다음 위치에 새 요소를 생성합니다.
+
+기본형
+① $("요소선택").before("새요소");
+② $("새요소").insertBefore("요소선택");
+③ $("요소선택").after("새요소");
+④ $("새요소").insertAfter("요소선택");
+
+①과 ③, ②와 ④는 서로 사용법만 다르고 기능은 같습니다.	
+-->

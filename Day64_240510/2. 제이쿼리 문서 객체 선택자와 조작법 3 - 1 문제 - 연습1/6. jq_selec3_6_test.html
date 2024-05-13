@@ -1,3 +1,11 @@
+<!-- 
+6. 아이디가 p1의 width를 구해서 콘솔에 출력
+아이디가 p1의 innerWidth를 구해서 콘솔에 출력
+아이디가 p1의 outerWidth를 구해서 콘솔에 출력
+아이디가 p2인 outerWidth를 100으로
+아이디가 p2인 outerHeight를 100으로
+ -->
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,6 +14,18 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ){
+	let w1 = $("#p1").width()
+	console.log(w1) // 100
+
+	let w2 = $("#p1").innerWidth()
+	console.log(w2) // width + (padding*2) = 140
+
+	let w3 = $("#p1").outerWidth()
+	console.log(w3) // height + (padding*2) + (border*2) = 150
+
+	$("#p2")
+	.outerWidth(100)
+	.outerHeight(100)
 
 });
 </script>

@@ -1,3 +1,11 @@
+
+<!-- 
+13. <strong> 요소를 감싸는 부모 요소를 제거합니다.
+	<class> 값이 "ct1"인 요소를 각각 <div> 요소로 감쌉니다.
+	<class> 값이 "ct2"인 요소를 한꺼번에 감쌉니다.
+	<li> 요소의 모든 하위 요소를 <h3> 요소로 감쌉니다.
+ -->
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,7 +14,10 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ){
-
+	$("strong").unwrap();
+	$(".ct1").wrap("<div />")
+	$(".ct2").wrapAll("<div />")
+	$("li").wrapInner("<h3 />")
 });
 </script>
 <style>
@@ -27,3 +38,21 @@ $(function( ){
 	</ul>
 </body>
 </html>
+
+<!--
+unwrap() / wrap() / wrapAll() / wrapInner() 메서드
+unwrap() 메서드는 선택한 요소의 부모 요소를 삭제합니다. wrap() 메서드는 선택한 요소를 
+각각 새 요소로 감싸고, wrapAll() 메서드는 선택한 요소를 한꺼번에 새 요소로 감쌉니다. 
+wrapInner() 메서드는 선택한 요소의 모든 하위요소를 새 요소로 감쌉니다.
+
+기본형
+① $("요소선택").unwrap();
+② $("요소선택").wrap("새요소"); // wrap은 각각 감싸는것
+③ $("요소선택").wrapAll("새요소");
+④ $("요소선택").wrapInner("새요소");
+
+① 선택한 요소의 부모 요소를 삭제합니다.
+② 선택한 요소를 새 요소로 각각 감쌉니다.
+③ 선택한 요소를 새 요소로 한꺼번에 감쌉니다.
+④ 선택한 요소의 모든 요소를 새 요소로 감쌉니다.	
+-->

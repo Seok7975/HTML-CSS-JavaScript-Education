@@ -1,3 +1,9 @@
+
+<!-- 
+7.  클래스 box의 document를 기준으로 top 좌표값을 구하여 클래스 txt_1의 후손 span에 출력하자.
+클래스 box의 아이디 box_wrap을 기준으로 한 top 좌표값을 구하여 클래스 txt_2의 후손 span에 출력하자.
+ -->
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,10 +12,24 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ){
-	var $txt1 = $(".txt_1 span"),
-					$txt2 = $(".txt_2 span"),
-					$box = $(".box");
-});
+	let $txt1 = $(".txt_1 span"),
+		$txt2 = $(".txt_2 span"),
+		$box = $(".box")
+
+	let off_t = $box.offset().top
+	//선택한 요소의 문서를 기준으로 한 좌표 반환
+	//전체 문서의 시작점(보통 왼쪽 상단 모서리)에서부터
+	//선택한 요소까지의 거리를 나타낸다.
+
+	let pos_t = $box.position().top
+	//선택한 요소의 부모 요소를 기준으로 한 좌표를 반환
+	//부모 요소 내에서의 상대적인 위치를 나타냄
+
+	$txt1.text(off_t)
+	$txt2.text(pos_t)
+
+
+})
 </script>
 <style>
 	*{margin:0;padding:0;}
@@ -36,3 +56,21 @@ $(function( ){
 	<p class="txt_2">상대 top위칫값: <span></span></p>
 </body>
 </html>
+
+
+<!--
+요소 위치 메서드
+요소 위치 메서드에는 position() 메서드와 offset() 메서드가 있습니다. 
+position() 메서드는 포시션 기준이 되는 요소를 기준으로 선택한 요소에서 
+가로/세로로 떨어진 위치의 좌푯값을 반환하거나 변경할 때 사용합니다. 
+offset() 메서드는 문서(Document)를 기준으로 선택한 요소의 
+가로/세로로 떨어진 위치의 좌푯값을 반환하거나 변경할 때 사용합니다.
+
+기본형
+① $("요소선택").position().[left | right | top | bottom]
+② $("요소선택").offset().[left | top]
+
+① 포지션 기준이 되는 요소를 기준으로 선택한 요소의 위치 좌푯값을 반환합니다.
+② 문서(Document)를 기준으로 선택한 요소의 위치 좌푯값을 반환합니다.
+(1.png 참고)	
+-->

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$("#btn1").data({"text":"javascript"})
+	.on({
+		"mouseover": overFnc,
+		"mouseout": outFnc
+	});
+
+	$("#btn2").data({"text":"welcome!"})
+	.on({
+		"mouseover focus": overFnc,
+		"mouseout blur": outFnc
+	});
+
+	function overFnc() {
+		$(".txt").text($(this).data("text"));
+	}
+	function outFnc() {
+		$(".txt").text("");
+	}
+});
+</script>
+</head>
+<body>
+	<p><button id="btn1">버튼1</button></p>
+	<p><button id="btn2">버튼2</button></p>
+	<p class="txt"></p>
+</body>
+</html>
+
+<!-- 
+2. 아이디 btn1에 text 속성 "javascript"를 추가한다.
+아이디 btn1에 마우스를 올리면 overFnc 함수를 호출한다.
+아이디 btn1에서 마우스를 빼면 outFnc 함수를 호출한다.
+
+아이디btn2에 text 속성 "welcome!"을 추가한다.
+아이디btn2에 마우스를 올리거나, 포커스를 받으면 overFnc 함수를 호출한다.
+아이디btn2에 마우스가 나가거나, 포커스를 잃으면 outFnc 함수를 호출한다.
+
+overFnc 함수는 클래스가 txt인 요소에 텍스트에 text를 추가한다.
+outFnc 함수는 클래스가 txt인 요소에 text를 비운다.
+-->
+
+<!--
+키보드로 마우스 이벤트 대응하기
+키보드 접근성이란 어떤 대상 요소에 마우스 이벤트를 등록했을 때 마우스 없이 
+키보드로 대상 요소를 사용할 수 있게 하는 것을 말합니다. 다음과 같이 마우스 
+이벤트가 등록되었을 때는 반드시 키보드로 작동할 수 있게 대응 이벤트를 함께 작성해야 합니다.
+
+마우스 이벤트에 대한 키보드 대응 이벤트
+마우스 이벤트			키보드 이벤트
+mouseover				focus
+mouseout				blur
+
+다음은 버튼에 마우스 포인터를 올리면 마우스 이벤트가 발생되어 '내용1'이 숨겨지는 예입니다. 
+이 예는 마우스가 없으면 동작하지 않습니다.
+
+1. 키보드 접근성을 배려하지 않은 이벤트 예(비추천)
+<button class="btn">버튼</button>
+<p class="txt_1">내용1</p>
+
+$(".btn").mouseover(function() {
+	$(".txt_1").hide();
+});
+
+하지만 해당 이벤트에 대응하는 키보드 이벤트도 함께 등록하면 마우스가 없는 
+사용자도 키보드를 사용해 이 버튼의 기능을 사용할 수 있습니다.
+(Tab키를 누르면 포커스를 이동할 수 있습니다.)
+
+2. 키보드 접근성을 배려한 이벤트 적용 예(추천)
+
+<button class="btn">버튼</button>
+<p class="txt_1">내용1</p>
+
+$(".btn").on("mouseover focus", function() {
+	$(".txt_1").hide();
+});
+
+(참고
+data() 메서드는 선택한 요소에 속성을 추가합니다.)	
+-->

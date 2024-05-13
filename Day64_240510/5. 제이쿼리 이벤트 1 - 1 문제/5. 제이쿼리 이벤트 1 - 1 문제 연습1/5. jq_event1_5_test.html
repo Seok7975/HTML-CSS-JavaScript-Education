@@ -6,7 +6,18 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ) {
+	$(".btn1").on("click", function(e){
+		e.prevenDefault(); // e가 갖고 있는 기본 이벤트 제거
+		$(".txt1").css("backgroundColor", "#ff0")
+	})
 
+	$(".btn2").on("click", function(){
+		$(".txt2").css("backgroundColor", "#0ff")
+	})
+
+	$(".btn3").on("dblclick", function(){
+		$(".txt3").css("backgroundColor", "#0f0")
+	})
 });
 </script>
 </head>

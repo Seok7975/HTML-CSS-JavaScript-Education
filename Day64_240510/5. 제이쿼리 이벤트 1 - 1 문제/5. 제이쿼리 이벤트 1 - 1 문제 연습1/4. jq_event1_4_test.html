@@ -6,7 +6,13 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ) {
+	$(document).on("ready", function(){
+		console.log($(".img1").height())
+	})
 
+	$(window).on("load", function(){
+		console.log($(".img1").height())
+	})
 });
 </script>
 </head>

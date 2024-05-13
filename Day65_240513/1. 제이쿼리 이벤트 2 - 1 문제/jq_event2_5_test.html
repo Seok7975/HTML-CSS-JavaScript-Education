@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+
+});
+</script>
+</head>
+<body>
+<h2>$(this)</h2>
+<ul class="menuWrap_1">
+				<li><a href="#">메뉴1</a></li>
+				<li><a href="#">메뉴2</a></li>
+				<li><a href="#">메뉴3</a></li>
+</ul>
+<h2>Index( )</h2>   
+<ul class="menuWrap_2">
+				<li><a href="#">메뉴4</a></li>
+				<li><a href="#">메뉴5</a></li>
+				<li><a href="#">메뉴6</a></li>
+</ul>
+<p class="idxNum"></p>
+</body>
+</html>
+
+<!-- 
+5. menuWrap_1 클래스의 후손 a 태그에 클릭 이벤트를 다음과 같은 내용으로 준다.
+(기본기능을 막는다. menuWrap_1 클래스의 후손 a 태그의 배경색을 #fff로 준다.
+클릭한 대상의 배경색을 #ff0로 준다.)
+menuWrap_2 클래스의 후손 a 태그에 클릭 이벤트를 다음과 같은 내용으로 준다.
+(기본기능을 막는다. menuWrap_2 클래스의 후손 a 태그의 배경색을 #fff로 준다.
+클릭한 대상의 인덱스가 몇인지 가져온다. menuWrap_2 클래스의 후손 a 태그중에
+해당 인덱스의 배경색을 #0ff로 준다.
+그리고 해당인덱스를 클래스 idxNum에 출력한다.) 
+-->

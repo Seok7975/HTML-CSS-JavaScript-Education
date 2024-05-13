@@ -1,0 +1,58 @@
+<!-- 
+클래스 wrap_1의 첫번째 후손의 텍스트를 내용1로 바꾸시오.
+클래스 wrap_1의 후손 p태그이면서 클래스가 active인것의 클래스 active를 없애고, 클래스 on을 추가하시오.
+클래스 wrap_1의 후손 인덱스상 두번째 p에 후손 a태그에 href속성을 "http://www.naver.com"으로 주시오.
+클래스 wrap_1의 후손 인덱스상 세번째 p에 후손 input에 value를 "Korea"로 주시오.
+클래스 wrap_2의 후손 첫번째 p 뒤에 "<p>After(추가1)</p>"를 추가하시오.
+클래스 wrap_2의 후손 첫번째 p 앞에 "<p>Before(추가2)</p>"를 추가하시오.
+클래스 wrap_3의 후손 p의 부모요소를 삭제하고, 각각의 p 요소의 내부를 strong태그로 감싸자.
+ -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$(".wrap_1 p:first").text("내용1")
+
+	$(".wrap_1 p.active").removeClass("active").addClass("on")
+
+	$(".wrap_1 p:eq(2) a")
+	.attr("href", "http://www.naver.com")
+
+	$(".wrap_1 p:eq(3) input").val("korea")
+
+	$(".wrap_2 p:first").after("<p>After(추가1)</p>")
+
+	$(".wrap_2 p:first").before("<p>Before(추가2)</p>")
+
+	$(".wrap_3 p").unwrap().wrapInner("<strong/>")
+	//unwrap()은 DOM에서 제거된 후에도 선택한 요소들은 남아있다.
+	//remove()는 DOM뿐만 아니라 요소와 관련된 이벤트 핸들러도 함께 제거
+});
+</script>
+</head>
+<body>
+	<div class="wrap_1">
+		<p>텍스트1</p>
+		<p class="active">내용2</p>
+		<p><a href="#">네이버</a></p>
+		<p>
+				<input type="text" value="Hello">
+		</p>
+	</div>
+	<div class="wrap_2"> 
+		<p>내용5</p>
+		<p>내용6</p>
+	</div>
+	<div class="wrap_3">
+		<div>
+						<p>내용7</p>
+						<p>내용8</p>
+		</div>
+	</div>
+</body>
+</html>
