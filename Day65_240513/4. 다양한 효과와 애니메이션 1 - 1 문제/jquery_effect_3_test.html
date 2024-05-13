@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 효과와 애니메이션 </title>  
+<script src="js/jquery.js"></script>
+<script>
+/*
+3. 다음을 애니메이션 효과를 줘서 구현하자.
+
+클래스 txt1을 1초에 걸쳐서 왼쪽 마진을 300을 주자
+
+클래스 txt2를 딜레이를 3초를 주자. 그리고 왼쪽 마진을 300을 1초에 걸쳐서 주자.
+
+btn1을 클릭 했을 때
+(① 클래스 txt3에 왼쪽 마진을 0.8초에 걸쳐서 50씩 추가하자.
+② 클래스 txt4에 왼쪽 마진을 0.8초에 걸쳐서 50씩 추가하자. 애니메이션을 정지시키자.
+③ 클래스 txt5에 왼쪽 마진을 0.8초에 걸쳐서 50씩 추가하자. 대기 중인 애니메이션을 모두 제거하고, 
+진행 중인 애니메이션을 강제 종료합니다.)
+*/
+$(function(){
+
+});
+</script>
+<style>
+	p{width: 110px;text-align: center;}
+	.txt1{background-color: aqua;}
+	.txt2{background-color: pink;}
+	.txt3{background-color: orange;}
+	.txt4{background-color: green;}
+	.txt5{background-color: gold;}
+</style>
+</head>
+<body>
+	<p class="txt1">효과1</p>
+	<p class="txt2">효과2<br> delay(3000)</p>
+
+	<p><button class="btn1">50px 전진</button></p>
+	<p class="txt3">효과3</p>
+	<p class="txt4">효과4<br>stop( )</p>
+	<p class="txt5">효과5<br>stop(true, true)</p>
+</body>
+</html>

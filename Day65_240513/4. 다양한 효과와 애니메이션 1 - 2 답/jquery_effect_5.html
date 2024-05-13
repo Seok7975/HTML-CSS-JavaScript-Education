@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 효과와 애니메이션 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function() {
+	$(".txt1")
+	.animate({marginLeft:"100px"},1000) // 100px 이동
+	.animate({marginLeft:"300px"},1000) // 200px 이동
+	.animate({marginLeft:"400px"},1000); // 100px 이동
+
+	$(".txt2")
+	.animate({marginLeft:"100px"},1000)
+	.animate({marginLeft:"300px"},1000)
+	.animate({marginLeft:"400px"},1000);
+	$(".txt2").clearQueue();
+/*
+clearQueue()를 실행하면 현재 진행 중인 애니메이션을 제외하고 대기 중인 애니메이션은 모두 제거됩니다.
+*/	
+});
+</script>
+<style>
+	.txt1, .txt2{width:50px; text-align: 
+	center; background-color: aqua;}
+	.txt2{background-color:orange;}
+</style>
+</head>
+<body>
+	<p class="txt1">내용1</p>
+	<p class="txt2">내용2</p>
+</body>
+</html>
+
+<!--
+clearQueue() 메서드
+clearQueue() 메서드는 진행 중인(첫 번째) 애니메이션을 제외하고 큐에서 대기하는 
+모든 애니메이션 함수를 제거합니다.
+
+기본형
+$("요소 선택").clearQueue();	
+-->

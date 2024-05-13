@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 효과와 애니메이션 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$(".txt1")
+	.animate({marginLeft:"200px"},1000)
+	.animate({marginTop:"200px"},1000)
+	.queue(function() {
+			$(this).css({background:"red"});
+			$(this).dequeue();
+	})
+	.animate({marginLeft:0},1000)
+	.animate({marginTop:0},1000);
+});
+</script>
+<style>
+	*{margin:0;}
+	.txt1{width:50px;text-align: 
+	center;background-color: aqua;}
+</style>
+</head>
+<body>
+	<p class="txt1">내용1</p>
+</body>
+</html>
+
+<!--
+queue() / dequeue() 메서드
+queue() 메서드는 큐(queue)에 적용된 애니메이션 함수를 반환하거나
+큐에 지정한 함수를 추가합니다. queue() 메서드를 실행하면 실행 이후의
+모든 애니메이션이 취소됩니다. dequeue() 메서드는 queue() 메서드
+실행 이후에 적용된 애니메이션 메서드가 취소되지 않게 연결해 줍니다.
+
+① 큐(Queue)의 함수 반환
+$("요소 선택").queue();
+
+② 큐(Queue)에 함수 추가
+$("요소 선택").queue(function() { 자바스크립트 코드 } );
+
+③ dequeue() 메서드
+$("요소 선택").dequeue();
+
+다음은 애니메이션이 적용된 요소에 queue(function() {...})를 사용하여 새로운 함수를 
+큐에 추가하는 예제입니다. 이때는 dequeue() 메서드를 사용했기 때문에 queue() 이후의 
+애니메이션이 취소되지 않습니다.	
+-->

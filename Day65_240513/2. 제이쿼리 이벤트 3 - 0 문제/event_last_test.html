@@ -1,0 +1,79 @@
+<!-- 
+문제
+이미지를 참고하여
++ 버튼을 누르면 글자크기가 커지게 하고
+- 버튼을 누르면 글자크기가 작아지게 하자.
+ -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<style>
+	body{font: 14px Malgun Gothic, "맑은고딕",sans-serif;}
+	.zoomBtnZone{font-size: 14px;}
+</style>
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	let baseFontSize = 14;
+
+	$(".zoomInBtn").on("click", function(e){
+		baseFontSize += 1;
+		$("#wrap").css("fontSize", baseFontSize)
+
+		$('.fontSize').text(baseFontSize + 'px')
+	})
+
+
+	$(".zoomOutBtn").on("click", function(e){
+		baseFontSize -= 1;
+		$("#wrap").css("fontSize", baseFontSize)
+
+		$('.fontSize').text(baseFontSize + 'px')
+	})
+
+	$(".originBtn").on("click", function(e){
+		baseFontSize = 14;
+		$("#wrap").css("fontSize", baseFontSize)
+
+		$('.fontSize').text(baseFontSize + 'px')
+	})
+
+	$(document).on("keydown", function(e){
+		if(e.key === '+' || e.key === '=')
+		// + 키 또는 = 키 (Shift 없이 + 키를 누르면 = 키로 인식될 수 있음)
+		{
+			baseFontSize++
+			$("#wrap").css("fontSize", baseFontSize)
+
+			$('.fontSize').text(baseFontSize + 'px')
+		}
+
+		else if(e.key === '-')
+		{
+			baseFontSize--
+			$("#wrap").css("fontSize", baseFontSize)
+
+			$('.fontSize').text(baseFontSize + 'px')
+		}
+	})
+
+});
+</script>
+</head>
+<body>
+	<p class="zoomBtnZone">
+		<button class="zoomOutBtn">-</button>
+		<button class="originBtn">100%</button>
+		<button class="zoomInBtn">+</button>
+	</p>
+	<p class="fontSize">14px</p>
+	<div id="wrap">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas feugiat consectetur nibh, ut luctus urna placerat non. Phasellus consectetur nunc nec mi feugiat egestas. Pellentesque et consectetur mauris, sed rutrum est. Etiam odio nunc, ornare quis urna sed, fermentum fermentum augue. Nam imperdiet vestibulum ipsum quis feugiat. Nunc non pellentesque diam, nec tempor nibh. Ut consequat sem sit amet ullamcorper sodales.
+	</div>
+</body>
+</html>
+
+

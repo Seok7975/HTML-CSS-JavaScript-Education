@@ -6,7 +6,10 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function(){
-
+	$(document).one("mouseover focus", ".btn_2.on", function(){
+		alert("Welcome!")
+	})
+	$(".btn_2").addClass("on")
 });
 </script>
 </head>
@@ -25,4 +28,26 @@ $(function(){
 "WELCOME!"이라고 경고창을 띄우자.
 클래스가 btn_2인 것에 "on" 클래스를 추가하자.
 이벤트는 한번만 발생하게 한다. 
+-->
+
+<!--
+delegate()/one() 이벤트 등록 메서드		// delegate (deprecated)
+delegate()  이벤트 등록 메서드는 선택한 요소의 하위 요소에 이벤트를 등록합니다. 
+그리고 이벤트를 등록한 이후에도 동적으로 생성된 요소와 복제된 요소에도 이벤트를 등록합니다.
+
+기본형
+$([document | "이벤트 대상의 상위 요소 선택"]).delegate("이벤트 대상 요소 선택", "이벤트 종류", function(){
+	자바스크립트 코드;
+});
+
+one() 이벤트 등록 메서드의 기본형은 다음과 같습니다.
+① one() 기본 이벤트 등록 방식
+$("이벤트 대상 선택").one("이벤트 종류", function(){
+	자바스크립트 코드;
+});
+
+② one() 라이브 이벤트 등록 방식
+$([document | "이벤트 대상의 상위 요소 선택").one("이벤트 종류", "이벤트 대상 요소 선택", function(){
+	자바스크립트 코드;
+});	
 -->

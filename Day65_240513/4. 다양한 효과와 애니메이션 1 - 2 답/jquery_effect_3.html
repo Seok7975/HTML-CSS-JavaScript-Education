@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 효과와 애니메이션 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$(".txt1")
+	.animate({marginLeft:"300px"},1000);
+
+	$(".txt2").delay(3000)
+	.animate({marginLeft:"300px"},1000);
+
+	$(".btn1").on("click", moveElement);
+
+	function moveElement( ) {
+		$(".txt3")
+		.animate({marginLeft:"+=50px"},800);
+/*
+[버튼1]을 누를 때마다 class 값이 "txt3"인 요소가 0.8초간
+50px씩 이동합니다.
+*/
+		$(".txt4")
+		.animate({marginLeft:"+=50px"},800);
+		$(".txt4").stop()
+/*
+stop()이 실행되면 [버튼1]을 눌러도 애니메이션이 동작하지
+않습니다.
+*/
+		$(".txt5")
+		.animate({marginLeft:"+=50px"},800);
+		$(".txt5").stop(true, true)
+/*
+stop(true, true)가 실행되면 [버튼1]을 눌러도 애니메이션이
+바로 종료 시점으로 이동합니다. 그래서 애니메이션 없이
+css() 메서드를 적용한 것처럼 50px씩 이동합니다.
+*/		
+	}
+});
+</script>
+<style>
+	p{width: 110px;text-align: center;}
+	.txt1{background-color: aqua;}
+	.txt2{background-color: pink;}
+	.txt3{background-color: orange;}
+	.txt4{background-color: green;}
+	.txt5{background-color: gold;}
+</style>
+</head>
+<body>
+	<p class="txt1">효과1</p>
+	<p class="txt2">효과2<br> delay(3000)</p>
+
+	<p><button class="btn1">50px 전진</button></p>
+	<p class="txt3">효과3</p>
+	<p class="txt4">효과4<br>stop( )</p>
+	<p class="txt5">효과5<br>stop(true, true)</p>
+</body>
+</html>
+
+
+<!--
+애니메이션 효과 제어 메서드
+
+애니메이션 효과 제어 메서드란?
+애니메이션 효과 제어 메서드란 '효과' 또는 '애니메이션'이 적용된 요소의 동작을 제어하는 메서드
+입니다. 
+
+애니메이션 적용 원리와 큐의 개념
+애니메이션 메서드는 함수가 적용된 순서대로 큐(queue)라는 저장소(memory)에 저장됩니다.
+큐는 ATM 기기를 통해 은행 일을 보는 사람들을 생각하면 이해하기 쉽습니다. 은행 일을 보기
+위해 사람들이 줄을 서 있고 일을 먼저 마친 사람은 먼저 나옵니다. 큐도 마찬가지입니다. 큐에
+저장된 애니메이션 대기열이 있다면 먼저 들어간 애니메이션이 먼저 실행됩니다.
+(이렇게 먼저 들어간 데이터가 먼저 처리되는 형식을 FIFO(First In First Out)라고 부릅니다.)
+
+2.png
+
+애니메이션 효과 제어 메서드의 종류
+
+종류		설명
+stop()		현재 실행 중인 효과를 모두 정지시킵니다.
+delay()		지정한 시간만큼 지연했다가 애니메이션을 진행합니다.
+queue()		큐에 사용자 정의 함수를 추가하거나 큐에 대기 중인 함수를 배열에 담아 반환합니다. 그리고 queue() 메서드 이후의 애니메이션 효과 메서드는 모두 취소합니다.
+clearQueue()	큐에서 처음으로 진행하고 있는 애니메이션만 제외하고 대기 중인 애니메이션은 모두 제거합니다.
+dequeue()		queue() 메서드를 이용하면 대기하고 있는 애니메이션 메서드는 제거 됩니다. 하지만 dequeue() 메서드를 이용하면 메서드가 제거되는 것을 막을 수 있습니다.
+finish()		선택한 요소의 진행 중인 애니메이션을 강제로 완료 시점으로 보낸 후 종료합니다.
+
+stop() / delay() 메서드
+stop() 메서드는 요소에 적용한 애니메이션을 정지시키고, delay() 메서드는 요소에 적용한 애니메이션을 지정한 시간만큼 지연시킵니다. 먼저 stop() 메서드에 대해 알아보겠습니다.
+
+① $("요소 선택").stop();
+② $("요소 선택").stop(clearQueue, finish);
+
+① 진행 중(inprogress)인 첫 번째 애니메이션만 정지시킵니다. 큐에 대기 중인 애니메이션은 계속해서 실행합니다.
+② clearQueue, finish는 true나 false의 값을 입력할 수 있습니다.(기본값은 false), clearQueue가 true면 큐에서 대기 중인 애니메이션을 모두 제거합니다. finsih가 true면 진행 중인 애니메이션을 강제로 종료합니다.
+
+stop() 메서드를 좀 더 자세히 알아보기 위해 다음 두 가지 경우를 예로 들어 보겠습니다.
+
+① 진행 중인 애니메이션만 정지시키는 경우
+$(".txt").animate({opacity:0.5}, 1000).animate({marginLeft:"500px"}, 1000);
+$(".txt").stop();
+
+② 대기 중인 애니메이션은 제거하고 진행 중인 애니메이션은 강제로 종료하는 경우
+$(".txt2").animate({opacity:0.5}, 1000).animate({marginLeft:"500px"}, 1000);
+$(".txt2").stop(true, true);
+
+stop() 메서드는 첫 번째, 두 번째 인자값(clearQueue, finish)에 따라 메서드 적용 방식이 달라집니다.
+모든 인자값을 생략한 stop() 메서드는 진행 중인 애니메이션만 정지시킵니다. 모든 인자값에 true를
+적용하면 대기 중인 애니메이션은 제거되고 진행 중인 애니메이션은 강제로 종료됩니다. 그래서
+실제로는 애니메이션이 아닌 CSS 메서드를 적용한 것처럼 보입니다.
+
+delay() 메서드
+기본형
+$("요소선택").delay(지연 시간).애니메이션 효과 메서드();
+
+애니메이션 함수 앞에 delay(3000) 메서드를 적용하면 3초 후에 애니메이션이 적용됩니다.
+$(".txt1").delay(3000).animate({marginLeft:"500px"}, 1000);	
+-->

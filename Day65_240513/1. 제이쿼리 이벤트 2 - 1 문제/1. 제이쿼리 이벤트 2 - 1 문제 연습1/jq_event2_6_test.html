@@ -1,0 +1,66 @@
+
+<!-- 
+6. 클래스가 btn_1이면서 on인것에 마우스를 올렸을 때와 포커스가 있을 때 "HELLO!"라고 경고창을 띄우자.
+클래스 btn_1에 "on" 클래스를 추가하자.
+클래스가 btn_2이면서 on인것에 마우스를 올렸을 때와 포커스가 있을 때 "WELCOME!"이라고 경고창을 띄우자.
+클래스가 btn_2인 것에 "on" 클래스를 추가하자. 
+-->
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$(document).on("mouseover focus", ".btn_1.on", function(){
+		alert("Hello!")
+	})
+	$(".btn_1").addClass("on")
+	$(document).on("mouseover focus", ".btn_2.on", function(){
+		alert("Welcome!")
+	})
+	$(".btn_2").addClass("on")
+});
+</script>
+</head>
+<body>
+	<div id="wrap">
+		<p><button class="btn_1">버튼1</button></p>
+		<p><button class="btn_2">버튼2</button></p>
+	</div>
+</body>
+</html>
+
+
+
+<!--
+그룹 이벤트 등록 및 삭제하기
+
+그룹 이벤트 등록 메서드
+
+그룹 이벤트 등록 메서드의 종류
+
+종류		설명
+on()		이벤트 대상 요소에 2개 이상의 이벤트를 등록합니다. 사용 방식에 따라 
+			이벤트를 등록한 이후에도 동적으로 생성되거나 복제된 요소에도 이벤트가 적용됩니다.		
+bind()	이벤트 대상 요소에 2개 이상의 이벤트를 등록합니다.(deprecated)
+delegate()	선택한 요소의 하위 요소에 이벤트를 등록합니다. 이벤트를 등록한 이후에도 
+			동적으로 생성되거나 복제된 요소에도 이벤트가 적용됩니다.(deprecated)
+one()		이벤트 대상 요소에 1개 이상의 이벤트를 등록합니다. 
+			지정한 이벤트가 1회 발생하고 자동으로 해제됩니다.
+
+on() 메서드
+on() 메서드는 선택한 요소에 이벤트를 등록한 이후에도 새롭게 생성되거나 
+복제된 요소에 이벤트를 적용할 수 있습니다. 즉, 동적으로 생성되거나 복제된 
+요소에도 이벤트가 등록됩니다.
+
+동적으로 생성된 요소에도 이벤트가 등록되는 on() 메서드의 '라이브 이벤트 등록 방식'의 기본형이다.
+
+기본형
+$([document | "이벤트 대상의 상위 요소 선택"]).on("이벤트 종류", "이벤트 대상 선택", function(){
+	자바스크립트 코드;
+});	
+-->

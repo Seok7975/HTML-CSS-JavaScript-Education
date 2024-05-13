@@ -1,0 +1,73 @@
+<!-- 
+1. 다음을 애니메이션 효과를 주자.
+go 버튼을 누르면 "내용1"이 오른 쪽으로 일정간격 이동하게.
+back 버튼을 누르면 "내용1"이 왼 쪽으로 일정간격 이동하게.
+(jquery_effect_move_test.html)
+ -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 효과와 애니메이션 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function() {
+	$(".goBtn").on("click", function(){
+		$(".txt1").animate({
+			marginLeft : "+=50px"
+		})
+		2000, "linear"
+	})
+
+	$(".backBtn").on("click", function(){
+		$(".txt1").animate({
+			marginLeft : "-=50px"
+		})
+		2000, "linear"
+	})
+});
+</script>
+<style>
+	*{margin:0;padding:0;}
+	body{padding:20px;}
+	.btnWrap{margin-bottom: 10px;}
+	.wrap{
+		max-width:600px;
+		border: 1px solid #000; 
+	}
+	.txt1{width:10%; text-align:center;
+	background-color: aqua;}
+</style>
+</head>
+<body>
+	<p class="btnWrap">
+		<button class="backBtn">Back</button>
+		<button class="goBtn">Go</button>
+	</p>
+	<div class="wrap">
+		<p class="txt1">내용1</p>
+	</div>
+</body>
+</html>
+
+<!-- 
+marginLeft: 
+"-=50px": 이 표현은 선택된 요소의 왼쪽 마진을 현재 값에서 50px 감소시킵니다. 
+결과적으로, 요소는 시각적으로 오른쪽으로 50px 이동합니다. 
+왼쪽 마진을 줄이기 때문에 요소가 우측으로 밀리는 효과가 나타납니다.
+
+marginRight: 
+"+=50px": 이 표현은 선택된 요소의 오른쪽 마진을 현재 값에서 50px 증가시킵니다. 
+오른쪽 마진을 늘리는 것은 요소 자체를 이동시키는 것이 아니라, 
+요소와 그 오른쪽 요소 사이의 공간을 증가시킵니다. 
+즉, 요소의 시각적 위치는 변하지 않고, 요소의 오른쪽 공간만 넓어집니다.
+
+따라서, 요소를 시각적으로 이동시키고자 할 때는 marginLeft를 조정하는 것이 일반적입니다. 
+marginRight를 조정하는 것은 요소의 오른쪽 공간을 조정할 때 사용되며, 
+이는 요소의 시각적 위치 이동과는 직접적인 관련이 없습니다.
+
+또한, marginRight: "+=50px"와 같은 표현은 올바르지 않습니다. 
++= 연산자는 값을 증가시키는 데 사용되므로, "+-50px"와 같은 표현은 문법적으로 맞지 않습니다. 
+만약 오른쪽 마진을 증가시키고자 한다면, marginRight: "+=50px"와 같이 사용해야 합니다. 
+-->
