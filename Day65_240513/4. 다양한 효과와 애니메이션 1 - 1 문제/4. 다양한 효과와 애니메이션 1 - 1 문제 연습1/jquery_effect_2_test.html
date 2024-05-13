@@ -12,7 +12,23 @@
 클래스 btn2를 클릭했을 때 클래스 txt2인 것에 1초에 걸쳐서 왼쪽 마진을 50씩 추가하자.(애니메이션효과)
 */
 $(function(){
+	$(".btn1").on("click", function(){
+		$(".txt1").animate({
+			marginLeft : "500px",
+			fontSize : "30px"
+		},
+		2000, "linear", function(){
+			alert("모션 완료!")
+		})
+	})
 
+	$(".btn2").on("click", function(){
+		$(".txt2").animate({
+			marginLeft : "+=50px",
+		}
+		, 1000)
+		
+	})
 });
 </script>
 <style>
