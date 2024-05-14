@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 효과와 애니메이션 </title>  
+<script src="js/jquery.js"></script>
+<script>
+/*
+1. 클래스가 btn2인 것을 감춘다.
+클래스가 btn1인 것을 클릭하면 다음과 같은 내용을 실행한다.
+( 클래스가 box인 것을 1초에 걸쳐서 일정하게 위로 올려서 안보이네 한다.
+위에 행위가 끝나면 콜백함수가 다음에 내용을 실행한다.
+클래스가 btn1인 것을 감춘다.
+클래스가 btn2인 것을 보이게 한다.)
+
+클래스가 btn2인 것을 클릭하면 다음과 같은 내용을 실행한다.
+( 
+	클래스가 box인 것을 1초에 걸쳐서 처음과 끝은 느리게, 
+중간은 빠르게 가속도를 줘서 보이게 합니다. 
+보이는 게 끝나면 클래스 btn2는 숨기고 btn1은 보이게 합니다.
+)
+
+클래스 btn3를 클릭 했을 때 클래스 box를 토글로 1초에 걸쳐서 위로 올라가면서 안보이게, 내려 오면서 보이게 합니다. 
+가속도는 일정한 속도로 줍니다.
+
+클래스 btn4를 클릭했을 때 클래스 box를 빠르게 0.3의 불투명도로 보이게 합니다.
+
+클래스 btn5를 클릭했을 때  클래스 box를 빠르게 1의 불투명도로 보이게 합니다.
+*/
+$(function( ) {
+
+});
+</script>
+<style>
+	.content{
+		width:400px;
+		background-color: #eee;
+	}
+</style>
+</head>
+<body>
+	<p>
+		<button class="btn1">slideUp</button>
+		<button class="btn2">fadeIn</button>
+	</p>
+	<p>
+		<button class="btn3">toggleSide</button>
+	</p> 
+	<p>
+		<button class="btn4">fadeTo(0.3)</button>
+		<button class="btn5">fadeTo(1)</button>
+	</p>   
+	<div class="box">
+		<div class="content">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas feugiat consectetur nibh, ut luctus urna placerat non. Phasellus consectetur nunc nec mi feugiat egestas. Pellentesque et consectetur mauris, sed rutrum est. Etiam odio nunc, ornare quis urna sed, fermentum fermentum augue. Nam imperdiet vestibulum ipsum quis feugiat. Nunc non pellentesque diam, nec tempor nibh. Ut consequat sem sit amet ullamcorper sodales.
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!-- 
+문제1.
+
+1.png를 참고하여 UI를 만들자.
+
+Move Up 버튼을 누르면 "Meke Me Do Stuff!가 위에서 50 위치에 있게 하자.
+Move Down 버튼을 누르면 "Make Me Do Stuff!가 위에서 500 위치에 있게 하자.
+Add Color 버튼을 누르면 "Make Me Do Stuff!가 글자 색상이 purple 이 되게 하자.
+Disappear / Re-appear 버튼을 눌렀을 때 글자가 사라지게 하자. 다시 누르면 글자가 나타나게 하자. 
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script src="js/jquery.js"></script>
+        <style>
+            .btn
+            {
+                width : 200px;
+                height : 40px;
+                font-size : 18px;
+                margin-bottom: 10px; /* 버튼 간격 조정 */
+            }
+        </style>
+        <script>
+            $(function(){
+                $(".btn").on({
+                    "click" : buttonEventFnc
+                })
+
+                function buttonEventFnc()
+                {
+                    let buttonType = $(this).text()
+                    let content = $('p')
+
+                    switch(buttonType)
+                    {
+                        case "Move Up":
+                            content.css({
+                                "position" : "absolute",
+                                "top": "50px"
+                            })
+                            break;
+
+                        case "Move Down":
+                            content.css({
+                                "position" : "absolute",
+                                "top" : "500px"
+                            })
+                            break;
+
+                        /*
+                        case "Add Color":
+                            content.css({
+                                "color" : "purple"
+                            })
+                            break 
+                        */
+
+                        case "Add Color":
+                            if(content.data('isColored'))
+                            {
+                                content.css({
+                                    "color" : "",
+                                })
+                                .data({
+                                    "isColored" : false
+                                })
+                            }
+                            else
+                            {
+                                content.css({
+                                "color" : "purple"
+                                })
+                                .data({
+                                    "isColored" : true
+                                })
+                            }
+                            break
+
+                        case "Disappear / Re-appear":
+                            content.toggle()
+                            break
+                    }
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <div >
+            <button class="btn">Move Up</button>
+            <button class="btn">Move Down</button>
+            <button class="btn">Add Color</button>
+            <button class="btn">Disappear / Re-appear</button>
+        </div>
+        <p style="font-size: 24px;"><b>Make Me Do Stuff!</b></p>
+    </body>
+</html>

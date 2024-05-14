@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #changeMe{
+            position : absolute;
+            top : 100px;
+            left : 400px;
+            font : 24px arial;
+        }
+
+        #moveUp, #moveDown, #color, #disappear{
+            padding : 5px;
+        }
+    </style>
+</head>
+<body>
+    <button id="moveUp">Move Up</button>
+    <button id="moveDown">Move Down</button>
+    <button id="color">Add Color</button>
+    <button id="disappear">Disappear / Re-appear</button>
+    <div id="changeMe">Make Me Do Stuff!</div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $("#moveUp").on("click", ()=>{
+                $("#changeMe").animate({top:"30"}, 200);
+            });
+            $("#moveDown").on("click", ()=>{
+                $("#changeMe").animate({top:"500"}, 2000);
+            });
+            $("#color").on("click", ()=>{
+                $("#changeMe").css("color", "purple");
+            }); 
+            $("#disappear").on("click", ()=>{
+                $("#changeMe").toggle("slow");
+            }); 
+        });
+    </script>
+</body>
+</html>
+
+<!--
+  jQuery 함수(와 단축표기)를 소개합니다.
+  $는 jQuery의 단축표기입니다. 단축표기를 사용하면 매번 jQuery()라고 쓰지 않아도 됩니다.
+  jQuery함수를 jQuery래퍼라고 부르는 사람도 있습니다.
+
+  jQuery() -> jQuery 함수입니다. 괄호 안에 넣은 요소를 선택하는 역할을 합니다.
+  $() -> jQuery 단축표기입니다. jQuery라고 여섯 글자를 쓰는 대신 딱 한 글자만 쓰면 됩니다. 
+-->
+
+<!--
+  jQuery 함수에는 세 가지를 넣을 수 있습니다.
+  CSS Selector - CSS 선택자를 넣으면 jQuery 함수는 그 선택자에 맞는 요소를 반환합니다.
+  HTML - HTML 문자열을 넣으면 브라우저 상의 페이지에 바로 요소를 추가할 수 있습니다.
+  JavaScript Object
+-->
