@@ -1,0 +1,47 @@
+
+<!-- 
+4. 아래 화살표 BOTTOM 위 화살표 TOP 왼쪽 화살표 LEFT 오른쪽 화살표 RIGHT
+위에 문자열을 아이디 user_id에 넣으시오.
+(예 아래 화살표를 누르면 BOTTOM 문자열이 아이디 user_id에 출력된다.) 
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$(document).on({
+		"keydown" : keyEventFnc
+	})
+
+	function keyEventFnc(e)
+	{
+		console.log(e.key)
+		let direct = ""
+
+		switch(e.key)
+		{
+			case "ArrowDown" : direct = "BOTTUM"
+				break
+			case "ArrowUp" : direct = "TOP"
+				break
+
+            case "ArrowLeft" : direct = "LEFT"
+                break
+            case "ArrowRight": direct = "RIGHT"
+                break
+		}
+
+		if(direct) $("#user_id").val(direct)
+	}
+});
+</script>
+</head>
+<body>
+	<p><input type="text" name="user_id" id="user_id"></p>
+</body>
+</html>
+

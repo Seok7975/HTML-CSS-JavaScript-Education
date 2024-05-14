@@ -1,0 +1,32 @@
+<!-- 아이디가 rel_site인 요소의 값이 변했을 때 그 값을 클래스 txt에 출력하시오. -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$("#rel_site").on({
+			"change" : textChange
+	})
+
+	function textChange()
+	{
+		$(".txt").text($(this).val());
+	}
+});
+</script>
+</head>
+<body>
+<select id="rel_site">
+		<option value="">사이트 선택</option>
+		<option value="www.google.com">구글</option>
+		<option value="www.naver.com">네이버</option>
+		<option value="www.daum.net">다음</option>
+</select>
+<p class="txt"></p>
+</body>
+</html>
+
