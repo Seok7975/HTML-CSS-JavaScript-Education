@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>영화 소개 사이트</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="video-wrapper" style="display:block;">
+    <video id="introVideo" autoplay controls>
+        <source src="abouttime_trailer.mp4" type="video/mp4">
+        브라우저가 비디오를 지원하지 않습니다.
+    </video>
+</div>
+<div class="container" style="display:none;">
+    <header>
+        <h1>영화 소개 사이트</h1>
+    </header>
+    <section class="movie-list">
+        <article class="movie">
+            <img src="image/common.jpg" alt="영화1 포스터">
+            <div class="movie-info">
+                <h2 style="text-align: center;">어바웃타임</h2>
+                <p>영화 설명이 여기에 들어갑니다...</p>
+                <button onclick="showTrailer('trailer1.mp4')">트레일러 보기</button>
+            </div>
+        </article>
+        <!-- 여기에 더 많은 영화 정보를 추가할 수 있습니다 -->
+    </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

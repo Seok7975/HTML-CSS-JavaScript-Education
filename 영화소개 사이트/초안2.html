@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>영화 소개 사이트</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .trailer-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+    
+    .trailer-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        z-index: 1001;
+    }
+    
+    .container {
+        display: none;
+    }
+    
+    .movie-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .movie {
+        width: 23%;
+        margin: 1%;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .movie img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .movie-info {
+        padding: 16px;
+    }
+    
+    .movie-info h2 {
+        margin: 0 0 10px;
+    }
+    
+    .movie-info p {
+        margin: 0 0 20px;
+    }
+    
+    .movie-info button {
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    
+    .movie-info button:hover {
+        background-color: #0056b3;
+    }
+    
+</style>
+</head>
+<body>
+<div class="trailer-container" id="trailerContainer">
+    <video id="trailerVideo" class="trailer-video" autoplay muted>
+        <source src="trailer1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <button class="close-btn" onclick="closeTrailer()">닫기</button>
+</div>
+<div class="container" id="mainContent" style="display: none;">
+    <header>
+        <h1>영화 소개 사이트</h1>
+    </header>
+    <section class="movie-list">
+        <article class="movie">
+            <img src="movie1.jpg" alt="영화1 포스터">
+            <div class="movie-info">
+                <h2>영화 제목1</h2>
+                <p>영화 설명이 여기에 들어갑니다...</p>
+                <button onclick="showTrailer('trailer1.mp4')">트레일러 보기</button>
+            </div>
+        </article>
+        <!-- 여기에 더 많은 영화 정보를 추가할 수 있습니다 -->
+    </section>
+</div>
+<script>
+    function closeTrailer() {
+    document.getElementById("trailerContainer").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+}
+
+function showTrailer(videoSrc) {
+    const trailerVideo = document.getElementById("trailerVideo");
+    trailerVideo.src = videoSrc;
+    document.getElementById("trailerContainer").style.display = "flex";
+    document.getElementById("mainContent").style.display = "none";
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* 스크롤바 제거 */
+}
+
+.video-wrapper {
+    position: fixed; /* 고정 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black; /* 비디오 로딩 시 배경 */
+}
+
+#introVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 비디오가 화면을 꽉 채우도록 */
+}
+
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: 1px solid #0779e4;
+}
+
+header h1 {
+    text-align: center;
+}
+
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.movie {
+    background: #f4f4f4;
+    margin: 10px;
+    padding: 20px;
+    width: calc(33% - 20px);
+}
+
+.movie img {
+    max-width: 100%;
+    height: auto;
+}
+
+.movie-info h2 {
+    color: #333;
+}
+
+.movie-info p {
+    line-height: 1.5;
+}
+
+button {
+    background: #0779e4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
