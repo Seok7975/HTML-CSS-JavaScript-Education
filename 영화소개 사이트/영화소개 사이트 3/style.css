@@ -1,7 +1,8 @@
 body, html {
-    height: 100%;
     margin: 0;
     padding: 0;
+    width: 100%; /* 전체 너비 */
+    height: 100%; /* 전체 높이 */
     overflow: hidden; /* 스크롤바 제거 */
 }
 
@@ -9,31 +10,85 @@ body, html {
     position: fixed; /* 고정 위치 */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: black; /* 비디오 로딩 시 배경 */
+    width: 100vw; /* 뷰포트 너비 전체 */
+    height: 100vh; /* 뷰포트 높이 전체 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#introVideo {
+iframe {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 비디오가 화면을 꽉 채우도록 */
 }
 
+#nextButton {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #444; /* 버튼 배경색 */
+    color: white; /* 버튼 글자색 */
+    border: none;
+    cursor: pointer;
+}
+
+#nextButton:hover
+{
+    background-color: rgb(229, 229, 238);
+    color: rgb(100, 95, 95)
+}
+
+
+#nextButton {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
 
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white; /* 배경색 설정 */
+    overflow: auto; /* 필요시 스크롤바 표시 */
 }
 
 header {
     background: #333;
     color: #fff;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: 1px solid #0779e4;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
 
 header h1 {
     text-align: center;
@@ -46,24 +101,24 @@ header h1 {
 }
 
 .movie {
+    display: flex; /* Flexbox 레이아웃 적용 */
+    align-items: center; /* 세로 중앙 정렬 */
     background: #f4f4f4;
     margin: 10px;
     padding: 20px;
-    width: calc(33% - 20px);
 }
 
 .movie img {
-    max-width: 100%;
+    max-width: 30%; /* 이미지 크기 조정 */
     height: auto;
+    margin-right: 20px; /* 이미지와 설명 사이의 간격 */
 }
 
-.movie-info h2 {
-    color: #333;
+.movie-info {
+    flex-grow: 1; /* 남은 공간 모두 사용 */
 }
 
-.movie-info p {
-    line-height: 1.5;
-}
+
 
 button {
     background: #0779e4;

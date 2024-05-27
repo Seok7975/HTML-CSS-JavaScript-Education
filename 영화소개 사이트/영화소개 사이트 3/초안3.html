@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>영화 소개 사이트</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>영화 소개 사이트</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="video-wrapper" style="display:block;">
-    <video id="introVideo" autoplay controls>
-        <source src="abouttime_trailer.mp4" type="video/mp4">
-        브라우저가 비디오를 지원하지 않습니다.
-    </video>
-</div>
-<div class="container" style="display:none;">
-    <header>
-        <h1>영화 소개 사이트</h1>
-    </header>
-    <section class="movie-list">
-        <article class="movie">
-            <img src="image/common.jpg" alt="영화1 포스터">
-            <div class="movie-info">
-                <h2 style="text-align: center;">어바웃타임</h2>
-                <p>영화 설명이 여기에 들어갑니다...</p>
-                <button onclick="showTrailer('trailer1.mp4')">트레일러 보기</button>
-            </div>
-        </article>
-        <!-- 여기에 더 많은 영화 정보를 추가할 수 있습니다 -->
-    </section>
-</div>
-<script src="script.js"></script>
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/7OIFdWk83no?autoplay=1&mute=1&playlist=7OIFdWk83no&loop=1&controls=0&showinfo=0&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <button id="nextButton">트레일러 넘기기</button>
+    </div>
+    <div class="container">
+        <header>
+            <h1>어바웃타임</h1>
+            <nav>
+                <ul>
+                    <li><a href="#movie-intro">영화 소개</a></li>
+                    <li><a href="#director-intro">감독 소개</a></li>
+                    <li><a href="#cast">등장 인물</a></li>
+                    <li><a href="#storyline">줄거리</a></li>
+                    <li><a href="#photos">포토</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="movie-list">
+            <article class="movie">
+                <img src="image/common.jpg" alt="영화1 포스터">
+                <div class="movie-info">
+                    <h2 style="text-align: center;">어바웃타임</h2>
+                    <p>영화 설명이 여기에 들어갑니다...</p>
+                    <button onclick="showTrailer('trailer1.mp4')">트레일러 보기</button>
+                </div>
+            </article>
+            <!-- 여기에 더 많은 영화 정보를 추가할 수 있습니다 -->
+        </section>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
