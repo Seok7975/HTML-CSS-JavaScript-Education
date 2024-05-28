@@ -40,3 +40,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
+function showSection(sectionId) {
+    // 모든 섹션을 숨깁니다.
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+
+    // 선택한 섹션을 표시합니다.
+    const activeSection = document.getElementById(sectionId);
+    if (activeSection) {
+        activeSection.style.display = 'block';
+    }
+}
